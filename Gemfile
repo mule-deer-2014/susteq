@@ -38,10 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'jasmine-rails'
 end
 
 group :test do
@@ -51,3 +51,4 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
 end
+
