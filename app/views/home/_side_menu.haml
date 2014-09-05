@@ -1,15 +1,11 @@
 %li
-  %a{:href => "index.html"}
-    %i.fa.fa-dashboard.fa-fw
-    Dashboard
+  =link_to '<i class="fa fa-dashboard fa-fw"></i> Dashboard'.html_safe, root_path
 %li
   %a{:href => "wsps.html"}
     %i.fa.fa-building-o.fa-fw
     WSPs
 %li
-  %a{:href => "kiosks.html"}
-    %i.fa.fa-home.fa-fw
-    Kiosks
+  =link_to '<i class="fa fa-home fa-fw"></i> Kiosks'.html_safe, kiosks_path
 %li
   %a{:href => "waterpoints.html"}
     %i.fa.fa-tint.fa-fw

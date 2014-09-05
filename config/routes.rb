@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  # Igor's comment: this is a temporary solution for working on the views without the routes and controllers
-  # delete once actual routes and controllers are in place
-  get 'home/index' => 'home#index'
-  get 'home/login' => 'home#login'
-  get 'home/kiosks' => 'home#kiosks'
-  get 'home/wsps' => 'home#wsps'
-  get 'home/waterpoints' => 'home#waterpoints'
+  root 'home#index'
+  resources :kiosks
   
 
   # The priority is based upon order of creation: first created -> highest priority.
