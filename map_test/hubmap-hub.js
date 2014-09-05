@@ -3,7 +3,7 @@ function Hub(jsonData){
     this.name = jsonData.name;
     this.created_at = jsonData.created_at;
     this.town = jsonData.town;
-    this.postalCode = jsondata.postalCode;
+    this.postalCode = jsonData.postalCode;
     this.province = jsonData.province;
     this.country = jsonData.country;
     this.latitude = jsonData.latitude;
@@ -11,3 +11,4 @@ function Hub(jsonData){
     this.waterPrice = jsonData.waterPrice;
     this.status = jsonData.status;
 };
+

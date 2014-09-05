@@ -12,28 +12,33 @@ HubMap.Controller = function(view){
 };
 
 HubMap.Controller.prototype = {
-  populateMap:function(){
-    $.ajax({
-      url:,
+
+  populateMap: function(){
+    var getHubData = $.ajax({
+      url:"/hubs",
       method:"get"
-    })
-    .done(parseJsonHubData)
-    .fail(alert(Failed to fetch water hub data!));
+    }).
+    done(this.parseJsonHubData.bind(this)).
+    fail();
   },
 
   parseJsonHubData: function(jsonData){
-    for (var i= 0; i<jsonData.length, i++){
+    for (var i= 0; i<jsonData.length; i++){
       var hubJsonData = jsonData[i];
-      if (hubJsonData.latitude && hubJsonData.longitude)
-        this.hubs.push(new Hub(hubJsonData));
+      if (hubJsonData.latitude && hubJsonData.longitude){
+        hub = new Hub(hubJsonData);
+        console.log(hub);
+        this.hubs.push(hub);
+      }
     }
-  },
-
-
-
-
+  }
 };
+
+testData = {id:"2", name:"Roger Moooore", created_at:"10/20/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", latitude:34.06543, longitude:-4.96194, waterPrice:2.02, status:"ok"}
+
+testData1 = {id:"1", name:"Sean COOONery", created_at:"10/3/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", latitude:34.06545, longitude:-4.96104, waterPrice:8.02, status:"not ok"}
 
 var mapView = new HubMap.View(34.06543, -4.96194, 15);
 mapView.setEsriTileLayer();
-var mapController = HubMap.Controller(mapView);
+var mapController = new HubMap.Controller(mapView);
+mapController.parseJsonHubData([testData, testData1])
