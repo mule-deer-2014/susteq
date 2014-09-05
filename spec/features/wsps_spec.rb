@@ -1,8 +1,10 @@
-feature 'feature' do
+feature 'Water Service Provider adding a user' do
   background do
-    provider = FactoryGirl.create(:wsp)
+    provider = sign_in_wsp
   end
 
-  scenario 'scenario' do
+  scenario 'can fill out form to create a new user' do
+    click_link 'Add User' 
+    expect(current_path).to eq(new_wsp_path)
   end
 end
