@@ -41,5 +41,8 @@ class HomeController < ApplicationController
   def wsps
 
   end
+  def waterpoints
+
+  end
 end
 
