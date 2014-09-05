@@ -7,25 +7,20 @@
 //set event listeners
 //Render markers
 
-(function() {
-
-  //MODELS
-
-  function Hub(jsonData){
-    this.id = jsonData.id
-    this.name = jsonData.name;
-    this.created_at = jsonData.created_at;
-    this.town = jsonData.town;
-    this.postalCode = jsondata.postalCode;
-    this.province = jsonData.province;
-    this.country = jsonData.country;
-    this.latitude = jsonData.latitude;
-    this.longitude = jsonData.longitude;
-    this.waterPrice = jsonData.waterPrice;
-    this.status = jsonData.status;
+  HubMap.Controller = function (){
   };
 
-  function Controller{}
+  HubMap.Controller.prototype = {
+
+    initializeMap: function(lat,longi, zoom){
+      this.map = L.map('map').setView([lat, longi], zoom);
+    },
+
+    setEsriTileLayer: function(){
+      L.esri.basemapLayer("Imagery").addTo(this.map);
+    }
+
+  }
 
 
 
