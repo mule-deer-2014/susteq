@@ -4,7 +4,7 @@ feature 'User login' do
   end
 
   scenario 'logs in an existing admin' do
-    visit root_path
+    visit admins_path
     fill_in 'Email', with: admin.email  
     fill_in 'Password', with: admin.password  
     click_link 'Log In'
