@@ -35,5 +35,8 @@ class HomeController < ApplicationController
   def tables
 
   end
+  def hubs
+
+  end
 end
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'home/index' => 'home#index'
   get 'home/login' => 'home#login'
   get 'home/kiosks' => 'home#kiosks'
+  get 'home/hubs' => 'home#hubs'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
