@@ -4,20 +4,6 @@ feature 'User logging in' do
     provider = FactoryGirl.create(:wsp)
   end
 
-  scenario 'as provider sees wsp dashboard' do
-    provider = sign_in_wsp
-
-    expect(current_path).to eq(wsps_path(provider.id))
-    expect(page).to have_content(provider.first_name)
-  end
-
-  scenario 'as admin sees admin dashboard' do
-    admin = sign_in_admin
-
-    expect(current_path).to eq(admins_path(admin.id))
-    expect(page).to have_content(admin.first_name)
-  end
-
   scenario 'with invalid email sees login error on login page' do
     visit root_path
     fill_in 'Email', with: 'invalidemail'
@@ -36,5 +22,19 @@ feature 'User logging in' do
 
     expect(current_path).to eq(admins_path)
     expect(page).to have_content("ERROR")
+  end
+
+  scenario 'as provider sees wsp dashboard' do
+    provider = sign_in_wsp
+
+    expect(current_path).to eq(wsps_path(provider.id))
+    expect(page).to have_content(provider.first_name)
+  end
+
+  scenario 'as admin sees admin dashboard' do
+    admin = sign_in_admin
+
+    expect(current_path).to eq(admins_path(admin.id))
+    expect(page).to have_content(admin.first_name)
   end
 end
