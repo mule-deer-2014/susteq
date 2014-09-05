@@ -10,7 +10,7 @@ feature 'User logs in' do
     fill_in 'Password', with: provider.password  
     click_link 'Log In'
 
-    expect(current_path).to eq(wsps_path)
+    expect(current_path).to eq(wsps_path(provider.id))
     expect(page).to have_content(provider.first_name)
   end
 
@@ -20,7 +20,7 @@ feature 'User logs in' do
     fill_in 'Password', with: admin.password  
     click_link 'Log In'
 
-    expect(current_path).to eq(admins_path)
+    expect(current_path).to eq(admins_path(admin.id))
     expect(page).to have_content(admin.first_name)
   end
 end
