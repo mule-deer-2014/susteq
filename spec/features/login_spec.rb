@@ -1,6 +1,6 @@
 feature 'User login' do
   background do
-    admin = create(:admin)
+    admin = FactoryGirl.create(:admin)
   end
 
   scenario 'logs in an existing admin' do

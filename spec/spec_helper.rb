@@ -1,5 +1,6 @@
 RSpec.configure do |config|
   require 'capybara/rspec'
+  require 'factory_girl_rails'
 
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
