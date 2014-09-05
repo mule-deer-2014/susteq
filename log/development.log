@@ -24786,3 +24786,985 @@ Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 15:53:43 -0700
 
 
 Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 15:53:43 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 15:56:41 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (2.3ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.4ms)
+Completed 200 OK in 135ms (Views: 134.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 15:56:42 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (2.6ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 125ms (Views: 124.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 15:58:21 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (3.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 127ms (Views: 126.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:01:11 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 16:03:50 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (3.0ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 131ms (Views: 130.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:03:51 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (3.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 135ms (Views: 134.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:04:14 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (3.1ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.2ms)
+Completed 200 OK in 124ms (Views: 123.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:04:32 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (3.7ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 126ms (Views: 125.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:04:53 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (3.1ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.1ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 88ms (Views: 87.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 16:05:18 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:05:19 -0700
+
+
+Started GET "/kiosks" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+Processing by KiosksController#index as HTML
+  Rendered kiosks/index.haml within layouts/application (0.5ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.1ms)
+Completed 200 OK in 87ms (Views: 86.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/map.png" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:06:46 -0700
+
+
+Started GET "/kiosks" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+Processing by KiosksController#index as HTML
+  Rendered kiosks/index.haml within layouts/application (0.8ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.1ms)
+Completed 200 OK in 89ms (Views: 88.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/map.png" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:06:50 -0700
+
+
+Started GET "/kiosks" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+Processing by KiosksController#index as HTML
+  Rendered kiosks/index.haml within layouts/application (0.5ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.2ms)
+Completed 200 OK in 127ms (Views: 126.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/map.png" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:06:52 -0700
+
+
+Started GET "/kiosks/new" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+Processing by KiosksController#new as HTML
+  Rendered kiosks/new.haml within layouts/application (0.1ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 132ms (Views: 131.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:07:51 -0700
+
+
+Started GET "/kiosks" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+Processing by KiosksController#index as HTML
+  Rendered kiosks/index.haml within layouts/application (0.5ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.2ms)
+Completed 200 OK in 134ms (Views: 133.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/map.png" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:07:59 -0700
+
+
+Started GET "/kiosks" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+Processing by KiosksController#index as HTML
+  Rendered kiosks/index.haml within layouts/application (1.0ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.2ms)
+Completed 200 OK in 130ms (Views: 129.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/map.png" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:08:01 -0700
+
+
+Started GET "/kiosks/waterpoints.html" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+Processing by KiosksController#show as HTML
+  Parameters: {"id"=>"waterpoints"}
+  Rendered kiosks/show.haml within layouts/application (0.3ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.3ms)
+Completed 200 OK in 125ms (Views: 124.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/chart.png" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:08:03 -0700
+
+
+Started GET "/kiosks" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+Processing by KiosksController#index as HTML
+  Rendered kiosks/index.haml within layouts/application (2.9ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.2ms)
+Completed 200 OK in 124ms (Views: 123.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/map.png" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-05 16:08:58 -0700
