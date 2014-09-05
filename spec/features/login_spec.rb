@@ -6,9 +6,9 @@ feature 'User logging in' do
 
   scenario 'with invalid email sees login error on login page' do
     visit root_path
-    fill_in 'Email', with: 'invalidemail'
-    fill_in 'Password', with: provider.password
-    click_link 'Log In'
+    fill_in 'email', with: 'invalidemail'
+    fill_in 'password', with: provider.password
+    click_button 'Sign in'
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("ERROR")
@@ -16,9 +16,9 @@ feature 'User logging in' do
 
   scenario 'with invalid password sees login error on login page' do
     visit admins_path
-    fill_in 'Email', with: admin.email
-    fill_in 'Password', with: '_asdfgfsasdf;'
-    click_link 'Log In'
+    fill_in 'email', with: admin.email
+    fill_in 'password', with: '_asdfgfsasdf;'
+    click_link 'Sign in'
 
     expect(current_path).to eq(admins_path)
     expect(page).to have_content("ERROR")

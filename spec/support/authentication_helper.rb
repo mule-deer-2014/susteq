@@ -3,9 +3,9 @@ module AuthenticationHelper
     admin = FactoryGirl.create(:admin)
 
     visit admins_path
-    fill_in 'Email', with: admin.email
-    fill_in 'Password', with: admin.password
-    click_button 'Log In'
+    fill_in 'email', with: admin.email
+    fill_in 'password', with: admin.password
+    click_button 'Sign in'
 
     return admin
   end
@@ -14,9 +14,9 @@ module AuthenticationHelper
     provider = FactoryGirl.create(:wsp)
 
     visit root_path
-    fill_in 'Email', with: provider.email
-    fill_in 'Password', with: provider.password
-    click_button 'Log In'
+    fill_in 'email', with: provider.email
+    fill_in 'password', with: provider.password
+    click_button 'Sign in'
 
     return provider
   end
