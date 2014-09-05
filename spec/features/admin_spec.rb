@@ -11,11 +11,11 @@ feature 'Admin' do
     expect(page).to have_content(providers.last.first_name)
   end
 
-  scenario 'can view all hubs' do
-    hubs = Hub.all
-    click_link 'All Hubs'
+  scenario 'can view all kiosks' do
+    kiosks = Kiosk.all
+    click_link 'All Kiosks'
     
-    expect(current_path).to eq(hubs_path)
-    expect(page).to have_content(hubs.last.latitude)
+    expect(current_path).to eq(kiosks_path)
+    expect(page).to have_content(kiosks.last.latitude)
   end
 end
