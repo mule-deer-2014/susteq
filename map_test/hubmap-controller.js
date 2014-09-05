@@ -39,9 +39,9 @@ HubMap.Controller.prototype = {
 
 };
 
-testData = {id:"2", name:"Roger Moooore", created_at:"10/20/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", latitude:34.06543, longitude:-4.96194, waterPrice:2.02, status:"ok"}
+testData = {id:"2", name:"Roger Moooore", created_at:"10/20/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", latitude:34.06543, longitude:-4.96194, waterPrice:2.02, status:"ok", errors:""}
 
-testData1 = {id:"1", name:"Sean COOONery", created_at:"10/3/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", latitude:34.06545, longitude:-4.96104, waterPrice:8.02, status:"not ok"}
+testData1 = {id:"1", name:"Sean COOONery", created_at:"10/3/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", latitude:34.06545, longitude:-4.96104, waterPrice:8.02, status:"not ok", errors:"Door left open"}
 
 var mapView = new HubMap.View(34.06543, -4.96194, 15);
 mapView.setEsriTileLayer();

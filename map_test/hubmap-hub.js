@@ -10,5 +10,6 @@ function Hub(jsonData){
     this.longitude = jsonData.longitude;
     this.waterPrice = jsonData.waterPrice;
     this.status = jsonData.status;
+    this.errors = jsonData.errors;
 };
 
