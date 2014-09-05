@@ -3,8 +3,19 @@ Rails.application.routes.draw do
 
   # Igor's comment: this is a temporary solution for working on the views without the routes and controllers
   # delete once actual routes and controllers are in place
-  get '/dashboard' => 'application#dashboard'
+  get 'home/index' => 'home#index'
+  get 'home/flot' => 'home#flot'
+  get 'home/morris' => 'home#morris'
+  get 'home/tables' => 'home#tables'
+  get 'home/forms' => 'home#forms'
 
+  get 'home/panels_wells' => 'home#panels_wells'
+  get 'home/buttons' => 'home#buttons'
+  get 'home/notifications' => 'home#notifications'
+  get 'home/typography' => 'home#typography'
+  get 'home/grid' => 'home#grid'
+  get 'home/blank' => 'home#blank'
+  get 'home/login' => 'home#login'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

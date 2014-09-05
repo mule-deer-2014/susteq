@@ -91,3 +91,2854 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-04 17:28:24 
 
 
 Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 17:28:24 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 19:00:33 -0700
+
+ActionController::RoutingError (No route matches [GET] "/home/index.html"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (20.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-09-04 19:00:58 -0700
+Processing by ApplicationController#dashboard as HTML
+  Rendered application/dashboard.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 67ms (Views: 59.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 19:00:59 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 19:00:59 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 19:00:59 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 19:00:59 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-04 19:00:59 -0700
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:02:23 -0700
+
+ActionController::RoutingError (uninitialized constant HomeController):
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:238:in `const_get'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:238:in `block in constantize'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `constantize'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:78:in `controller_reference'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:68:in `controller'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:46:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (20.4ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:06:40 -0700
+
+ActionController::RoutingError (uninitialized constant HomeController):
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:238:in `const_get'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:238:in `block in constantize'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.5) lib/active_support/inflector/methods.rb:236:in `constantize'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:78:in `controller_reference'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:68:in `controller'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:46:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.9ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:08:31 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (21.9ms)
+Completed 200 OK in 89ms (Views: 81.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-04 19:08:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 19:08:32 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 19:08:32 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 19:08:32 -0700
+
+
+Started GET "/javascripts/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 19:08:32 -0700
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/demo/dashboard-demo.js"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 19:08:32 -0700
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:14:11 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( demo/dashboard-demo.js )` to `config/initializers/assets.rb` and restart your server):
+    345: / /.col-lg-4
+    346: / /.row
+    347: 
+    348: %script{:src => url_to_javascript("demo/dashboard-demo.js")}
+  app/views/application/index.haml:348:in `_app_views_application_index_haml__948156766412570994_2198737700'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.5ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:16:36 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (21.5ms)
+Completed 500 Internal Server Error in 33ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( demo/dashboard-demo.js )` to `config/initializers/assets.rb` and restart your server):
+    345: / /.col-lg-4
+    346: / /.row
+    347: 
+    348: %script{:src => url_to_javascript("demo/dashboard-demo.js")}
+  app/views/application/index.haml:348:in `_app_views_application_index_haml__1638298173989419342_2163364540'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (26.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:19:25 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (20.7ms)
+Completed 500 Internal Server Error in 73ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+    2: <html>
+    3: <head>
+    4:   <title>Susteq</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1474445039516216382_2180954560'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:21:33 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2179998400'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.8ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:21:38 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2179998400'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:23:00 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2179998400'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (34.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (42.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:24:34 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2194546120'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.7ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:24:50 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.9ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:29:05 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (33.0ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (40.9ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:30:03 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.8ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:32:07 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:32:09 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.7ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:32:16 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.1ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:32:22 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.4ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:32:24 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.5ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:32:26 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap.
+Load paths:
+  /Users/igorgaelzer/susteq/app/assets/fonts
+  /Users/igorgaelzer/susteq/app/assets/images
+  /Users/igorgaelzer/susteq/app/assets/javascripts
+  /Users/igorgaelzer/susteq/app/assets/stylesheets
+  /Users/igorgaelzer/susteq/vendor/assets/javascripts
+  /Users/igorgaelzer/susteq/vendor/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/lib/assets/stylesheets
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/turbolinks-2.3.0/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jquery-rails-3.1.2/vendor/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-core-2.0.2/lib/jasmine-core
+  /Users/igorgaelzer/susteq/spec/javascripts
+  (in /Users/igorgaelzer/susteq/app/assets/stylesheets/application.css.scss:1)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"  , 'data-turbolinks-track' => true
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/application.css.scss:1
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2069819236575571090_2206702680'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.5ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:33:40 -0700
+
+Gem::LoadError (Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:190:in `rescue in spec'
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:187:in `spec'
+  activerecord (4.1.1) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.1.1) lib/active_record/railtie.rb:129:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.1) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.1) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:628:in `rescue in call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:619:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.8ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:34:18 -0700
+
+Gem::LoadError (Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:190:in `rescue in spec'
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:187:in `spec'
+  activerecord (4.1.1) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.1.1) lib/active_record/railtie.rb:129:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.1) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.1) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:628:in `rescue in call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:619:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:34:27 -0700
+
+Gem::LoadError (Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:190:in `rescue in spec'
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:187:in `spec'
+  activerecord (4.1.1) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.1.1) lib/active_record/railtie.rb:129:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.1) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.1) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:628:in `rescue in call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:619:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.3ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:34:29 -0700
+
+Gem::LoadError (Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:190:in `rescue in spec'
+  activerecord (4.1.1) lib/active_record/connection_adapters/connection_specification.rb:187:in `spec'
+  activerecord (4.1.1) lib/active_record/connection_handling.rb:50:in `establish_connection'
+  activerecord (4.1.1) lib/active_record/railtie.rb:129:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.1.1) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.1.1) lib/active_record/base.rb:326:in `<module:ActiveRecord>'
+  activerecord (4.1.1) lib/active_record/base.rb:23:in `<top (required)>'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:628:in `rescue in call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:619:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.5ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:34:55 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (21.6ms)
+Completed 500 Internal Server Error in 2260ms
+
+ActionView::Template::Error (Missing partial home/_dropdown_messages with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee, :haml]}. Searched in:
+  * "/Users/igorgaelzer/susteq/app/views"
+  * "/Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/app/views"
+):
+    34:               %i.fa.fa-envelope.fa-fw
+    35:               %i.fa.fa-caret-down
+    36:             %ul.dropdown-menu.dropdown-messages
+    37:               =render partial: "home/dropdown_messages"
+    38:           / /.dropdown
+    39:           %li.dropdown
+    40:             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+  app/views/layouts/application.html.haml:37:in `_app_views_layouts_application_html_haml__511973881024770260_2158565460'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:39:46 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (52.7ms)
+Completed 500 Internal Server Error in 293ms
+
+ActionView::Template::Error (Missing partial home/_dropdown_messages with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee, :haml]}. Searched in:
+  * "/Users/igorgaelzer/susteq/app/views"
+  * "/Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/app/views"
+):
+    34:               %i.fa.fa-envelope.fa-fw
+    35:               %i.fa.fa-caret-down
+    36:             %ul.dropdown-menu.dropdown-messages
+    37:               =render partial: "home/dropdown_messages"
+    38:           / /.dropdown
+    39:           %li.dropdown
+    40:             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+  app/views/layouts/application.html.haml:37:in `_app_views_layouts_application_html_haml__4576462082215118554_2198306980'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:40:22 -0700
+Processing by HomeController#index as HTML
+  Rendered application/index.haml within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 130ms
+
+ActionView::Template::Error (Missing partial home/_dropdown_messages with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee, :haml]}. Searched in:
+  * "/Users/igorgaelzer/susteq/app/views"
+  * "/Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/jasmine-rails-0.10.2/app/views"
+):
+    34:               %i.fa.fa-envelope.fa-fw
+    35:               %i.fa.fa-caret-down
+    36:             %ul.dropdown-menu.dropdown-messages
+    37:               =render partial: "home/dropdown_messages"
+    38:           / /.dropdown
+    39:           %li.dropdown
+    40:             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+  app/views/layouts/application.html.haml:37:in `_app_views_layouts_application_html_haml__4576462082215118554_2198306980'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.3ms)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2014-09-04 19:42:29 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (18.6ms)
+  Rendered home/_dropdown_messages.haml (2.1ms)
+  Rendered home/_dropdown_tasks.haml (3.1ms)
+  Rendered home/_dropdown_alerts.haml (2.3ms)
+  Rendered home/_side_menu.haml (4.4ms)
+Completed 200 OK in 160ms (Views: 159.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 19:42:30 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 19:42:31 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 19:43:32 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.1ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 93ms (Views: 92.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:43:32 -0700
+
+
+Started GET "/home/forms.html" for 127.0.0.1 at 2014-09-04 19:43:44 -0700
+Processing by HomeController#forms as HTML
+  Rendered home/forms.haml within layouts/application (52.8ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 140ms (Views: 139.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:43:44 -0700
+
+
+Started GET "/home/tables.html" for 127.0.0.1 at 2014-09-04 19:43:47 -0700
+Processing by HomeController#tables as HTML
+  Rendered home/tables.haml within layouts/application (69.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.1ms)
+  Rendered home/_dropdown_alerts.haml (0.1ms)
+  Rendered home/_side_menu.haml (0.1ms)
+Completed 200 OK in 163ms (Views: 161.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:43:47 -0700
+
+
+Started GET "/home/panels_wells.html" for 127.0.0.1 at 2014-09-04 19:43:49 -0700
+Processing by HomeController#panels_wells as HTML
+  Rendered home/panels_wells.haml within layouts/application (11.3ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 143ms (Views: 142.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:43:50 -0700
+
+
+Started GET "/home/blank.html" for 127.0.0.1 at 2014-09-04 19:43:57 -0700
+Processing by HomeController#blank as HTML
+  Rendered home/blank.haml within layouts/application (0.9ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 128ms (Views: 127.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:43:57 -0700
+
+
+Started GET "/home/login.html" for 127.0.0.1 at 2014-09-04 19:43:59 -0700
+Processing by HomeController#login as HTML
+  Rendered home/login.haml within layouts/login (2.3ms)
+Completed 200 OK in 125ms (Views: 124.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:43:59 -0700
+
+
+Started GET "/home/flot.html" for 127.0.0.1 at 2014-09-04 19:50:20 -0700
+Processing by HomeController#flot as HTML
+  Rendered home/flot.haml within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( demo/flot-demo.js )` to `config/initializers/assets.rb` and restart your server):
+    77:   / /.row
+    78: / /#page-wrapper
+    79: / Page-Level Demo Scripts - Flot - Use for reference
+    80: %script{:src => url_to_javascript("demo/flot-demo.js")}
+  app/views/home/flot.haml:80:in `_app_views_home_flot_haml__1246336245662910275_2199588340'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.7ms)
+
+
+Started GET "/home/morris.html" for 127.0.0.1 at 2014-09-04 19:50:23 -0700
+Processing by HomeController#morris as HTML
+  Rendered home/morris.haml within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( demo/morris-demo.js )` to `config/initializers/assets.rb` and restart your server):
+    59:     / /.panel
+    60:   / /.col-lg-6
+    61: / /.row
+    62: %script{:src => url_to_javascript("demo/morris-demo.js")}
+  app/views/home/morris.haml:62:in `_app_views_home_morris_haml__3441989579055203345_2200928760'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.2ms)
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.3ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 120ms (Views: 119.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 19:50:26 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 19:59:50 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 130ms (Views: 129.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 19:59:51 -0700
+
+
+Started GET "/home/login" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+Processing by HomeController#login as HTML
+  Rendered home/login.haml within layouts/login (0.1ms)
+Completed 200 OK in 127ms (Views: 126.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:03 -0700
+
+
+Started GET "/home/index.haml" for 127.0.0.1 at 2014-09-04 20:13:06 -0700
+Processing by HomeController#index as 
+  Rendered home/index.haml within layouts/application (22.5ms)
+  Rendered home/_dropdown_messages.haml (2.1ms)
+  Rendered home/_dropdown_tasks.haml (3.2ms)
+  Rendered home/_dropdown_alerts.haml (2.3ms)
+  Rendered home/_side_menu.haml (4.7ms)
+Completed 200 OK in 191ms (Views: 190.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:13:07 -0700
+
+
+Started GET "/home/index.haml" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+Processing by HomeController#index as 
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.1ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 104ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:13:13 -0700
+
+
+Started GET "/home/index.haml" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+Processing by HomeController#index as 
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 150ms (Views: 149.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:13:39 -0700
+
+
+Started GET "/home/login" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+Processing by HomeController#login as HTML
+  Rendered home/login.haml within layouts/login (0.1ms)
+Completed 200 OK in 83ms (Views: 81.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:16 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.6ms)
+  Rendered home/_dropdown_messages.haml (0.2ms)
+  Rendered home/_dropdown_tasks.haml (0.1ms)
+  Rendered home/_dropdown_alerts.haml (0.1ms)
+  Rendered home/_side_menu.haml (0.1ms)
+Completed 200 OK in 147ms (Views: 145.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:14:18 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 123ms (Views: 122.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:21 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:22 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:22 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:22 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:14:22 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:14:22 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+Processing by HomeController#login as HTML
+  Rendered home/login.haml within layouts/login (0.2ms)
+Completed 200 OK in 125ms (Views: 124.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:30 -0700
+
+
+Started GET "/index.haml" for 127.0.0.1 at 2014-09-04 20:14:31 -0700
+
+ActionController::RoutingError (No route matches [GET] "/index.haml"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (24.6ms)
+
+
+Started GET "/index.haml" for 127.0.0.1 at 2014-09-04 20:14:39 -0700
+
+ActionController::RoutingError (No route matches [GET] "/index.haml"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (40.5ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (57.7ms)
+
+
+Started GET "/home/login" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+Processing by HomeController#login as HTML
+  Rendered home/login.haml within layouts/login (0.1ms)
+Completed 200 OK in 101ms (Views: 100.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:50 -0700
+
+
+Started GET "/home/index.haml" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+Processing by HomeController#index as 
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 150ms (Views: 149.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:14:51 -0700
+
+
+Started GET "/home/index.haml" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+Processing by HomeController#index as 
+  Rendered home/index.haml within layouts/application (0.3ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.1ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 98ms (Views: 97.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:15:06 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-04 20:15:08 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.1ms)
+  Rendered home/_dropdown_alerts.haml (0.1ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 129ms (Views: 128.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:15:09 -0700
+
+
+Started GET "/tables.html" for 127.0.0.1 at 2014-09-04 20:15:10 -0700
+
+ActionController::RoutingError (No route matches [GET] "/tables.html"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.2ms)
+
+
+Started GET "/tables.html" for 127.0.0.1 at 2014-09-04 20:15:33 -0700
+
+ActionController::RoutingError (No route matches [GET] "/tables.html"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/igorgaelzer/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.1ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Users/igorgaelzer/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (17.8ms)
+
+
+Started GET "/home/tables.html" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+Processing by HomeController#tables as HTML
+  Rendered home/tables.haml within layouts/application (0.2ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 128ms (Views: 127.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:15:45 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 20:15:48 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.5ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 88ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:15:49 -0700
+
+
+Started GET "/home/blank.html" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+Processing by HomeController#blank as HTML
+  Rendered home/blank.haml within layouts/application (0.1ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 92ms (Views: 91.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:15:51 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 86ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:16:06 -0700
+
+
+Started GET "/home/tables.html" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+Processing by HomeController#tables as HTML
+  Rendered home/tables.haml within layouts/application (0.2ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 130ms (Views: 129.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:16:08 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.6ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 128ms (Views: 127.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:16:09 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.3ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 131ms (Views: 130.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:24:56 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:24:57 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 20:25:24 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (0.4ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.1ms)
+  Rendered home/_dropdown_alerts.haml (0.1ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 135ms (Views: 134.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:25:25 -0700
+
+
+Started GET "/home/index.html" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.haml within layouts/application (36.2ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (4.9ms)
+Completed 200 OK in 126ms (Views: 125.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/demo/dashboard-demo.js" for 127.0.0.1 at 2014-09-04 20:26:24 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:26:25 -0700
+
+
+Started GET "/home/tables.html" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+Processing by HomeController#tables as HTML
+  Rendered home/tables.haml within layouts/application (0.2ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 137ms (Views: 136.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:26:26 -0700
+
+
+Started GET "/home/tables.html" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+Processing by HomeController#tables as HTML
+  Rendered home/tables.haml within layouts/application (0.2ms)
+  Rendered home/_dropdown_messages.haml (0.1ms)
+  Rendered home/_dropdown_tasks.haml (0.0ms)
+  Rendered home/_dropdown_alerts.haml (0.0ms)
+  Rendered home/_side_menu.haml (0.0ms)
+Completed 200 OK in 131ms (Views: 130.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.pie.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.resize.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/jquery.flot.tooltip.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/raphael-2.1.0.min.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/morris.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/sb-admin/sb-admin.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-09-04 20:26:27 -0700
