@@ -1,0 +1,3 @@
+HubMap.View = function(){
+
+}

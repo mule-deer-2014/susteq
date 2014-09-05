@@ -2,18 +2,20 @@
 
 //Initialize Map
 //Take in data
+//initialize models
 //Create markers
 //Create popups
 //set event listeners
 //Render markers
 
   HubMap.Controller = function (){
+    this.map = L.map('map')
+    this.hubs = [];
+    this.kiosks = [];
   };
 
   HubMap.Controller.prototype = {
-
-    initializeMap: function(lat,longi, zoom){
-      this.map = L.map('map').setView([lat, longi], zoom);
+    setView:function(){
     },
 
     setEsriTileLayer: function(){
