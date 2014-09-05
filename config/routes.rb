@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home/login' => 'home#login'
   get 'home/kiosks' => 'home#kiosks'
   get 'home/hubs' => 'home#hubs'
+  get 'home/wsps' => 'home#wsps'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

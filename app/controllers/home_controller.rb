@@ -38,5 +38,8 @@ class HomeController < ApplicationController
   def hubs
 
   end
+  def wsps
+
+  end
 end
 
