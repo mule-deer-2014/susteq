@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'home/index' => 'home#index'
   get 'home/login' => 'home#login'
   get 'home/kiosks' => 'home#kiosks'
-  get 'home/hubs' => 'home#hubs'
   get 'home/wsps' => 'home#wsps'
   get 'home/waterpoints' => 'home#waterpoints'
   
