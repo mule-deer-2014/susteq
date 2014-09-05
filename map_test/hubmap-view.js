@@ -43,9 +43,8 @@ HubMap.View.prototype = {
 
   renderMarkers:function(hubs){
     for (var i=0; i<hubs.length; i++){
-     var marker = this.createMarker(hubs[i])
-      var popup = L.popup()
-        .setContent('<p>'+ hubs[i].name +"<br /> Water price: $" + hubs[i].waterPrice + ".</p>")
+      var marker = this.createMarker(hubs[i]);
+      var popup = this.makePopUp(hubs[i]);
       marker.bindPopup(popup).addTo(this.map);
       marker.on("click", marker.openPopup);
     }
