@@ -1,6 +1,8 @@
 feature 'Admin' do
   background do
-    admin = sign_in_admin
+    admin = FactoryGirl.create(:admin)
+    visit admins_path
+    login(admin)
   end
 
   scenario 'can view all service providers' do

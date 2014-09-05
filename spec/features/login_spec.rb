@@ -11,7 +11,7 @@ feature 'User logging in' do
     click_button 'Sign in'
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content("ERROR")
+    page.has_text?("ERROR")
   end
 
   scenario 'with invalid password sees login error on login page' do
@@ -21,18 +21,20 @@ feature 'User logging in' do
     click_link 'Sign in'
 
     expect(current_path).to eq(admins_path)
-    expect(page).to have_content("ERROR")
+    page.has_text?("ERROR")
   end
 
   scenario 'as provider sees wsp dashboard' do
-    provider = sign_in_wsp
+    visit root_path
+    login(provider)
 
     expect(current_path).to eq(wsps_path(provider.id))
     expect(page).to have_content(provider.first_name)
   end
 
   scenario 'as admin sees admin dashboard' do
-    admin = sign_in_admin
+    visit admins_path
+    login(admin)
 
     expect(current_path).to eq(admins_path(admin.id))
     expect(page).to have_content(admin.first_name)
