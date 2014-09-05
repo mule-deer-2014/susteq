@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
+  # Igor's comment: this is a temporary solution for working on the views without the routes and controllers
+  # delete once actual routes and controllers are in place
+  get '/dashboard' => 'application#dashboard'
+
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
