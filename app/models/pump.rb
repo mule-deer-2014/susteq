@@ -1,4 +1,4 @@
-class Pump < ActiveRecord::Base
+class Pump < Hub
   belongs_to :water_service_provider
-  has_many :transaction
+  has_many :transactions
 end
