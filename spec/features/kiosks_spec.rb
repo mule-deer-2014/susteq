@@ -1,6 +1,6 @@
 feature 'feature' do
   background do
-    hub = FactoryGirl.create(:hub)
+    kiosk = FactoryGirl.create(:kiosk)
   end
 
   scenario 'scenario' do
