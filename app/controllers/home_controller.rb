@@ -32,4 +32,8 @@ class HomeController < ApplicationController
   def forms
 
   end
+  def tables
+
+  end
 end
+

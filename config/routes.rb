@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'home/grid' => 'home#grid'
   get 'home/blank' => 'home#blank'
   get 'home/login' => 'home#login'
+
+  get 'home/kiosks' => 'home#kiosks'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
