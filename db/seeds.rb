@@ -40,6 +40,15 @@ Provider.all.each do |provider|
   end
 
   (1..3).sample.times do
-    provider.kiosks.create#.transactions.create
+    kiosk = provider.kiosks.create(location_id: hub_number)
+    5.times do
+      kiosk.transactions.create(
+        transaction_time: Datetime.now,
+        transaction_type: 22,
+        location_id: hub_number,
+        amount: (8..20).sample * 10
+      )
+    end
+    hub_number += 1
   end
 end
