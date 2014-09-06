@@ -29,6 +29,4 @@ Rails.application.routes.draw do
     resources :hubs
   end
 
-
-
 end
