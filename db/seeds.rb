@@ -3,7 +3,7 @@
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    #create BCrypt password
+    password_hash: BCrypt::Password.create("1234")
   )
 end
 
@@ -22,7 +22,7 @@ Provider.all.each do |provider|
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       email: Faker::Internet.email,
-      #create BCrypt password
+      password_hash: BCrypt::Password.create("1234")
     )
   end
 
