@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
   end
 
-  resources :providers do
-    resources :hubs
+  resources :providers, only: [:show, :edit, :update] do
+    resources :hubs, only: [:index, :show]
   end
 
   #ADMIN ROUTES
