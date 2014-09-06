@@ -4,4 +4,5 @@ class HubsController < ApplicationController
     @pumps = @provider.pumps
     @kioks = @provider.kiosks
   end
+
 end
