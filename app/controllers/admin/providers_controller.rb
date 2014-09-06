@@ -1,2 +1,2 @@
-class ProvidersController < ApplicationController
+class Admin::ProvidersController < ApplicationController
 end
