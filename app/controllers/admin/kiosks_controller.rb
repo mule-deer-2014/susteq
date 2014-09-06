@@ -42,5 +42,4 @@ class Admin::KiosksController < ApplicationController
     params.require(:kiosk).permit(:longitude, :latitude, :location_id, :provider_id)
   end
 
-
 end
