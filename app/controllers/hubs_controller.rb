@@ -1,0 +1,2 @@
+class HubsController < ApplicationController
+end
