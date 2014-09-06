@@ -41,5 +41,10 @@ describe Admin::ProvidersController do
         post :create, provider: FactoryGirl.attributes_for(:provider)
       }.to change(Provider, :count)
     end
+    
+    it 'redirects to list of providers' do
+      post :create, provider: FactoryGirl.attributes_for(:provider)
+      assert_redirected_to admin_providers_path
+    end
   end
 end
