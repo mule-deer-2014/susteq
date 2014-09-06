@@ -10,12 +10,10 @@ class Admin::PumpsController < ApplicationController
 
   def create
     @pump = Pump.new(pump_params)
-    @provider = Provider.find(params[:provider_id])
-    @provider.pumps << @pump
     if @pump.save
-      redirect_to pump_path(@pump)
+      redirect_to admin_pump_path(@pump)
     else
-      render "pumps/new"
+      render "admin/pumps/new"
     end
   end
 
@@ -27,22 +25,24 @@ class Admin::PumpsController < ApplicationController
   def update
     @pump = Pump.find params[:id]
     if @pump.update_attributes(pump_params)
-      redirect_to pump_path(@pump)
+      redirect_to admin_pump_path(@pump)
     else
-      render "pumps/edit"
+      render "admin/pumps/edit"
     end
 
   end
 
   def destroy
+    provider = Provider.find( (Pump.find(params[:id])).provider_id )
     Pump.destroy(params[:id])
+    redirect_to provider_path(provider)
   end
 
 
 
   private
 
-  def pumps_params
+  def pump_params
     params.require(:pump).permit(:longitude, :latitude, :location_id, :provider_id)
   end
 
