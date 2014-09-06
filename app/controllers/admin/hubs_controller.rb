@@ -1,12 +1,11 @@
-module Admin
-  class HubsController < ApplicationController
+class Admin::HubsController < ApplicationController
 
-    def index
-      @kiosks = Kiosk.all
-      @pumps = Pump.all
-    end
-
-
+  def index
+    @kiosks = Kiosk.all
+    @pumps = Pump.all
   end
+
+
 end
+
 
