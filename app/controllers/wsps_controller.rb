@@ -1,0 +1,3 @@
+class WspsController < ApplicationController
+
+end

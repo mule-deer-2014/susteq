@@ -1,0 +1,42 @@
+.row
+	.col-lg-12
+		%h1.pull-left WPSs
+		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New WPS</button>'.html_safe, new_wsp_path
+	/ /.col-lg-12
+%hr
+=image_tag "map.png", :style => "width: 100%; margin-bottom: 50px;"
+/ /.row
+.row
+	.col-lg-12
+		.table-responsive
+			%table#dataTables-example.table.table-striped.table-bordered.table-hover
+				%thead
+					%tr
+						%th Name
+						%th City
+						%th State
+						%th Description
+				%tbody
+					%tr.odd.gradeX
+						%td Green Valley Inc.
+						%td Nakuru
+						%td.center
+						%td.center Anything here
+					%tr.even.gradeC
+						%td 
+							%a{:href => "wsps/show.html"}
+								Malibu Inc.
+						%td Nairobi
+						%td.center
+						%td.center Anything here
+		/ /.table-responsive
+	/ /.col-lg-12
+/ Page-Level Demo Scripts - Tables - Use for reference
+:javascript
+	$(document).ready(function() {
+			$('#dataTables-example').dataTable();
+	});
+
+</body>
+
+</html>
