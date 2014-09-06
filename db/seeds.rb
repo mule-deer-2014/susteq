@@ -37,13 +37,8 @@ Provider.all.each do |provider|
         location_id: hub_number,
         amount: rand(1..15)
       )
-<<<<<<< HEAD
-      hub_number += 1
-    end
-=======
     end
     hub_number += 1
->>>>>>> 266b1bacf5c5aaa1a1fd04b012503e6a58bcd518
   end
 
   rand(1..3).times do
