@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+module UsersImporter
+  def self.import
+    20.times do
+      FactoryGirl.create(:user)
+    end
+  end
+end
+
+UsersImporter.import
