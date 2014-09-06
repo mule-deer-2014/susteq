@@ -36,7 +36,7 @@ module Admin
     private
 
     def provider_params
-      params.require(:provider).permit(:first_name, :last_name, :email, :password_hash)
+      params.require(:provider).permit(:name, :address, :country, :duns_number)
     end
   end
 end
