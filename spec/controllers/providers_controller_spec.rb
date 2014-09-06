@@ -10,5 +10,4 @@ describe ProvidersController do
     it "populates an array of hubs"
 
   end
-
 end
