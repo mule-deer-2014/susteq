@@ -1,7 +1,61 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
+
+hub_number = 1
+
+5.times do
+  Admin.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password_digest: BCrypt::Password.create("123456")
+  )
+end
+
+3.times do
+  Provider.create(
+    name: Faker::Company.name,
+    address: Faker::Address.street_address,
+    country: Faker::Address.country,
+    duns_number: rand(100000000..999999999).to_s
+  )
+end
+
+Provider.all.each do |provider|
+  4.times do
+    provider.employees.create(
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      password_digest: BCrypt::Password.create("123456")
+    )
+  end
+
+  rand(1..3).times do
+    pump = provider.pumps.create(location_id: hub_number)
+    5.times do
+      pump.transactions.create(
+        transaction_time: DateTime.now,
+        transaction_code: 1,
+        location_id: hub_number,
+        amount: rand(1..15)
+      )
+<<<<<<< HEAD
+      hub_number += 1
+    end
+=======
+    end
+    hub_number += 1
+>>>>>>> 266b1bacf5c5aaa1a1fd04b012503e6a58bcd518
+  end
+
+  rand(1..3).times do
+    kiosk = provider.kiosks.create(location_id: hub_number)
+    5.times do
+      kiosk.transactions.create(
+        transaction_time: DateTime.now,
+        transaction_code: 22,
+        location_id: hub_number,
+        amount: rand(8..20) * 10
+      )
+    end
+    hub_number += 1
+  end
+end
