@@ -43,9 +43,11 @@ ActiveRecord::Schema.define(version: 20140906000509) do
     t.integer  "rfid_id"
     t.integer  "starting_credits"
     t.integer  "ending_credits"
-    t.string   "transaction_type",                          null: false
+    t.integer  "transaction_code",     null: false
     t.integer  "amount"
     t.string   "error_code"
+    t.integer  "transactable_id"
+    t.string   "transactable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -8,9 +8,10 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :rfid_id
       t.integer :starting_credits
       t.integer :ending_credits
-      t.string :transaction_type, null:false
+      t.integer :transaction_code, null:false
       t.integer :amount
       t.string :error_code
+      t.references :transactable, polymorphic:true
       t.timestamps
     end
   end
