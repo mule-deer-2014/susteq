@@ -1,0 +1,24 @@
+<h1>create a new Pump</h1>
+  <ul>
+    <%= form_for @pump do |f| %>
+    <li>
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude%>
+  </li>
+  <li>
+    <%= f.label :latitude%>
+    <%= f.text_field :latitude %>
+  </li>
+   <li>
+    <%= f.label :location_id %>
+    <%= f.text_field :location_id %>
+  </li>
+  <li>
+    <%= f.label :provider_id %>
+    <%= f.text_field :provider_id  %>
+  </li>
+  <li>
+    <%= f.submit %>
+  </li>
+<% end%>
+</ul>
