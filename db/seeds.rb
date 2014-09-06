@@ -1,3 +1,5 @@
+require 'faker'
+
 hub_number = 0
 
 5.times do
