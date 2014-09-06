@@ -1,7 +1,6 @@
 5.times do
   Admin.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    name: Faker::Name.name,
     email: Faker::Internet.email,
     password_hash: BCrypt::Password.create("1234")
   )
@@ -19,8 +18,7 @@ end
 Provider.all.each do |provider|
   4.times do
     provider.employees.create(
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
+      name: Faker::Name.name,
       email: Faker::Internet.email,
       password_hash: BCrypt::Password.create("1234")
     )
