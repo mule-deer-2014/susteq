@@ -3,28 +3,28 @@ module Admin
     respond_to :html
 
     def index
-      providers = Provider.all
+      @providers = Provider.all
     end
 
     def create
-      provider = Provider.create(provider_params)
+      @provider = Provider.create(provider_params)
     end
 
     def new
-      provider = Provider.new
+      @provider = Provider.new
     end
 
     def edit
-      provider = Provider.find(params[:id])
+      @provider = Provider.find(params[:id])
     end
 
     def show
-      provider = Provider.find(params[:id])
+      @provider = Provider.find(params[:id])
     end
 
     def update
-      provider = Provider.find(params[:id])
-      provider.update(provider_params)
+      @provider = Provider.find(params[:id])
+      @provider.update(provider_params)
     end
 
     def destroy
