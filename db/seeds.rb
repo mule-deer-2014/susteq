@@ -33,7 +33,7 @@ Provider.all.each do |provider|
     5.times do
       pump.transactions.create(
         transaction_time: DateTime.now,
-        transaction_type: 1,
+        transaction_code: 1,
         location_id: hub_number,
         amount: rand(1..15)
       )
@@ -46,7 +46,7 @@ Provider.all.each do |provider|
     5.times do
       kiosk.transactions.create(
         transaction_time: DateTime.now,
-        transaction_type: 22,
+        transaction_code: 22,
         location_id: hub_number,
         amount: rand(8..20) * 10
       )
