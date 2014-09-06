@@ -8,6 +8,7 @@ module Admin
 
     def create
       @provider = Provider.create(provider_params)
+      redirect_to admin_providers_path
     end
 
     def new
@@ -20,6 +21,7 @@ module Admin
 
     def show
       @provider = Provider.find(params[:id])
+      @hubs = @provider.hubs
     end
 
     def update
