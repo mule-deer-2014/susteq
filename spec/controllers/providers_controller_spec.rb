@@ -34,4 +34,12 @@ describe Admin::ProvidersController do
       end
     end
   end
+
+  describe 'POST providers#create' do
+    it 'creates a new provider' do
+      expect {
+        post :create, provider: FactoryGirl.attributes_for(:provider)
+      }.to change(Provider, :count)
+    end
+  end
 end
