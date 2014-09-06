@@ -40,7 +40,7 @@ module Admin
     private
 
     def kiosk_params
-      params.require(:hub).permit(:longitude, :latitude, :location_id, :provider_id)
+      params.require(:kiosk).permit(:longitude, :latitude, :location_id, :provider_id)
     end
 
 
