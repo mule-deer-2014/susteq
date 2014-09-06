@@ -1,5 +1,9 @@
 class Admin::KiosksController < ApplicationController
 
+  def new
+    @kiosk = Kiosk.new
+  end
+
   def show
     @kiosk = Kiosk.find params[:id]
   end
