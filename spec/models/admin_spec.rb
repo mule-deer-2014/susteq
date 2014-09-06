@@ -11,6 +11,4 @@ describe Admin do
   #Tests that has_secure_password rails method (that uses bcrypt) is working and encrypts password into digest
   it { should respond_to(:password_hash) }
   it { should respond_to(:remember_token) }
-
-
 end
