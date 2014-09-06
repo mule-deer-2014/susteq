@@ -15,7 +15,7 @@ end
     name: Faker::Company.name,
     address: Faker::Address.street_address,
     country: Faker::Address.country,
-    duns_number: (100000000..999999999).sample.to_s
+    duns_number: rand(100000000..999999999).to_s
   )
 end
 
@@ -35,7 +35,7 @@ Provider.all.each do |provider|
         transaction_time: Datetime.now,
         transaction_type: 1,
         location_id: hub_number,
-        amount: (1..15).sample
+        amount: rand(1..15)
       )
       hub_number += 1
     end
@@ -48,7 +48,7 @@ Provider.all.each do |provider|
         transaction_time: Datetime.now,
         transaction_type: 22,
         location_id: hub_number,
-        amount: (8..20).sample * 10
+        amount: rand(8..20) * 10
       )
     end
     hub_number += 1
