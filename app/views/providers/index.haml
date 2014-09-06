@@ -13,22 +13,20 @@
 				%thead
 					%tr
 						%th Name
-						%th City
-						%th State
-						%th Description
+						%th Address
+						%th country
+						%th Duns number
+						%th
+						%th
 				%tbody
-					%tr.odd.gradeX
-						%td Green Valley Inc.
-						%td Nakuru
-						%td.center
-						%td.center Anything here
-					%tr.even.gradeC
-						%td 
-							%a{:href => "wsps/show.html"}
-								Malibu Inc.
-						%td Nairobi
-						%td.center
-						%td.center Anything here
+					- @providers.each do |provider|
+						%tr
+							%td= link_to provider.name, provider
+							%td= provider.address
+							%td= provider.country
+							%td= provider.duns_number
+							%td= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_provider_path(provider)
+							%td= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, provider, method: :delete, data: { confirm: 'Are you sure?' }
 		/ /.table-responsive
 	/ /.col-lg-12
 

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :kiosks
   resources :providers
   resources :employees
+
+end
   
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,4 +63,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
