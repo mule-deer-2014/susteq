@@ -10,12 +10,10 @@ class Admin::KiosksController < ApplicationController
 
   def create
     @kiosk = Kiosk.new(kiosk_params)
-    @provider = Provider.find(params[:provider_id])
-    @provider.kiosks << @kiosk
     if @kiosk.save
-      redirect_to kiosk_path(@kiosk)
+      redirect_to admin_kiosk_path(@kiosk)
     else
-      render "kiosks/new"
+      render "admin/kiosks/new"
     end
   end
 
@@ -27,15 +25,17 @@ class Admin::KiosksController < ApplicationController
   def update
     @kiosk = Kiosk.find params[:id]
     if @kiosk.update_attributes(kiosk_params)
-      redirect_to kiosk_path(@kiosk)
+      redirect_to admin_kiosk_path(@kiosk)
     else
-      render "kiosks/edit"
+      render "admin/kiosks/edit"
     end
 
   end
 
   def destroy
+    provider = Provider.find( (Kiosk.find(params[:id])).provider_id )
     Kiosk.destroy(params[:id])
+    redirect_to provider_path(provider)
   end
 
 
