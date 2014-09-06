@@ -11,17 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905023539) do
+ActiveRecord::Schema.define(version: 20140906000509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "hubs", force: true do |t|
+    t.integer  "location_id"
+    t.string   "type"
+    t.string   "provider_id"
+    t.decimal  "longitude",   precision: 10, scale: 6
+    t.decimal  "latitude",    precision: 10, scale: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "providers", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "country"
+    t.string   "duns_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", force: true do |t|
+    t.datetime "transaction_time"
+    t.integer  "location_id"
+    t.decimal  "longitude",        precision: 10, scale: 6
+    t.decimal  "latitude",         precision: 10, scale: 6
+    t.integer  "rfid_id"
+    t.integer  "starting_credits"
+    t.integer  "ending_credits"
+    t.string   "transaction_type"
+    t.integer  "amount"
+    t.string   "error_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "type"
+    t.integer  "provider_id"
+    t.string   "name"
     t.string   "email"
-    t.string   "password_digest"
+    t.string   "password_hash"
     t.string   "remember_token"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
