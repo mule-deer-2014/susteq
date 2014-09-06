@@ -11,8 +11,8 @@ end
 3.times do
   Provider.create(
     name: Faker::Company.name,
-    address: Faker::Address.street_address
-    country: Faker::Address.country
+    address: Faker::Address.street_address,
+    country: Faker::Address.country,
     duns_number: (100000000..999999999).sample.to_s
   )
 end
