@@ -25,4 +25,12 @@ Provider.all.each do |provider|
       #create BCrypt password
     )
   end
+
+  (1..3).sample.times do
+    provider.pumps.create#.transactions.create
+  end
+
+  (1..3).sample.times do
+    provider.kiosks.create#.transactions.create
+  end
 end
