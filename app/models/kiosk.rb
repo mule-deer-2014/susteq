@@ -1,0 +1,2 @@
+class Kiosk < Hub
+end
