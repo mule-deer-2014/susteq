@@ -1,3 +1,2 @@
 class KiosksController < ApplicationController
-
 end
