@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
   end
 
-  resources :providers do
-    resources :hubs
+  resources :providers, only: [:show, :edit, :update] do
+    resources :hubs, only: [:index, :show]
+    resources :employees
   end
 
   #ADMIN ROUTES
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
     resources :pumps
     resources :hubs
     resources :providers do
-      resources :hubs
+      resources :hubs, :employees
     end
   end
 
