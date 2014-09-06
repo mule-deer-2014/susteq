@@ -28,7 +28,7 @@ Provider.all.each do |provider|
     )
   end
 
-  (1..3).sample.times do
+  rand(1..3).times do
     pump = provider.pumps.create(location_id: hub_number)
     5.times do
       pump.transactions.create(
@@ -41,7 +41,7 @@ Provider.all.each do |provider|
     end
   end
 
-  (1..3).sample.times do
+  rand(1..3).times do
     kiosk = provider.kiosks.create(location_id: hub_number)
     5.times do
       kiosk.transactions.create(
