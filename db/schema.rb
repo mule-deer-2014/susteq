@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20140906000509) do
     t.integer  "starting_credits"
     t.integer  "ending_credits"
     t.string   "transaction_type",                          null: false
->>>>>>> ef8fe2b34252c30585ceb7f76751c953c867ac28
     t.integer  "amount"
     t.string   "error_code"
     t.datetime "created_at"
@@ -54,15 +53,9 @@ ActiveRecord::Schema.define(version: 20140906000509) do
   create_table "users", force: true do |t|
     t.string   "type"
     t.integer  "provider_id"
-<<<<<<< HEAD
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_hash"
-=======
     t.string   "name",           null: false
     t.string   "email",          null: false
     t.string   "password_hash",  null: false
->>>>>>> ef8fe2b34252c30585ceb7f76751c953c867ac28
     t.string   "remember_token"
     t.string   "phone_number"
     t.datetime "created_at"

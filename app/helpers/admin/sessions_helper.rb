@@ -1,4 +1,4 @@
-module AdminSessionsHelper
+module SessionsHelper
   def sign_in(admin)
     remember_token = Admin.new_remember_token
     cookies.permanent[:remember_token] = remember_token

@@ -1,4 +1,4 @@
-module EmployeeSessionsHelper
+module SessionsHelper
   def sign_in(employee)
     remember_token = Employee.new_remember_token
     cookies.permanent[:remember_token] = remember_token

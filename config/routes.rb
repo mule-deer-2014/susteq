@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
+
   #ADMIN ROUTES
   namespace :admin do
     resources :sessions, only: [:new, :create, :destroy]
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
   end
 
-  get '/', to: "employee/sessions#new"
+  root :to => "employee/sessions#new"
   delete '/employee/signout', to: 'employee/sessions#destroy'
 
   resources :providers do
