@@ -1,6 +1,6 @@
 require 'faker'
 
-hub_number = 0
+hub_number = 1
 
 5.times do
   Admin.create(
