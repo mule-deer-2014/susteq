@@ -1,5 +1,9 @@
 class Admin::PumpsController < ApplicationController
 
+  def new
+    @pump = Pump.new
+  end
+
   def show
     @pump = Pump.find params[:id]
   end
