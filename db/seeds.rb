@@ -1,3 +1,5 @@
+hub_number = 0
+
 5.times do
   Admin.create(
     name: Faker::Name.name,
@@ -25,7 +27,16 @@ Provider.all.each do |provider|
   end
 
   (1..3).sample.times do
-    provider.pumps.create#.transactions.create
+    pump = provider.pumps.create(location_id: hub_number)
+    5.times do
+      pump.transactions.create(
+        transaction_time: Datetime.now,
+        transaction_type: 1,
+        location_id: hub_number,
+        amount: (1..15).sample
+      )
+      hub_number += 1
+    end
   end
 
   (1..3).sample.times do
