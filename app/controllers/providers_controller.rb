@@ -1,6 +1,7 @@
 class ProvidersController < ApplicationController
   def show
     @provider = Provider.find(params[:id])
-    @hubs = @provider.hubs
+    @pumps = @provider.pumps
+    @kiosks = @provider.kiosks
   end
 end
