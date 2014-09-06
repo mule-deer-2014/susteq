@@ -6,7 +6,7 @@ hub_number = 1
   Admin.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password_hash: BCrypt::Password.create("1234")
+    password: BCrypt::Password.create("123456")
   )
 end
 
@@ -24,7 +24,7 @@ Provider.all.each do |provider|
     provider.employees.create(
       name: Faker::Name.name,
       email: Faker::Internet.email,
-      password_hash: BCrypt::Password.create("1234")
+      password: BCrypt::Password.create("123456")
     )
   end
 
@@ -37,8 +37,8 @@ Provider.all.each do |provider|
         location_id: hub_number,
         amount: rand(1..15)
       )
-      hub_number += 1
     end
+    hub_number += 1
   end
 
   rand(1..3).times do

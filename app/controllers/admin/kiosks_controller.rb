@@ -1,2 +1,2 @@
-class KiosksController < ApplicationController
+class Admin::KiosksController < ApplicationController
 end
