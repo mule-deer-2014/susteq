@@ -176,11 +176,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   bcrypt (~> 3.1.7)
-=======
   bootstrap-sass
->>>>>>> master
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner
