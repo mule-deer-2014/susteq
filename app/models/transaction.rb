@@ -1,4 +1,3 @@
 class Transaction < ActiveRecord::Base
-  belongs_to :kiosk
-  belongs_to :pump
+  belongs_to :transactable, polymorphic:true
 end

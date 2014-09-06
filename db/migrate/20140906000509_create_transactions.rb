@@ -11,7 +11,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :transaction_code, null:false
       t.integer :amount
       t.string :error_code
-      t.integer :hub_id
+      t.references :transactable, polymorphic:true
       t.timestamps
     end
   end
