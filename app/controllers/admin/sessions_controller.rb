@@ -2,7 +2,7 @@
 class Admin::SessionsController < ApplicationController
 
   def new
-    render 'admins/sessions/new'
+    render 'admin/sessions/new'
   end
 
   def create
@@ -12,7 +12,7 @@ class Admin::SessionsController < ApplicationController
       redirect_to @admin
     else
       flash.now[:error] = 'Invalid email/password combination'
-      render 'admins/sessions/new'
+      render 'admin/sessions/new'
     end
   end
 

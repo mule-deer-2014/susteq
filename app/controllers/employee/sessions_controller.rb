@@ -2,7 +2,7 @@
 class Employee::SessionsController < ApplicationController
 
   def new
-    render 'employees/sessions/new'
+    render 'employee/sessions/new'
   end
 
   def create
@@ -13,7 +13,7 @@ class Employee::SessionsController < ApplicationController
       redirect to @provider
     else
       flash.now[:error] = 'Invalid email/password combination'
-      render 'employees/sessions/new'
+      render 'employee/sessions/new'
     end
   end
 
