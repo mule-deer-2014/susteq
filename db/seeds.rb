@@ -12,7 +12,7 @@ end
     name: Faker::Company.name,
     address: Faker::Address.street_address
     country: Faker::Address.country
-    #duns_number: (x..y).sample
+    duns_number: (100000000..999999999).sample.to_s
   )
 end
 
