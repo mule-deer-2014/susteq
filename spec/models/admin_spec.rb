@@ -9,6 +9,10 @@ describe Admin do
   it { should respond_to(:phone_number) }
 
   #Tests that has_secure_password rails method (that uses bcrypt) is working and encrypts password into digest
-  it { should respond_to(:password_hash) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_digest) }
+  it { should respond_to(:password_confirmation) }
+  it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
+
 end

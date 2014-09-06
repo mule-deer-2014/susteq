@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :provider_id
       t.string :name, null:false
       t.string :email, null:false
-      t.string :password_hash, null:false
+      t.string :password_digest, null:false
       t.string :remember_token
       t.index :remember_token
       t.string :phone_number
