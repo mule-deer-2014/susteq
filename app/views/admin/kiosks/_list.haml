@@ -4,21 +4,18 @@
 			%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
 				%thead
 					%tr
-						%th Longitude
-						%th Latidude
-						%th Location
+						%th Name
 						%th Provider
-						%th
+						%th Country
+						%th Status
 				%tbody
-					- @kiosks.each do |kiosk|
-						%tr
-							%td= kiosk.longitude
-							%td= kiosk.latitude
-							%td= kiosk.location_id
-							%td= kiosk.provider_id
-							%td
-								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_kiosk_path(kiosk), method: :delete, data: { confirm: 'Are you sure?' }
-								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_kiosk_path(kiosk)
+					- @kiosks.each_with_index do |kiosk, index|
+						- index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+						%tr{:class => classes}
+							%td= link_to "#{kiosk.name}", admin_kiosk_path(id:kiosk.id)
+							%td= link_to "#{kiosk.provider.name}", admin_provider_path(id:kiosk.provider_id)
+							%td= kiosk.provider.country
+							%td= kiosk.provider.id
 :javascript
 	$(document).ready(function() {
 			$('#dataTables-example').dataTable();
