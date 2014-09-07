@@ -39,7 +39,7 @@ Provider.all.each do |provider|
   rand(1..3).times do
     # the latitude and longitude ranges used in generate_random_lat_long here and below are coordinates for the area surrounding Nairobi, Kenya, i.e. arbitrary for seed data purposes.
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
-    pump = provider.pumps.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1])
+    pump = provider.pumps.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
     5.times do
       pump.transactions.create(
         transaction_time: DateTime.now,
@@ -53,8 +53,9 @@ Provider.all.each do |provider|
 
 
   rand(1..3).times do
+    #SEE COMMENT ABOVE ABOUT LAT_LONG COORDINATES
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
-    kiosk = provider.kiosks.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1])
+    kiosk = provider.kiosks.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
     5.times do
       kiosk.transactions.create(
         transaction_time: DateTime.now,
