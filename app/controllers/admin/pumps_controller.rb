@@ -17,6 +17,14 @@ class Admin::PumpsController < ApplicationController
     end
   end
 
+  def index
+    @pumps = Pump.all
+    respond_to do |format|
+      format.html {render :haml}
+      format.json {render json:{pumps:@pumps}}
+    end
+  end
+
 
   def edit
     @pump = Pump.find params[:id]
