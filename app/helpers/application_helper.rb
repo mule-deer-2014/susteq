@@ -10,11 +10,11 @@ module ApplicationHelper
     !current_employee.nil?
   end
 
-  def employee_current_employee=(employee)
+  def current_employee=(employee)
     @current_employee = employee
   end
 
-  def employee_current_employee
+  def current_employee
     remember_token = Employee.digest(cookies[:remember_token])
     @current_employee ||= Employee.find_by(remember_token: remember_token)
   end
@@ -36,11 +36,11 @@ module ApplicationHelper
     !current_admin.nil?
   end
 
-  def admin_current_admin=(admin)
+  def current_admin=(admin)
     @current_admin = admin
   end
 
-  def admin_current_admin
+  def current_admin
     remember_token = Admin.digest(cookies[:remember_token])
     @current_admin ||= Admin.find_by(remember_token: remember_token)
   end

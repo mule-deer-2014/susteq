@@ -1,4 +1,5 @@
 class Admin::KiosksController < ApplicationController
+  layout "admin_application"
 
   def new
     @kiosk = Kiosk.new
