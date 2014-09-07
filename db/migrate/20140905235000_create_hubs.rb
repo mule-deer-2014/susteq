@@ -6,6 +6,7 @@ class CreateHubs < ActiveRecord::Migration
       t.string :provider_id
       t.decimal :longitude, {precision: 10, scale: 6}
       t.decimal :latitude, {precision: 10, scale: 6}
+      t.string :name
       t.timestamps
     end
   end

@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140906000509) do
     t.string   "provider_id"
     t.decimal  "longitude",   precision: 10, scale: 6
     t.decimal  "latitude",    precision: 10, scale: 6
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
