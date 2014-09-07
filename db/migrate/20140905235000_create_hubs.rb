@@ -1,6 +1,7 @@
 class CreateHubs < ActiveRecord::Migration
   def change
     create_table :hubs do |t|
+      t.string :name
       t.integer :location_id, null:false
       t.string :type, null:false
       t.string :provider_id
