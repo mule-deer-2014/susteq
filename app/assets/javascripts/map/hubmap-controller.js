@@ -45,7 +45,6 @@ HubMap.Controller.prototype = {
       method:"get"
     }).
     done(function(data){
-      console.log(data);
       this.parseJsonPumpData(data.pumps);
       this.view.renderMarkers(this.pumps);
     }.bind(this)).

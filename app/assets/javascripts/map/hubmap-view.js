@@ -13,6 +13,11 @@ HubMap.View.prototype = {
     markerColor: 'red'
   }),
 
+    orangeMarker: L.AwesomeMarkers.icon({
+    icon: 'circle',
+    markerColor: 'orange'
+  }),
+
   setEsriTileLayer: function(){
     L.esri.basemapLayer("Imagery").addTo(this.map);
   },
@@ -28,8 +33,17 @@ HubMap.View.prototype = {
 
   createMarker: function(hub){
     var icon;
-    console.log(hub)
-    hub.status_code === 1 ? icon = this.greenMarker : icon = this.redMarker;
+    switch(hub.status_code){
+    case 1:
+      icon = this.greenMarker;
+      break;
+    case 0:
+      icon = this.orangeMarker;
+      break;
+    case -1:
+      icon = this.redMarker;
+      break;
+    }
     return L.marker([hub.latitude, hub.longitude], {icon:icon});
   },
 
