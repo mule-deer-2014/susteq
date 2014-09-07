@@ -1,5 +1,6 @@
 class Admin::PumpsController < ApplicationController
   layout "admin_application"
+  before_filter :require_admin_signin
 
   def index
     @pump = Pump.all
@@ -52,13 +53,5 @@ class Admin::PumpsController < ApplicationController
     params.require(:pump).permit(:longitude, :latitude, :location_id, :provider_id)
   end
 
-  # def hubs_params(type)
-  #   case type
-  #   when "kiosk"
-  #     params.require(:kiosk).permit(:longitude, :latitude, :location_id, :provider_id)
-  #   when "pump"
-  #     params.require(:pump).permit(:longitude, :latitude, :location_id, :provider_id)
-  #   end
-  # end
 end
 

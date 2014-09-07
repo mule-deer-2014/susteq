@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     elsif admin_signed_in?
       redirect_to admin_dashboard_path
     else
-      render 'employees/sessions/new'
+      redirect_to employee_signin_path
     end
   end
 
