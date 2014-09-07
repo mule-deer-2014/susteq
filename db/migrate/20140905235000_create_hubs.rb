@@ -7,7 +7,7 @@ class CreateHubs < ActiveRecord::Migration
       t.decimal :longitude, {precision: 10, scale: 6}
       t.decimal :latitude, {precision: 10, scale: 6}
       t.string :name
-      t.integer, :status_code, default: 1
+      t.integer :status_code, default:1
       t.timestamps
     end
   end
