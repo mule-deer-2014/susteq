@@ -6,4 +6,3 @@ class Admin::AdminsController < ApplicationController
     render 'admin/dashboard/dashboard'
   end
 end
-
