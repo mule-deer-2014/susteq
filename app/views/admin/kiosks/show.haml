@@ -22,7 +22,7 @@
 				%td= link_to "delete kiosk number #{@kiosk.id}", admin_kiosk_path(@kiosk) ,:method => :delete
 			%tr
 				%th Water Service Provider
-				%td= "Kiosk number #{@kiosk.id} is owned by #{(Provider.find(@kiosk.provider_id)).name}"
+				%td  Kiosk number is #{@kiosk.id} is owned by #{link_to (Provider.find(@kiosk.provider_id)).name, admin_provider_path(Provider.find(@kiosk.provider_id))}
 
 %h3 Profit by month
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"

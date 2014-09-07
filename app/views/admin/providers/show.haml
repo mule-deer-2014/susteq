@@ -1,30 +1,38 @@
 .row
 	.col-lg-12
-		%h1.page-header Malibu Inc.
+		%h1.page-header
+			= @provider.name
+
 		%h3 General information
 .row
 	.col-lg-6
 		%table
 			%tr
 				%th Name
-				%td Fresh & Clear
+				%td 
+					= @provider.name
 			%tr
-				%th Phone
-				%td (432) 735-1423
+				%th Address
+				%td 
+					= @provider.address
 			%tr
-				%th Email
-				%td freshandclear@gmail.com
+				%th Country
+				%td
+					= @provider.country
 	.col-lg-6
 		%table
 			%tr
-				%th Name
-				%td Fresh & Clear
+				%th Duns number
+				%td
+					= @provider.duns_number
 			%tr
-				%th Phone
-				%td (432) 735-1423
+				%th Created at
+				%td
+					= @provider.created_at
 			%tr
-				%th Email
-				%td freshandclear@gmail.com
+				%th Updated at
+				%td
+					= @provider.updated_at
 
 %h3 Profit by month
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
@@ -33,7 +41,7 @@
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
 
 %h3.pull-left Water points
-= link_to '<button class="btn btn-primary btn-xs pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New WPS</button>'.html_safe, new_wsp_path
+= link_to '<button class="btn btn-primary btn-xs pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New WPS</button>'.html_safe
 .row
 	.col-lg-12
 		.table-responsive

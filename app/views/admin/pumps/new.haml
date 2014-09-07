@@ -1,0 +1,18 @@
+%h1 create a new pump
+%ul
+  = form_for [:admin, @pump] do |f|
+    %li
+      = f.label :longitude
+      = f.text_field :longitude
+    %li
+      = f.label :latitude
+      = f.text_field :latitude
+    %li
+      = f.label "location ID"
+      = f.text_field :location_id
+    %li
+      = f.label "provider ID"
+      = f.text_field :provider_id
+    %li
+      = f.submit
+
