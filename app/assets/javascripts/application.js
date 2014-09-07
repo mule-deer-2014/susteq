@@ -29,6 +29,7 @@
 //= require map/hubmap-hub
 //= require map/hubmap-view
 //= require map/hubmap-controller
+//= require map/initialize
 
 //= require sb-admin/sb-admin
 
