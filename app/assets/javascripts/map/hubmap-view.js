@@ -4,8 +4,10 @@ HubMap.View = function(startLat, startLong, startZoom){
 
 HubMap.View.prototype = {
   greenMarker: L.AwesomeMarkers.icon({
-    icon: 'circle',
-    markerColor: 'green'
+    icon: 'tint',
+    prefix: 'fa',
+    iconColor:'white',
+    markerColor: 'green',
   }),
 
   redMarker: L.AwesomeMarkers.icon({
