@@ -42,7 +42,7 @@ class Admin::PumpsController < ApplicationController
   def destroy
     provider = Provider.find( (Pump.find(params[:id])).provider_id )
     Pump.destroy(params[:id])
-    redirect_to provider_path(provider)
+    redirect_to admin_pumps_path
   end
 
 
