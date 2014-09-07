@@ -40,10 +40,8 @@ class Admin::KiosksController < ApplicationController
   def destroy
     provider = Provider.find( (Kiosk.find(params[:id])).provider_id )
     Kiosk.destroy(params[:id])
-    redirect_to provider_path(provider)
+    redirect_to admin_kiosks_path
   end
-
-
 
   private
 
