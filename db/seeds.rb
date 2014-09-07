@@ -15,16 +15,14 @@ end
     password: "123456"
   )
 
-  provider = Provider.create(
+  Provider.create(
     name: "susteq_provider",
     address: "dallas",
     country: "usa",
     duns_number: "121312312"
-  )
-
-  provider.employees << Employee.create(
+  ).employees.create(
     name: "susteq",
-    email: "susteq@dbc.com",
+    email: "susteq_employee@dbc.com",
     password: "123456"
   )
 
