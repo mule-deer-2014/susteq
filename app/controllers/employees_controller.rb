@@ -1,4 +1,4 @@
-class Admin::EmployeesController < ApplicationController
+class EmployeesController < ApplicationController
   respond_to :html
 
   def index
