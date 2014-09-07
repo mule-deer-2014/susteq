@@ -1,5 +1,5 @@
 class Provider < ActiveRecord::Base
-  has_many :employees
+  has_many :employees, :dependent => :destroy
   has_many :pumps, :dependent => :destroy
   has_many :kiosks, :dependent => :destroy
 

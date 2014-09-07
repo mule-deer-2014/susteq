@@ -10,5 +10,5 @@ describe Provider do
   #Test associations
   it { should have_many(:pumps).dependent(:destroy) }
   it { should have_many(:kiosks).dependent(:destroy)}
-  it { should have_many(:employees) }
+  it { should have_many(:employees).dependent(:destroy) }
 end
