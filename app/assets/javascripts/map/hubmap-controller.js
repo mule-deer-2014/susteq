@@ -1,11 +1,3 @@
-//Initialize Map
-//Take in data
-//parse JSON data and initialize models
-//Create markers
-//Create popups
-//set event listeners
-//Render markers
-
 HubMap.Controller = function(view){
   this.view = view;
   this.kiosks = [];
