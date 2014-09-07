@@ -3,6 +3,11 @@ class KiosksController < ApplicationController
 
   def index
     @kiosks = Provider.find(params[:provider_id]).kiosks
+    sum = 0
+    @kiosks.each do |k|
+      sum += k.credits_sold
+    end
+    @total_credits_sold = sum
   end
 
   def show
