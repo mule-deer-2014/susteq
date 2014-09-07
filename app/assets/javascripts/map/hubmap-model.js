@@ -31,7 +31,5 @@ function Transaction(jsonData){
     this.amount = jsonDate.amount;
     this.error_code = jsonDate.error_code;
     this.created_at = jsonDate.created_at;
-
-
-}
+};
 
