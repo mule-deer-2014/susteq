@@ -3,7 +3,7 @@ class Provider < ActiveRecord::Base
   has_many :pumps
   has_many :kiosks
 
-  def hubs 
+  def hubs
     hubs = {kiosks: self.kiosks, pumps: self.pumps}
   end
 end
