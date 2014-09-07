@@ -6,8 +6,9 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.create(employee_params)
-    redirect_to admin_employees_path
+    @employee = Employee.new(employee_params)
+    redirect_to provider_employees_path and return if @employee.save
+    render new_provider_employees_path
   end
 
   def new
@@ -34,6 +35,6 @@ class EmployeesController < ApplicationController
   private
 
   def employee_params
-    params.require(:employee).permit(:provider_id, :name, :email, :password_hash, :phone_number)
+    params.require(:employee).permit(:provider_id, :name, :email, :remember_token, :password, :password_confirmation, :phone_number)
   end
 end
