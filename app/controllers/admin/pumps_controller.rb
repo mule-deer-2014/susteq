@@ -1,8 +1,14 @@
 class Admin::PumpsController < ApplicationController
+  layout "admin_application"
   before_filter :require_admin_signin
+
+  def index
+    @pump = Pump.all
+  end
 
   def new
     @pump = Pump.new
+    @providers = Provider.all
   end
 
   def show
@@ -11,13 +17,13 @@ class Admin::PumpsController < ApplicationController
 
   def create
     @pump = Pump.new(pump_params)
+    # @providers = Provider.find(pump_params)
     if @pump.save
       redirect_to admin_pump_path(@pump)
     else
       render "admin/pumps/new"
     end
   end
-
 
   def edit
     @pump = Pump.find params[:id]

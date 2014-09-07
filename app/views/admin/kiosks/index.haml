@@ -12,31 +12,18 @@
 			%table#dataTables-example.table.table-striped.table-bordered.table-hover
 				%thead
 					%tr
-						%th Name
-						%th City
-						%th State
-						%th Description
+						%th Longitude
+						%th Latidude
+						%th Location
+						%th Provider
+						%th
 				%tbody
-					%tr.odd.gradeX
-						%td No More Thirst
-						%td Nakuru
-						%td.center
-						%td.center Anything here
-					%tr.even.gradeC
-						%td
-							%a{:href => "kiosks/waterpoints.html"}
-								Fresh & Clear
-						%td Nairobi
-						%td.center
-						%td.center Anything here
-		/ /.table-responsive
-	/ /.col-lg-12
-/ Page-Level Demo Scripts - Tables - Use for reference
-:javascript
-	$(document).ready(function() {
-			$('#dataTables-example').dataTable();
-	});
-
-</body>
-
-</html>
+					- @kiosks.each do |kiosk|
+						%tr
+							%td= kiosk.longitude
+							%td= kiosk.latitude
+							%td= kiosk.location_id
+							%td= kiosk.provider_id
+							%td
+								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_kiosk_path(kiosk), method: :delete, data: { confirm: 'Are you sure?' }
+								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_kiosk_path(kiosk)
