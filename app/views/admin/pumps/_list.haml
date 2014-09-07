@@ -1,0 +1,20 @@
+.row
+	.col-lg-12
+		.table-responsive
+			%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+				%thead
+					%tr
+						%th Name
+						%th Provider
+						%th Country
+				%tbody
+					- @pumps.each_with_index do |pump, index|
+						- index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+						%tr{:class => classes}
+							%td= link_to "#{pump.name}", admin_pump_path(id:pump.id)
+							%td= link_to "#{pump.provider.name}", admin_provider_path(id:pump.provider_id)
+							%td Kenya
+:javascript
+	$(document).ready(function() {
+			$('#dataTables-example').dataTable();
+	});
