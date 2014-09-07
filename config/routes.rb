@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :providers, only: [:show, :edit, :update] do
     resources :employees
-    resources :pumps
-    resources :kiosks
+    resources :pumps, only: [:index, :show]
+    resources :kiosks, only: [:index, :show]
   end
 
   get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
