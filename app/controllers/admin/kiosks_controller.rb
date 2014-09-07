@@ -2,8 +2,13 @@ class Admin::KiosksController < ApplicationController
   layout "admin_application"
   before_filter :require_admin_signin
 
+  def index
+    @kiosks = Kiosk.all
+  end
+
   def new
     @kiosk = Kiosk.new
+    @providers = Provider.all
   end
 
   def show
@@ -19,7 +24,6 @@ class Admin::KiosksController < ApplicationController
     end
   end
 
-
   def edit
     @kiosk = Kiosk.find params[:id]
   end
@@ -31,7 +35,6 @@ class Admin::KiosksController < ApplicationController
     else
       render "admin/kiosks/edit"
     end
-
   end
 
   def destroy

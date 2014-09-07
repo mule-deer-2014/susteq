@@ -23,6 +23,7 @@ class Admin::ProvidersController < ApplicationController
   def show
     @provider = Provider.find(params[:id])
     @hubs = @provider.hubs
+    @pumps = @hubs[:pumps]
   end
 
   def update

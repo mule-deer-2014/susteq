@@ -1,7 +1,7 @@
 .row
 	.col-lg-12
 		%h1.pull-left Kiosks
-		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>Add kiosk</button>'.html_safe, new_admin__path
+		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>Add kiosk</button>'.html_safe, new_admin_kiosk_path
 	/ /.col-lg-12
 %hr
 =image_tag "map.png", :style => "width: 100%; margin-bottom: 50px;"
@@ -12,23 +12,21 @@
 			%table#dataTables-example.table.table-striped.table-bordered.table-hover
 				%thead
 					%tr
-						%th Name
-						%th City
-						%th State
-						%th Description
+						%th Longitude
+						%th Latidude
+						%th Location
+						%th Provider
+						%th
 				%tbody
-					%tr.odd.gradeX
-						%td No More Thirst
-						%td Nakuru
-						%td.center
-						%td.center Anything here
-					%tr.even.gradeC
-						%td 
-							%a{:href => "kiosks/waterpoints.html"}
-								Fresh & Clear
-						%td Nairobi
-						%td.center
-						%td.center Anything here
+					- @kiosks.each do |kiosk|
+						%tr
+							%td= kiosk.longitude
+							%td= kiosk.latitude
+							%td= kiosk.location_id
+							%td= kiosk.provider_id
+							%td
+								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_kiosk_path(kiosk), method: :delete, data: { confirm: 'Are you sure?' }
+								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_kiosk_path(kiosk)
 		/ /.table-responsive
 	/ /.col-lg-12
 / Page-Level Demo Scripts - Tables - Use for reference
