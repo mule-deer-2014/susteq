@@ -14,17 +14,15 @@
 			%tr
 				%th Email
 				%td freshandclear@gmail.com
-	.col-lg-6
-		%table
 			%tr
-				%th Name
-				%td Fresh & Clear
+				%th Edit
+				%td= link_to "edit kiosk number #{@kiosk.id}", edit_admin_kiosk_path(@kiosk), :method => :get
 			%tr
-				%th Phone
-				%td (432) 735-1423
+				%th Delete
+				%td= link_to "delete kiosk number #{@kiosk.id}", admin_kiosk_path(@kiosk) ,:method => :delete
 			%tr
-				%th Email
-				%td freshandclear@gmail.com
+				%th Water Service Provider
+				%td  Kiosk number is #{@kiosk.id} is owned by #{link_to (Provider.find(@kiosk.provider_id)).name, admin_provider_path(Provider.find(@kiosk.provider_id))}
 
 %h3 Profit by month
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
