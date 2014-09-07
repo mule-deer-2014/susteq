@@ -18,6 +18,6 @@
           - @pumps.each_with_index do |pump, index|
             - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
             %tr{:class => classes}
-              %td= link_to "Pump #{pump.location_id}", provider_pump_path(id: pump.id)
+              %td= link_to "#{pump.name}", provider_pump_path(id: pump.id)
               %td
               %td Something descriptive
