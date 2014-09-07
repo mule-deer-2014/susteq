@@ -19,9 +19,9 @@
 		%select.form-control
 			%option
 				Select provider
-			- @providers.each do |provider|
-				%option
-					= provider.name
+				- @providers.each do |provider|
+					%option{:value => provider.id}
+						=provider.name
 	.actions
 		= f.submit class: "btn btn-default"
 

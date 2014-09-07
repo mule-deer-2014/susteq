@@ -15,7 +15,8 @@ class Admin::PumpsController < ApplicationController
   end
 
   def create
-    @pump = Pump.new(pump_params) 
+    @pump = Pump.new(pump_params)
+    # @providers = Provider.find(pump_params)
     if @pump.save
       redirect_to admin_pump_path(@pump)
     else
