@@ -8,6 +8,25 @@ def generate_random_lat_long(lat_min, lat_max, long_min, long_max)
   return [lat, long]
 end
 
+#For development purposes so team can easily login
+  Admin.create(
+    name: "susteq",
+    email: "susteq@dbc.com",
+    password: "123456"
+  )
+
+  provider = Provider.create(
+    name: "susteq_provider",
+    address: "dallas",
+    country: "usa",
+    duns_number: "121312312"
+  )
+
+  provider.employees << Employee.create(
+    name: "susteq",
+    email: "susteq@dbc.com",
+    password: "123456"
+  )
 
 hub_number = 1
 
