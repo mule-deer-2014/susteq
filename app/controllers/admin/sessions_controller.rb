@@ -3,7 +3,11 @@ class Admin::SessionsController < ApplicationController
   before_action :require_admin_signin, :only =>:destroy
 
   def new
-    render 'admin/sessions/new'
+    if admin_signed_in?
+      redirect_to admin_dashboard_path
+    else
+      render 'admin/sessions/new'
+    end
   end
 
   def create
@@ -19,6 +23,6 @@ class Admin::SessionsController < ApplicationController
 
   def destroy
     admin_sign_out
-    redirect_to '/admin'
+    redirect_to admin_signin_path
   end
 end
