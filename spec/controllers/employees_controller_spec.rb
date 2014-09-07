@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe EmployeesController do
+  before do
+    @employee = FactoryGirl.create(:employee)
+  end
+
   describe 'Response statuses' do
     describe 'GET employees#index' do
       it 'returns a successful status' do

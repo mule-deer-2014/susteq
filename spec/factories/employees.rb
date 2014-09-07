@@ -1,12 +1,11 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
 require 'faker'
 
 FactoryGirl.define do
   factory :employee do
+    provider_id 1
     name {Faker::Name.name}
     email {Faker::Internet.email}
-    password_digest Faker::Internet.password(10, 20)
+    phone_number {Faker::PhoneNumber.phone_number}
+    password "1234567"
   end
 end
-
-
