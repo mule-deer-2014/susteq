@@ -1,0 +1,50 @@
+.row
+  .col-lg-12
+    %h1.page-header Fresh & Clear
+    %h3 General information
+.row
+  .col-lg-6
+    %table
+      %tr
+        %th Name
+        %td Fresh & Clear
+      %tr
+        %th Phone
+        %td (432) 735-1423
+      %tr
+        %th Email
+        %td freshandclear@gmail.com
+      %tr
+        %th Edit
+        %td= link_to "edit pump number #{@pump.id}", edit_admin_pump_path(@pump), :method => :get
+      %tr
+        %th Delete
+        %td= link_to "delete pump number #{@pump.id}", admin_pump_path(@pump) ,:method => :delete
+      %tr
+        %th Water Service Provider
+        %td  Kiosk number is #{@pump.id} is owned by #{link_to (Provider.find(@pump.provider_id)).name, admin_provider_path(Provider.find(@pump.provider_id))}
+
+%h3 Profit by month
+=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+.row
+  .col-lg-12
+    .table-responsive
+      %table#dataTables-example.table.table-basic.table-bordered.table-hover
+        %thead
+          %tr
+            %th Month
+            %th Profit
+        %tbody
+          %tr.odd.gradeX
+            %td May
+            %td $ 23.835
+          %tr.even.gradeC
+            %td June
+            %td $ 32.142
+    / /.table-responsive
+  / /.col-lg-12
+/ Page-Level Demo Scripts - Tables - Use for reference
+:javascript
+  $(document).ready(function() {
+      $('#dataTables-example').dataTable();
+  });
