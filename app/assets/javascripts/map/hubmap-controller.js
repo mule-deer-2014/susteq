@@ -28,15 +28,25 @@ HubMap.Controller.prototype = {
 
   getAdminKioskData: function(){
     var kioskAjax = $.ajax({
-      url:"/admin/kiosks",
+      url:"/admin/kiosks.json",
       method:"get"
     }).
     done(function(data){
-      debugger
-      // this.parseJsonKioskData(data).bind(this);
+      this.parseJsonKioskData(data.kiosks);
       // this.view.renderMarkers(this.kiosks);
-    }).
+    }.bind(this)).
     fail();
+  },
+
+  parseJsonKioskData: function(kioskData){
+    for(var i= 0; i<kioskData.length; i++){
+      var jsonKiosk = kioskData[i];
+      if (jsonKiosk.latitude && jsonKiosk.longitude){
+        var kiosk = new Kiosk(jsonKiosk);
+        this.kiosks.push(kiosk);
+      }
+    }
+    debugger;
   },
 
   getAdminPumpData: function(){
@@ -56,7 +66,7 @@ HubMap.Controller.prototype = {
 //     for (var i= 0; i<jsonData.length; i++){
 //       var hubJsonData = jsonData[i];
 //       if (hubJsonData.latitude && hubJsonData.longitude){
-//         hub = new Hub(hubJsonData);
+//         var hub = new Hub(hubJsonData);
 //         this.hubs.push(hub);
 //       }
 //     }
