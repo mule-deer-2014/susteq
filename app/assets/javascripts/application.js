@@ -25,6 +25,7 @@
 //= require map/leaflet
 //= require map/esri-leaflet
 //= require _namespace
+//= require hubmap_hub
 
 //= require sb-admin/sb-admin
 
