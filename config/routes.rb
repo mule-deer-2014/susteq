@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
+  root :to => "sessions#new"
+
   #EMPLOYEE ROUTES
-  root :to => "employee/sessions#new"
-  # root :to => "admin/dashboard#index"
-  delete '/employee/signout', to: 'employee/sessions#destroy'
+  get '/employee/signout', to: 'employee/sessions#destroy', as: 'employee_signout' #get rather than delete bc of issue with twitter bootstrap link_to
+  get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
 
   namespace :employee do
     resources :sessions, only: [:new, :create, :destroy]
@@ -15,12 +17,11 @@ Rails.application.routes.draw do
     resources :kiosks, only: [:index, :show]
   end
 
-  get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
-
 
   #ADMIN ROUTES
   get '/admin', to: "admin/sessions#new"
-  delete '/admin/signout', to: 'admin/sessions#destroy'
+  get '/admin/signout', to: 'admin/sessions#destroy', as: 'admin_signout' #get rather than delete bc of issue with twitter bootstrap link_to
+  get '/admin/dashboard', to:"admin/admins#dashboard", as: "admin_dashboard"
 
   namespace :admin do
     resources :sessions, only: [:new, :create, :destroy]

@@ -1,7 +1,5 @@
 class Employee::SessionsController < ApplicationController
   layout 'login'
-  def new
-  end
 
   def create
     @employee = Employee.find_by(email: params[:session][:email].downcase)
@@ -11,7 +9,7 @@ class Employee::SessionsController < ApplicationController
       redirect_to provider_dashboard_path(@provider)
     else
       flash.now[:error] = 'Invalid email/password combination'
-      render 'employee/sessions/new'
+      render 'employees/sessions/new'
     end
   end
 
