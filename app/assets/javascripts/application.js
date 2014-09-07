@@ -24,8 +24,10 @@
 //= require sb-admin/morris
 //= require map/leaflet
 //= require map/esri-leaflet
+//= require map/leaflet.awesome-markers.min
 //= require map/_namespace
 //= require map/hubmap-hub
+//= require map/hubmap-view
 
 //= require sb-admin/sb-admin
 
