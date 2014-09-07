@@ -38,6 +38,7 @@ Provider.all.each do |provider|
   end
 
   rand(1..3).times do
+    # the latitude and longitude ranges used in generate_random_lat_long here and below are cooridinates for the area surrounding Nairobi, Kenya, i.e. arbitrary for seed data purposes.
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
     pump = provider.pumps.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1])
     5.times do
