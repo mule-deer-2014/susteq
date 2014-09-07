@@ -1,16 +1,26 @@
-%ul
-  = form_for :pump, url: admin_pump_path(@pump), method: 'put'  do |f|
-    %li
-      = f.label :longitude
-      = f.text_field :longitude, :value => @pump.longitude
-    %li
-      = f.label :latitude
-      = f.text_field :latitude, :value => @pump.latitude
-    %li
-      = f.label :location_id
-      = f.text_field :location_id, :value => @pump.location_id
-    %li
-      = f.label :provider_id
-      = f.text_field :provider_id, :value => @pump.provider_id
-    %li
-      = f.submit
+= form_for [:admin, @pump] do |f|
+  - if @pump.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@pump.errors.count, "error")
+        prohibited this pump from being saved:
+      %ul
+        - @pump.errors.full_messages.each do |message|
+          %li= message  
+  .form-group
+    = f.label :longitude
+    %br
+    = f.text_field :longitude, class: "form-control"
+  .form-group
+    = f.label :latitude
+    %br
+    = f.text_field :latitude, class: "form-control"
+  .form-group
+    = f.label :location_id
+    %br
+    = f.text_field :location_id, class: "form-control"
+  .form-group
+    = f.label :provider
+    = f.collection_select :provider_id, Provider.all, :id, :name, {prompt: "Select a provider"}, {class: "form-control"}
+  .actions
+    = f.submit class: "btn btn-default"
