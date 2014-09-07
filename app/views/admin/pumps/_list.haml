@@ -20,7 +20,6 @@
 							%td
 								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(pump), method: :delete, data: { confirm: 'Are you sure?' }
 								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(pump)
-
 :javascript
 	$(document).ready(function() {
 			$('#dataTables-example').dataTable();
