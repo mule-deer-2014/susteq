@@ -1,4 +1,5 @@
 class Admin::PumpsController < ApplicationController
+  before_filter :require_admin_signin
 
   def new
     @pump = Pump.new

@@ -1,5 +1,6 @@
 class Admin::SessionsController < ApplicationController
   layout 'login'
+  before_action :require_admin_signin, :only =>:destroy
 
   def new
     render 'admin/sessions/new'
