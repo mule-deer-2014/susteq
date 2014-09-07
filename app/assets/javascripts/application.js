@@ -24,8 +24,8 @@
 //= require sb-admin/morris
 //= require map/leaflet
 //= require map/esri-leaflet
-//= require _namespace
-//= require hubmap_hub
+//= require map/_namespace
+//= require map/hubmap-hub
 
 //= require sb-admin/sb-admin
 
