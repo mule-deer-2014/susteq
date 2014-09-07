@@ -19,3 +19,9 @@
     = javascript_include_tag "application"  , 'data-turbolinks-track' => true
   %body
     =yield
+
+    /Displays "invalid login message if come to page from bad login"
+
+    - flash.each do |key, msg|
+      %div{:id => key}
+        %p{:style => "font-weight:bold;color:#333333;"}= msg

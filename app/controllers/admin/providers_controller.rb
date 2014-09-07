@@ -1,6 +1,7 @@
 class Admin::ProvidersController < ApplicationController
   layout "admin_application"
   respond_to :html
+  before_filter :require_admin_signin
 
   def index
     @providers = Provider.all

@@ -1,5 +1,6 @@
 class Admin::KiosksController < ApplicationController
   layout "admin_application"
+  before_filter :require_admin_signin
 
   def new
     @kiosk = Kiosk.new
