@@ -34,4 +34,17 @@ describe EmployeesController do
       end
     end
   end
+
+  describe 'POST employees#create' do
+    it 'creates a new employee' do
+      expect {
+        post :create, employee: FactoryGirl.attributes_for(:employee), provider_id: @employee.provider_id
+      }.to change(Employee, :count)
+    end
+
+    it 'redirects to list of employees' do
+      post :create, employee: FactoryGirl.attributes_for(:employee), provider_id: @employee.provider_id
+      assert_redirected_to provider_employees_path
+    end
+  end
 end
