@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   end
 
   resources :providers, only: [:show, :edit, :update] do
-    resources :hubs, only: [:index, :show]
     resources :employees
+    resources :pumps
+    resources :kiosks
   end
 
-  get '/providers/:id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
+  get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
 
 
   #ADMIN ROUTES
