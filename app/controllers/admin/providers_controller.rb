@@ -24,10 +24,6 @@ class Admin::ProvidersController < ApplicationController
     @provider = Provider.find(params[:id])
     @hubs = @provider.hubs
     @pumps = @hubs[:pumps]
-
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    puts @pumps
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   end
 
   def update
