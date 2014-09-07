@@ -8,8 +8,9 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
+
     redirect_to provider_employees_path and return if @employee.save
-    render new_provider_employees_path
+    redirect_to new_provider_employees_path
   end
 
   def new
@@ -25,12 +26,19 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    @employee = Employee.find(params[:id])
-    @employee.update(employee_params)
+    employee = Employee.find(params[:id])
+
+    if employee.update(employee_params) 
+      redirect_to provider_employee_path(employee.provider_id, employee) 
+    else
+      redirect_to edit_provider_employee_path(employee.provider_id, employee)
+    end
   end
 
   def destroy
     Employee.destroy(params[:id])
+
+    redirect_to provider_employees_path
   end
 
   private
