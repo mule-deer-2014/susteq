@@ -26,14 +26,14 @@ HubMap.Controller.prototype = {
     fail();
   },
 
-  getAdminKioskData: function(){
+  adminGetKioskData: function(){
     var kioskAjax = $.ajax({
       url:"/admin/kiosks.json",
       method:"get"
     }).
     done(function(data){
       this.parseJsonKioskData(data.kiosks);
-      // this.view.renderMarkers(this.kiosks);
+      this.view.renderMarkers(this.kiosks);
     }.bind(this)).
     fail();
   },
@@ -46,7 +46,6 @@ HubMap.Controller.prototype = {
         this.kiosks.push(kiosk);
       }
     }
-    debugger;
   },
 
   getAdminPumpData: function(){
