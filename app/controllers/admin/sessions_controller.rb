@@ -1,5 +1,5 @@
-
 class Admin::SessionsController < ApplicationController
+  layout 'login'
 
   def new
     render 'admin/sessions/new'
@@ -20,5 +20,4 @@ class Admin::SessionsController < ApplicationController
     admin_sign_out
     redirect_to '/admin'
   end
-
 end
