@@ -1,6 +1,10 @@
 class Admin::KiosksController < ApplicationController
   layout "admin_application"
 
+  def index
+    @kiosks = Kiosk.all
+  end
+
   def new
     @kiosk = Kiosk.new
     @providers = Provider.all
@@ -30,7 +34,6 @@ class Admin::KiosksController < ApplicationController
     else
       render "admin/kiosks/edit"
     end
-
   end
 
   def destroy
