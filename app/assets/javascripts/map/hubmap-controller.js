@@ -81,9 +81,3 @@ HubMap.Controller.prototype = {
 //   },
 // };
 
-
-//Driver Test Code
-
-testData = {id:"2", name:"Roger Moooore", created_at:"10/20/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", longitude:36.838866, latitude:-1.282470, waterPrice:2.02, status:"ok", errors:""}
-
-testData1 = {id:"1", name:"Sean COOONery", created_at:"10/3/2014", town:"Kibera", postalCode:"93420", province:"Eastern", country:"Kenya", longitude:36.812044, latitude:-1.282942, waterPrice:8.02, status:"not ok", errors:"Door left open"}
