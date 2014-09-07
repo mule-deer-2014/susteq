@@ -3,7 +3,7 @@ class Admin::PumpsController < ApplicationController
   before_filter :require_admin_signin
 
   def index
-    @pump = Pump.all
+    @pumps = Pump.all
   end
 
   def new
