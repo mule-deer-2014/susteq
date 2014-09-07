@@ -28,20 +28,21 @@ HubMap.View.prototype = {
 
   createMarker: function(hub){
     var icon;
-    hub.status === "ok" ? icon = this.greenMarker : icon = this.redMarker;
+    console.log(hub)
+    hub.status_code === 1 ? icon = this.greenMarker : icon = this.redMarker;
     return L.marker([hub.latitude, hub.longitude], {icon:icon});
   },
 
   createPopUp: function(hub){
-    return L.popup().setContent('<p>'+ hub.name +'<br /> Water price: $' + hub.waterPrice + '.</p>');
+    return L.popup().setContent('<p>'+ hub.name +'<br />' + hub.type +'.</p>');
   },
 
   createErrorPopUp: function(hub){
-    return L.popup().setContent('<p>'+ hub.name +'<br /> Water price: $' + hub.waterPrice + '<br/>'+ 'Warning: ' + hub.errors + '</p>');
+    return L.popup().setContent('<p>'+ hub.name +'<br />' + hub.type +'</p>');
   },
 
   makePopUp: function(hub){
-    if (hub.status === "ok")
+    if (hub.status === 1)
       return this.createPopUp(hub);
     else
       return this.createErrorPopUp(hub);
