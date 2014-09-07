@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
+  root :to => "sessions#new"
+
   #EMPLOYEE ROUTES
-  root :to => "employee/sessions#new"
-  # root :to => "admin/dashboard#index"
   delete '/employee/signout', to: 'employee/sessions#destroy'
 
   namespace :employee do
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
   end
 
   get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
-
 
   #ADMIN ROUTES
   get '/admin', to: "admin/sessions#new"
