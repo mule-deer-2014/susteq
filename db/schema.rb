@@ -17,11 +17,13 @@ ActiveRecord::Schema.define(version: 20140906000509) do
   enable_extension "plpgsql"
 
   create_table "hubs", force: true do |t|
-    t.integer  "location_id",                          null: false
-    t.string   "type",                                 null: false
+    t.integer  "location_id",                                      null: false
+    t.string   "type",                                             null: false
     t.string   "provider_id"
     t.decimal  "longitude",   precision: 10, scale: 6
     t.decimal  "latitude",    precision: 10, scale: 6
+    t.string   "name"
+    t.integer  "status_code",                          default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

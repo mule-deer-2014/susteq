@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   respond_to :html
+  before_filter :require_employee_signin
 
   def index
     @employees = Employee.all
