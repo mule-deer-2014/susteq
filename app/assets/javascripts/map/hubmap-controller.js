@@ -31,9 +31,10 @@ HubMap.Controller.prototype = {
       url:"/admin/kiosks",
       method:"get"
     }).
-    done(function(){
-      this.parseJsonKioskData.bind(this);
-      this.view.renderMarkers(this.kiosks);
+    done(function(data){
+      debugger
+      // this.parseJsonKioskData(data).bind(this);
+      // this.view.renderMarkers(this.kiosks);
     }).
     fail();
   },

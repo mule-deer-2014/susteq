@@ -5,5 +5,6 @@ $(document).ready(function() {
     var mapController = new HubMap.Controller(mapView);
     // mapController.parseJsonHubData([testData, testData1]);
     // mapController.view.renderMarkers(mapController.hubs);
+    mapController.getAdminKioskData()
   }
 });
