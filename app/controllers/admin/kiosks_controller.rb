@@ -3,6 +3,7 @@ class Admin::KiosksController < ApplicationController
 
   def new
     @kiosk = Kiosk.new
+    @providers = Provider.all
   end
 
   def show
@@ -17,7 +18,6 @@ class Admin::KiosksController < ApplicationController
       render "admin/kiosks/new"
     end
   end
-
 
   def edit
     @kiosk = Kiosk.find params[:id]
