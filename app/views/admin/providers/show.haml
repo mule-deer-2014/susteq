@@ -40,35 +40,27 @@
 %h3 Total water served
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
 
-%h3.pull-left Water points
-= link_to '<button class="btn btn-primary btn-xs pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New WPS</button>'.html_safe
+%h3.pull-left Water pumps
+= link_to '<button class="btn btn-primary btn-xs pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New pump</button>'.html_safe
 .row
 	.col-lg-12
 		.table-responsive
 			%table.table.table-striped.table-bordered.table-hover.mt20
 				%thead
 					%tr
-						%th Name
-						%th City
-						%th State
-						%th Description
+						%th Pump ID
+						%th Longitude
+						%th Latitude
 				%tbody
-					%tr.odd.gradeX
-						%td Green Valley Inc.
-						%td Nakuru
-						%td.center
-						%td.center Anything here
-					%tr.even.gradeC
-						%td 
-							%a{:href => "wsps/show.html"}
-								Malibu Inc.
-						%td Nairobi
-						%td.center
-						%td.center Anything here
+					- @pumps.each do |pump|
+						%tr
+							%td= link_to pump.id
+							%td= pump.longitude
+							%td= pump.latitude
 		/ /.table-responsive
 	/ /.col-lg-12
 
-%h3.pull-left Users
+%h3.pull-left Employees
 = link_to '<button class="btn btn-primary btn-xs pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New user</button>'.html_safe
 .row
 	.col-lg-12
