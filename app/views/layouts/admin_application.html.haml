@@ -56,9 +56,7 @@
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-user
               %li
-                %a{:href => "#"}
-                  %i.fa.fa-user.fa-fw
-                  User Profile
+                =link_to '<i class="fa fa-user fa-fw"></i> User Profile'.html_safe, current_admin_path
               %li
                 %a{:href => "#"}
                   %i.fa.fa-gear.fa-fw
