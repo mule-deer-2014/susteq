@@ -1,0 +1,26 @@
+= form_for [:admin, @kiosk] do |f|
+  - if @kiosk.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@kiosk.errors.count, "error")
+        prohibited this kiosk from being saved:
+      %ul
+        - @kiosk.errors.full_messages.each do |message|
+          %li= message  
+  .form-group
+    = f.label :longitude
+    %br
+    = f.text_field :longitude, class: "form-control"
+  .form-group
+    = f.label :latitude
+    %br
+    = f.text_field :latitude, class: "form-control"
+  .form-group
+    = f.label :location_id
+    %br
+    = f.text_field :location_id, class: "form-control"
+  .form-group
+    = f.label :provider
+    = f.collection_select :provider_id, Provider.all, :id, :name, {prompt: "Select a provider"}, {class: "form-control"}
+  .actions
+    = f.submit class: "btn btn-default"
