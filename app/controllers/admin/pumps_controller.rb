@@ -1,7 +1,13 @@
 class Admin::PumpsController < ApplicationController
+  layout "admin_application"
+
+  def index
+    @pump = Pump.all
+  end
 
   def new
     @pump = Pump.new
+    @providers = Provider.all
   end
 
   def show
@@ -9,14 +15,13 @@ class Admin::PumpsController < ApplicationController
   end
 
   def create
-    @pump = Pump.new(pump_params)
+    @pump = Pump.new(pump_params) 
     if @pump.save
       redirect_to admin_pump_path(@pump)
     else
       render "admin/pumps/new"
     end
   end
-
 
   def edit
     @pump = Pump.find params[:id]
