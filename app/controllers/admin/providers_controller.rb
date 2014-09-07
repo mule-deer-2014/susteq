@@ -30,6 +30,7 @@ class Admin::ProvidersController < ApplicationController
 
   def destroy
     Provider.destroy(params[:id])
+    redirect_to admin_providers_path
   end
 
   private
