@@ -8,6 +8,7 @@
 						%th Provider
 						%th Country
 						%th Status
+						%th
 				%tbody
 					- @pumps.each_with_index do |pump, index|
 						- index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
@@ -16,6 +17,9 @@
 							%td= link_to "#{pump.provider.name}", admin_provider_path(id:pump.provider_id)
 							%td= pump.provider.country
 							%td= pump.provider.id
+							%td
+								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(pump), method: :delete, data: { confirm: 'Are you sure?' }
+								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(pump)
 
 :javascript
 	$(document).ready(function() {
