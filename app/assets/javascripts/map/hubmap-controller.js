@@ -8,7 +8,8 @@
 
 HubMap.Controller = function(view){
   this.view = view;
-  this.hubs = [];
+  this.kiosks = [];
+  this.pumps = [];
 };
 
 HubMap.Controller.prototype = {
@@ -25,16 +26,41 @@ HubMap.Controller.prototype = {
     fail();
   },
 
-  parseJsonHubData: function(jsonData){
-    for (var i= 0; i<jsonData.length; i++){
-      var hubJsonData = jsonData[i];
-      if (hubJsonData.latitude && hubJsonData.longitude){
-        hub = new Hub(hubJsonData);
-        this.hubs.push(hub);
-      }
-    }
+  getAdminKioskData: function(){
+    var kioskAjax = $.ajax({
+      url:"/admin/kiosks",
+      method:"get"
+    }).
+    done(function(){
+      this.parseJsonKioskData.bind(this);
+      this.view.renderMarkers(this.kiosks);
+    }).
+    fail();
   },
+
+  getAdminPumpData: function(){
+
+  },
+
+  getProviderKioskData: function(){
+
+  },
+
+  getProviderPumpData: function(){
+
+  }
 };
+
+//   parseJsonHubData: function(jsonData){
+//     for (var i= 0; i<jsonData.length; i++){
+//       var hubJsonData = jsonData[i];
+//       if (hubJsonData.latitude && hubJsonData.longitude){
+//         hub = new Hub(hubJsonData);
+//         this.hubs.push(hub);
+//       }
+//     }
+//   },
+// };
 
 
 //Driver Test Code
