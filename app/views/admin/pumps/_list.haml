@@ -7,13 +7,16 @@
 						%th Name
 						%th Provider
 						%th Country
+						%th Status
 				%tbody
 					- @pumps.each_with_index do |pump, index|
 						- index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
 						%tr{:class => classes}
 							%td= link_to "#{pump.name}", admin_pump_path(id:pump.id)
 							%td= link_to "#{pump.provider.name}", admin_provider_path(id:pump.provider_id)
-							%td Kenya
+							%td= pump.provider.country
+							%td= pump.provider.id
+
 :javascript
 	$(document).ready(function() {
 			$('#dataTables-example').dataTable();
