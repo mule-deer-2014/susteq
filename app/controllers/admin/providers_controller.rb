@@ -1,4 +1,5 @@
 class Admin::ProvidersController < ApplicationController
+  layout "admin_application"
   respond_to :html
 
   def index

@@ -1,8 +1,6 @@
-
 class Employee::SessionsController < ApplicationController
-
+  layout 'login'
   def new
-    render 'employee/sessions/new'
   end
 
   def create
@@ -13,7 +11,7 @@ class Employee::SessionsController < ApplicationController
       redirect_to provider_dashboard_path(@provider)
     else
       flash.now[:error] = 'Invalid email/password combination'
-      render 'employee/sessions/new', locals
+      render 'employee/sessions/new'
     end
   end
 
