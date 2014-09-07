@@ -22,7 +22,7 @@
         %td= link_to "delete pump number #{@pump.id}", admin_pump_path(@pump) ,:method => :delete
       %tr
         %th Water Service Provider
-        %td= "Pump number #{@pump.id} is owned by #{(Provider.find(@pump.provider_id)).name}"
+        %td  Kiosk number is #{@pump.id} is owned by #{link_to (Provider.find(@pump.provider_id)).name, admin_provider_path(Provider.find(@pump.provider_id))}
 
 %h3 Profit by month
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
