@@ -13,29 +13,11 @@
           %tr
             %th Name
             %th City
-            %th State
             %th Description
         %tbody
-          %tr.odd.gradeX
-            %td No More Thirst
-            %td Nakuru
-            %td.center
-            %td.center Anything here
-          %tr.even.gradeC
-            %td
-              %a{:href => "pumps/waterpoints.html"}
-                Fresh & Clear
-            %td Nairobi
-            %td.center
-            %td.center Anything here
-    / /.table-responsive
-  / /.col-lg-12
-/ Page-Level Demo Scripts - Tables - Use for reference
-:javascript
-  $(document).ready(function() {
-      $('#dataTables-example').dataTable();
-  });
-
-</body>
-
-</html>
+          - @pumps.each_with_index do |pump, index|
+            - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+            %tr{:class => classes}
+              %td= link_to "Pump #{pump.location_id}", provider_pump_path(id: pump.id)
+              %td
+              %td Something descriptive
