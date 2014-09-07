@@ -20,7 +20,7 @@
 				%tbody
 					- @providers.each do |provider|
 						%tr
-							%td= link_to provider.name, provider
+							%td= link_to provider.name, admin_provider_path(provider)
 							%td= provider.address
 							%td= provider.country
 							%td= provider.duns_number
