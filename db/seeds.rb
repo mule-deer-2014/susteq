@@ -3,11 +3,10 @@ require 'faker'
 def generate_random_lat_long(lat_min, lat_max, long_min, long_max)
   lat_range = lat_max - lat_min
   long_range = long_max - long_min
-  lat = lat_min + lat_range * rand
-  long = long_min + long_range * rand
+  lat = lat_min + (lat_range * rand)
+  long = long_min + (long_range * rand)
   return [lat, long]
 end
-
 
 hub_number = 1
 
