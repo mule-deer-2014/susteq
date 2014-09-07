@@ -4,15 +4,9 @@ class PumpsController < ApplicationController
 
   def index
     @pumps = Provider.find(params[:provider_id]).pumps
-    transactions = []
-    @pumps.each do |p|
-      p.transactions.where(transaction_code: 1).each do |t|
-        transactions << t
-      end
-    end
     sum = 0
-    transactions.each do |t|
-      sum += t.amount
+    @pumps.each do |p|
+      sum += p.water_dispensed
     end
     @total_dispensed = sum
   end
