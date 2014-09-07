@@ -2,4 +2,4 @@
 
 %ul
 	- @pump.transactions.each do |t|
-		%li= "Transaction number #{t.id} should probably have a class method to decode 'transaction_code: #{t.transaction_code}'—whatever it was, it did #{t.amount} of it."
+		%li= "Transaction ID: #{t.id}; transaction code: #{t.transaction_code}; transaction amount: #{t.amount}."
