@@ -14,7 +14,7 @@ HubMap.View.prototype = {
   }),
 
   setEsriTileLayer: function(){
-    L.esri.basemapLayer("DarkGray").addTo(this.map);
+    L.esri.basemapLayer("Imagery").addTo(this.map);
   },
 
   setOSMTileLayer: function(){
