@@ -32,16 +32,33 @@ HubMap.Controller.prototype = {
 
   parseJsonKioskData: function(kioskData){
     for(var i= 0; i<kioskData.length; i++){
-      var jsonKiosk = kioskData[i];
-      if (jsonKiosk.latitude && jsonKiosk.longitude){
-        var kiosk = new Kiosk(jsonKiosk);
+      if (kioskData[i].latitude && kioskData[i].longitude){
+        var kiosk = new Kiosk(kioskData[i]);
         this.kiosks.push(kiosk);
       }
     }
   },
 
-  getAdminPumpData: function(){
+  adminGetPumpData: function(){
+    var pumpAjax = $.ajax({
+      url:"/admin/pumps.json",
+      method:"get"
+    }).
+    done(function(data){
+      console.log(data);
+      this.parseJsonPumpData(data.pumps);
+      this.view.renderMarkers(this.pumps);
+    }.bind(this)).
+    fail();
+  },
 
+  parseJsonPumpData: function(pumpData){
+    for(var i= 0; i<pumpData.length; i++){
+      if (pumpData[i].latitude && pumpData[i].longitude){
+        var pump = new Pump(pumpData[i]);
+        this.pumps.push(pump);
+      }
+    }
   },
 
   getProviderKioskData: function(){
