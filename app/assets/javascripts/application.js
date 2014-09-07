@@ -22,6 +22,8 @@
 //= require sb-admin/jquery.flot.tooltip.min
 //= require sb-admin/raphael-2.1.0.min
 //= require sb-admin/morris
+//= require map/leaflet.js
+//= require map/esri-leaflet.js
 
 //= require sb-admin/sb-admin
 
