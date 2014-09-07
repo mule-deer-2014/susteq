@@ -5,7 +5,4 @@ class Admin::HubsController < ApplicationController
     @pumps = Pump.all
   end
 
-
 end
-
-
