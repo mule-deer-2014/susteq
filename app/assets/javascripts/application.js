@@ -26,7 +26,7 @@
 //= require map/esri-leaflet
 //= require map/leaflet.awesome-markers.min
 //= require map/_namespace
-//= require map/hubmap-hub
+//= require map/hubmap-model
 //= require map/hubmap-view
 //= require map/hubmap-controller
 //= require map/initialize
