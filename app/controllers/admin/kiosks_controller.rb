@@ -5,6 +5,14 @@ class Admin::KiosksController < ApplicationController
     @kiosk = Kiosk.new
   end
 
+  def index
+    @kiosks = Kiosk.all
+    respond_to do |format|
+      format.html {render :haml}
+      format.json {render json:{kiosks:@kiosks}}
+    end
+  end
+
   def show
     @kiosk = Kiosk.find params[:id]
   end
@@ -17,7 +25,6 @@ class Admin::KiosksController < ApplicationController
       render "admin/kiosks/new"
     end
   end
-
 
   def edit
     @kiosk = Kiosk.find params[:id]
