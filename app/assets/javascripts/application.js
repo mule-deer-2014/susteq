@@ -28,6 +28,7 @@
 //= require map/_namespace
 //= require map/hubmap-hub
 //= require map/hubmap-view
+//= require map/hubmap-controller
 
 //= require sb-admin/sb-admin
 
