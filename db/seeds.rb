@@ -6,7 +6,7 @@ hub_number = 1
   Admin.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password_digest: BCrypt::Password.create("123456")
+    password: "123456"
   )
 end
 
@@ -24,7 +24,7 @@ Provider.all.each do |provider|
     provider.employees.create(
       name: Faker::Name.name,
       email: Faker::Internet.email,
-      password_digest: BCrypt::Password.create("123456")
+      password: "123456"
     )
   end
 
