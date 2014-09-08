@@ -5,9 +5,12 @@ HubMap.View = function(startLat, startLong, startZoom){
 
 HubMap.View.prototype = {
 
-  setOSMTileLayer: function(){
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    new L.TileLayer(osmUrl).addTo(this.map);
+  setTileLayers: function(){
+    var satLayer = L.esri.basemapLayer("Imagery");
+    var osmLayer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    var baseLayers = {"Satellite": satLayer, "Open Street Maps": osmLayer };
+    L.control.layers(baseLayers, null, {collapsed:false}).addTo(this.map);
+    satLayer.addTo(this.map);
   },
 
   createMarker: function(hub){
