@@ -1,5 +1,12 @@
 require 'faker'
 
+def generate_date_from_last_six_months
+  year = 2014
+  month = rand(6)+4
+  day = rand(31)     #Pour one out for n/31/2014; no pressing reason to add in the logic.
+  DateTime.new(year, month, day)
+end
+
 def generate_random_lat_long(lat_min, lat_max, long_min, long_max)
   lat_range = lat_max - lat_min
   long_range = long_max - long_min
