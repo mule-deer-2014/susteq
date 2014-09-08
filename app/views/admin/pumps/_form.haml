@@ -8,6 +8,10 @@
         - @pump.errors.full_messages.each do |message|
           %li= message  
   .form-group
+    = f.label :name
+    %br
+    = f.text_field :name, class: "form-control"
+  .form-group
     = f.label :longitude
     %br
     = f.text_field :longitude, class: "form-control"
