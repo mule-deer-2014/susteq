@@ -1,64 +1,44 @@
 Rails.application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  root 'home#index'
-  resources :kiosks
-  resources :providers
-  resources :employees
-  
+  root :to => "sessions#new"
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  #EMPLOYEE ROUTES
+  get '/employee', to: "employee/sessions#new", as: 'employee_signin'
+  get '/employee/signout', to: 'employee/sessions#destroy', as: 'employee_signout' #get rather than delete bc of issue with twitter bootstrap link_to
+  get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  namespace :employee do
+    resources :sessions, only: [:new, :create, :destroy]
+  end
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  resources :providers, only: [:show, :edit, :update] do
+    resources :employees
+    resources :pumps, only: [:index, :show]
+    resources :kiosks, only: [:index, :show]
+  end
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  #ADMIN ROUTES
+  get '/admin', to: "admin/sessions#new", as: 'admin_signin'
+  get '/admin/signout', to: 'admin/sessions#destroy', as: 'admin_signout' #get rather than delete bc of issue with twitter bootstrap link_to
+  get '/admin/dashboard', to:'admin/admins#dashboard', as: 'admin_dashboard'
+  get '/admin/my_profile', to: 'admin/admins#show_current', as: 'current_admin'
+  get '/admin/edit_profile', to: 'admin/admins#edit_current', as: 'edit_current_admin'
+  post '/admin/my_profile', to: 'admin/admins#update_current', as: 'update_current_admin' #post rather than put bc of issue with twitter bootstrap link_to
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  namespace :admin do
+    resources :sessions, only: [:new, :create, :destroy]
+    get '/dashboard', to: 'admin/dashboard#index'
+  end
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  namespace :admin do
+    resources :kiosks
+    resources :pumps
+    resources :hubs
+    resources :providers do
+      resources :hubs, :employees
+    end
+  end
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end

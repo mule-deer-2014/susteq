@@ -1,0 +1,61 @@
+.row
+  .col-lg-12
+    %h1.page-header= @pump.name
+.row
+  .col-lg-12
+    %h3.pull-left General information
+    %p.pull-right
+      = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(@pump)
+      = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(@pump), method: :delete, data: { confirm: 'Are you sure?' }
+.row
+  .col-lg-6
+    %table
+      %col.col-lg-5
+      %tr
+        %th Name
+        %td= @pump.name
+      %tr
+        %th Location ID
+        %td= @pump.location_id
+      %tr
+        %th Type
+        %td= @pump.type
+      %tr
+        %th Provider
+        %td= link_to "#{@pump.provider.name}", admin_provider_path(id: @pump.provider_id)
+      %tr
+        %th Longitude
+        %td= @pump.longitude
+      %tr
+        %th Latitude
+        %td= @pump.latitude
+      %tr
+        %th Created at
+        %td= @pump.created_at
+      %tr
+        %th Updated at
+        %td= @pump.updated_at
+
+
+
+%h3 Profit by month
+=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+.row
+  .col-lg-12
+    .table-responsive
+      %table#dataTables-example.table.table-basic.table-bordered.table-hover
+        %thead
+          %tr
+            %th Month
+            %th Profit
+        %tbody
+          %tr.odd.gradeX
+            %td May
+            %td $ 23.835
+          %tr.even.gradeC
+            %td June
+            %td $ 32.142
+:javascript
+  $(document).ready(function() {
+      $('#dataTables-example').dataTable();
+  });

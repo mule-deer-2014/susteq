@@ -17,11 +17,13 @@ ActiveRecord::Schema.define(version: 20140906000509) do
   enable_extension "plpgsql"
 
   create_table "hubs", force: true do |t|
-    t.integer  "location_id",                          null: false
-    t.string   "type",                                 null: false
+    t.integer  "location_id",                                      null: false
+    t.string   "type",                                             null: false
     t.string   "provider_id"
     t.decimal  "longitude",   precision: 10, scale: 6
     t.decimal  "latitude",    precision: 10, scale: 6
+    t.string   "name"
+    t.integer  "status_code",                          default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,9 +57,9 @@ ActiveRecord::Schema.define(version: 20140906000509) do
   create_table "users", force: true do |t|
     t.string   "type"
     t.integer  "provider_id"
-    t.string   "name",           null: false
-    t.string   "email",          null: false
-    t.string   "password_hash",  null: false
+    t.string   "name",            null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.string   "remember_token"
     t.string   "phone_number"
     t.datetime "created_at"

@@ -1,0 +1,9 @@
+.row
+  .col-lg-12
+    %h1.pull-left Pumps
+
+%hr
+=image_tag "map.png", :style => "width: 100%; margin-bottom: 50px;"
+%h3= "Total liters of water dispensed: #{@total_dispensed}"
+
+= render 'list'

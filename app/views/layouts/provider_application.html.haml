@@ -1,10 +1,9 @@
-!!! 5
 %html(lang="en")
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "SB Admin Version 2.0"
+    %title= content_for?(:title) ? yield(:title) : "Susteq Dashboard: #{current_provider.name}"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -17,6 +16,7 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
 
     = javascript_include_tag "application"  , 'data-turbolinks-track' => true
+    %link{:href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}/
   %body
     #wrapper
       %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation", :style => "margin-bottom: 0"}
@@ -26,16 +26,29 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "index.html"} SUSTEQ
+          %a.navbar-brand{:href => provider_dashboard_path} Susteq Dashboard: #{current_provider.name}
         / /.navbar-header
         %ul.nav.navbar-top-links.navbar-right
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              %i.fa.fa-plus.fa-fw
-              New
+              %i.fa.fa-envelope.fa-fw
+              %i.fa.fa-caret-down
+            %ul.dropdown-menu.dropdown-messages
+              =render partial: "providers/dashboard/dropdown_messages"
+          / /.dropdown
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %i.fa.fa-tasks.fa-fw
+              %i.fa.fa-caret-down
+            %ul.dropdown-menu.dropdown-tasks
+              =render partial: "providers/dashboard/dropdown_tasks"
+          / /.dropdown
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %i.fa.fa-bell.fa-fw
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-alerts
-              =render partial: "home/dropdown_alerts"
+              =render partial: "providers/dashboard/dropdown_alerts"
           / /.dropdown
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -52,9 +65,7 @@
                   Settings
               %li.divider
               %li
-                %a{:href => "login.html"}
-                  %i.fa.fa-sign-out.fa-fw
-                  Logout
+                =link_to '<i class="fa fa-sign-out fa-fw"></i> Logout'.html_safe, employee_signout_path
         / /.dropdown-user
         / /.dropdown
         / /.navbar-top-links
@@ -68,7 +79,7 @@
                       %button.btn.btn-default{:type => "button"}
                         %i.fa.fa-search
               / /input-group
-              =render partial: "home/side_menu"
+              =render partial: "providers/dashboard/side_menu"
       / /.sidebar-collapse
       / /.navbar-static-side
       #page-wrapper
@@ -76,3 +87,4 @@
       / /#page-wrapper
     / /#wrapper
 / Page-Level Demo Scripts - Dashboard - Use for reference
+
