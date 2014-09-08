@@ -5,6 +5,14 @@ BigData.DataController = function(){
 
 BigData.DataController.prototype = {
 
+  checkPermissions: function(func){
+    var permissionAjax = $.ajax({
+      url:"/sessions.json",
+      method:"get",
+      success:(func)
+    })
+  },
+
   getAdminData: function(func){
     var pumpAjax = $.ajax({
       url:"/admin/pumps.json",
