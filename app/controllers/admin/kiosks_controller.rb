@@ -2,13 +2,17 @@ class Admin::KiosksController < ApplicationController
   layout "admin_application"
   before_filter :require_admin_signin
 
-  def index
-    @kiosks = Kiosk.all
-  end
-
   def new
     @kiosk = Kiosk.new
     @providers = Provider.all
+  end
+
+  def index
+    @kiosks = Kiosk.all
+    respond_to do |format|
+      format.html {render 'admin/kiosks/index'}
+      format.json {render json:Kiosk.get_all_with_transactions}
+    end
   end
 
   def show
