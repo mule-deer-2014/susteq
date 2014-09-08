@@ -1,0 +1,4 @@
+%ul
+  - @employees.each do |employee|
+    %li
+      = link_to employee.name, provider_employee_path(id:employee.id)

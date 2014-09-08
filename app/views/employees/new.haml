@@ -1,4 +1,8 @@
 .row
   .col-lg-12
     %h1.page-header New WSP
+    =form_for :employee, {url: provider_employees_path(@provider), :action => "create", method: :post} do |f|
+      %p
+        Name:
+        =f.text_field :name
 .row
