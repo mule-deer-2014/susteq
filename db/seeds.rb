@@ -67,7 +67,7 @@ Provider.all.each do |provider|
     pump = provider.pumps.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1])
     5.times do
       pump.transactions.create(
-        transaction_time: DateTime.now,
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 1,
         location_id: hub_number,
         amount: rand(1..15)
@@ -82,7 +82,7 @@ Provider.all.each do |provider|
     kiosk = provider.kiosks.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1])
     5.times do
       kiosk.transactions.create(
-        transaction_time: DateTime.now,
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 22,
         location_id: hub_number,
         amount: rand(8..20) * 10
