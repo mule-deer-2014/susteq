@@ -2,10 +2,6 @@ class Admin::PumpsController < ApplicationController
   layout "admin_application"
   before_filter :require_admin_signin
 
-  def index
-    @pumps = Pump.all
-  end
-
   def new
     @pump = Pump.new
     @providers = Provider.all
@@ -22,6 +18,14 @@ class Admin::PumpsController < ApplicationController
       redirect_to admin_pump_path(@pump)
     else
       render "admin/pumps/new"
+    end
+  end
+
+  def index
+    @pumps = Pump.all
+    respond_to do |format|
+      format.html {render 'admin/pumps/index'}
+      format.json {render json:Pump.get_all_with_transactions}
     end
   end
 
