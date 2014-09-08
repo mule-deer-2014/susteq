@@ -10,9 +10,11 @@ $(document).ready(function(){
             this.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
             this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
           }
-          this.grapher = new HubChart.ChartMaker();
-          this.grapher.makeDataForHubs(dataController.allHubs());
-          this.grapher.makeCharts();
+          if ($("#kiosk-charts").length > 0 || $("#pump-charts").length > 0){
+            this.grapher = new HubChart.ChartMaker();
+            this.grapher.makeDataForHubs(dataController.allHubs());
+            this.grapher.makeCharts();
+          }
         }.bind(dataController));
       }
       else{
