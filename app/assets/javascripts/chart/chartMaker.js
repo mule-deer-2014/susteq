@@ -51,16 +51,20 @@ HubChart.ChartMaker.prototype = {
     var pLength = this.pumpData.length;
     if (kLength > 0) {
       for (var i=0; i<kLength; i++) {
-        var kioskGraph = document.createElement("div");
-        this.kioskDiv.appendChild(kioskGraph);
-        this.makeKioskChart(this.kioskData[i], kioskGraph);
+        if ($("#kiosk-charts").length > 0) {
+          var kioskGraph = document.createElement("div");
+          this.kioskDiv.appendChild(kioskGraph);
+          this.makeKioskChart(this.kioskData[i], kioskGraph);
+        }
       }
     }
     if (pLength > 0) {
       for (var j=0; j<pLength; j++) {
-        var pumpGraph = document.createElement("div");
-        this.pumpDiv.appendChild(pumpGraph);
-        this.makePumpChart(this.pumpData[j], pumpGraph);
+        if ($("#pumps-charts").length > 0) {
+          var pumpGraph = document.createElement("div");
+          this.pumpDiv.appendChild(pumpGraph);
+          this.makePumpChart(this.pumpData[j], pumpGraph);
+        }
       }
     }
   },
