@@ -45,6 +45,7 @@
 					%th Longitude
 					%th Latitude
 					%th Status code
+					%th
 			%tbody
 				- @pumps.each do |pump|
 					%tr
@@ -53,6 +54,9 @@
 						%td= pump.longitude
 						%td= pump.latitude
 						%td= pump.status_code
+						%td
+							= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(pump), method: :delete, data: { confirm: 'Are you sure?' }
+							= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(pump)
 .row.col-lg-12
 	%h3.pull-left Kiosks
 	.pull-right
@@ -67,6 +71,7 @@
 					%th Longitude
 					%th Latitude
 					%th Status code
+					%th
 			%tbody
 				- @kiosks.each do |kiosk|
 					%tr
@@ -75,6 +80,9 @@
 						%td= kiosk.longitude
 						%td= kiosk.latitude
 						%td= kiosk.status_code
+						%td
+							= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_kiosk_path(kiosk), method: :delete, data: { confirm: 'Are you sure?' }
+							= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_kiosk_path(kiosk)
 .row.col-lg-12
 	%h3.pull-left Employees
 	.pull-right
