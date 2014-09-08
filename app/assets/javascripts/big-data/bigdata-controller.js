@@ -6,7 +6,6 @@ BigData.DataController = function(){
 BigData.DataController.prototype = {
 
   allHubs:function(){
-    debugger
     return this.kiosks.concat(this.pumps);
   },
 
