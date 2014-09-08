@@ -1,0 +1,21 @@
+.row
+  .col-lg-12
+    .table-responsive
+      %table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+        %thead
+          %tr
+            %th Name
+            %th Longitude
+            %th Latitude
+        %tbody
+          - @pumps.each_with_index do |pump, index|
+            - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+            %tr{:class => classes}
+              %td= link_to "#{pump.name}", pump_path(pump)
+              %td= pump.longitude
+              %td= pump.latitude
+              %td
+:javascript
+  $(document).ready(function() {
+      $('#dataTables-example').dataTable();
+  });

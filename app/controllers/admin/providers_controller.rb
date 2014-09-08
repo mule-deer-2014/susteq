@@ -1,6 +1,7 @@
 class Admin::ProvidersController < ApplicationController
   layout "admin_application"
   respond_to :html
+  before_filter :require_admin_signin
 
   def index
     @providers = Provider.all
@@ -22,6 +23,9 @@ class Admin::ProvidersController < ApplicationController
   def show
     @provider = Provider.find(params[:id])
     @hubs = @provider.hubs
+    @pumps = @hubs[:pumps]
+    @kiosks = @hubs[:kiosks]
+    @employees = @provider.employees
   end
 
   def update

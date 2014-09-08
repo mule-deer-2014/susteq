@@ -1,17 +1,4 @@
-%h1 Edit your pump info
-%ul
-  = form_for :pump, url: admin_pump_path(@pump), method: 'put'  do |f|
-    %li
-      = f.label :longitude
-      = f.text_field :longitude, :value => @pump.longitude
-    %li
-      = f.label :latitude
-      = f.text_field :latitude, :value => @pump.latitude
-    %li
-      = f.label :location_id
-      = f.text_field :location_id, :value => @pump.location_id
-    %li
-      = f.label :provider_id
-      = f.text_field :provider_id, :value => @pump.provider_id
-    %li
-      = f.submit
+.row
+  .col-lg-12
+    %h1.page-header Edit Pump
+= render 'form'

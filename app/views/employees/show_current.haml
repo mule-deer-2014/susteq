@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-sm-10
+      %h1 My Employee Profile
+  .row
+    .col-sm-6
+      / left col
+      %ul.list-group
+        %li.list-group-item.text-muted Account Details
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Name
+          = current_employee.name
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Email
+          = current_employee.email
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Phone Number
+          = current_employee.phone_number
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Profile Created
+          = current_employee.created_at.strftime('%c')
+
+= link_to '<button class="btn btn-primary btn-lg pull-left mt20" type="button"><i class="fa fa-edit fa-fw"></i>Edit Profile</button>'.html_safe, edit_current_employee_path

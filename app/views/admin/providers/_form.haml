@@ -1,0 +1,20 @@
+= form_for [:admin, @provider] do |f|
+	.form-group.col-lg-6
+		= f.label :name
+		%br
+		= f.text_field :name, class: "form-control"
+	.form-group.col-lg-6
+		= f.label :address
+		%br
+		= f.text_field :address, class: "form-control"
+	.form-group.col-lg-6
+		= f.label :country
+		%br
+		= f.text_field :country, class: "form-control"
+	.form-group.col-lg-6
+		= f.label :duns_number
+		%br
+		= f.text_field :duns_number, class: "form-control"
+	.row.col-lg-12
+		.actions.pull-right
+			= f.submit class: "btn btn-primary"

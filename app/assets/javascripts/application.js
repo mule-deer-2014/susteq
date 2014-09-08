@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require cookie
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
@@ -22,6 +23,18 @@
 //= require sb-admin/jquery.flot.tooltip.min
 //= require sb-admin/raphael-2.1.0.min
 //= require sb-admin/morris
+//= require map/leaflet
+//= require map/esri-leaflet
+//= require map/leaflet.awesome-markers.min
+//= require big-data/_namespace
+//= require map/_map_namespace
+//= require big-data/bigdata-model
+//= require big-data/bigdata-controller
+//= require map/hubmap-view
+//= require big-data/initialize
+//= require chart/polychart2.standalone
+//= require chart/_chart_namespace
+//= require chart/chartMaker
 
 //= require sb-admin/sb-admin
 

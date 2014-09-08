@@ -3,7 +3,7 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "SB Admin Version 2.0"
+    %title= content_for?(:title) ? yield(:title) : "Susteq Dashboard"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -26,29 +26,16 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "index.html"} SB Admin v2.0
+          %a.navbar-brand{:href => admin_dashboard_path} Susteq Dashboard
         / /.navbar-header
         %ul.nav.navbar-top-links.navbar-right
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              %i.fa.fa-envelope.fa-fw
-              %i.fa.fa-caret-down
-            %ul.dropdown-menu.dropdown-messages
-              =render partial: "admin/dashboard/dropdown_messages"
-          / /.dropdown
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              %i.fa.fa-tasks.fa-fw
-              %i.fa.fa-caret-down
-            %ul.dropdown-menu.dropdown-tasks
-              =render partial: "admin/dashboard/dropdown_tasks"
-          / /.dropdown
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              %i.fa.fa-bell.fa-fw
+              %i.fa.fa-plus.fa-fw
+              New
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-alerts
-              =render partial: "admin/dashboard/dropdown_alerts"
+              =render partial: "admin/dashboard/dropdown_new"
           / /.dropdown
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -56,18 +43,12 @@
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-user
               %li
-                %a{:href => "#"}
-                  %i.fa.fa-user.fa-fw
-                  User Profile
+                =link_to '<i class="fa fa-user fa-fw"></i> My Profile'.html_safe, current_admin_path
               %li
-                %a{:href => "#"}
-                  %i.fa.fa-gear.fa-fw
-                  Settings
+                =link_to '<i class="fa fa-gear fa-fw"></i> Manage Admins'.html_safe, admin_admins_path
               %li.divider
               %li
-                %a{:href => "login.html"}
-                  %i.fa.fa-sign-out.fa-fw
-                  Logout
+                =link_to '<i class="fa fa-sign-out fa-fw"></i> Signout'.html_safe, admin_signout_path
         / /.dropdown-user
         / /.dropdown
         / /.navbar-top-links
