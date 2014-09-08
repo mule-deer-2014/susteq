@@ -1,93 +1,78 @@
 .row
 	.col-lg-12
-		%h1.page-header
-			= @provider.name
-
+		%h1.page-header= @provider.name
 		%h3 General information
 .row
 	.col-lg-6
 		%table
 			%tr
 				%th Name
-				%td 
-					= @provider.name
+				%td= @provider.name
 			%tr
 				%th Address
-				%td 
-					= @provider.address
+				%td= @provider.address
 			%tr
 				%th Country
-				%td
-					= @provider.country
+				%td= @provider.country
 	.col-lg-6
 		%table
 			%tr
 				%th Duns number
-				%td
-					= @provider.duns_number
+				%td= @provider.duns_number
 			%tr
 				%th Created at
-				%td
-					= @provider.created_at
+				%td= @provider.created_at
 			%tr
 				%th Updated at
-				%td
-					= @provider.updated_at
-
-%h3 Profit by month
-=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
-
-%h3 Total water served
-=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
-
-.row
+				%td= @provider.updated_at
+.row.col-lg-12
+	%h3 Profit by month
+	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+	%h3 Total water served
+	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+.row.col-lg-12
 	%h3.pull-left Water pumps
 	.pull-right
 		= button_to "New pump", new_admin_pump_path, method: "get", class: "btn btn-primary btn-xs mt20"
-.row
-	.col-lg-12
-		.table-responsive
-			%table.table.table-striped.table-bordered.table-hover.mt20
-				%thead
+.row.col-lg-12
+	.table-responsive
+		%table.table.table-striped.table-bordered.table-hover.mt20
+			%thead
+				%tr
+					%th Pump ID
+					%th Longitude
+					%th Latitude
+			%tbody
+				- @pumps.each do |pump|
 					%tr
-						%th Pump ID
-						%th Longitude
-						%th Latitude
-				%tbody
-					- @pumps.each do |pump|
-						%tr
-							%td= link_to pump.id
-							%td= pump.longitude
-							%td= pump.latitude
-		/ /.table-responsive
-	/ /.col-lg-12
+						%td= link_to pump.id
+						%td= pump.longitude
+						%td= pump.latitude
 
-.row
+.row.col-lg-12
 	%h3.pull-left Emplyees
 	.pull-right
 		= button_to "New employee", "#", method: "get", class: "btn btn-primary btn-xs mt20"
+.row.col-lg-12
+	.table-responsive
+		%table.table.table-striped.table-bordered.table-hover.mt20
+			%thead
+				%tr
+					%th Name
+					%th City
+					%th State
+					%th Description
+			%tbody
+				%tr.odd.gradeX
+					%td Green Valley Inc.
+					%td Nakuru
+					%td.center
+					%td.center Anything here
+				%tr.even.gradeC
+					%td 
+						%a{:href => "wsps/show.html"}
+							Malibu Inc.
+					%td Nairobi
+					%td.center
+					%td.center Anything here
 .row
-	.col-lg-12
-		.table-responsive
-			%table.table.table-striped.table-bordered.table-hover.mt20
-				%thead
-					%tr
-						%th Name
-						%th City
-						%th State
-						%th Description
-				%tbody
-					%tr.odd.gradeX
-						%td Green Valley Inc.
-						%td Nakuru
-						%td.center
-						%td.center Anything here
-					%tr.even.gradeC
-						%td 
-							%a{:href => "wsps/show.html"}
-								Malibu Inc.
-						%td Nairobi
-						%td.center
-						%td.center Anything here
-		/ /.table-responsive
-	/ /.col-lg-12
