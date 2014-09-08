@@ -47,11 +47,36 @@ HubChart.ChartMaker.prototype = {
   },
 
   makeCharts: function() {
-    if (this.kioskData.length > 0) {
-      console.log("ready to make kiosk charts!");
+    var kLength = this.kioskData.length;
+    var pLength = this.pumpData.length;
+    if (kLength > 0) {
+      for (var i=0; i<kLength; i++) {
+        var kioskGraph = document.createElement("div");
+        this.kioskDiv.appendChild(kioskGraph);
+        this.makeKioskChart(this.kioskData[i], kioskGraph);
+      }
     }
-    if (this.pumpData.length > 0) {
+    if (pLength > 0) {
       console.log("ready to make pump charts!");
     }
+  },
+
+  makeKioskChart: function(dataSet, chartElement) {
+    polyjs.chart({
+    layer: {
+      data: dataSet,
+      type: "bar",
+      x: "bin(date, 'month')",
+      y: "sum(credits)"
+    },
+    guide: {
+      x: { title: "Month"},
+      y: { title: ""}
+    },
+    title: "Credit Sales by Month",
+    dom: chartElement,
+    width: 500,
+    height: 250
+  });
   }
 };
