@@ -31,7 +31,6 @@
 //= require big-data/bigdata-controller
 //= require map/hubmap-view
 //= require big-data/initialize
-//= require map/initialize
 
 //= require sb-admin/sb-admin
 
