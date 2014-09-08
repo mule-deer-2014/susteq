@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       redirect_to employee_signin_path
     end
   end
+
   def index
     if admin_signed_in?
       permission = "admin"
@@ -21,4 +22,5 @@ class SessionsController < ApplicationController
       format.json{render json: {permission:permission} }
     end
   end
+
 end
