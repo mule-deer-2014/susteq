@@ -1,7 +1,0 @@
-%p= @employee.name
-
-// only link_to seems to be working for GET?
-= link_to 'Edit', edit_provider_employee_path(@employee.provider_id, @employee)
-
-// only button_to seems to be working for POST?
-= button_to 'Delete', {action: 'destroy', id: @employee.id}, :method => :delete

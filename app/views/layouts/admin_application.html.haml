@@ -35,7 +35,7 @@
               New
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-alerts
-              =render partial: "admin/dashboard/dropdown_alerts"
+              =render partial: "admin/dashboard/dropdown_new"
           / /.dropdown
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -50,7 +50,7 @@
                   Settings
               %li.divider
               %li
-                =link_to '<i class="fa fa-sign-out fa-fw"></i> Logout'.html_safe, admin_signout_path
+                =link_to '<i class="fa fa-sign-out fa-fw"></i> Signout'.html_safe, admin_signout_path
         / /.dropdown-user
         / /.dropdown
         / /.navbar-top-links
