@@ -16,12 +16,12 @@ end
   )
 
   Provider.create(
-    name: "susteq_provider",
-    address: "dallas",
-    country: "usa",
+    name: "ABC Water Service Provider",
+    address: "Nairobi",
+    country: "Kenya",
     duns_number: "121312312"
   ).employees.create(
-    name: "susteq",
+    name: "John Doe",
     email: "susteq_employee@dbc.com",
     password: "123456"
   )
