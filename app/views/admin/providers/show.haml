@@ -39,15 +39,19 @@
 		%table.table.table-striped.table-bordered.table-hover.mt20
 			%thead
 				%tr
-					%th Pump ID
+					%th Location ID
+					%th Name
 					%th Longitude
 					%th Latitude
+					%th Status code
 			%tbody
 				- @pumps.each do |pump|
 					%tr
-						%td= link_to pump.id
+						%td= link_to pump.location_id, admin_pump_path(pump)
+						%td= pump.name
 						%td= pump.longitude
 						%td= pump.latitude
+						%td= pump.status_code
 
 .row.col-lg-12
 	%h3.pull-left Emplyees
