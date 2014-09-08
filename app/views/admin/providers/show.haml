@@ -40,8 +40,10 @@
 %h3 Total water served
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
 
-%h3.pull-left Water pumps
-= link_to '<button class="btn btn-primary btn-xs pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New pump</button>'.html_safe
+.row
+	%h3.pull-left Water pumps
+	.pull-right
+		= button_to "New pump", new_admin_pump_path, method: "get", class: "btn btn-primary btn-xs mt20"
 .row
 	.col-lg-12
 		.table-responsive
@@ -60,8 +62,10 @@
 		/ /.table-responsive
 	/ /.col-lg-12
 
-%h3.pull-left Employees
-= link_to '<button class="btn btn-primary btn-xs pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New user</button>'.html_safe
+.row
+	%h3.pull-left Emplyees
+	.pull-right
+		= button_to "New employee", "#", method: "get", class: "btn btn-primary btn-xs mt20"
 .row
 	.col-lg-12
 		.table-responsive
