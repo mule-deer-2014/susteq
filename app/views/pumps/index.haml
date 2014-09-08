@@ -1,23 +1,9 @@
 .row
   .col-lg-12
     %h1.pull-left Pumps
-  / /.col-lg-12
+
 %hr
 =image_tag "map.png", :style => "width: 100%; margin-bottom: 50px;"
-/ /.row
-.row
-  .col-lg-12
-    .table-responsive
-      %table#dataTables-example.table.table-striped.table-bordered.table-hover
-        %thead
-          %tr
-            %th Name
-            %th City
-            %th Description
-        %tbody
-          - @pumps.each_with_index do |pump, index|
-            - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
-            %tr{:class => classes}
-              %td= link_to "#{pump.name}", provider_pump_path(id: pump.id)
-              %td
-              %td Something descriptive
+%h3= "Total liters of water dispensed: #{@total_dispensed}"
+
+= render 'list'
