@@ -9,6 +9,15 @@ function Kiosk(jsonData){
     this.location_id = jsonData.location_id;
 };
 
+Kiosk.prototype = {
+    parseTransactions: function(transactionData){
+        for (var i=0; i < transactionData.length; i++){
+            var transaction = Transaction(transactionData[i]);
+            this.transactions.push(transaction);
+        }
+    }
+};
+
 function Pump(jsonData){
     this.id = jsonData.id;
     this.type = "pump";
@@ -18,6 +27,15 @@ function Pump(jsonData){
     this.longitude = jsonData.longitude;
     this.status_code = jsonData.status_code;
     this.location_id = jsonData.location_id;
+};
+
+Pump.prototype = {
+    parseTransactions: function(transactionData){
+        for (var i=0; i < transactionData.length; i++){
+            var transaction = Transaction(transactionData[i]);
+            this.transactions.push(transaction);
+        }
+    }
 };
 
 function Transaction(jsonData){
