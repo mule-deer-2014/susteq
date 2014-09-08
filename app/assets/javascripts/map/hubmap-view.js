@@ -74,4 +74,29 @@ HubMap.View.prototype = {
     }
   },
 
+  createMarkers:function(hubs){
+    markers = [];
+    for (var i=0; i<hubs.length; i++){
+      var marker = this.createMarker(hubs[i]);
+      var popup = this.makePopUp(hubs[i]);
+      marker.bindPopup(popup);
+    }
+    return markers;
+  },
+
+  renderPumpsLayer: function(pumps){
+    var pumpMarkers = this.createMarkers(pumps);
+    var pumpLayer =  L.layerGroup(pumpMarkers);
+    console.log(pumpLayer);
+    var overLay = {"Pumps": pumpLayer};
+    L.control.layers(null, overLay).addTo(this.map);
+
+  },
+
+  renderKiosksLayer: function(kiosks){
+    var kioskMarkers = this.createMarkers(kiosks);
+    var kioskLayer = L.layerGroup(kioskMarkers);
+    L.control.layers(null, kioskLayer).addTo(this.map);
+  }
+
 };
