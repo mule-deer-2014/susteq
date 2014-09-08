@@ -17,26 +17,30 @@ HubChart.ChartMaker.prototype = {
   },
 
   makeKioskDatum: function(jsonDatum) {
-    ret = [];
     dates = [];
     amounts = [];
     for(var j=0; j<jsonDatum.transactions.length; j++) {
       dates.push(jsonDatum.transactions[j].transaction_time);
       amounts.push(jsonDatum.transactions[j].amount);
     }
-    ret.push(dates, amounts);
-    this.kioskData.push(ret);
+    var dataSet = polyjs.data({
+      date: dates,
+      credits: amounts
+    });
+    this.kioskData.push(dataSet);
   },
 
   makePumpDatum: function(jsonDatum) {
-    ret = [];
     dates = [];
     amounts = [];
     for(var j=0; j<jsonDatum.transactions.length; j++) {
       dates.push(jsonDatum.transactions[j].transaction_time);
       amounts.push(jsonDatum.transactions[j].amount);
     }
-    ret.push(dates, amounts);
-    this.pumpData.push(ret);
+    var dataSet = polyjs.data({
+      date: dates,
+      dispensed: amounts
+    });
+    this.pumpData.push(dataSet);
   }
 };
