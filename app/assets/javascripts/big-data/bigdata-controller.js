@@ -41,7 +41,6 @@ BigData.DataController.prototype = {
       pump.parseTransactions(pumpData[i].transactions)
       this.pumps.push(pump);
     }
-    debugger
   },
 
   getProviderKioskData: function(){
