@@ -47,18 +47,18 @@ BigData.DataController.prototype = {
     }
   },
 
-  getProviderData: function(provider_id, func){
+  getProviderData: function(func){
     var pumpAjax = $.ajax({
-      url:"/providers/"+provider_id+"/pumps.json",
+      url:"/pumps.json",
       method:"get",
-      success:this.parseJsonPumpData.bind(this)
+      success:this.parseJsonPumpData.bind(this),
     });
     var kioskAjax = $.ajax({
-      url:"/providers/"+provider_id+"/kiosks.json",
+      url:"/kiosks.json",
       method:"get",
-      success:this.parseJsonKioskData.bind(this)
-    });
+      success:this.parseJsonKioskData.bind(this),
 
+    });
     $.when(pumpAjax, kioskAjax).done(func)
   },
 }
