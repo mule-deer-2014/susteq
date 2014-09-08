@@ -17,7 +17,7 @@ class Admin::AdminsController < ApplicationController
   def update_current
     if current_admin.update_attributes(admin_params) #if entered new password, then do this way
       redirect_to current_admin_path
-    elsif admin_params[:password] == "" #if entered blank password, then do this way
+    elsif admin_params[:password].empty? #if entered blank password, then do this way
       current_admin.update_attribute(:name, admin_params[:name])
       current_admin.update_attribute(:email, admin_params[:email])
       redirect_to current_admin_path
