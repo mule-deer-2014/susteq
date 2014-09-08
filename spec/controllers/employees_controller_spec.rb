@@ -3,6 +3,7 @@ require 'rails_helper'
 describe EmployeesController do
   before do
     @employee = FactoryGirl.create(:employee)
+    authorize_employee(@employee)
   end
 
   describe 'Response statuses' do
