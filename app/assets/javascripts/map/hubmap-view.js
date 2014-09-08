@@ -14,19 +14,41 @@ HubMap.View.prototype = {
   },
 
   createMarker: function(hub){
-    var icon;
+    icon =  L.AwesomeMarkers.icon({prefix:"fa"});
+    icon.options.icon = this.getSymbol(hub);
+    icon.options.markerColor = this.getStatus(hub);
+    return L.marker([hub.latitude, hub.longitude], {icon:icon, riseOnHover:true});
+  },
+
+  createMarkers:function(hubs){
+    markers = [];
+    for (var i=0; i<hubs.length; i++){
+      var marker = this.createMarker(hubs[i]);
+      var popup = this.makePopUp(hubs[i]);
+      markers.push(marker.bindPopup(popup));
+    }
+    return markers;
+  },
+
+  getStatus:function(hub){
     switch(hub.status_code){
     case 1:
-      icon = this.greenMarker;
+      return "green";
       break;
     case 0:
-      icon = this.orangeMarker;
+      return "orange";
       break;
     case -1:
-      icon = this.redMarker;
+      return "red";
       break;
     }
-    return L.marker([hub.latitude, hub.longitude], {icon:icon});
+  },
+
+  getSymbol:function(hub){
+    if (hub.type === "pump")
+      return "tint";
+    else
+      return "mobile";
   },
 
   createPopUp: function(hub){
