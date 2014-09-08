@@ -57,7 +57,11 @@ HubChart.ChartMaker.prototype = {
       }
     }
     if (pLength > 0) {
-      console.log("ready to make pump charts!");
+      for (var j=0; j<pLength; j++) {
+        var pumpGraph = document.createElement("div");
+        this.pumpDiv.appendChild(pumpGraph);
+        this.makePumpChart(this.pumpData[j], pumpGraph);
+      }
     }
   },
 
@@ -74,6 +78,25 @@ HubChart.ChartMaker.prototype = {
       y: { title: ""}
     },
     title: "Credit Sales by Month",
+    dom: chartElement,
+    width: 500,
+    height: 250
+  });
+  },
+
+  makePumpChart: function(dataSet, chartElement) {
+    polyjs.chart({
+    layer: {
+      data: dataSet,
+      type: "bar",
+      x: "bin(date, 'month')",
+      y: "sum(dispensed)"
+    },
+    guide: {
+      x: { title: "Month"},
+      y: { title: ""}
+    },
+    title: "Liters of Water Dispensed by Month",
     dom: chartElement,
     width: 500,
     height: 250
