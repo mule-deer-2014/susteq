@@ -11,5 +11,4 @@ class SessionsController < ApplicationController
       redirect_to employee_signin_path
     end
   end
-
 end
