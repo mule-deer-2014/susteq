@@ -25,6 +25,7 @@
 			%tr
 				%th Updated at
 				%td= @provider.updated_at
+
 .row.col-lg-12
 	%h3 Profit by month
 	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
@@ -52,9 +53,30 @@
 						%td= pump.longitude
 						%td= pump.latitude
 						%td= pump.status_code
-
 .row.col-lg-12
-	%h3.pull-left Emplyees
+	%h3.pull-left Kiosks
+	.pull-right
+		= button_to "New kiosk", new_admin_kiosk_path, method: "get", class: "btn btn-primary btn-xs mt20"
+.row.col-lg-12
+	.table-responsive
+		%table.table.table-striped.table-bordered.table-hover.mt20
+			%thead
+				%tr
+					%th Location ID
+					%th Name
+					%th Longitude
+					%th Latitude
+					%th Status code
+			%tbody
+				- @kiosks.each do |kiosk|
+					%tr
+						%td= link_to kiosk.location_id, admin_kiosk_path(kiosk)
+						%td= kiosk.name
+						%td= kiosk.longitude
+						%td= kiosk.latitude
+						%td= kiosk.status_code
+.row.col-lg-12
+	%h3.pull-left Employees
 	.pull-right
 		= button_to "New employee", "#", method: "get", class: "btn btn-primary btn-xs mt20"
 .row.col-lg-12
