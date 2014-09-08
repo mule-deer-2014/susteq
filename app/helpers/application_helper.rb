@@ -19,13 +19,29 @@ module ApplicationHelper
     @current_employee ||= Employee.find_by(remember_token: remember_token)
   end
 
+  def current_provider
+    @current_provider = current_employee.provider
+  end
+
   def employee_sign_out
     current_employee.update_attribute(:remember_token, Employee.digest(Employee.new_remember_token))
     cookies.delete(:remember_token)
     self.current_employee = nil
   end
 
-   def admin_sign_in(admin)
+  def require_employee_signin
+    unless employee_signed_in?
+      redirect_to root_path
+    end
+  end
+
+  def require_admin_signin
+    unless admin_signed_in?
+      redirect_to '/admin'
+    end
+  end
+
+  def admin_sign_in(admin)
     remember_token = Admin.new_remember_token
     cookies.permanent[:remember_token] = remember_token
     admin.update_attribute(:remember_token, Admin.digest(remember_token))

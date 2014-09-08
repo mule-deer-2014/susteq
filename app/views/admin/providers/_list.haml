@@ -1,0 +1,26 @@
+.row
+	.col-lg-12
+		.table-responsive
+			%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+				%thead
+					%tr
+						%th Name
+						%th Adress
+						%th Country
+						%th Duns number
+						%th
+				%tbody
+					- @providers.each do |provider|
+						%tr
+							%td= link_to provider.name, admin_provider_path(provider)
+							%td= provider.address
+							%td= provider.country
+							%td= provider.duns_number
+							%td
+								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_provider_path(provider), method: :delete, data: { confirm: 'Are you sure?' }
+								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_provider_path(provider)
+
+:javascript
+	$(document).ready(function() {
+			$('#dataTables-example').dataTable();
+	});

@@ -2,37 +2,8 @@
 	.col-lg-12
 		%h1.pull-left Providers
 		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New provider</button>'.html_safe, new_admin_provider_path
-	/ /.col-lg-12
 %hr
+
 #map
-/ /.row
-.row
-	.col-lg-12
-		.table-responsive
-			%table#dataTables-example.table.table-striped.table-bordered.table-hover
-				%thead
-					%tr
-						%th Name
-						%th Adress
-						%th Country
-						%th Duns number
-						%th
-				%tbody
-					- @providers.each do |provider|
-						%tr
-							%td= link_to provider.name, admin_provider_path(provider)
-							%td= provider.address
-							%td= provider.country
-							%td= provider.duns_number
-							%td
-								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_provider_path(provider), method: :delete, data: { confirm: 'Are you sure?' }
-								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_provider_path(provider)
+= render 'list'
 
-		/ /.table-responsive
-	/ /.col-lg-12
-
-/ Page-Level Demo Scripts - Tables - Use for reference
-:javascript
-	$(document).ready(function() {
-			$('#dataTables-example').dataTable();
-	});

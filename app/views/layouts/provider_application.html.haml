@@ -65,9 +65,7 @@
                   Settings
               %li.divider
               %li
-                %a{:href => "login.html"}
-                  %i.fa.fa-sign-out.fa-fw
-                  Logout
+                =link_to '<i class="fa fa-sign-out fa-fw"></i> Logout'.html_safe, employee_signout_path
         / /.dropdown-user
         / /.dropdown
         / /.navbar-top-links

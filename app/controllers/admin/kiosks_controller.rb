@@ -1,14 +1,16 @@
 class Admin::KiosksController < ApplicationController
   layout "admin_application"
+  before_filter :require_admin_signin
 
   def new
     @kiosk = Kiosk.new
+    @providers = Provider.all
   end
 
   def index
     @kiosks = Kiosk.all
     respond_to do |format|
-      format.html {render :haml}
+      format.html {render 'admin/kiosks/index'}
       format.json {render json:{kiosks:@kiosks}}
     end
   end
@@ -37,16 +39,13 @@ class Admin::KiosksController < ApplicationController
     else
       render "admin/kiosks/edit"
     end
-
   end
 
   def destroy
     provider = Provider.find( (Kiosk.find(params[:id])).provider_id )
     Kiosk.destroy(params[:id])
-    redirect_to provider_path(provider)
+    redirect_to admin_kiosks_path
   end
-
-
 
   private
 
