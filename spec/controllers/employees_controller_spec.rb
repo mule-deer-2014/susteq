@@ -44,7 +44,7 @@ describe EmployeesController do
 
     it 'redirects to list of employees' do
       post :create, employee: FactoryGirl.attributes_for(:employee), provider_id: @employee.provider_id
-      assert_redirected_to provider_employees_path
+      assert_redirected_to employees_path
     end
   end
 end
