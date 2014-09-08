@@ -5,6 +5,10 @@ BigData.DataController = function(){
 
 BigData.DataController.prototype = {
 
+  allHubs: function(){
+    return this.kiosks.concat(this.pumps)
+  },
+
   getAdminData: function(func){
     var pumpAjax = $.ajax({
       url:"/admin/pumps.json",
