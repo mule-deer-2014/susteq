@@ -44,7 +44,6 @@ class EmployeesController < ApplicationController
 
   def destroy
     Employee.destroy(params[:id])
-
     redirect_to provider_employees_path
   end
 
