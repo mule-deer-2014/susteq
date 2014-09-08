@@ -1,5 +1,6 @@
 HubMap.View = function(startLat, startLong, startZoom){
   this.map = L.map('map').setView([startLat,startLong], startZoom);
+  this.setEsriTileLayer();
 };
 
 HubMap.View.prototype = {
