@@ -6,7 +6,7 @@ BigData.DataController = function(){
 BigData.DataController.prototype = {
 
   allHubs:function(){
-    return this.kiosks.append(this.pumps);
+    return this.kiosks.concat(this.pumps);
   },
 
   checkPermissions: function(func){
