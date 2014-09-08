@@ -93,6 +93,18 @@ HubMap.View.prototype = {
   displayAllHubs: function(hubs){
     this.renderHubsOnMap(hubs);
     this.showAllHubs();
+  },
+
+  toggleMapDisplay:function(){
+    $("map").slideToggle()
+  },
+
+  addToggleMapEventListener:function(){
+    $(".mapButton").on("click", this.toggleMapDisplay);
+  },
+
+  bindEvents:function(){
+    this.addToggleMapEventListener();
   }
 
 };

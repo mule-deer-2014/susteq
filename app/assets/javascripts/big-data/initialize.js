@@ -8,6 +8,7 @@ $(document).ready(function(){
         dataController.getAdminData(function(){
           if ($('#map').length > 0){
             this.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
+            this.mapView.bindEvents();
             this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
           }
           this.grapher = new HubChart.ChartMaker();
