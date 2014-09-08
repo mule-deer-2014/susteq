@@ -5,6 +5,8 @@
 				.panel-heading
 					%h3.panel-title Please Sign In
 				.panel-body
+					.div.text-center
+						=image_tag "logo.jpg", :style => "width: 200px; margin-bottom: 35px; margin-top: 15px;"
 					= form_for(:session, url: admin_sessions_path) do |f|
 						%fieldset
 							.form-group
