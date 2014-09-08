@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :employee do
-    provider_id 1
+    provider_id {FactoryGirl.create(:provider).id}
     name {Faker::Name.name}
     email {Faker::Internet.email}
     phone_number {Faker::PhoneNumber.phone_number}
