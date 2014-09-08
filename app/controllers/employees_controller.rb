@@ -10,11 +10,12 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     redirect_to provider_employees_path and return if @employee.save
-    redirect_to new_provider_employees_path
+    redirect_to new_provider_employee_path
   end
 
   def new
     @employee = Employee.new
+    @provider = Provider.find(params[:provider_id])
   end
 
   def edit
