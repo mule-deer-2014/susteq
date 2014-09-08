@@ -5,15 +5,26 @@ BigData.DataController = function(){
 
 BigData.DataController.prototype = {
 
+  getAdminData: function(func){
+    var pumpAjax = $.ajax({
+      url:"/admin/pumps.json",
+      method:"get",
+      success:this.parseJsonPumpData.bind(this)
+    });
+    var kioskAjax = $.ajax({
+      url:"/admin/kiosks.json",
+      method:"get",
+      success:this.parseJsonKioskData.bind(this)
+    });
+    $.when(pumpAjax, kioskAjax).done(func)
+  },
+
   adminGetKioskData: function(){
     var kioskAjax = $.ajax({
       url:"/admin/kiosks.json",
-      method:"get"
-    }).
-    done(function(data){
-      this.parseJsonKioskData(data);
-    }.bind(this)).
-    fail();
+      method:"get",
+      success: this.parseJsonKioskData.bind(this)
+    })
   },
 
   parseJsonKioskData: function(kioskData){
