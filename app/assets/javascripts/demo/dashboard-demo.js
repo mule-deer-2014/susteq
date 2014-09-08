@@ -64,13 +64,28 @@ $(function() {
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
-            label: "Download Sales",
+            label: "Water provider 1",
+            value: 32
+        }, {
+            label: "Water provider 2",
             value: 12
         }, {
-            label: "In-Store Sales",
+            label: "Water provider 3",
+            value: 56
+        }],
+        resize: true
+    });
+
+    Morris.Donut({
+        element: 'morris-donut-chart-2',
+        data: [{
+            label: "Water provider 1",
+            value: 12
+        }, {
+            label: "Water provider 2",
             value: 30
         }, {
-            label: "Mail-Order Sales",
+            label: "Water provider 3",
             value: 20
         }],
         resize: true

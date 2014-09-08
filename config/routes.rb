@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get '/employee/signout', to: 'employee/sessions#destroy', as: 'employee_signout' #get rather than delete bc of issue with twitter bootstrap link_to
   get '/dashboard', to:"dashboard#dashboard", as: "provider_dashboard"
   get '/sessions', to: "sessions#index"
-
+  get '/my_profile', to: 'employees#show_current', as: 'current_employee'
+  get '/edit_profile', to: 'employees#edit_current', as: 'edit_current_employee'
+  post '/my_profile', to: 'employees#update_current', as: 'update_current_employee' #post rather than put bc of issue with twitter bootstrap link_to
   namespace :employee do
     resources :sessions, only: [:new, :create, :destroy]
   end
@@ -34,8 +36,10 @@ Rails.application.routes.draw do
     resources :kiosks
     resources :pumps
     resources :hubs
+    resources :employees
+    resources :admins
     resources :providers do
-      resources :hubs, :employees
+      resources :pumps, :kiosks, :employees
     end
   end
 
