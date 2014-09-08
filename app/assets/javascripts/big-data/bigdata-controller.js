@@ -59,5 +59,5 @@ BigData.DataController.prototype = {
   },
 
   getProviderPumpData: function(){
-  }
+  },
 }
