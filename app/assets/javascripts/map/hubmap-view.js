@@ -66,38 +66,33 @@ HubMap.View.prototype = {
       return this.createErrorPopUp(hub);
   },
 
-  renderMarkers:function(hubs){
-    for (var i=0; i<hubs.length; i++){
-      var marker = this.createMarker(hubs[i]);
-      var popup = this.makePopUp(hubs[i]);
-      marker.bindPopup(popup).addTo(this.map);
-      marker.on("click", marker.openPopup);
-    }
+  showPumpsLayer: function(){
+    this.pumpsLayer.addTo(this.map);
   },
 
-  createMarkers:function(hubs){
-    markers = [];
-    for (var i=0; i<hubs.length; i++){
-      var marker = this.createMarker(hubs[i]);
-      var popup = this.makePopUp(hubs[i]);
-      marker.bindPopup(popup);
-    }
-    return markers;
+  showKiosksLayer: function(){
+    this.kiosksLayer.addTo(this.map);
   },
 
-  renderPumpsLayer: function(pumps){
-    var pumpMarkers = this.createMarkers(pumps);
-    var pumpLayer =  L.layerGroup(pumpMarkers);
-    console.log(pumpLayer);
-    var overLay = {"Pumps": pumpLayer};
-    L.control.layers(null, overLay).addTo(this.map);
-
+  showAllHubs: function(){
+    this.showPumpsLayer();
+    this.showKiosksLayer();
   },
 
-  renderKiosksLayer: function(kiosks){
-    var kioskMarkers = this.createMarkers(kiosks);
-    var kioskLayer = L.layerGroup(kioskMarkers);
-    L.control.layers(null, kioskLayer).addTo(this.map);
+  createHubLayers: function(hubs){
+    var markers = this.createMarkers(hubs)
+    return L.layerGroup(markers);
+  },
+
+  renderHubsOnMap: function(hubs){
+    this.pumpsLayer = this.createHubLayers(hubs.pumps);
+    this.kiosksLayer =  this.createHubLayers(hubs.kiosks);
+    L.control.layers(null, {"Kiosks":this.kiosksLayer, "Pumps":this.pumpsLayer}, {collapsed:false}).addTo(this.map);
+  },
+
+  displayAllHubs: function(hubs){
+    this.renderHubsOnMap(hubs);
+    this.showAllHubs();
   }
 
 };
