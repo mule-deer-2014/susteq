@@ -1,11 +1,4 @@
-=form_for :employee, {url: provider_employee_path(@employee.provider_id, @employee), :action => "update", method: :put} do |f|
-  %p
-    =f.label :provider_id
-    =f.text_field :provider_id
-    =f.label :name
-    =f.text_field :name
-    =f.label :email
-    =f.text_field :email
-    =f.label :phone_number
-    =f.text_field :phone_number
-    =f.submit
+.row
+  .col-lg-6
+    %h1.page-header Edit Employee
+= render 'form'

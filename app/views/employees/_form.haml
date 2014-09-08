@@ -1,0 +1,23 @@
+= form_for @employee do |f|
+  - if @employee.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@employee.errors.count, "error")
+        prohibited this employee from being saved:
+      %ul
+        - @employee.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = f.label :name
+    %br
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :email
+    %br
+    = f.text_field :email, class: "form-control"
+  .form-group
+    = f.label :password
+    %br
+    = f.text_field :password, class: "form-control"
+  .actions
+    = f.submit class: "btn btn-default"
