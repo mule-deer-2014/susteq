@@ -3,23 +3,20 @@ Rails.application.routes.draw do
 
   root :to => "sessions#new"
 
-  #EMPLOYEE ROUTES
+  #ROUTES FOR PROVIDER DASHBOARD
   get '/employee', to: "employee/sessions#new", as: 'employee_signin'
   get '/employee/signout', to: 'employee/sessions#destroy', as: 'employee_signout' #get rather than delete bc of issue with twitter bootstrap link_to
-  get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
+  get '/dashboard', to:"dashboard#dashboard", as: "provider_dashboard"
 
   namespace :employee do
     resources :sessions, only: [:new, :create, :destroy]
   end
 
-  resources :providers, only: [:show, :edit, :update] do
-    resources :employees
-    resources :pumps, only: [:index, :show]
-    resources :kiosks, only: [:index, :show]
-  end
+  resources :employees
+  resources :pumps, only: [:index, :show]
+  resources :kiosks, only: [:index, :show]
 
-
-  #ADMIN ROUTES
+  #ROUTES FOR ADMIN DASHBOARD
   get '/admin', to: "admin/sessions#new", as: 'admin_signin'
   get '/admin/signout', to: 'admin/sessions#destroy', as: 'admin_signout' #get rather than delete bc of issue with twitter bootstrap link_to
   get '/admin/dashboard', to:'admin/admins#dashboard', as: 'admin_dashboard'
