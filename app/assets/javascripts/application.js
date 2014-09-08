@@ -22,6 +22,7 @@
 //= require sb-admin/jquery.flot.tooltip.min
 //= require sb-admin/raphael-2.1.0.min
 //= require sb-admin/morris
+//= require polychart2.standalone
 //= require map/leaflet
 //= require map/esri-leaflet
 //= require map/leaflet.awesome-markers.min
@@ -30,6 +31,10 @@
 //= require map/hubmap-view
 //= require map/hubmap-controller
 //= require map/initialize
+//= require _namespace
+//= require bigdata-model
+//= require bigdata-controller
+//= require testChart
 
 //= require sb-admin/sb-admin
 

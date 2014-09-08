@@ -1,27 +1,29 @@
 function Kiosk(jsonData){
-    this.id = jsonData.id;
+    this.id = jsonData.hub.id;
     this.type = "kiosk";
-    this.name = jsonData.name;
-    this.created_at = jsonData.created_at;
-    this.latitude = jsonData.latitude;
-    this.longitude = jsonData.longitude;
-    this.status_code = jsonData.status_code;
-    this.location_id = jsonData.location_id;
+    this.name = jsonData.hub.name;
+    this.created_at = jsonData.hub.created_at;
+    this.latitude = jsonData.hub.latitude;
+    this.longitude = jsonData.hub.longitude;
+    this.status_code = jsonData.hub.status_code;
+    this.location_id = jsonData.hub.location_id;
+    this.transactions = jsonData.transactions.map(function(t){return new Transaction(t)});
 };
 
 function Pump(jsonData){
-    this.id = jsonData.id;
+    this.id = jsonData.hub.id;
     this.type = "pump";
-    this.name = jsonData.name;
-    this.created_at = jsonData.created_at;
-    this.latitude = jsonData.latitude;
-    this.longitude = jsonData.longitude;
-    this.status_code = jsonData.status_code;
-    this.location_id = jsonData.location_id;
+    this.name = jsonData.hub.name;
+    this.created_at = jsonData.hub.created_at;
+    this.latitude = jsonData.hub.latitude;
+    this.longitude = jsonData.hub.longitude;
+    this.status_code = jsonData.hub.status_code;
+    this.location_id = jsonData.hub.location_id;
+    this.transactions = jsonData.transactions.map(function(t){return new Transaction(t)});
 };
 
 function Transaction(jsonData){
-    this.id = this.jsonData.id;
+    this.id = jsonData.id;
     this.transaction_time = jsonData.transaction_time;
     this.location_id = jsonData.location_id;
     this.latitude = jsonData.latitude;

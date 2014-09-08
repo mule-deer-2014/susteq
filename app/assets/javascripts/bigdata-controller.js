@@ -3,7 +3,7 @@ BigData.Controller = function(){
   this.pumps = [];
 };
 
-BigData.prototype = {
+BigData.Controller.prototype = {
 
   adminGetKioskData: function(){
     var kioskAjax = $.ajax({
@@ -11,10 +11,9 @@ BigData.prototype = {
       method:"get"
     }).
     done(function(data){
-      this.parseJsonKioskData(data.kiosks);
-      this.view.renderMarkers(this.kiosks);
-    }.bind(this)).
-    fail();
+      this.parseJsonKioskData(data);
+      // this.view.renderMarkers(this.kiosks);
+    }.bind(this));
   },
 
   parseJsonKioskData: function(kioskData){

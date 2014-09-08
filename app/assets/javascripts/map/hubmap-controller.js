@@ -6,17 +6,16 @@ HubMap.Controller = function(view){
 
 HubMap.Controller.prototype = {
 
-  adminGetKioskData: function(){
-    var kioskAjax = $.ajax({
-      url:"/admin/kiosks.json",
-      method:"get"
-    }).
-    done(function(data){
-      this.parseJsonKioskData(data.kiosks);
-      this.view.renderMarkers(this.kiosks);
-    }.bind(this)).
-    fail();
-  },
+  // adminGetKioskData: function(){
+  //   var kioskAjax = $.ajax({
+  //     url:"/admin/kiosks.json",
+  //     method:"get"
+  //   }).
+  //   done(function(data){
+  //     this.parseJsonKioskData(data.kiosks);
+  //     this.view.renderMarkers(this.kiosks);
+  //   }.bind(this));
+  // },
 
   parseJsonKioskData: function(kioskData){
     for(var i= 0; i<kioskData.length; i++){
@@ -27,17 +26,16 @@ HubMap.Controller.prototype = {
     }
   },
 
-  adminGetPumpData: function(){
-    var pumpAjax = $.ajax({
-      url:"/admin/pumps.json",
-      method:"get"
-    }).
-    done(function(data){
-      this.parseJsonPumpData(data.pumps);
-      this.view.renderMarkers(this.pumps);
-    }.bind(this)).
-    fail();
-  },
+  // adminGetPumpData: function(){
+  //   var pumpAjax = $.ajax({
+  //     url:"/admin/pumps.json",
+  //     method:"get"
+  //   }).
+  //   done(function(data){
+  //     this.parseJsonPumpData(data.pumps);
+  //     this.view.renderMarkers(this.pumps);
+  //   }.bind(this));
+  // },
 
   parseJsonPumpData: function(pumpData){
     for(var i= 0; i<pumpData.length; i++){

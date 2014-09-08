@@ -4,7 +4,8 @@ $(document).ready(function() {
     var mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
     mapView.setOSMTileLayer();
     var mapController = new HubMap.Controller(mapView);
-    mapController.adminGetKioskData();
-    mapController.adminGetPumpData();
+    // mapController.adminGetKioskData();
+    // mapController.adminGetPumpData();
+
   }
 });
