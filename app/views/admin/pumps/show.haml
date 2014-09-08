@@ -1,7 +1,12 @@
 .row
   .col-lg-12
     %h1.page-header= @pump.name
-%h3 General information
+.row
+  .col-lg-12
+    %h3.pull-left General information
+    %p.pull-right
+      = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(@pump)
+      = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(@pump), method: :delete, data: { confirm: 'Are you sure?' }
 .row
   .col-lg-6
     %table
@@ -30,6 +35,8 @@
       %tr
         %th Updated at
         %td= @pump.updated_at
+
+
 
 %h3 Profit by month
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
