@@ -1,23 +1,11 @@
 %li
-  %a{:href => "#"}
-    %div
-      %i.fa.fa-building-o.fa-fw
-      WSP
+	= link_to '<i class="fa fa-building-o fa-fw"></i> Provider'.html_safe, new_admin_provider_path
 %li.divider
 %li
-  %a{:href => "#"}
-    %div
-      %i.fa.fa-user.fa-fw
-      WSP user
+	= link_to '<i class="fa fa-user fa-fw"></i> Employee (make this work)'.html_safe
 %li.divider
 %li
-  %a{:href => "#"}
-    %div
-      %i.fa.fa-tint.fa-fw
-      Water point
+	= link_to '<i class="fa fa-tint fa-fw"></i> Water pump'.html_safe, new_admin_pump_path
 %li.divider
 %li
-  %a{:href => "#"}
-    %div
-      %i.fa.fa-home.fa-fw
-      Kiosk
+	= link_to '<i class="fa fa-home fa-fw"></i> Kiosk'.html_safe, new_admin_kiosk_path

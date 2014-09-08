@@ -24,6 +24,7 @@ class Admin::ProvidersController < ApplicationController
     @provider = Provider.find(params[:id])
     @hubs = @provider.hubs
     @pumps = @hubs[:pumps]
+    @kiosks = @hubs[:kiosks]
   end
 
   def update
