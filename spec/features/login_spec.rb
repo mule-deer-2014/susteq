@@ -1,42 +1,40 @@
-feature 'User logging in' do
-  background do
-    admin = FactoryGirl.create(:admin)
-    provider = FactoryGirl.create(:wsp)
-  end
+feature 'Employee logging in' do
+  let (:admin) {FactoryGirl.create(:admin)}
+  let(:employee) {FactoryGirl.create(:employee)}
 
   scenario 'with invalid email sees login error on login page' do
     visit root_path
-    fill_in 'email', with: 'invalidemail'
-    fill_in 'password', with: provider.password
-    click_button 'Sign in'
+    fill_in 'session[email]', with: 'invalidemail@'
+    fill_in 'session[password]', with: employee.password
+    find('input[type="submit"]').click
 
-    expect(current_path).to eq(root_path)
-    page.has_text?("ERROR")
+    expect(current_path).to eq(employee_signin_path)
+    page.has_text?("Invalid")
   end
 
   scenario 'with invalid password sees login error on login page' do
-    visit admins_path
-    fill_in 'email', with: admin.email
-    fill_in 'password', with: '_asdfgfsasdf;'
-    click_link 'Sign in'
+    visit admin_signin_path
+    fill_in 'session[email]', with: admin.email
+    fill_in 'session[password]', with: '_asdfgfsasdf;'
+    find('input[type="submit"]').click
 
-    expect(current_path).to eq(admins_path)
-    page.has_text?("ERROR")
+    expect(current_path).to eq(admin_signin_path)
+    page.has_text?("Invalid")
   end
 
-  scenario 'as provider sees wsp dashboard' do
+  scenario 'as employee sees employee dashboard' do
     visit root_path
-    login(provider)
+    login(employee)
 
-    expect(current_path).to eq(wsps_path(provider.id))
-    expect(page).to have_content(provider.first_name)
+    expect(current_path).to eq(provider_dashboard_path(employee.provider_id))
+    expect(page).to have_content("Dashboard")
   end
 
   scenario 'as admin sees admin dashboard' do
-    visit admins_path
+    visit admin_signin_path
     login(admin)
 
-    expect(current_path).to eq(admins_path(admin.id))
-    expect(page).to have_content(admin.first_name)
+    expect(current_path).to eq(admin_dashboard_path)
+    expect(page).to have_content("Dashboard")
   end
 end
