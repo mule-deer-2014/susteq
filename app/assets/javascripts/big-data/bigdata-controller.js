@@ -43,10 +43,18 @@ BigData.DataController.prototype = {
     }
   },
 
-  getProviderData: function(provider_id){
-d
-  },
+  getProviderData: function(provider_id, func){
+    var pumpAjax = $.ajax({
+      url:"/providers/"+provider_id+"/pumps.json",
+      method:"get",
+      success:this.parseJsonPumpData.bind(this)
+    });
+    var kioskAjax = $.ajax({
+      url:"/providers/"+provider_id+"/kiosks.json",
+      method:"get",
+      success:this.parseJsonKioskData.bind(this)
+    });
 
-  getProviderPumpData: function(){
+    $.when(pumpAjax, kioskAjax).done(func)
   },
 }
