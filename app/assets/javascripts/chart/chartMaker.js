@@ -1,4 +1,6 @@
 HubChart.ChartMaker = function() {
+  this.kioskDiv = document.getElementById("kiosk-charts");
+  this.pumpDiv = document.getElementById("pump-charts");
   this.kioskData = [];
   this.pumpData = [];
 };
