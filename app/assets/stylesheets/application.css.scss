@@ -2,6 +2,9 @@
 @import "morris-0.4.3.min";
 @import "timeline";
 @import "sb-admin";
+@import "map/leaflet";
+@import "map/leaflet.awesome-markers";
+@import "map/map";
 
 .form-signin {
   max-width: 330px;
@@ -15,4 +18,20 @@
 
 #page-wrapper {
   padding-bottom: 80px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.gen-info th, .gen-info td {
+	padding: 3px 3px 3px 0;
+}
+
+.row {
+	padding-top: 20px;
+}
+
+h3 {
+	margin-bottom: 20px;
 }

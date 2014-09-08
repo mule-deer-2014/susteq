@@ -1,0 +1,46 @@
+- if @provider
+	= form_for [:admin, @provider, @employee] do |f|
+		.form-group
+			= f.label :name
+			%br
+			= f.text_field :name, class: "form-control"
+		.form-group
+			= f.label :email
+			%br
+			= f.text_field :email, class: "form-control"
+		.form-group
+			= f.label :phone_number
+			%br
+			= f.text_field :phone_number, class: "form-control"
+		.form-group
+			= f.label :password
+			%br
+			= f.text_field :password, class: "form-control", placeholder:"**********"
+		.form-group
+			= f.label :provider
+			= f.collection_select :provider_id, Provider.all, :id, :name, {prompt: "Select a provider",selected: "#{@provider.name}"}, {class: "form-control"}
+		.actions
+			= f.submit class: "btn btn-default"
+- else
+	= form_for [:admin, @employee] do |f|
+		.form-group
+			= f.label :name
+			%br
+			= f.text_field :name, class: "form-control"
+		.form-group
+			= f.label :email
+			%br
+			= f.text_field :email, class: "form-control"
+		.form-group
+			= f.label :phone_number
+			%br
+			= f.text_field :phone_number, class: "form-control"
+		.form-group
+			= f.label :password
+			%br
+			= f.text_field :password, class: "form-control", placeholder:"**********"
+		.form-group
+			= f.label :provider
+			= f.collection_select :provider_id, Provider.all, :id, :name, {prompt: "Select a provider"}, {class: "form-control"}
+		.actions
+			= f.submit class: "btn btn-default"

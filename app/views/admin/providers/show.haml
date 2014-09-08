@@ -2,9 +2,9 @@
 	.col-lg-12
 		%h1.page-header= @provider.name
 		%h3 General information
-.row
 	.col-lg-6
-		%table
+		%table.gen-info
+			%col.col-lg-5
 			%tr
 				%th Name
 				%td= @provider.name
@@ -15,7 +15,8 @@
 				%th Country
 				%td= @provider.country
 	.col-lg-6
-		%table
+		%table.gen-info
+			%col.col-lg-5
 			%tr
 				%th Duns number
 				%td= @provider.duns_number
@@ -25,7 +26,6 @@
 			%tr
 				%th Updated at
 				%td= @provider.updated_at
-
 .row.col-lg-12
 	%h3 Profit by month
 	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
@@ -35,7 +35,6 @@
 	%h3.pull-left Water pumps
 	.pull-right
 		= button_to "New pump", new_admin_pump_path, method: "get", class: "btn btn-primary btn-xs mt20"
-.row.col-lg-12
 	.table-responsive
 		%table.table.table-striped.table-bordered.table-hover.mt20
 			%thead
@@ -45,6 +44,7 @@
 					%th Longitude
 					%th Latitude
 					%th Status code
+					%th
 			%tbody
 				- @pumps.each do |pump|
 					%tr
@@ -53,10 +53,13 @@
 						%td= pump.longitude
 						%td= pump.latitude
 						%td= pump.status_code
+						%td
+							= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_provider_pump_path(@provider,pump), method: :delete, data: { confirm: 'Are you sure?' }
+							= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_provider_pump_path(@provider,pump)
 .row.col-lg-12
 	%h3.pull-left Kiosks
 	.pull-right
-		= button_to "New kiosk", new_admin_kiosk_path, method: "get", class: "btn btn-primary btn-xs mt20"
+		= button_to "New Kiosk", new_admin_kiosk_path, method: "get", class: "btn btn-primary btn-xs mt20"
 .row.col-lg-12
 	.table-responsive
 		%table.table.table-striped.table-bordered.table-hover.mt20
@@ -67,6 +70,7 @@
 					%th Longitude
 					%th Latitude
 					%th Status code
+					%th
 			%tbody
 				- @kiosks.each do |kiosk|
 					%tr
@@ -75,30 +79,29 @@
 						%td= kiosk.longitude
 						%td= kiosk.latitude
 						%td= kiosk.status_code
+						%td
+							= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_provider_kiosk_path(@provider, kiosk), method: :delete, data: { confirm: 'Are you sure?' }
+							= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_provider_kiosk_path(@provider,kiosk)
 .row.col-lg-12
 	%h3.pull-left Employees
 	.pull-right
-		= button_to "New employee", "#", method: "get", class: "btn btn-primary btn-xs mt20"
+		= button_to "New Employee", new_admin_provider_employee_path(@provider), method: "get", class: "btn btn-primary btn-xs mt20"
 .row.col-lg-12
 	.table-responsive
 		%table.table.table-striped.table-bordered.table-hover.mt20
 			%thead
 				%tr
 					%th Name
-					%th City
-					%th State
-					%th Description
+					%th Email
+					%th Phone Number
+					%th
 			%tbody
-				%tr.odd.gradeX
-					%td Green Valley Inc.
-					%td Nakuru
-					%td.center
-					%td.center Anything here
-				%tr.even.gradeC
-					%td 
-						%a{:href => "wsps/show.html"}
-							Malibu Inc.
-					%td Nairobi
-					%td.center
-					%td.center Anything here
+				- @employees.each do |employee|
+					%tr
+						%td= employee.name
+						%td= employee.email
+						%td= employee.phone_number
+						%td
+							= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_provider_employee_path(@provider, employee), method: :delete, data: { confirm: 'Are you sure?' }
+							= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_provider_employee_path(@provider,employee)
 .row

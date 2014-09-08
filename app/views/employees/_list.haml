@@ -1,0 +1,22 @@
+.row
+  .col-lg-12
+    .table-responsive
+      %table#dataTables-example.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Created On
+            %th
+        %tbody
+          - @employees.each_with_index do |employee, index|
+            - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+            %tr{:class => classes}
+              %td= employee.name
+              %td= employee.email
+              %td= employee.created_at.strftime('%c')
+              %td
+                = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }
+                = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_employee_path(employee)
+
+= link_to '<button class="btn btn-primary btn-lg pull-left mt20" type="button"><i class="fa fa-plus fa-fw"></i>Add Employee</button>'.html_safe, new_employee_path
