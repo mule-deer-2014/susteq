@@ -5,10 +5,6 @@ BigData.DataController = function(){
 
 BigData.DataController.prototype = {
 
-  allHubs: function(){
-    return this.kiosks.concat(this.pumps)
-  },
-
   getAdminData: function(func){
     var pumpAjax = $.ajax({
       url:"/admin/pumps.json",
@@ -23,28 +19,12 @@ BigData.DataController.prototype = {
     $.when(pumpAjax, kioskAjax).done(func)
   },
 
-  adminGetKioskData: function(){
-    var kioskAjax = $.ajax({
-      url:"/admin/kiosks.json",
-      method:"get",
-      success: this.parseJsonKioskData.bind(this)
-    })
-  },
-
   parseJsonKioskData: function(kioskData){
     for(var i= 0; i<kioskData.length; i++){
       var kiosk = new Kiosk(kioskData[i].hub);
       kiosk.parseTransactions(kioskData[i].transactions)
       this.kiosks.push(kiosk);
     }
-  },
-
-  adminGetPumpData: function(){
-    var pumpAjax = $.ajax({
-      url:"/admin/pumps.json",
-      method:"get",
-      success: this.parseJsonPumpData.bind(this)
-    })
   },
 
   parseJsonPumpData: function(pumpData){
@@ -55,7 +35,8 @@ BigData.DataController.prototype = {
     }
   },
 
-  getProviderKioskData: function(){
+  getProviderData: function(provider_id){
+d
   },
 
   getProviderPumpData: function(){
