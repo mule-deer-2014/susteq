@@ -1,7 +1,7 @@
 module AuthenticationHelper
   def login user
-    fill_in 'email', with: user.email
-    fill_in 'password', with: user.password
-    click_button 'Sign in'
+    fill_in 'session[email]', with: user.email
+    fill_in 'session[password]', with: user.password
+    find('input[type="submit"]').click
   end
 end
