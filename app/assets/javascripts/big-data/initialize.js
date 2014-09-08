@@ -4,6 +4,6 @@ $(document).ready(function(){
   var dataController = new BigData.DataController();
   dataController.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
   dataController.getAdminData(function(){
-    this.mapView.renderKiosksLayer(this.kiosks);
+    this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
   }.bind(dataController));
 });
