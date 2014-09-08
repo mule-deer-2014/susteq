@@ -56,15 +56,3 @@ HubMap.Controller.prototype = {
 
   }
 };
-
-//   parseJsonHubData: function(jsonData){
-//     for (var i= 0; i<jsonData.length; i++){
-//       var hubJsonData = jsonData[i];
-//       if (hubJsonData.latitude && hubJsonData.longitude){
-//         var hub = new Hub(hubJsonData);
-//         this.hubs.push(hub);
-//       }
-//     }
-//   },
-// };
-

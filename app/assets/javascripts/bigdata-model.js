@@ -51,4 +51,5 @@ function Transaction(jsonData){
     this.amount = jsonData.amount;
     this.error_code = jsonData.error_code;
     this.created_at = jsonData.created_at;
+    this.updated_at = jsonData.updated_at;
 };
