@@ -31,6 +31,9 @@
 //= require big-data/bigdata-controller
 //= require map/hubmap-view
 //= require big-data/initialize
+//= require chart/polychart2.standalone
+//= require chart/_chart_namespace
+//= require chart/chartMaker
 
 //= require sb-admin/sb-admin
 
