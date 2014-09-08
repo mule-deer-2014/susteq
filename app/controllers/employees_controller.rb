@@ -31,6 +31,9 @@ class EmployeesController < ApplicationController
 
     if employee.update(employee_params) 
       redirect_to provider_employee_path(employee.provider_id, employee) 
+    elsif employee_params.fetch(:password, []).empty?
+      employee.update_attribute(:name, employee_params[:name])
+      redirect_to provider_employee_path(employee.provider_id, employee) 
     else
       redirect_to edit_provider_employee_path(employee.provider_id, employee)
     end
