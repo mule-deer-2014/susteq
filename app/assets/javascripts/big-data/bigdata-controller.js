@@ -5,8 +5,16 @@ BigData.DataController = function(){
 
 BigData.DataController.prototype = {
 
-  allHubs: function(){
-    return this.kiosks.concat(this.pumps)
+  allHubs:function(){
+    return this.kiosks.append(this.pumps);
+  },
+
+  checkPermissions: function(func){
+    var permissionAjax = $.ajax({
+      url:"/sessions.json",
+      method:"get",
+      success:(func)
+    })
   },
 
   getAdminData: function(func){
@@ -23,28 +31,12 @@ BigData.DataController.prototype = {
     $.when(pumpAjax, kioskAjax).done(func)
   },
 
-  adminGetKioskData: function(){
-    var kioskAjax = $.ajax({
-      url:"/admin/kiosks.json",
-      method:"get",
-      success: this.parseJsonKioskData.bind(this)
-    })
-  },
-
   parseJsonKioskData: function(kioskData){
     for(var i= 0; i<kioskData.length; i++){
       var kiosk = new Kiosk(kioskData[i].hub);
       kiosk.parseTransactions(kioskData[i].transactions)
       this.kiosks.push(kiosk);
     }
-  },
-
-  adminGetPumpData: function(){
-    var pumpAjax = $.ajax({
-      url:"/admin/pumps.json",
-      method:"get",
-      success: this.parseJsonPumpData.bind(this)
-    })
   },
 
   parseJsonPumpData: function(pumpData){
@@ -55,9 +47,18 @@ BigData.DataController.prototype = {
     }
   },
 
-  getProviderKioskData: function(){
-  },
+  getProviderData: function(func){
+    var pumpAjax = $.ajax({
+      url:"/pumps.json",
+      method:"get",
+      success:this.parseJsonPumpData.bind(this),
+    });
+    var kioskAjax = $.ajax({
+      url:"/kiosks.json",
+      method:"get",
+      success:this.parseJsonKioskData.bind(this),
 
-  getProviderPumpData: function(){
+    });
+    $.when(pumpAjax, kioskAjax).done(func)
   },
 }

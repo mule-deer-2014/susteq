@@ -11,4 +11,16 @@ class SessionsController < ApplicationController
       redirect_to employee_signin_path
     end
   end
+
+  def index
+    if admin_signed_in?
+      permission = "admin"
+    else employee_signed_in?
+      permission = current_provider.id
+    end
+    respond_to do |format|
+      format.json{render json: {permission:permission} }
+    end
+  end
+
 end
