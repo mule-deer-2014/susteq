@@ -35,11 +35,6 @@ module ApplicationHelper
     end
   end
 
-  def require_admin_signin
-    unless admin_signed_in?
-      redirect_to '/admin'
-    end
-  end
 
   def admin_sign_in(admin)
     remember_token = Admin.new_remember_token
@@ -67,4 +62,9 @@ module ApplicationHelper
     self.current_admin = nil
   end
 
+  def require_admin_signin
+    unless admin_signed_in?
+      redirect_to '/admin'
+    end
+  end
 end
