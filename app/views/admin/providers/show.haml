@@ -2,9 +2,9 @@
 	.col-lg-12
 		%h1.page-header= @provider.name
 		%h3 General information
-.row
 	.col-lg-6
-		%table
+		%table.gen-info
+			%col.col-lg-5
 			%tr
 				%th Name
 				%td= @provider.name
@@ -15,7 +15,8 @@
 				%th Country
 				%td= @provider.country
 	.col-lg-6
-		%table
+		%table.gen-info
+			%col.col-lg-5
 			%tr
 				%th Duns number
 				%td= @provider.duns_number
@@ -25,7 +26,6 @@
 			%tr
 				%th Updated at
 				%td= @provider.updated_at
-
 .row.col-lg-12
 	%h3 Profit by month
 	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
@@ -35,7 +35,6 @@
 	%h3.pull-left Water pumps
 	.pull-right
 		= button_to "New pump", new_admin_pump_path, method: "get", class: "btn btn-primary btn-xs mt20"
-.row.col-lg-12
 	.table-responsive
 		%table.table.table-striped.table-bordered.table-hover.mt20
 			%thead
@@ -61,7 +60,6 @@
 	%h3.pull-left Kiosks
 	.pull-right
 		= button_to "New kiosk", new_admin_kiosk_path, method: "get", class: "btn btn-primary btn-xs mt20"
-.row.col-lg-12
 	.table-responsive
 		%table.table.table-striped.table-bordered.table-hover.mt20
 			%thead
@@ -87,7 +85,6 @@
 	%h3.pull-left Employees
 	.pull-right
 		= button_to "New employee", "#", method: "get", class: "btn btn-primary btn-xs mt20"
-.row.col-lg-12
 	.table-responsive
 		%table.table.table-striped.table-bordered.table-hover.mt20
 			%thead
