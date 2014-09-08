@@ -8,5 +8,6 @@ $(document).ready(function(){
   dataController.getAdminData(function(){
     this.mapView.renderMarkers(this.allHubs());
     this.grapher.makeDataForHubs(this.allHubs());
+    this.grapher.makeCharts();
   }.bind(dataController));
 });

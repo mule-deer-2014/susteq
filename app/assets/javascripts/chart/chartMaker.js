@@ -44,5 +44,14 @@ HubChart.ChartMaker.prototype = {
       dispensed: amounts
     });
     this.pumpData.push(dataSet);
+  },
+
+  makeCharts: function() {
+    if (this.kioskData.length > 0) {
+      console.log("ready to make kiosk charts!");
+    }
+    if (this.pumpData.length > 0) {
+      console.log("ready to make pump charts!");
+    }
   }
 };
