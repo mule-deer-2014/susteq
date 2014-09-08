@@ -4,30 +4,6 @@ HubMap.View = function(startLat, startLong, startZoom){
 };
 
 HubMap.View.prototype = {
-  greenMarker: L.AwesomeMarkers.icon({
-    icon: 'tint',
-    prefix: 'fa',
-    iconColor:'white',
-    markerColor: 'green',
-  }),
-
-  redMarker: L.AwesomeMarkers.icon({
-    icon: 'tint',
-    prefix: 'fa',
-    iconColor:'white',
-    markerColor: 'red'
-  }),
-
-    orangeMarker: L.AwesomeMarkers.icon({
-    icon: 'tint',
-    prefix: 'fa',
-    iconColor:'white',
-    markerColor: 'orange'
-  }),
-
-  setEsriTileLayer: function(){
-    L.esri.basemapLayer("Imagery").addTo(this.map);
-  },
 
   setOSMTileLayer: function(){
     var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
