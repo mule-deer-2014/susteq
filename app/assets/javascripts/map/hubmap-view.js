@@ -33,10 +33,6 @@ HubMap.View.prototype = {
     new L.TileLayer(osmUrl).addTo(this.map);
   },
 
-  initializeMap: function(lat,longi, zoom){
-    this.map = L.map('map').setView([lat, longi], zoom);
-  },
-
   createMarker: function(hub){
     var icon;
     switch(hub.status_code){
@@ -75,5 +71,6 @@ HubMap.View.prototype = {
       marker.bindPopup(popup).addTo(this.map);
       marker.on("click", marker.openPopup);
     }
-  }
+  },
+
 };
