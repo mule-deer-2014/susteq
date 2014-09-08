@@ -38,12 +38,9 @@ BigData.DataController.prototype = {
   adminGetPumpData: function(){
     var pumpAjax = $.ajax({
       url:"/admin/pumps.json",
-      method:"get"
-    }).
-    done(function(data){
-      this.parseJsonPumpData(data);
-    }.bind(this)).
-    fail();
+      method:"get",
+      success: this.parseJsonPumpData.bind(this)
+    })
   },
 
   parseJsonPumpData: function(pumpData){
