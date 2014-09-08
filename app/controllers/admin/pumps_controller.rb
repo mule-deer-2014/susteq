@@ -25,7 +25,7 @@ class Admin::PumpsController < ApplicationController
     @pumps = Pump.all
     respond_to do |format|
       format.html {render 'admin/pumps/index'}
-      format.json {render json:{pumps:@pumps}}
+      format.json {render json:Pump.get_all_with_transactions}
     end
   end
 
