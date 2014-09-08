@@ -10,7 +10,7 @@ class PumpsController < ApplicationController
     end
     @total_dispensed = sum
     respond_to do |format|
-      format.html{ render '/employees/pumps/index'}
+      format.html
       format.json{ render json: Pump.get_many_with_transaction(@pumps)}
     end
   end

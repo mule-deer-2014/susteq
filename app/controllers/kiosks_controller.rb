@@ -9,7 +9,7 @@ class KiosksController < ApplicationController
     end
     @total_credits_sold = sum
     respond_to do |format|
-      format.html{ render '/employees/kiosks/index'}
+      format.html
       format.json{ render json: Kiosk.get_many_with_transaction(@kiosks)}
     end
   end
