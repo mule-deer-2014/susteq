@@ -6,6 +6,44 @@ class Admin::AdminsController < ApplicationController
     render 'admin/dashboard/dashboard'
   end
 
+  def index
+    @admins = Admin.all
+  end
+
+  def create
+    @admin = Admin.new(admin_params)
+    redirect_to admin_admins_path and return if @admin.save
+    redirect_to new_admin_path
+  end
+
+  def new
+    @admin = Admin.new
+  end
+
+  def edit
+    @admin = Admin.find(params[:id])
+  end
+
+  def update
+    admin = Admin.find(params[:id])
+
+    if admin.update(admin_params)
+      redirect_to admin_admins_path
+    elsif admin_params.fetch(:password, []).empty?
+      admin.update_attribute(:name, admin_params[:name])
+      admin.update_attribute(:email, admin_params[:email])
+      admin.update_attribute(:phone_number, admin_params[:phone_number])
+      redirect_to admin_admins_path
+    else
+      redirect_to edit_admin_admin_path(admin)
+    end
+  end
+
+  def destroy
+    Admin.destroy(params[:id])
+    redirect_to admin_admins_path
+  end
+
   def show_current
     render 'admin/admins/show_current'
   end

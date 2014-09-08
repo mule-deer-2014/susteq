@@ -1,0 +1,24 @@
+.container
+  .row
+    .col-sm-10
+      %h1 Employee Profile
+  .row
+    .col-sm-6
+      / left col
+      %ul.list-group
+        %li.list-group-item.text-muted Account Details
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Name
+          = @employee.name
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Email
+          = @employee.email
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Profile Created
+          = @employee.created_at.strftime('%c')
+
+    = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' }
+    = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_employee_path(@employee)

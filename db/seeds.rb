@@ -3,7 +3,7 @@ require 'faker'
 def generate_date_from_last_six_months
   year = 2014
   month = rand(6)+4
-  day = rand(31)     #Pour one out for n/31/2014; no pressing reason to add in the logic.
+  day = rand(30)+1     #Pour one out for n/31/2014; no pressing reason to add in the logic.
   DateTime.new(year, month, day)
 end
 
