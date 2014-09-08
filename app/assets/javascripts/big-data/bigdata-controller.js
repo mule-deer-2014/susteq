@@ -11,7 +11,6 @@ BigData.DataController.prototype = {
       method:"get"
     }).
     done(function(data){
-      debugger
       this.parseJsonKioskData(data);
     }.bind(this)).
     fail();
