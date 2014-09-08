@@ -1,8 +1,14 @@
 class Admin::KiosksController < ApplicationController
   layout "admin_application"
+  before_filter :require_admin_signin
+
+  def index
+    @kiosks = Kiosk.all
+  end
 
   def new
     @kiosk = Kiosk.new
+    @providers = Provider.all
   end
 
   def show
@@ -18,7 +24,6 @@ class Admin::KiosksController < ApplicationController
     end
   end
 
-
   def edit
     @kiosk = Kiosk.find params[:id]
   end
@@ -30,16 +35,13 @@ class Admin::KiosksController < ApplicationController
     else
       render "admin/kiosks/edit"
     end
-
   end
 
   def destroy
     provider = Provider.find( (Kiosk.find(params[:id])).provider_id )
     Kiosk.destroy(params[:id])
-    redirect_to provider_path(provider)
+    redirect_to admin_kiosks_path
   end
-
-
 
   private
 

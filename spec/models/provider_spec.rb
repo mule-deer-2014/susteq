@@ -8,7 +8,7 @@ describe Provider do
   it { should respond_to(:duns_number) }
 
   #Test associations
-  it { should have_many(:pumps) }
-  it { should have_many(:kiosks)}
-  it { should have_many(:employees) }
+  it { should have_many(:pumps).dependent(:destroy) }
+  it { should have_many(:kiosks).dependent(:destroy)}
+  it { should have_many(:employees).dependent(:destroy) }
 end

@@ -1,28 +1,42 @@
 .row
   .col-lg-12
-    %h1.page-header Fresh & Clear
-    %h3 General information
+    %h1.page-header= @pump.name
+.row
+  .col-lg-12
+    %h3.pull-left General information
+    %p.pull-right
+      = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(@pump)
+      = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(@pump), method: :delete, data: { confirm: 'Are you sure?' }
 .row
   .col-lg-6
     %table
+      %col.col-lg-5
       %tr
         %th Name
-        %td Fresh & Clear
+        %td= @pump.name
       %tr
-        %th Phone
-        %td (432) 735-1423
+        %th Location ID
+        %td= @pump.location_id
       %tr
-        %th Email
-        %td freshandclear@gmail.com
+        %th Type
+        %td= @pump.type
       %tr
-        %th Edit
-        %td= link_to "edit pump number #{@pump.id}", edit_admin_pump_path(@pump), :method => :get
+        %th Provider
+        %td= link_to "#{@pump.provider.name}", admin_provider_path(id: @pump.provider_id)
       %tr
-        %th Delete
-        %td= link_to "delete pump number #{@pump.id}", admin_pump_path(@pump) ,:method => :delete
+        %th Longitude
+        %td= @pump.longitude
       %tr
-        %th Water Service Provider
-        %td  Kiosk number is #{@pump.id} is owned by #{link_to (Provider.find(@pump.provider_id)).name, admin_provider_path(Provider.find(@pump.provider_id))}
+        %th Latitude
+        %td= @pump.latitude
+      %tr
+        %th Created at
+        %td= @pump.created_at
+      %tr
+        %th Updated at
+        %td= @pump.updated_at
+
+
 
 %h3 Profit by month
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
@@ -41,9 +55,6 @@
           %tr.even.gradeC
             %td June
             %td $ 32.142
-    / /.table-responsive
-  / /.col-lg-12
-/ Page-Level Demo Scripts - Tables - Use for reference
 :javascript
   $(document).ready(function() {
       $('#dataTables-example').dataTable();

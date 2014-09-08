@@ -1,0 +1,5 @@
+%h1= "Kiosk number #{@kiosk.id}"
+
+%ul
+	- @kiosk.transactions.each do |t|
+		%li= "Transaction ID: #{t.id}; transaction code: #{t.transaction_code}; transaction amount: #{t.amount}."
