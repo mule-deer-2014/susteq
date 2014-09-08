@@ -5,43 +5,38 @@ HubChart.ChartMaker = function() {
 
 HubChart.ChartMaker.prototype = {
   makeDataForHubs: function(jsonData) {
-    if (jsonData.hasOwnProperty('kiosks') && jsonData.hasOwnProperty('pumps')) {
-      this.makeKioskData(jsonData.kiosks);
-      this.makePumpData(jsonData.pumps);
-    } else if (jsonData.hasOwnProperty('kiosks')) {
-      this.makeKioskData(jsonData.kiosks);
-    } else if (jsonData.hasOwnProperty('pumps')) {
-      this.makePumpData(jsonData.pumps);
-    } else {
-      console.log("Invalid JSON data: cannot chart these hubs.");
+    for(var i=0; i<jsonData.length; i++) {
+      if (jsonData[i].type !== "kiosk" && jsonData[i].type !== "pump") {
+        console.log("Invalid JSON data: cannot chart this hub.");
+      } else {
+        jsonData[i].type === "kiosk" ?
+          this.makeKioskDatum(jsonData[i]) :
+          this.makePumpDatum(jsonData[i]);
+      }
     }
   },
 
-  makeKioskData: function(jsonData) {
+  makeKioskDatum: function(jsonDatum) {
     ret = [];
     dates = [];
     amounts = [];
-    for(var i=0; i < jsonData.length; i++) {
-      for(var j=0; j<jsonData[i].transactions.length; j++) {
-        dates.push(jsonData[i].transactions[j].transaction_time);
-        amounts.push(jsonData[i].transactions[j].amount);
-      }
+    for(var j=0; j<jsonDatum.transactions.length; j++) {
+      dates.push(jsonDatum.transactions[j].transaction_time);
+      amounts.push(jsonDatum.transactions[j].amount);
     }
     ret.push(dates, amounts);
-    this.kioskData = ret;
+    this.kioskData.push(ret);
   },
 
-  makePumpData: function(jsonData) {
+  makePumpDatum: function(jsonDatum) {
     ret = [];
     dates = [];
     amounts = [];
-    for(var i=0; i < jsonData.length; i++) {
-      for(var j=0; j<jsonData[i].transactions.length; j++) {
-        dates.push(jsonData[i].transactions[j].transaction_time);
-        amounts.push(jsonData[i].transactions[j].amount);
-      }
+    for(var j=0; j<jsonDatum.transactions.length; j++) {
+      dates.push(jsonDatum.transactions[j].transaction_time);
+      amounts.push(jsonDatum.transactions[j].amount);
     }
     ret.push(dates, amounts);
-    this.pumpData = ret;
+    this.pumpData.push(ret);
   }
 };
