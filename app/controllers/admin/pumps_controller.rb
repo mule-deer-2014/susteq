@@ -24,7 +24,7 @@ class Admin::PumpsController < ApplicationController
   def index
     @pumps = Pump.all
     respond_to do |format|
-      format.html {render 'admin/kiosks/index'}
+      format.html {render 'admin/pumps/index'}
       format.json {render json:{pumps:@pumps}}
     end
   end
