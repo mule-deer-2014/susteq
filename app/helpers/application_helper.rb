@@ -19,6 +19,10 @@ module ApplicationHelper
     @current_employee ||= Employee.find_by(remember_token: remember_token)
   end
 
+  def current_provider
+    @current_provider = current_employee.provider
+  end
+
   def employee_sign_out
     current_employee.update_attribute(:remember_token, Employee.digest(Employee.new_remember_token))
     cookies.delete(:remember_token)
