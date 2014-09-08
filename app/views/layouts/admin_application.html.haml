@@ -35,7 +35,7 @@
               New
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-alerts
-              =render partial: "admin/dashboard/dropdown_alerts"
+              =render partial: "admin/dashboard/dropdown_new"
           / /.dropdown
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -43,14 +43,12 @@
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-user
               %li
-                =link_to '<i class="fa fa-user fa-fw"></i> User Profile'.html_safe, current_admin_path
+                =link_to '<i class="fa fa-user fa-fw"></i> My Profile'.html_safe, current_admin_path
               %li
-                %a{:href => "#"}
-                  %i.fa.fa-gear.fa-fw
-                  Settings
+                =link_to '<i class="fa fa-gear fa-fw"></i> Manage Admins'.html_safe, admin_admins_path
               %li.divider
               %li
-                =link_to '<i class="fa fa-sign-out fa-fw"></i> Logout'.html_safe, admin_signout_path
+                =link_to '<i class="fa fa-sign-out fa-fw"></i> Signout'.html_safe, admin_signout_path
         / /.dropdown-user
         / /.dropdown
         / /.navbar-top-links

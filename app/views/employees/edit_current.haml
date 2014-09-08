@@ -1,0 +1,22 @@
+.row
+  .col-lg-12
+    %h1.page-header Edit My Profile
+= form_for :employee, url: {action:"update_current"} do |f|
+  .form-group
+    = f.label :name
+    %br
+    = f.text_field :name, class: "form-control", value: current_employee.name
+  .form-group
+    = f.label :email
+    %br
+    = f.text_field :email, class: "form-control", value: current_employee.email
+  .form-group
+    = f.label :phone_number
+    %br
+    = f.text_field :phone_number, class: "form-control", value: current_employee.phone_number
+  .form-group
+    = f.label :password
+    %br
+    = f.text_field :password, class: "form-control", placeholder: "***********"
+  .actions
+    = f.submit class: "btn btn-default"

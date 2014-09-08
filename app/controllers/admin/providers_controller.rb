@@ -25,6 +25,7 @@ class Admin::ProvidersController < ApplicationController
     @hubs = @provider.hubs
     @pumps = @hubs[:pumps]
     @kiosks = @hubs[:kiosks]
+    @employees = @provider.employees
   end
 
   def update

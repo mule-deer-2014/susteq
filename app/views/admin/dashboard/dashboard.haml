@@ -1,11 +1,9 @@
 .row
-  .col-lg-12
-    %h1 Dashboard
-    %hr
-    =image_tag "map.png", :style => "width: 100%; margin-bottom: 20px;"
-/ /.col-lg-12
-/ /.row
-.row.col-lg-12
+.col-lg-12
+  %h1.page-header Susteq Dashboard
+  #map
+.row
+.col-lg-12
   .panel.panel-default
     .panel-heading
       %i.fa.fa-bar-chart-o.fa-fw
@@ -25,11 +23,8 @@
             %li.divider
             %li
               %a{:href => "#"} Separated link
-    / /.panel-heading
     .panel-body
       #morris-area-chart
-    / /.panel-body
-  / /.panel
 .row.col-lg-12
   .panel.panel-default
     .panel-heading
@@ -50,7 +45,6 @@
             %li.divider
             %li
               %a{:href => "#"} Separated link
-    / /.panel-heading
     .panel-body
       .row
         .col-lg-4
