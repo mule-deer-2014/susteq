@@ -5,6 +5,10 @@ BigData.DataController = function(){
 
 BigData.DataController.prototype = {
 
+  allHubs:function(){
+    return this.kiosks.append(this.pumps);
+  },
+
   checkPermissions: function(func){
     var permissionAjax = $.ajax({
       url:"/sessions.json",
