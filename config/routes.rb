@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/employee', to: "employee/sessions#new", as: 'employee_signin'
   get '/employee/signout', to: 'employee/sessions#destroy', as: 'employee_signout' #get rather than delete bc of issue with twitter bootstrap link_to
   get '/providers/:provider_id/dashboard', to:"providers#dashboard", as: "provider_dashboard"
+  get '/sessions', to: "sessions#index"
 
   namespace :employee do
     resources :sessions, only: [:new, :create, :destroy]
