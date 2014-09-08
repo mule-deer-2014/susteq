@@ -11,12 +11,16 @@ HubMap.View.prototype = {
   }),
 
   redMarker: L.AwesomeMarkers.icon({
-    icon: 'circle',
+    icon: 'tint',
+    prefix: 'fa',
+    iconColor:'white',
     markerColor: 'red'
   }),
 
     orangeMarker: L.AwesomeMarkers.icon({
-    icon: 'circle',
+    icon: 'tint',
+    prefix: 'fa',
+    iconColor:'white',
     markerColor: 'orange'
   }),
 

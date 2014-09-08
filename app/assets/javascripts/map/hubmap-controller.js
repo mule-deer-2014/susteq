@@ -6,18 +6,6 @@ HubMap.Controller = function(view){
 
 HubMap.Controller.prototype = {
 
-  populateMap: function(){
-    var getHubData = $.ajax({
-      url:"/hubs",
-      method:"get"
-    }).
-    done(function(){
-      this.parseJsonHubData.bind(this);
-      this.view.renderMarkers(this.hubs);
-    }).
-    fail();
-  },
-
   adminGetKioskData: function(){
     var kioskAjax = $.ajax({
       url:"/admin/kiosks.json",
