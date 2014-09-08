@@ -1,15 +1,17 @@
 class EmployeesController < ApplicationController
+  layout "provider_application"
   respond_to :html
   before_filter :require_employee_signin
 
   def index
-    @employees = Employee.all
+    @employees = current_provider.employees.all
   end
 
   def create
-    @employee = Employee.new(employee_params)
-    redirect_to provider_employees_path and return if @employee.save
-    render new_provider_employees_path
+    @employee = current_provider.employees.new(employee_params)
+
+    redirect_to employees_path and return if @employee.save
+    redirect_to new_employee_path
   end
 
   def new
@@ -20,17 +22,24 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
-  def show
-    @employee = Employee.find(params[:id])
-  end
-
   def update
-    @employee = Employee.find(params[:id])
-    @employee.update(employee_params)
+    employee = Employee.find(params[:id])
+
+    if employee.update(employee_params)
+      redirect_to employees_path
+    elsif employee_params.fetch(:password, []).empty?
+      employee.update_attribute(:name, employee_params[:name])
+      employee.update_attribute(:email, employee_params[:email])
+      employee.update_attribute(:phone_number, employee_params[:phone_number])
+      redirect_to employees_path
+    else
+      redirect_to edit_employee_path(employee)
+    end
   end
 
   def destroy
     Employee.destroy(params[:id])
+    redirect_to employees_path
   end
 
   private

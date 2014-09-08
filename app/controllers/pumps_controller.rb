@@ -3,7 +3,7 @@ class PumpsController < ApplicationController
   before_filter :require_employee_signin
 
   def index
-    @pumps = Provider.find(params[:provider_id]).pumps
+    @pumps = current_provider.pumps
     sum = 0
     @pumps.each do |p|
       sum += p.water_dispensed

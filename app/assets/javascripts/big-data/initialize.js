@@ -9,13 +9,15 @@ $(document).ready(function(){
       if (data.permission === "admin"){
         dataController.getAdminData(function(){
           this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
+          this.grapher.makeDataForHubs(this.allHubs());
+          this.grapher.makeCharts();
         }.bind(dataController));
       }
       else{
-        dataController.getProviderData(data.permission, function(){
+        dataController.getProviderData(function(){
           this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
-          }.bind(dataController));
-        }
+        }.bind(dataController));
+      }
     });
   }
 });
