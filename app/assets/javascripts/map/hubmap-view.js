@@ -125,6 +125,8 @@ HubMap.View.prototype = {
     if(toggleState == "visible"){
       $("#map").css("display", "block");
       $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
+    } else{
+      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
     }
   },
 
