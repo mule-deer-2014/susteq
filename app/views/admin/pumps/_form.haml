@@ -1,28 +1,58 @@
-= form_for [:admin, @pump] do |f|
-  - if flash.any?
-    %h4{:style => "font-weight:bold;color:red;"}
-      Pump not saved:
-    %ul
-      - flash[:error_messages].each do |msg|
-        %li{:style => "font-weight:bold;color:red;"}= msg
-  .form-group
-    = f.label :name
-    %br
-    = f.text_field :name, class: "form-control"
-  .form-group
-    = f.label :longitude
-    %br
-    = f.text_field :longitude, class: "form-control"
-  .form-group
-    = f.label :latitude
-    %br
-    = f.text_field :latitude, class: "form-control"
-  .form-group
-    = f.label :location_id
-    %br
-    = f.text_field :location_id, class: "form-control"
-  .form-group
-    = f.label :provider
-    = f.collection_select :provider_id, Provider.all, :id, :name, {prompt: "Select a provider"}, {class: "form-control"}
-  .actions
-    = f.submit class: "btn btn-default"
+- if @provider
+  = form_for [:admin, @provider, @pump] do |f|
+    - if flash.any?
+      %h4{:style => "font-weight:bold;color:red;"}
+        Pump not saved:
+      %ul
+        - flash[:error_messages].each do |msg|
+          %li{:style => "font-weight:bold;color:red;"}= msg
+    .form-group
+      = f.label :name
+      %br
+      = f.text_field :name, class: "form-control"
+    .form-group
+      = f.label :longitude
+      %br
+      = f.text_field :longitude, class: "form-control"
+    .form-group
+      = f.label :latitude
+      %br
+      = f.text_field :latitude, class: "form-control"
+    .form-group
+      = f.label :location_id
+      %br
+      = f.text_field :location_id, class: "form-control"
+    .form-group
+      = f.label :provider
+      = f.collection_select :provider_id, Provider.all, :id, :name, {prompt: "Select a provider"}, {class: "form-control"}
+    .actions
+      = f.submit class: "btn btn-default"
+-else
+  = form_for [:admin, @pump] do |f|
+    - if flash.any?
+      %h4{:style => "font-weight:bold;color:red;"}
+        Pump not saved:
+      %ul
+        - flash[:error_messages].each do |msg|
+          %li{:style => "font-weight:bold;color:red;"}= msg
+    .form-group
+      = f.label :name
+      %br
+      = f.text_field :name, class: "form-control"
+    .form-group
+      = f.label :longitude
+      %br
+      = f.text_field :longitude, class: "form-control"
+    .form-group
+      = f.label :latitude
+      %br
+      = f.text_field :latitude, class: "form-control"
+    .form-group
+      = f.label :location_id
+      %br
+      = f.text_field :location_id, class: "form-control"
+    .form-group
+      = f.label :provider
+      = f.collection_select :provider_id, Provider.all, :id, :name, {prompt: "Select a provider"}, {class: "form-control"}
+    .actions
+      = f.submit class: "btn btn-default"
