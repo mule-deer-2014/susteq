@@ -11,9 +11,10 @@ $(document).ready(function(){
             this.mapView.bindEvents();
             this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
           }
-          this.grapher = new HubChart.ChartMaker();
-          this.grapher.makeDataForHubs(dataController.allHubs());
-          this.grapher.makeCharts();
+
+          // this.grapher = new HubChart.ChartMaker();
+          // this.grapher.makeDataForHubs(dataController.allHubs());
+          // this.grapher.makeCharts();
         }.bind(dataController));
       }
       else{
