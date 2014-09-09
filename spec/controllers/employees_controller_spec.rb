@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe EmployeesController do
+  # typically RSpec uses let or let! blocks
   before do
     @employee = FactoryGirl.create(:employee)
   end
@@ -38,6 +39,8 @@ describe EmployeesController do
   describe 'POST employees#create' do
     it 'creates a new employee' do
       expect {
+        # typically FactoryGirl can be left out if you mix the right stuff into
+        # your rails_helper
         post :create, employee: FactoryGirl.attributes_for(:employee), provider_id: @employee.provider_id
       }.to change(Employee, :count)
     end

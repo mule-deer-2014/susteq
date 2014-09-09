@@ -12,8 +12,11 @@ class Admin::AdminsController < ApplicationController
 
   def create
     @admin = Admin.new(admin_params)
-    redirect_to admin_admins_path and return if @admin.save
-    redirect_to new_admin_path
+    if @admin.save
+      redirect_to admin_admins_path
+    else
+      redirect_to new_admin_path
+    end
   end
 
   def new
@@ -27,6 +30,7 @@ class Admin::AdminsController < ApplicationController
   def update
     admin = Admin.find(params[:id])
 
+    # Clean this up.  Try a guard clause on one of the conditional paths
     if admin.update(admin_params)
       redirect_to admin_admins_path
     elsif admin_params.fetch(:password, []).empty?
@@ -45,6 +49,9 @@ class Admin::AdminsController < ApplicationController
   end
 
   def show_current
+    # this is pretty unconventional.  you'd expect this to be in
+    # views/admin/show_current..... and you wouldn't thave to pass in the
+    # explicit render.
     render 'admin/admins/show_current'
   end
 
@@ -53,6 +60,8 @@ class Admin::AdminsController < ApplicationController
   end
 
   def update_current
+    # definitely ugly.  don't hate it though, maybe just....dislike...like
+    # casual insensitivity from waiters.
     if current_admin.update_attributes(admin_params) #if entered new password, then do this way
       redirect_to current_admin_path
     elsif admin_params[:password].empty? #if entered blank password, then do this way

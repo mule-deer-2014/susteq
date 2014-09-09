@@ -1,5 +1,7 @@
 var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
 
+// If you have time at some point and want to clean this up, talk to me, but
+// it's not fatal
 $(document).ready(function(){
   var dataController = new BigData.DataController();
   if (docCookies.getItem("remember_token")){

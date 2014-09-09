@@ -8,6 +8,13 @@ class Admin::EmployeesController < ApplicationController
   end
 
   def create
+    # Just an idea..
+    # p = Provider.find(params[:provider_id])
+    # p.employees.build(employee_params)
+    # if p.save
+    # else
+    # end
+    #
     @employee = Employee.new(employee_params)
     if params[:provider_id]
       provider = Provider.find(params[:provider_id])
@@ -37,6 +44,7 @@ class Admin::EmployeesController < ApplicationController
     employee = Employee.find(params[:id])
     if params[:provider_id]
       provider = Provider.find(params[:provider_id])
+      # You really have to find a way to dry this out and make it go away.
       if employee.update(employee_params)
         redirect_to admin_provider_path(provider)
       elsif employee_params.fetch(:password, []).empty?

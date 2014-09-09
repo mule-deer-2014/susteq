@@ -33,3 +33,36 @@ DevBootcamp Mule Deer 2014 Final Project
 [Kanban Board](https://trello.com/b/9fDMEedR/flowteq-tbd)
 
 [![Build Status](https://semaphoreapp.com/api/v1/projects/fbe30aaa-0c9b-4f51-929f-d2641e246d43/243184/badge.png)](https://semaphoreapp.com/whitney/susteq)
+
+
+----
+
+## MVP Review
+
+### Demonstration
+
+Nice demonstration -- and a nice learning experience wrt. consulting.
+
+### Did you achieve the goals?
+
+Yes
+
+### Preparation
+
+Outstanding preparation
+
+### Why HAML?
+
+Choice of framework put them on that path.
+
+### Testing
+
+I like your test of your models.
+
+### Deployment
+
+Great use of deploy to heroku to ensure readiness.
+
+### Git Workflow
+
+Great use of reviews and PRs.  Good stuff.

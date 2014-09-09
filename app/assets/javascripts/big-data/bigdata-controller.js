@@ -48,6 +48,7 @@ BigData.DataController.prototype = {
   },
 
   getProviderData: function(func){
+    // you are completely using promises right.  way to read documentation.
     var pumpAjax = $.ajax({
       url:"/pumps.json",
       method:"get",
