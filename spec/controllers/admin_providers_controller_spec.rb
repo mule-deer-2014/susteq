@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe Admin::ProvidersController do
   before do
+    @admin = FactoryGirl.create(:admin)
     @provider = FactoryGirl.create(:provider)
+    authorize_admin(@admin)
   end
 
   describe 'Response statuses' do

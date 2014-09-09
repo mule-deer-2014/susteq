@@ -8,10 +8,11 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = current_provider.employees.new(employee_params)
-
-    redirect_to employees_path and return if @employee.save
-    redirect_to new_employee_path
+    @employee = current_provider.employees.create!(employee_params)
+    redirect_to employees_path
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:error_messages] = invalid.record.errors.full_messages
+      redirect_to new_employee_path
   end
 
   def new
@@ -33,7 +34,12 @@ class EmployeesController < ApplicationController
       employee.update_attribute(:phone_number, employee_params[:phone_number])
       redirect_to employees_path
     else
-      redirect_to edit_employee_path(employee)
+      begin
+      employee.update!(employee_params)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to edit_employee_path(employee)
+      end
     end
   end
 
@@ -59,10 +65,14 @@ class EmployeesController < ApplicationController
       current_employee.update_attribute(:phone_number, employee_params[:phone_number])
       redirect_to current_employee_path
     else #if failed for some other reason, redirect to edit form
-      redirect_to edit_current_employee_path
+      begin
+      current_employee.update!(employee_params)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to edit_current_employee_path
+      end
     end
   end
-
 
   private
 

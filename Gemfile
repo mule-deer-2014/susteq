@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -37,9 +37,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -52,8 +49,11 @@ group :development, :test do
   gem 'jasmine-rails'
 end
 
-group :test do
+group :production, :test do
   gem 'faker'
+end
+
+group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
@@ -62,3 +62,7 @@ end
 
 gem 'twitter-typeahead-rails'
 
+group :production do
+  gem 'rails_12factor'
+  gem 'thin'
+end

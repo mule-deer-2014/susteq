@@ -12,17 +12,17 @@
 		%table
 			%col.col-lg-5
 			%tr
-				%th Name
+				%th Kiosk Name
 				%td= @kiosk.name
 			%tr
 				%th Location ID
 				%td= @kiosk.location_id
 			%tr
-				%th Type
-				%td= @kiosk.type
-			%tr
 				%th Provider
 				%td= link_to "#{@kiosk.provider.name}", admin_provider_path(id: @kiosk.provider_id)
+			%tr
+				%th Status Code
+				%td= @kiosk.status_code
 			%tr
 				%th Longitude
 				%td= @kiosk.longitude
@@ -35,7 +35,7 @@
 			%tr
 				%th Updated at
 				%td= @kiosk.updated_at
-%h3 Profit by month
+%h3 Credits Bought and Sold by Month
 =image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
 .row
 	.col-lg-12
@@ -44,14 +44,17 @@
 				%thead
 					%tr
 						%th Month
-						%th Profit
+						%th Credits Sold
+						%th Credits Bought
 				%tbody
 					%tr.odd.gradeX
 						%td May
-						%td $ 23.835
+						%td 23.835
+						%td 90.234
 					%tr.even.gradeC
 						%td June
-						%td $ 32.142
+						%td 32.142
+						%td 123.023
 :javascript
 	$(document).ready(function() {
 			$('#dataTables-example').dataTable();
