@@ -1,11 +1,14 @@
-.row
 .col-lg-12
 	%h1.page-header Susteq Dashboard
+.col-lg-12
 	.panel.panel-default
 		.panel-heading
-			%button.btn.btn-default.btn-md.map-button Hide Map
-			#map
-.row
+			%i.fa.fa-map-marker.fa-fw
+			Water pumps and kiosks
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-plus.fa-fw
+		.panel-body#map
 .col-lg-12
 	.panel.panel-default
 		.panel-heading
