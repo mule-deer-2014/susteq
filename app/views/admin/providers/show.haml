@@ -1,12 +1,12 @@
 .row
 	.col-lg-12
-		%h1.page-header= @provider.name
+		%h1.page-header Provider: #{@provider.name}
 		%h3 General information
 	.col-lg-6
 		%table.gen-info
 			%col.col-lg-5
 			%tr
-				%th Name
+				%th Provider Name
 				%td= @provider.name
 			%tr
 				%th Address
@@ -27,12 +27,12 @@
 				%th Updated at
 				%td= @provider.updated_at
 .row.col-lg-12
-	%h3 Profit by month
+	%h3 Credits Sold by Month
 	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
-	%h3 Total water served
+	%h3 Water Pumped by Month
 	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
 .row.col-lg-12
-	%h3.pull-left Water pumps
+	%h3.pull-left Water Pumps
 	.pull-right
 		= button_to "New pump", new_admin_pump_path, method: "get", class: "btn btn-primary btn-xs mt20"
 	.table-responsive
@@ -48,8 +48,8 @@
 			%tbody
 				- @pumps.each do |pump|
 					%tr
-						%td= link_to pump.location_id, admin_pump_path(pump)
-						%td= pump.name
+						%td= pump.location_id
+						%td= link_to pump.name, admin_pump_path(pump)
 						%td= pump.longitude
 						%td= pump.latitude
 						%td= pump.status_code

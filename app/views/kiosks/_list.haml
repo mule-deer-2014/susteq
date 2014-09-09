@@ -4,13 +4,19 @@
       %table#dataTables-example.table.table-striped.table-bordered.table-hover
         %thead
           %tr
+            %th Location Id
             %th Name
-            %th Status
             %th Credits Sold
+            %th Status Code
+            %th Longitude
+            %th Latitude
         %tbody
           - @kiosks.each_with_index do |kiosk, index|
             - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
             %tr{:class => classes}
-              %td= link_to "#{kiosk.name}", kiosk_path(id: kiosk.id)
-              %td= "[status here]"
+              %td= kiosk.location_id
+              %td= link_to "#{kiosk.name}", kiosk_path(kiosk)
               %td= "#{kiosk.credits_sold}"
+              %td= kiosk.status_code
+              %td= kiosk.longitude
+              %td= kiosk.latitude
