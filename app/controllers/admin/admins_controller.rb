@@ -11,9 +11,11 @@ class Admin::AdminsController < ApplicationController
   end
 
   def create
-    @admin = Admin.new(admin_params)
-    redirect_to admin_admins_path and return if @admin.save
-    redirect_to new_admin_path
+    @provider = Admin.create!(admin_params)
+      redirect_to admin_admins_path
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:error_messages] = invalid.record.errors.full_messages
+      redirect_to new_admin_admin_path
   end
 
   def new
@@ -26,16 +28,20 @@ class Admin::AdminsController < ApplicationController
 
   def update
     admin = Admin.find(params[:id])
-
     if admin.update(admin_params)
       redirect_to admin_admins_path
-    elsif admin_params.fetch(:password, []).empty?
+    elsif admin_params[:password].empty?
       admin.update_attribute(:name, admin_params[:name])
       admin.update_attribute(:email, admin_params[:email])
       admin.update_attribute(:phone_number, admin_params[:phone_number])
       redirect_to admin_admins_path
     else
-      redirect_to edit_admin_admin_path(admin)
+      begin
+      admin.update!(admin_params)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to edit_admin_admin_path(admin)
+      end
     end
   end
 
@@ -67,6 +73,6 @@ class Admin::AdminsController < ApplicationController
   private
 
   def admin_params
-    params.require(:admin).permit(:name, :email, :password, :password_hash)
+    params.require(:admin).permit(:name, :email, :phone_number, :password, :password_hash)
   end
 end
