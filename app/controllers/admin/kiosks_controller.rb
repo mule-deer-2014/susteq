@@ -22,12 +22,12 @@ class Admin::KiosksController < ApplicationController
   def create
     if params[:provider_id]
       begin
-      provider = Provider.find(params[:provider_id])
+      @provider = Provider.find(params[:provider_id])
       @kiosk = Kiosk.create!(kiosk_params)
-      redirect_to admin_provider_path(provider)
+      redirect_to admin_provider_path(@provider)
       rescue ActiveRecord::RecordInvalid => invalid
         flash[:error_messages] = invalid.record.errors.full_messages
-        redirect_to new_admin_provider_kiosk_path(provider)
+        redirect_to new_admin_provider_kiosk_path(@provider)
       end
     else
       begin
