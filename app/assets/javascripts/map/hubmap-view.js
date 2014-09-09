@@ -96,11 +96,15 @@ HubMap.View.prototype = {
   },
 
   toggleMapDisplay:function(){
-    $("map").slideToggle()
+    $("#map").slideToggle();
+    if ($(".map-button").html() == "Hide Map")
+      $(".map-button").html("Show Map");
+    else
+      $(".map-button").html("Hide Map");
   },
 
   addToggleMapEventListener:function(){
-    $(".mapButton").on("click", this.toggleMapDisplay);
+    $(".map-button").on("click", this.toggleMapDisplay);
   },
 
   bindEvents:function(){
