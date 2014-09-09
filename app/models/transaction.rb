@@ -1,2 +1,5 @@
 class Transaction < ActiveRecord::Base
-  belongs_to :transactable, polymorphic:trueend
+  belongs_to :transactable, polymorphic:true
+
+
+end
