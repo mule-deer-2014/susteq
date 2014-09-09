@@ -12,21 +12,30 @@ class Admin::PumpsController < ApplicationController
   end
 
   def create
-    @pump = Pump.new(pump_params)
     if params[:provider_id]
+      begin
       provider = Provider.find(params[:provider_id])
-      redirect_to admin_provider_path(provider) and return if @pump.save
-      redirect_to new_admin_provider_pump_path(provider)
+      @pump = Pump.create!(pump_params)
+      redirect_to admin_provider_path(provider)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to new_admin_provider_pump_path(provider)
+      end
     else
-      redirect_to admin_pumps_path and return if @pump.save
-      redirect_to new_admin_pump_path
+      begin
+      @pump = Pump.create!(pump_params)
+      redirect_to admin_pumps_path
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to new_admin_pump_path
+      end
     end
   end
 
   def index
     @pumps = Pump.all
     respond_to do |format|
-      format.html {render '/pumps/index'}
+      format.html {render '/admin/pumps/index'}
       format.json {render json:Pump.get_all_with_transactions}
     end
   end
