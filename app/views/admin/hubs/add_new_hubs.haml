@@ -1,0 +1,10 @@
+%table
+	%tr
+		%th IS IT A HUB????
+		%th location_id
+	- @new_location_ids.each do |id|
+		%tr
+			%td YES
+			%td= id
+
+%h4 Forms needed; possibly a method to implicitly categorize as kiosk or pump based on type-specific transaction codes, because we have no generic hub form.
