@@ -47,16 +47,20 @@ class Admin::PumpsController < ApplicationController
   def update #MLM NOTES TO REFACTOR - Need different way to redirect user when approach from nested provider route vs top level route
     pump = Pump.find(params[:id])
     if params[:provider_id]
+      begin
       provider = Provider.find(params[:provider_id])
-      if pump.update(pump_params)
-        redirect_to admin_provider_path(provider)
-      else
+      pump.update!(pump_params)
+      redirect_to admin_provider_path(provider)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
         redirect_to edit_admin_provider_pump_path(provider,pump)
       end
     else
-      if pump.update(pump_params)
-        redirect_to admin_pumps_path
-      else
+      begin
+      pump.update!(pump_params)
+      redirect_to admin_pumps_path
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
         redirect_to edit_admin_pump_path(pump)
       end
     end
