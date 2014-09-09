@@ -81,4 +81,4 @@ test:
 production:
   <<: *default
   database: susteq_production
-  password: secret_key_susteq
+  password: SECRET_KEY_BASE=e817f5783ac598713a63f4a91ae55795d035dc5b380c46fc5f8e3c1df885169f91b13adfdff659bdbe41d6a1a2051e97c2c3a40fe8e0022c8b61677e3b12e85c
