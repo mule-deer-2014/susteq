@@ -98,21 +98,22 @@ HubMap.View.prototype = {
     this.showAllHubs();
   },
 
-  toggleMapDisplay:function(){
-    $("#map").slideToggle();
-    if ($(".map-button").html() == '<i class="fa fa-plus fa-fw"></i>'){
-      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
-      document.cookie = "toggleState=visible";
-    }
-    else{
-      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
-      document.cookie = "toggleState=invisible";
-    }
-  },
-
   addToggleMapEventListener:function(){
     $(".map-button").on("click", this.toggleMapDisplay);
   },
+
+  toggleMapDisplay:function(){
+    $("#map").slideToggle();
+    if ($(".map-button").html() == '<i class="fa fa-minus fa-fw"></i>'){
+      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
+      $("#map").css("display", "block");
+      document.cookie = "toggleState=invisible";
+    }
+    else{
+      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
+      document.cookie = "toggleState=visible";
+    }
+  },  
 
   bindEvents:function(){
     this.addToggleMapEventListener();
@@ -121,8 +122,9 @@ HubMap.View.prototype = {
   rememberLastToggleState:function(){
     var toggleState = this.getCookie("toggleState");
     console.log(toggleState)
-    if(toggleState == "invisible"){
-      this.toggleMapDisplay();
+    if(toggleState == "visible"){
+      $("#map").css("display", "block");
+      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
     }
   },
 
