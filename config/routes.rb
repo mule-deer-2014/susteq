@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :sessions, only: [:new, :create, :destroy]
     get '/dashboard', to: 'admin/dashboard#index'
+    get '/add_hubs', to: 'hubs#add_new_hubs', as: 'add_new_hubs'
   end
 
   namespace :admin do

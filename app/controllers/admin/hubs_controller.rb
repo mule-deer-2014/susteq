@@ -6,6 +6,7 @@ class Admin::HubsController < ApplicationController
     @pumps = Pump.all
   end
 
-
-
+  def add_new_hubs
+    @new_location_ids = params[:new_hubs_ids]
+  end
 end
