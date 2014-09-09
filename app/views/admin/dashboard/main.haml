@@ -1,0 +1,184 @@
+.row
+.col-lg-12
+  %h1.page-header Susteq Dashboard
+  #map
+  - unless @new_hubs_ids.empty?
+    %h3= "Hubs with the following location ids have not yet been added to the Hubs table: #{@new_hubs_ids.join(", ")}"
+.row
+.col-lg-12
+  .panel.panel-default
+    .panel-heading
+      %i.fa.fa-bar-chart-o.fa-fw
+      Total water dispensed per month
+      .pull-right
+        .btn-group
+          %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+            Actions
+            %span.caret
+          %ul.dropdown-menu.pull-right{:role => "menu"}
+            %li
+              %a{:href => "#"} Action
+            %li
+              %a{:href => "#"} Another action
+            %li
+              %a{:href => "#"} Something else here
+            %li.divider
+            %li
+              %a{:href => "#"} Separated link
+    .panel-body
+      #morris-area-chart
+.row.col-lg-12
+  .panel.panel-default
+    .panel-heading
+      %i.fa.fa-bar-chart-o.fa-fw
+      Revenue from transfers
+      .pull-right
+        .btn-group
+          %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+            Actions
+            %span.caret
+          %ul.dropdown-menu.pull-right{:role => "menu"}
+            %li
+              %a{:href => "#"} Action
+            %li
+              %a{:href => "#"} Another action
+            %li
+              %a{:href => "#"} Something else here
+            %li.divider
+            %li
+              %a{:href => "#"} Separated link
+    .panel-body
+      .row
+        .col-lg-4
+          .table-responsive
+            %table.table.table-bordered.table-hover.table-striped
+              %thead
+                %tr
+                  %th #
+                  %th Date
+                  %th Time
+                  %th Amount
+              %tbody
+                %tr
+                  %td 3326
+                  %td 10/21/2013
+                  %td 3:29 PM
+                  %td $321.33
+                %tr
+                  %td 3325
+                  %td 10/21/2013
+                  %td 3:20 PM
+                  %td $234.34
+                %tr
+                  %td 3324
+                  %td 10/21/2013
+                  %td 3:03 PM
+                  %td $724.17
+                %tr
+                  %td 3323
+                  %td 10/21/2013
+                  %td 3:00 PM
+                  %td $23.71
+                %tr
+                  %td 3322
+                  %td 10/21/2013
+                  %td 2:49 PM
+                  %td $8345.23
+                %tr
+                  %td 3321
+                  %td 10/21/2013
+                  %td 2:23 PM
+                  %td $245.12
+                %tr
+                  %td 3320
+                  %td 10/21/2013
+                  %td 2:15 PM
+                  %td $5663.54
+                %tr
+                  %td 3319
+                  %td 10/21/2013
+                  %td 2:13 PM
+                  %td $943.45
+        / /.table-responsive
+        / /.col-lg-4 (nested)
+        .col-lg-8
+          #morris-bar-chart
+        / /.col-lg-8 (nested)
+      / /.row
+    / /.panel-body
+  / /.panel
+.row.col-lg-12
+  .col-lg-4
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-bell.fa-fw
+        Notifications Panel
+      / /.panel-heading
+      .panel-body
+        .list-group
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-comment.fa-fw
+            New Comment
+            %span.pull-right.text-muted.small
+              %em 4 minutes ago
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-twitter.fa-fw
+            3 New Followers
+            %span.pull-right.text-muted.small
+              %em 12 minutes ago
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-envelope.fa-fw
+            Message Sent
+            %span.pull-right.text-muted.small
+              %em 27 minutes ago
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-tasks.fa-fw
+            New Task
+            %span.pull-right.text-muted.small
+              %em 43 minutes ago
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-upload.fa-fw
+            Server Rebooted
+            %span.pull-right.text-muted.small
+              %em 11:32 AM
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-bolt.fa-fw
+            Server Crashed!
+            %span.pull-right.text-muted.small
+              %em 11:13 AM
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-warning.fa-fw
+            Server Not Responding
+            %span.pull-right.text-muted.small
+              %em 10:57 AM
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-shopping-cart.fa-fw
+            New Order Placed
+            %span.pull-right.text-muted.small
+              %em 9:49 AM
+          %a.list-group-item{:href => "#"}
+            %i.fa.fa-money.fa-fw
+            Payment Received
+            %span.pull-right.text-muted.small
+              %em Yesterday
+        %a.btn.btn-default.btn-block{:href => "#"} View All Alerts
+  .col-lg-4
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-bar-chart-o.fa-fw
+        Revenue per provider
+      .panel-body
+        #morris-donut-chart
+        %a.btn.btn-default.btn-block{:href => "#"} View Details
+  .col-lg-4
+    .panel.panel-default
+      .panel-heading
+        %i.fa.fa-bar-chart-o.fa-fw
+        Water dispensed per provider
+      .panel-body
+        #morris-donut-chart-2
+        %a.btn.btn-default.btn-block{:href => "#"} View Details
+
+.row
+
+%script{:src => url_to_javascript("demo/dashboard-demo.js")}
