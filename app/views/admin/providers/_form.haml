@@ -1,4 +1,10 @@
 = form_for [:admin, @provider] do |f|
+	- if flash.any?
+		%h4{:style => "font-weight:bold;color:red;"}
+			Provider not saved:
+		%ul
+			- flash[:error_messages].each do |msg|
+				%li{:style => "font-weight:bold;color:red;"}= msg
 	.form-group.col-lg-6
 		= f.label :name
 		%br
