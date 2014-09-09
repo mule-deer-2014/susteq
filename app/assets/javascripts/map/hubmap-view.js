@@ -1,52 +1,54 @@
 HubMap.View = function(startLat, startLong, startZoom){
   this.map = L.map('map').setView([startLat,startLong], startZoom);
+  this.setTileLayers();
 };
 
 HubMap.View.prototype = {
-  greenMarker: L.AwesomeMarkers.icon({
-    icon: 'tint',
-    prefix: 'fa',
-    iconColor:'white',
-    markerColor: 'green',
-  }),
 
-  redMarker: L.AwesomeMarkers.icon({
-    icon: 'tint',
-    prefix: 'fa',
-    iconColor:'white',
-    markerColor: 'red'
-  }),
-
-    orangeMarker: L.AwesomeMarkers.icon({
-    icon: 'tint',
-    prefix: 'fa',
-    iconColor:'white',
-    markerColor: 'orange'
-  }),
-
-  setEsriTileLayer: function(){
-    L.esri.basemapLayer("Imagery").addTo(this.map);
-  },
-
-  setOSMTileLayer: function(){
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    new L.TileLayer(osmUrl).addTo(this.map);
+  setTileLayers: function(){
+    var satLayer = L.esri.basemapLayer("Imagery");
+    var osmLayer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    var baseLayers = {"Satellite": satLayer, "Open Street Maps": osmLayer };
+    L.control.layers(baseLayers, null, {collapsed:false}).addTo(this.map);
+    satLayer.addTo(this.map);
   },
 
   createMarker: function(hub){
-    var icon;
+    icon =  L.AwesomeMarkers.icon({prefix:"fa"});
+    icon.options.icon = this.getSymbol(hub);
+    icon.options.markerColor = this.getStatus(hub);
+    return L.marker([hub.latitude, hub.longitude], {icon:icon, riseOnHover:true});
+  },
+
+  createMarkers:function(hubs){
+    markers = [];
+    for (var i=0; i<hubs.length; i++){
+      var marker = this.createMarker(hubs[i]);
+      var popup = this.makePopUp(hubs[i]);
+      markers.push(marker.bindPopup(popup));
+    }
+    return markers;
+  },
+
+  getStatus:function(hub){
     switch(hub.status_code){
     case 1:
-      icon = this.greenMarker;
+      return "green";
       break;
     case 0:
-      icon = this.orangeMarker;
+      return "orange";
       break;
     case -1:
-      icon = this.redMarker;
+      return "red";
       break;
     }
-    return L.marker([hub.latitude, hub.longitude], {icon:icon});
+  },
+
+  getSymbol:function(hub){
+    if (hub.type === "pump")
+      return "tint";
+    else
+      return "mobile";
   },
 
   createPopUp: function(hub){
@@ -64,13 +66,33 @@ HubMap.View.prototype = {
       return this.createErrorPopUp(hub);
   },
 
-  renderMarkers:function(hubs){
-    for (var i=0; i<hubs.length; i++){
-      var marker = this.createMarker(hubs[i]);
-      var popup = this.makePopUp(hubs[i]);
-      marker.bindPopup(popup).addTo(this.map);
-      marker.on("click", marker.openPopup);
-    }
+  showPumpsLayer: function(){
+    this.pumpsLayer.addTo(this.map);
   },
+
+  showKiosksLayer: function(){
+    this.kiosksLayer.addTo(this.map);
+  },
+
+  showAllHubs: function(){
+    this.showPumpsLayer();
+    this.showKiosksLayer();
+  },
+
+  createHubLayers: function(hubs){
+    var markers = this.createMarkers(hubs)
+    return L.layerGroup(markers);
+  },
+
+  renderHubsOnMap: function(hubs){
+    this.pumpsLayer = this.createHubLayers(hubs.pumps);
+    this.kiosksLayer =  this.createHubLayers(hubs.kiosks);
+    L.control.layers(null, {"Kiosks":this.kiosksLayer, "Pumps":this.pumpsLayer}, {collapsed:false}).addTo(this.map);
+  },
+
+  displayAllHubs: function(hubs){
+    this.renderHubsOnMap(hubs);
+    this.showAllHubs();
+  }
 
 };
