@@ -7,6 +7,12 @@ class Hub < ActiveRecord::Base
   validates :longitude, numericality: { :greater_than_or_equal_to => -180, :less_than_or_equal_to => 180}
   validates :status_code, numericality: { only_integer: true}
 
+  after_save :find_loose_transactions
+
+  def find_loose_transactions
+    transactions << Transaction.where(location_id: location_id)
+  end
+
   def get_with_transactions
     {hub: self, transactions: transactions}
   end
