@@ -1,10 +1,10 @@
-var HubFunctions = {
-    findKioskById:function(id){
-    for(var i=0; i<this.kiosks.length; i++){
-      if this.kiosks[i].id === id
-        return this.kiosks[i];
-    }
-}
+// var HubFunctions = {
+//     findKioskById:function(id){
+//     for(var i=0; i<this.kiosks.length; i++){
+//       if this.kiosks[i].id === id
+//         return this.kiosks[i];
+//     }
+// }
 
 function Kiosk(jsonData){
     this.id = jsonData.id;
