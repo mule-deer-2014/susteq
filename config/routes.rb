@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root :to => "sessions#new"
 
+  #ROUTES FOR AJAX REQUESTS
+  get "/transactions/credits_sold_by_kiosk", to: "transactions#credits_sold_by_kiosk"
+
   #ROUTES FOR PROVIDER DASHBOARD
   get '/employee', to: "employee/sessions#new", as: 'employee_signin'
   get '/employee/signout', to: 'employee/sessions#destroy', as: 'employee_signout' #get rather than delete bc of issue with twitter bootstrap link_to
