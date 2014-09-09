@@ -12,21 +12,30 @@ class Admin::PumpsController < ApplicationController
   end
 
   def create
-    @pump = Pump.new(pump_params)
     if params[:provider_id]
-      provider = Provider.find(params[:provider_id])
-      redirect_to admin_provider_path(provider) and return if @pump.save
-      redirect_to new_admin_provider_pump_path(provider)
+      begin
+      @provider = Provider.find(params[:provider_id])
+      @pump = Pump.create!(pump_params)
+      redirect_to admin_provider_path(@provider)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to new_admin_provider_pump_path(@provider)
+      end
     else
-      redirect_to admin_pumps_path and return if @pump.save
-      redirect_to new_admin_pump_path
+      begin
+      @pump = Pump.create!(pump_params)
+      redirect_to admin_pumps_path
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to new_admin_pump_path
+      end
     end
   end
 
   def index
     @pumps = Pump.all
     respond_to do |format|
-      format.html {render '/pumps/index'}
+      format.html {render '/admin/pumps/index'}
       format.json {render json:Pump.get_all_with_transactions}
     end
   end
@@ -36,19 +45,23 @@ class Admin::PumpsController < ApplicationController
   end
 
   def update #MLM NOTES TO REFACTOR - Need different way to redirect user when approach from nested provider route vs top level route
-    pump = Pump.find(params[:id])
+    @pump = Pump.find(params[:id])
     if params[:provider_id]
-      provider = Provider.find(params[:provider_id])
-      if pump.update(pump_params)
-        redirect_to admin_provider_path(provider)
-      else
-        redirect_to edit_admin_provider_pump_path(provider,pump)
+      begin
+      @provider = Provider.find(params[:provider_id])
+      @pump.update!(pump_params)
+      redirect_to admin_provider_path(@provider)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to edit_admin_provider_pump_path(@provider,@pump)
       end
     else
-      if pump.update(pump_params)
-        redirect_to admin_pumps_path
-      else
-        redirect_to edit_admin_pump_path(pump)
+      begin
+      @pump.update!(pump_params)
+      redirect_to admin_pumps_path
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to edit_admin_pump_path(@pump)
       end
     end
   end

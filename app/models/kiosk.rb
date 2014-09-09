@@ -8,4 +8,5 @@ class Kiosk < Hub
     sales.each {|s| credit_sum += s.amount}
     credit_sum
   end
+
 end
