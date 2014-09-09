@@ -49,7 +49,7 @@ HubMap.View.prototype = {
     if (hub.type === "pump")
       return "tint";
     else
-      return "mobile";
+      return "home";
   },
 
   createPopUp: function(hub){
