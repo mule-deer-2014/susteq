@@ -16,18 +16,18 @@ def generate_random_lat_long(lat_min, lat_max, long_min, long_max)
 end
 
 #For development purposes so team can easily login
-  Admin.create(
+  Admin.create!(
     name: "susteq",
     email: "susteq@dbc.com",
     password: "123456"
   )
 
-  Provider.create(
+  Provider.create!(
     name: "ABC Water Service Provider",
     address: "Nairobi",
     country: "Kenya",
     duns_number: "121312312"
-  ).employees.create(
+  ).employees.create!(
     name: "John Doe",
     email: "susteq_employee@dbc.com",
     password: "123456"
@@ -36,7 +36,7 @@ end
 hub_number = 1
 
 5.times do
-  Admin.create(
+  Admin.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: "123456"
@@ -44,7 +44,7 @@ hub_number = 1
 end
 
 3.times do
-  Provider.create(
+  Provider.create!(
     name: Faker::Company.name,
     address: Faker::Address.street_address,
     country: Faker::Address.country,
@@ -54,7 +54,7 @@ end
 
 Provider.all.each do |provider|
   4.times do
-    provider.employees.create(
+    provider.employees.create!(
       name: Faker::Name.name,
       email: Faker::Internet.email,
       password: "123456"
@@ -64,9 +64,9 @@ Provider.all.each do |provider|
   rand(1..3).times do
     # the latitude and longitude ranges used in generate_random_lat_long here and below are coordinates for the area surrounding Nairobi, Kenya, i.e. arbitrary for seed data purposes.
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
-    pump = provider.pumps.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
+    pump = provider.pumps.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
     5.times do
-      pump.transactions.create(
+      pump.transactions.create!(
         transaction_time: generate_date_from_last_six_months,
         transaction_code: 1,
         location_id: hub_number,
@@ -80,9 +80,9 @@ Provider.all.each do |provider|
   rand(1..3).times do
     #SEE COMMENT ABOVE ABOUT LAT_LONG COORDINATES
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
-    kiosk = provider.kiosks.create(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
+    kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
     5.times do
-      kiosk.transactions.create(
+      kiosk.transactions.create!(
         transaction_time: generate_date_from_last_six_months,
         transaction_code: 22,
         location_id: hub_number,
