@@ -1,8 +1,10 @@
 .row
-  .col-lg-12
-    %h1.pull-left Pumps
-
-#map
+	.col-lg-12
+		%h1.pull-left Pumps
+.panel.panel-default
+	.panel-heading
+		%button.btn.btn-default.btn-md.map-button Hide Map
+		#map
 %h3= "Total liters of water dispensed: #{@total_dispensed}"
 
 = render 'list'
