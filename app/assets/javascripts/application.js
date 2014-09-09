@@ -35,6 +35,9 @@
 //= require chart/polychart2.standalone
 //= require chart/_chart_namespace
 //= require chart/chartMaker
+//= require d3.min
 
 //= require sb-admin/sb-admin
+
+//= require_tree .
 
