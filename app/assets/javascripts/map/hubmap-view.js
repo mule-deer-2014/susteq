@@ -1,6 +1,7 @@
 HubMap.View = function(startLat, startLong, startZoom){
   this.map = L.map('map').setView([startLat,startLong], startZoom);
   this.setTileLayers();
+  this.bindEvents();
 };
 
 HubMap.View.prototype = {
