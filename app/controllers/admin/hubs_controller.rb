@@ -7,5 +7,6 @@ class Admin::HubsController < ApplicationController
   end
 
 
+  #whitespace for artistic effect is not desired.
 
 end

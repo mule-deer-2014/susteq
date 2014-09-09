@@ -2,7 +2,7 @@ require_relative '../rails_helper'
 
 describe Admin do
   #Tests that model has attributes
-  it { should respond_to(:name) }
+  it { should respond_to(:name) } # Be aware this would generally be called  "low-value" test as you're testing ActiveRecord.
   it { should respond_to(:email) }
   it { should respond_to(:provider_id) }
   it { should respond_to(:type) }

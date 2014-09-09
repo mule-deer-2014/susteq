@@ -1,3 +1,5 @@
+// kiosk.js
+// should prob. be on BigData.Kiosk
 function Kiosk(jsonData){
     this.id = jsonData.id;
     this.type = "kiosk";

@@ -15,6 +15,9 @@ RSpec.configure do |config|
   # Include authentication helper module for easy sign-in
   config.include AuthenticationHelper
 
+  # Check out this thing, then you don't have to use FactoryGirl in all of your
+  # tests.
+  # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!

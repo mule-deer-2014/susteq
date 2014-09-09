@@ -37,4 +37,7 @@
 //= require chart/chartMaker
 
 //= require sb-admin/sb-admin
-
+//
+// you probably want to add this back....this will free load up a bunch of
+// stuff for you
+//= require_tree .
