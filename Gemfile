@@ -52,8 +52,11 @@ group :development, :test do
   gem 'jasmine-rails'
 end
 
-group :test do
+group :production, :test do
   gem 'faker'
+end
+
+group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
