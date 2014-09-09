@@ -98,10 +98,10 @@ HubMap.View.prototype = {
 
   toggleMapDisplay:function(){
     $("#map").slideToggle();
-    if ($(".map-button").html() == "Hide Map")
-      $(".map-button").html("Show Map");
+    if ($(".map-button").html() == '<i class="fa fa-plus fa-fw"></i>')
+      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
     else
-      $(".map-button").html("Hide Map");
+      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
   },
 
   addToggleMapEventListener:function(){
