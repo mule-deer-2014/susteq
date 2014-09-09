@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: susteq_production
-  username: susteq
-  password: <%= ENV['SUSTEQ_DATABASE_PASSWORD'] %>
+  password: secret_key_susteq
