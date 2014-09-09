@@ -1,6 +1,6 @@
 feature 'Employee logging in' do
-  let (:admin) {FactoryGirl.create(:admin)}
-  let(:employee) {FactoryGirl.create(:employee)}
+  let (:admin) {create(:admin)}
+  let(:employee) {create(:employee)}
 
   scenario 'with invalid email sees login error on login page' do
     visit root_path
