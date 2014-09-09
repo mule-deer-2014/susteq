@@ -1,4 +1,5 @@
 class Admin::HubsController < ApplicationController
+  layout "admin_application"
   before_filter :require_admin_signin
 
   def index
