@@ -8,14 +8,23 @@ class Admin::EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params)
     if params[:provider_id]
+      begin
       provider = Provider.find(params[:provider_id])
-      redirect_to admin_provider_path(provider) and return if @employee.save
-      redirect_to new_admin_provider_employee_path(provider)
+      @employee = Employee.create!(employee_params)
+      redirect_to admin_provider_path(provider)
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to new_admin_provider_employee_path(provider)
+      end
     else
-      redirect_to admin_employees_path and return if @employee.save
-      redirect_to new_admin_employee_path
+      begin
+      @employee = Employee.create!(employee_params)
+      redirect_to admin_employees_path
+      rescue ActiveRecord::RecordInvalid => invalid
+        flash[:error_messages] = invalid.record.errors.full_messages
+        redirect_to new_admin_employee_path
+      end
     end
   end
 
@@ -46,7 +55,12 @@ class Admin::EmployeesController < ApplicationController
         employee.update_attribute(:phone_number, employee_params[:phone_number])
         redirect_to admin_provider_path(provider)
       else
-        redirect_to edit_admin_provider_employee_path(provider,employee)
+        begin
+        employee.update!(employee_params)
+        rescue ActiveRecord::RecordInvalid => invalid
+          flash[:error_messages] = invalid.record.errors.full_messages
+          redirect_to edit_admin_provider_employee_path(provider,employee)
+        end
       end
     else
       if employee.update(employee_params)
@@ -58,7 +72,12 @@ class Admin::EmployeesController < ApplicationController
         employee.update_attribute(:phone_number, employee_params[:phone_number])
         redirect_to admin_employees_path
       else
-        redirect_to edit_admin_employee_path(employee)
+        begin
+        employee.update!(employee_params)
+        rescue ActiveRecord::RecordInvalid => invalid
+          flash[:error_messages] = invalid.record.errors.full_messages
+          redirect_to edit_admin_employee_path(employee)
+        end
       end
     end
   end
