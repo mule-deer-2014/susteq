@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe Admin::ProvidersController do
   before do
-    @admin = FactoryGirl.create(:admin)
-    @provider = FactoryGirl.create(:provider)
+    @admin = create(:admin)
+    @provider = create(:provider)
     authorize_admin(@admin)
   end
 
@@ -40,12 +40,12 @@ describe Admin::ProvidersController do
   describe 'POST providers#create' do
     it 'creates a new provider' do
       expect {
-        post :create, provider: FactoryGirl.attributes_for(:provider)
+        post :create, provider: attributes_for(:provider)
       }.to change(Provider, :count)
     end
-    
+
     it 'redirects to list of providers' do
-      post :create, provider: FactoryGirl.attributes_for(:provider)
+      post :create, provider: attributes_for(:provider)
       assert_redirected_to admin_providers_path
     end
   end
