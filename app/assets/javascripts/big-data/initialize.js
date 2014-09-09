@@ -11,10 +11,11 @@ $(document).ready(function(){
             this.mapView.bindEvents();
             this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
           }
-
-          // this.grapher = new HubChart.ChartMaker();
-          // this.grapher.makeDataForHubs(dataController.allHubs());
-          // this.grapher.makeCharts();
+          if ($("#kiosk-charts").length > 0 || $("#pump-charts").length > 0){
+            this.grapher = new HubChart.ChartMaker();
+            this.grapher.makeDataForHubs(dataController.allHubs());
+            this.grapher.makeCharts();
+          }
         }.bind(dataController));
       }
       else{
