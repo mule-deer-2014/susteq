@@ -1,8 +1,10 @@
 HubMap.View = function(startLat, startLong, startZoom){
   this.map = L.map('map').setView([startLat,startLong], startZoom);
   this.setTileLayers();
+  this.rememberLastToggleState();
   this.bindEvents();
 };
+
 
 HubMap.View.prototype = {
 
@@ -98,10 +100,14 @@ HubMap.View.prototype = {
 
   toggleMapDisplay:function(){
     $("#map").slideToggle();
-    if ($(".map-button").html() == '<i class="fa fa-plus fa-fw"></i>')
+    if ($(".map-button").html() == '<i class="fa fa-plus fa-fw"></i>'){
       $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
-    else
+      document.cookie = "toggleState=visible";
+    }
+    else{
       $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
+      document.cookie = "toggleState=invisible";
+    }
   },
 
   addToggleMapEventListener:function(){
@@ -110,6 +116,29 @@ HubMap.View.prototype = {
 
   bindEvents:function(){
     this.addToggleMapEventListener();
+  },
+
+  rememberLastToggleState:function(){
+    var toggleState = this.getCookie("toggleState");
+    console.log(toggleState)
+    if(toggleState == "invisible"){
+      this.toggleMapDisplay();
+    }
+  },
+
+  getCookie:function(c_name) {
+  if (document.cookie.length > 0) {
+      c_start = document.cookie.indexOf(c_name + "=");
+      if (c_start != -1) {
+          c_start = c_start + c_name.length + 1;
+          c_end = document.cookie.indexOf(";", c_start);
+          if (c_end == -1) {
+              c_end = document.cookie.length;
+          }
+          return unescape(document.cookie.substring(c_start, c_end));
+      }
   }
+  return "";
+},
 
 };
