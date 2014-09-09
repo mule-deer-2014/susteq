@@ -8,8 +8,11 @@ class Admin::ProvidersController < ApplicationController
   end
 
   def create
-    @provider = Provider.create(provider_params)
-    redirect_to admin_providers_path
+    @provider = Provider.create!(provider_params)
+      redirect_to admin_providers_path
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:error_messages] = invalid.record.errors.full_messages
+      redirect_to new_admin_provider_path(@provider)
   end
 
   def new
@@ -30,8 +33,11 @@ class Admin::ProvidersController < ApplicationController
 
   def update
     @provider = Provider.find(params[:id])
-    @provider.update(provider_params)
+    @provider.update!(provider_params)
     redirect_to admin_providers_path
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:error_messages] = invalid.record.errors.full_messages
+      redirect_to admin_providers_path
   end
 
   def destroy

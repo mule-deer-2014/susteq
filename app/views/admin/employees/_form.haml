@@ -1,5 +1,11 @@
 - if @provider
 	= form_for [:admin, @provider, @employee] do |f|
+		- if flash.any?
+			%h4{:style => "font-weight:bold;color:red;"}
+				Employee not saved:
+			%ul
+				- flash[:error_messages].each do |msg|
+					%li{:style => "font-weight:bold;color:red;"}= msg
 		.form-group
 			= f.label :name
 			%br
@@ -23,6 +29,12 @@
 			= f.submit class: "btn btn-default"
 - else
 	= form_for [:admin, @employee] do |f|
+		- if flash.any?
+			%h4{:style => "font-weight:bold;color:red;"}
+				Employee not saved:
+			%ul
+				- flash[:error_messages].each do |msg|
+					%li{:style => "font-weight:bold;color:red;"}= msg
 		.form-group
 			= f.label :name
 			%br
