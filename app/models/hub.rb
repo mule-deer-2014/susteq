@@ -14,4 +14,8 @@ class Hub < ActiveRecord::Base
   def self.get_many_with_transaction(hubs)
     hubs.map{ |hub| hub.get_with_transactions }
   end
+
+  def self.get_all_transactions
+    all.map{ |hub| hub.transactions }.flatten
+  end
 end

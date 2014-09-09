@@ -3,6 +3,7 @@ class Admin::AdminsController < ApplicationController
   before_filter :require_admin_signin
 
   def dashboard
+    @new_hubs_ids = (Transaction.all - Hub.get_all_transactions).map { |transaction| transaction.location_id }
     render 'admin/dashboard/dashboard'
   end
 
