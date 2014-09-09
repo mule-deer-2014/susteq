@@ -10,12 +10,12 @@ class Admin::EmployeesController < ApplicationController
   def create
     if params[:provider_id]
       begin
-      provider = Provider.find(params[:provider_id])
+      @provider = Provider.find(params[:provider_id])
       @employee = Employee.create!(employee_params)
-      redirect_to admin_provider_path(provider)
+      redirect_to admin_provider_path(@provider)
       rescue ActiveRecord::RecordInvalid => invalid
         flash[:error_messages] = invalid.record.errors.full_messages
-        redirect_to new_admin_provider_employee_path(provider)
+        redirect_to new_admin_provider_employee_path(@provider)
       end
     else
       begin
@@ -45,15 +45,15 @@ class Admin::EmployeesController < ApplicationController
   def update #MLM NOTES TO REFACTOR - Need different way to redirect user when approach from nested provider route vs top level employee route
     employee = Employee.find(params[:id])
     if params[:provider_id]
-      provider = Provider.find(params[:provider_id])
+      @provider = Provider.find(params[:provider_id])
       if employee.update(employee_params)
-        redirect_to admin_provider_path(provider)
+        redirect_to admin_provider_path(@provider)
       elsif employee_params.fetch(:password, []).empty?
         employee.update_attribute(:provider_id, employee_params[:provider_id])
         employee.update_attribute(:name, employee_params[:name])
         employee.update_attribute(:email, employee_params[:email])
         employee.update_attribute(:phone_number, employee_params[:phone_number])
-        redirect_to admin_provider_path(provider)
+        redirect_to admin_provider_path(@provider)
       else
         begin
         employee.update!(employee_params)
