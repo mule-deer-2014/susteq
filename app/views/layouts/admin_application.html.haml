@@ -49,29 +49,13 @@
               %li.divider
               %li
                 =link_to '<i class="fa fa-sign-out fa-fw"></i> Signout'.html_safe, admin_signout_path
-        / /.dropdown-user
-        / /.dropdown
-        / /.navbar-top-links
         .navbar-default.navbar-static-side{:role => "navigation"}
           .sidebar-collapse
             %ul#side-menu.nav
               %li.sidebar-search
                 .input-group.custom-search-form
-                  / %input.form-control{:placeholder => "Search...", :type => "text"}
-                  /   %span.input-group-btn
-                  /     %button.btn.btn-default{:type => "button"}
-                  /       %i.fa.fa-search
-                  #the-basics
-                    %input.typeahead{:placeholder => "States of USA", :type => "text"}
-              / /input-group
               =render partial: "admin/dashboard/side_menu"
-      / /.sidebar-collapse
-      / /.navbar-static-side
       #page-wrapper
         =yield
-      / /#page-wrapper
-    / /#wrapper
-/ Page-Level Demo Scripts - Dashboard - Use for reference
-
 = javascript_include_tag "the-basics"
 
