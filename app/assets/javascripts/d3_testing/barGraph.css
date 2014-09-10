@@ -1,0 +1,85 @@
+.chart rect {
+  /*fill: steelblue;*/
+}
+
+.chart text {
+
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+/*.axis text {
+  font: 10px sans-serif;
+  color: black;
+}*/
+
+.x-label text{
+  font-size: 30px;
+}
+
+
+
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.x.axis text {
+  font-size: 8px;
+}
+
+/*.bar text{
+  fill: #000;
+
+}*/
+
+
+
+.text-box text  {
+  width: 60px;
+  height: 28px;
+  background: lightsteelblue;
+  fill: red;
+}
+
+/*.test {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}*/
+
+
+
+table {
+  font-family: "Helvetica", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", Tahoma, sans-serif;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table {
+
+}
+table, td, th {
+  padding: 7px;
+  text-align: center;
+  border: 1px solid rgb(8,48,107);
+}
+th {
+  background-color: rgb(8,81,156);
+  color: white;
+}

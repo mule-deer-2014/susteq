@@ -1,3 +1,11 @@
+// var HubFunctions = {
+//     findKioskById:function(id){
+//     for(var i=0; i<this.kiosks.length; i++){
+//       if this.kiosks[i].id === id
+//         return this.kiosks[i];
+//     }
+// }
+
 function Kiosk(jsonData){
     this.id = jsonData.id;
     this.type = "kiosk";
@@ -16,7 +24,7 @@ Kiosk.prototype = {
             var transaction = new Transaction(transactionData[i]);
             this.transactions.push(transaction);
         }
-    }
+    },
 };
 
 function Pump(jsonData){
