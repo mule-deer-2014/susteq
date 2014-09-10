@@ -43,31 +43,19 @@
               %i.fa.fa-caret-down
             %ul.dropdown-menu.dropdown-user
               %li
-                =link_to '<i class="fa fa-user fa-fw"></i> My Profile'.html_safe, current_admin_path
+                =link_to '<i class="fa fa-user fa-fw"></i> My Profile'.html_safe, admin_current_path
               %li
                 =link_to '<i class="fa fa-gear fa-fw"></i> Manage Admins'.html_safe, admin_admins_path
               %li.divider
               %li
                 =link_to '<i class="fa fa-sign-out fa-fw"></i> Signout'.html_safe, admin_signout_path
-        / /.dropdown-user
-        / /.dropdown
-        / /.navbar-top-links
         .navbar-default.navbar-static-side{:role => "navigation"}
           .sidebar-collapse
             %ul#side-menu.nav
               %li.sidebar-search
                 .input-group.custom-search-form
-                  %input.form-control{:placeholder => "Search...", :type => "text"}
-                    %span.input-group-btn
-                      %button.btn.btn-default{:type => "button"}
-                        %i.fa.fa-search
-              / /input-group
               =render partial: "admin/dashboard/side_menu"
-      / /.sidebar-collapse
-      / /.navbar-static-side
       #page-wrapper
         =yield
-      / /#page-wrapper
-    / /#wrapper
-/ Page-Level Demo Scripts - Dashboard - Use for reference
+= javascript_include_tag "the-basics"
 

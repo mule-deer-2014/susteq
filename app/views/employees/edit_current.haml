@@ -2,12 +2,12 @@
   .col-lg-12
     %h1.page-header Edit My Profile
 = form_for current_employee, url: {action:"update_current"} do |f|
-	- if flash.any?
-		%h4{:style => "font-weight:bold;color:red;"}
-			Your profile not saved:
-		%ul
-			- flash[:error_messages].each do |msg|
-				%li{:style => "font-weight:bold;color:red;"}= msg
+  - if flash.any?
+    %h4{:style => "font-weight:bold;color:red;"}
+      Your profile not saved:
+    %ul
+      - flash[:error_messages].each do |msg|
+        %li{:style => "font-weight:bold;color:red;"}= msg
   .form-group
     = f.label :name
     %br
