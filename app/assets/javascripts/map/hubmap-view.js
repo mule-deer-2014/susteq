@@ -5,7 +5,6 @@ HubMap.View = function(startLat, startLong, startZoom){
   this.bindEvents();
 };
 
-
 HubMap.View.prototype = {
 
   setTileLayers: function(){
