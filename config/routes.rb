@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get '/admin', to: "admin/sessions#new", as: 'admin_signin'
   get '/admin/signout', to: 'admin/sessions#destroy', as: 'admin_signout' #get rather than delete bc of issue with twitter bootstrap link_to
   get '/admin/dashboard', to:'admin/dashboard#main', as: 'admin_dashboard'
-  get '/admin/operations', to:'admin/dashboard#operations', as: 'admin_operations'
+  get '/admin/operations', to:'admin/operations#index', as: 'admin_operations'
   get '/admin/my_profile', to: 'admin/admins#show_current', as: 'current_admin'
   get '/admin/edit_profile', to: 'admin/admins#edit_current', as: 'edit_current_admin'
   post '/admin/my_profile', to: 'admin/admins#update_current', as: 'update_current_admin' #post rather than put bc of issue with twitter bootstrap link_to
