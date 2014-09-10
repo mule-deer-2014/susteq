@@ -5,8 +5,6 @@
 		.panel-heading
 			%button.btn.btn-default.btn-md.map-button Hide Map
 			#map
-  - unless @new_hubs_ids.empty?
-    %h3= "Hubs with the following location ids have not yet been added to the Hubs table: #{@new_hubs_ids.join(", ")}"
 .row
 .col-lg-12
 	.panel.panel-default
