@@ -1,6 +1,8 @@
 class Hub < ActiveRecord::Base
   has_many :transactions
 
+  ONLY_NUMBERS = /\A[0-9]+\z/
+
   validates :name, length: { maximum: 50 }
   validates :type, presence: true
   validates :location_id, presence: true, uniqueness: true, numericality: { only_integer: true}
