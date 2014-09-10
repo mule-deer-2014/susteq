@@ -1,9 +1,8 @@
 HubMap.View = function(startLat, startLong, startZoom){
-  this.map = L.map('map').setView([startLat,startLong], startZoom);
+  this.map = L.map('map', {scrollWheelZoom:false}).setView([startLat,startLong], startZoom);
   this.setTileLayers();
   this.bindEvents();
 };
-
 
 HubMap.View.prototype = {
 
@@ -98,7 +97,7 @@ HubMap.View.prototype = {
   },
 
   addToggleMapEventListener:function(){
-    $(".map-button").on("click", this.toggleMapDisplay);
+    $(".map-button").closest(".panel-heading").on("click", this.toggleMapDisplay);
   },
 
   toggleMapDisplay:function(){
