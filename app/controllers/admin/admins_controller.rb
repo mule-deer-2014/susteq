@@ -56,17 +56,17 @@ class Admin::AdminsController < ApplicationController
 
   def update_current
     if current_admin.update_attributes(admin_params) #if entered new password, then do this way
-      redirect_to current_admin_path
+      redirect_to admin_current_path
     elsif admin_params[:password].empty? #if entered blank password, then do this way
       current_admin.update_attribute(:name, admin_params[:name])
       current_admin.update_attribute(:email, admin_params[:email])
-      redirect_to current_admin_path
+      redirect_to admin_current_path
     else #if failed for some other reason, redirect to edit form
       begin
       current_admin.update!(admin_params)
       rescue ActiveRecord::RecordInvalid => invalid
         flash[:error_messages] = invalid.record.errors.full_messages
-        redirect_to edit_current_admin_path
+        redirect_to admin_edit_current_path
       end
     end
   end

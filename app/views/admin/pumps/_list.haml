@@ -17,7 +17,7 @@
 						%tr{:class => classes}
 							%td= pump.location_id
 							%td= link_to "#{pump.name}", admin_pump_path(id:pump.id)
-							%td= link_to "#{pump.provider.name}", admin_provider_path(id:pump.provider_id)
+							%td= (pump.provider.name != "Unassigned") ? (link_to "#{pump.provider.name}", admin_provider_path(id:pump.provider_id)) : ("#{pump.provider.name}")
 							%td= pump.latitude
 							%td= pump.longitude
 							%td= pump.status_code
