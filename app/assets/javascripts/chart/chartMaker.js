@@ -1,7 +1,7 @@
 HubChart.BarChart = function(object) {
   this.xAxisTitle = object.xAxisTitle;
   this.yAxisTitle = object.yAxisTitle;
-  this.divSelector = object.divSelector;
+  this.svgSelector = object.svgSelector;
   this.makeChart(object.chartData);
 };
 
@@ -72,7 +72,7 @@ HubChart.BarChart.prototype = {
 
   drawChart: function() {
     var that = this;
-    var chart = d3.select(that.divSelector)
+    var chart = d3.select(that.svgSelector)
         .attr("width", that.width + that.margin.left + that.margin.right)
         .attr("height", that.height + that.margin.top + that.margin.bottom)
       .append("g")
