@@ -99,7 +99,7 @@ HubMap.View.prototype = {
   },
 
   addToggleMapEventListener:function(){
-    $(".map-button").on("click", this.toggleMapDisplay);
+    $(".map-button").closest(".panel-heading").on("click", this.toggleMapDisplay);
   },
 
   toggleMapDisplay:function(){
