@@ -36,6 +36,7 @@ BigData.DataController.prototype = {
 
   createMap: function(index, data){
     that = this;
-    that.MapView = new HubMap.View.function()
+    var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
+    that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
   }
 };
