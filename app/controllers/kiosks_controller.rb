@@ -1,5 +1,6 @@
 class KiosksController < ApplicationController
   layout "provider_application"
+  before_filter :require_employee_signin
 
   def index
     @kiosks = current_provider.kiosks
