@@ -72,13 +72,11 @@ HubChart.BarChart.prototype = {
 
   drawChart: function() {
     var that = this;
-    console.log(that);
     var chart = d3.select(that.divSelector)
         .attr("width", that.width + that.margin.left + that.margin.right)
         .attr("height", that.height + that.margin.top + that.margin.bottom)
       .append("g")
         .attr("transform", "translate(" + that.margin.left + "," + that.margin.top + ")");
-
     chart.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + that.height + ")")
