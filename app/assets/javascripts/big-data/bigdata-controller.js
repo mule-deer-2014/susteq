@@ -19,6 +19,13 @@ BigData.DataController.prototype = {
     });
   },
 
+  createBarGraph: function(index, data){
+    that = this;
+    that.container.append(that.chartElementWriter(index));
+    data.svgSelector = that.chartSelector(index);
+    new HubChart.BarChart(data);
+  },
+
   chartElementWriter: function(index) {
     return "<svg id='chart" + index + "'></svg>";
   },
