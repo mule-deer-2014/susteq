@@ -1,8 +1,10 @@
 HubMap.View = function(startLat, startLong, startZoom){
   this.map = L.map('map').setView([startLat,startLong], startZoom);
   this.setTileLayers();
+  this.rememberLastToggleState();
   this.bindEvents();
 };
+
 
 HubMap.View.prototype = {
 
@@ -96,20 +98,51 @@ HubMap.View.prototype = {
     this.showAllHubs();
   },
 
-  toggleMapDisplay:function(){
-    $("#map").slideToggle();
-    if ($(".map-button").html() == "Hide Map")
-      $(".map-button").html("Show Map");
-    else
-      $(".map-button").html("Hide Map");
-  },
-
   addToggleMapEventListener:function(){
     $(".map-button").on("click", this.toggleMapDisplay);
   },
 
+  toggleMapDisplay:function(){
+    $("#map").slideToggle();
+    if ($(".map-button").html() == '<i class="fa fa-minus fa-fw"></i>'){
+      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
+      $("#map").css("display", "block");
+      document.cookie = "toggleState=invisible";
+    }
+    else{
+      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
+      document.cookie = "toggleState=visible";
+    }
+  },  
+
   bindEvents:function(){
     this.addToggleMapEventListener();
+  },
+
+  rememberLastToggleState:function(){
+    var toggleState = this.getCookie("toggleState");
+    console.log(toggleState)
+    if(toggleState == "visible"){
+      $("#map").css("display", "block");
+      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
+    } else{
+      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
+    }
+  },
+
+  getCookie:function(c_name) {
+  if (document.cookie.length > 0) {
+      c_start = document.cookie.indexOf(c_name + "=");
+      if (c_start != -1) {
+          c_start = c_start + c_name.length + 1;
+          c_end = document.cookie.indexOf(";", c_start);
+          if (c_end == -1) {
+              c_end = document.cookie.length;
+          }
+          return unescape(document.cookie.substring(c_start, c_end));
+      }
   }
+  return "";
+},
 
 };

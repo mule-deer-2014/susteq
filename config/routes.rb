@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :sessions, only: [:new, :create, :destroy]
     get '/', to: "sessions#new", as: 'signin'
+    get '/add_hub', to: 'hubs#new', as: 'add_new_hub'
     get '/signout', to: 'sessions#destroy', as: 'signout' #get rather than delete bc of issue with twitter bootstrap link_to
     get '/dashboard', to:'dashboard#main', as: 'dashboard'
     get '/operations', to:'dashboard#operations', as: 'operations'

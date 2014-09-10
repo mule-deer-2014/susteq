@@ -60,6 +60,8 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
+gem 'twitter-typeahead-rails'
+
 group :production do
   gem 'rails_12factor'
   gem 'thin'

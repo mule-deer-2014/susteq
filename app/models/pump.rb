@@ -8,4 +8,8 @@ class Pump < Hub
     dispenses.each {|s| water_sum += s.amount}
     water_sum
   end
+
+  def provider
+    super || NullProvider.new
+  end
 end
