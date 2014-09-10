@@ -65,6 +65,18 @@ body {
     display: block;
 }
 
+.navbar-top-links a {
+    color: white;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: black;
+}
+
+.navbar-top-links > li > a:hover, .nav > li > a:focus {
+    background-color: black;
+}
+
 .navbar-top-links .dropdown-menu li:last-child {
     margin-right: 0;
 }
