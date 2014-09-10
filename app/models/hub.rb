@@ -22,4 +22,8 @@ class Hub < ActiveRecord::Base
   def self.get_all_transactions
     all.map{ |hub| hub.transactions }.flatten
   end
+
+  def get_last_transaction
+    transactions.last
+  end
 end
