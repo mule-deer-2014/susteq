@@ -6,11 +6,11 @@ BarChart.ChartMaker = function() {
 };
 
 BarChart.ChartMaker.prototype = {
-  makeChart: function(dataset, title, xAxisTitle) {
-    this.setData(dataset);
+  makeChart: function(chartOptions) {
+    this.setData(chartOptions.dataSet);
     this.setScales();
     this.setAxes();
-    this.drawChart(title, xAxisTitle);
+    this.drawChart(chartOptions.yAxisTitle, chartOptions.xAxisTitle);
   },
 
   getAmount: function(d) { return d.amount; },
@@ -153,4 +153,4 @@ var JSONData = [
 ];
 
 var b = new BarChart.ChartMaker();
-b.makeChart(JSONData, "Credits Sold", "Kiosk");
+b.makeChart({dataSet: JSONData, yAxisTitle: "Credits Sold", xAxisTitle: "Kiosk"});
