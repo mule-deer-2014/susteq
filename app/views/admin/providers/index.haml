@@ -3,9 +3,14 @@
 		%h1.pull-left Providers
 		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New provider</button>'.html_safe, new_admin_provider_path
 %hr
-.panel.panel-default
-	.panel-heading
-		%button.btn.btn-default.btn-md.map-button Hide Map
-		#map
+.col-lg-12
+	.panel.panel-default
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Providers
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body#map
 = render 'list'
 
