@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe EmployeesController do
   before do
-    @employee = create(:employee)
+    @employee = create(:employee, :with_password)
     authorize_employee(@employee)
   end
 
@@ -80,12 +80,12 @@ describe EmployeesController do
     context 'with valid employee info' do
       it 'creates a new employee' do
         expect {
-          post :create, employee: attributes_for(:employee), provider_id: @employee.provider_id
+          post :create, employee: attributes_for(:employee, :with_password), provider_id: @employee.provider_id
         }.to change(Employee, :count)
       end
 
       it 'redirects to list of employees' do
-        post :create, employee: attributes_for(:employee), provider_id: @employee.provider_id
+        post :create, employee: attributes_for(:employee, :with_password), provider_id: @employee.provider_id
         assert_redirected_to employees_path
       end
     end
@@ -93,12 +93,12 @@ describe EmployeesController do
     context 'with invalid employee info' do
       it 'does not create a provider' do
         expect {
-          post :create, employee: attributes_for(:employee, name: nil), provider_id: @employee.provider_id
+          post :create, employee: attributes_for(:employee, :with_password, name: nil), provider_id: @employee.provider_id
         }.to_not change(Employee, :count)
       end
 
       it 'redirects to list of employees' do
-        post :create, employee: attributes_for(:employee, name: nil), provider_id: @employee.provider_id
+        post :create, employee: attributes_for(:employee, :with_password, name: nil), provider_id: @employee.provider_id
         assert_redirected_to employees_path
       end
     end
@@ -106,17 +106,37 @@ describe EmployeesController do
 
   describe 'PUT providers#update' do
     let(:updated_name) {Faker::Name.first_name}
-
-    it 'updates employee attributes' do
-      expect {
-        put :update, id: @employee.id, employee: attributes_for(:employee, name: updated_name), provider_id: @employee.provider_id
-        @employee.reload
-      }.to change(@employee, :name)
+    let(:employee_no_password) do
+      employee = create(:employee, password: 'password')
+      Employee.find(employee.id)
     end
 
-    it 'redirects to list of employees' do
-      put :update, id: @employee.id, employee: attributes_for(:employee, name: updated_name), provider_id: @employee.provider_id
-      assert_redirected_to employees_path
+    context 'without password param' do
+      it 'updates employee attributes' do
+        expect {
+          put :update, id: @employee.id, employee: attributes_for(:employee, :with_password, name: updated_name), provider_id: @employee.provider_id
+          @employee.reload
+        }.to change(@employee, :name)
+      end
+
+      it 'redirects to list of employees' do
+        put :update, id: @employee.id, employee: attributes_for(:employee, :with_password, name: updated_name), provider_id: @employee.provider_id
+        assert_redirected_to employees_path
+      end
+    end
+
+    context 'without password param' do
+      it 'updates employee attributes' do
+        expect {
+          put :update, id: employee_no_password.id, employee: attributes_for(:employee, name: updated_name), provider_id: employee_no_password.provider_id
+          employee_no_password.reload
+        }.to change(employee_no_password, :name)
+      end
+
+      it 'redirects to list of employees' do
+        put :update, id: employee_no_password.id, employee: attributes_for(:employee, name: updated_name), provider_id: employee_no_password.provider_id
+        assert_redirected_to employees_path
+      end
     end
   end
 
