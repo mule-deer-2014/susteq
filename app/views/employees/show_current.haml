@@ -18,7 +18,7 @@
         %li.list-group-item.text-right
           %span.pull-left
             %strong Phone Number
-          = current_employee.phone_number.empty? ? "." : current_employee.phone_number
+          = current_employee.phone_number.nil? ? "." : current_employee.phone_number
         %li.list-group-item.text-right
           %span.pull-left
             %strong Profile Created
