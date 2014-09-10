@@ -1,5 +1,5 @@
 HubMap.View = function(startLat, startLong, startZoom){
-  this.map = L.map('map').setView([startLat,startLong], startZoom);
+  this.map = L.map('map', {scrollWheelZoom:false}).setView([startLat,startLong], startZoom);
   this.setTileLayers();
   this.rememberLastToggleState();
   this.bindEvents();
