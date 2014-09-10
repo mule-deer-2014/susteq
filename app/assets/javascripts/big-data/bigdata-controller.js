@@ -32,5 +32,10 @@ BigData.DataController.prototype = {
 
   chartSelector: function(index) {
     return "#chart" + index;
+  },
+
+  createMap: function(index, data){
+    that = this;
+    that.MapView = new HubMap.View.function()
   }
 };
