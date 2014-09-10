@@ -26,16 +26,6 @@
 //= require leaflet
 //= require esri-leaflet
 //= require leaflet.awesome-markers.min
-//= require big-data/_namespace
-//= require map/_map_namespace
-//= require big-data/bigdata-model
-//= require big-data/bigdata-controller
-//= require map/hubmap-view
-//= require d3.min
-//= require chart/_chart_namespace
-//= require chart/chartMaker
-//= require big-data/initialize
-//= require polychart2.standalone
 //= require sb-admin/sb-admin
-//= require typeahead.bundle
 
+//= require_tree .

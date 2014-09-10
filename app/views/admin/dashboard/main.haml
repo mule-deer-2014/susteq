@@ -37,7 +37,7 @@
 							%a{:href => "#"} Separated link
 		.panel-body
 			#morris-area-chart
-.row.col-lg-12
+.col-lg-12
 	.panel.panel-default
 		.panel-body
 			.pull-right
@@ -115,77 +115,75 @@
 			/ /.row
 		/ /.panel-body
 	/ /.panel
-.row.col-lg-12
-	.col-lg-4
-		.panel.panel-default
-			.panel-heading
-				%i.fa.fa-bell.fa-fw
-				Notifications Panel
-			/ /.panel-heading
-			.panel-body
-				.list-group
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-comment.fa-fw
-						New Comment
-						%span.pull-right.text-muted.small
-							%em 4 minutes ago
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-twitter.fa-fw
-						3 New Followers
-						%span.pull-right.text-muted.small
-							%em 12 minutes ago
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-envelope.fa-fw
-						Message Sent
-						%span.pull-right.text-muted.small
-							%em 27 minutes ago
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-tasks.fa-fw
-						New Task
-						%span.pull-right.text-muted.small
-							%em 43 minutes ago
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-upload.fa-fw
-						Server Rebooted
-						%span.pull-right.text-muted.small
-							%em 11:32 AM
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-bolt.fa-fw
-						Server Crashed!
-						%span.pull-right.text-muted.small
-							%em 11:13 AM
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-warning.fa-fw
-						Server Not Responding
-						%span.pull-right.text-muted.small
-							%em 10:57 AM
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-shopping-cart.fa-fw
-						New Order Placed
-						%span.pull-right.text-muted.small
-							%em 9:49 AM
-					%a.list-group-item{:href => "#"}
-						%i.fa.fa-money.fa-fw
-						Payment Received
-						%span.pull-right.text-muted.small
-							%em Yesterday
-				%a.btn.btn-default.btn-block{:href => "#"} View All Alerts
-	.col-lg-4
-		.panel.panel-default
-			.panel-heading
-				%i.fa.fa-bar-chart-o.fa-fw
-				Revenue per provider
-			.panel-body
-				#morris-donut-chart
-				%a.btn.btn-default.btn-block{:href => "#"} View Details
-	.col-lg-4
-		.panel.panel-default
-			.panel-heading
-				%i.fa.fa-bar-chart-o.fa-fw
-				Water dispensed per provider
-			.panel-body
-				#morris-donut-chart-2
-				%a.btn.btn-default.btn-block{:href => "#"} View Details
+.col-lg-4
+	.panel.panel-default
+		.panel-heading
+			%i.fa.fa-bell.fa-fw
+			Notifications Panel
+		/ /.panel-heading
+		.panel-body
+			.list-group
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-comment.fa-fw
+					New Comment
+					%span.pull-right.text-muted.small
+						%em 4 minutes ago
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-twitter.fa-fw
+					3 New Followers
+					%span.pull-right.text-muted.small
+						%em 12 minutes ago
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-envelope.fa-fw
+					Message Sent
+					%span.pull-right.text-muted.small
+						%em 27 minutes ago
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-tasks.fa-fw
+					New Task
+					%span.pull-right.text-muted.small
+						%em 43 minutes ago
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-upload.fa-fw
+					Server Rebooted
+					%span.pull-right.text-muted.small
+						%em 11:32 AM
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-bolt.fa-fw
+					Server Crashed!
+					%span.pull-right.text-muted.small
+						%em 11:13 AM
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-warning.fa-fw
+					Server Not Responding
+					%span.pull-right.text-muted.small
+						%em 10:57 AM
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-shopping-cart.fa-fw
+					New Order Placed
+					%span.pull-right.text-muted.small
+						%em 9:49 AM
+				%a.list-group-item{:href => "#"}
+					%i.fa.fa-money.fa-fw
+					Payment Received
+					%span.pull-right.text-muted.small
+						%em Yesterday
+			%a.btn.btn-default.btn-block{:href => "#"} View All Alerts
+.col-lg-4
+	.panel.panel-default
+		.panel-heading
+			%i.fa.fa-bar-chart-o.fa-fw
+			Revenue per provider
+		.panel-body
+			#morris-donut-chart
+			%a.btn.btn-default.btn-block{:href => "#"} View Details
+.col-lg-4
+	.panel.panel-default
+		.panel-heading
+			%i.fa.fa-bar-chart-o.fa-fw
+			Water dispensed per provider
+		.panel-body
+			#morris-donut-chart-2
+			%a.btn.btn-default.btn-block{:href => "#"} View Details
 .row
-
 %script{:src => url_to_javascript("demo/dashboard-demo.js")}

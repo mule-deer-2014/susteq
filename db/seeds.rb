@@ -113,8 +113,15 @@ CSV.foreach(file) do |csv_row|
   elsif [20,21].include?(transaction.transaction_code)
     provider = Provider.all.sample
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
-    p "kiosk (Line 115)"
-    kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: transaction.location_id, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
-    kiosk.transactions << transaction
+    kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
+    5.times do
+      kiosk.transactions.create!(
+        transaction_time: generate_date_from_last_six_months,
+        transaction_code: 21,
+        location_id: hub_number,
+        amount: rand(8..20) * 10
+      )
+    end
+    hub_number += 1
   end
 end

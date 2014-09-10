@@ -5,22 +5,21 @@
 		%ul
 			- flash[:error_messages].each do |msg|
 				%li{:style => "font-weight:bold;color:red;"}= msg
-	.form-group.col-lg-6
+	.form-group
 		= f.label :name
 		%br
 		= f.text_field :name, class: "form-control"
-	.form-group.col-lg-6
+	.form-group
 		= f.label :address
 		%br
 		= f.text_field :address, class: "form-control"
-	.form-group.col-lg-6
+	.form-group
 		= f.label :country
 		%br
 		= f.text_field :country, class: "form-control"
-	.form-group.col-lg-6
+	.form-group
 		= f.label :duns_number
 		%br
 		= f.text_field :duns_number, class: "form-control"
-	.row.col-lg-12
-		.actions.pull-right
-			= f.submit class: "btn btn-primary"
+	.actions
+		= f.submit class: "btn btn-default"
