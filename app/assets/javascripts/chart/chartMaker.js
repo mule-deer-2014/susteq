@@ -77,27 +77,6 @@ HubChart.BarChart.prototype = {
         .attr("height", that.height + that.margin.top + that.margin.bottom)
       .append("g")
         .attr("transform", "translate(" + that.margin.left + "," + that.margin.top + ")");
-    chart.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + that.height + ")")
-        .call(that.xAxis)
-      .append("text")
-        .attr("x", that.width/2)
-        .attr("y", 30)
-        .style("font-size", 20)
-        .text(that.xAxisTitle);
-
-    chart.append("g")
-        .attr("class", "y axis")
-        .call(that.yAxis)
-      .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("font-size", 20)
-        .style("text-anchor", "end")
-        .attr("fill", "black")
-        .text(that.yAxisTitle);
 
     var g = chart.selectAll(".placeholder-bar")
         .data(that.data)
@@ -106,10 +85,10 @@ HubChart.BarChart.prototype = {
 
     var bar = g.append("rect")
         .attr("class", "bar")
-        .attr("x", function(d, i) { return (i * that.width/that.dataLength); })
+        .attr("x", function(d, i) { return (i * that.width/that.dataLength + 1); })
         .attr("y", function(d) { return that.y(that.getAmount(d)); })
         .attr("height", function(d) { return that.height - that.y(that.getAmount(d)); })
-        .attr("width", that.width/that.dataLength)
+        .attr("width", that.width/that.dataLength - 1)
         .attr('fill', 'steelblue')
         .on({"mouseover": highlightBar, "mouseout": makeBlue});
 
@@ -132,10 +111,32 @@ HubChart.BarChart.prototype = {
             .attr("y", d3.select(g[0][i]).select("rect").attr("y") )
             .attr("dy", "-0.75em")
             .remove();
-    };
+    }
 
     function makeBlue(d, i){
         d3.select(bar[0][i]).style("fill", "steelblue");
-    };
+    }
+
+    chart.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + that.height + ")")
+        .call(that.xAxis)
+      .append("text")
+        .attr("x", that.width/2)
+        .attr("y", 30)
+        .style("font-size", 20)
+        .text(that.xAxisTitle);
+
+    chart.append("g")
+        .attr("class", "y axis")
+        .call(that.yAxis)
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("font-size", 20)
+        .style("text-anchor", "end")
+        .attr("fill", "black")
+        .text(that.yAxisTitle);
   }
 };

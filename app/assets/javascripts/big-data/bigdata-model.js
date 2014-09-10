@@ -7,7 +7,7 @@ function Kiosk(jsonData){
     this.longitude = jsonData.longitude;
     this.status_code = jsonData.status_code;
     this.location_id = jsonData.location_id;
-};
+}
 
 function Pump(jsonData){
     this.id = jsonData.id;
@@ -18,7 +18,7 @@ function Pump(jsonData){
     this.longitude = jsonData.longitude;
     this.status_code = jsonData.status_code;
     this.location_id = jsonData.location_id;
-};
+}
 
 function Transaction(jsonData){
     this.id = jsonData.id;
@@ -34,4 +34,4 @@ function Transaction(jsonData){
     this.error_code = jsonData.error_code;
     this.created_at = jsonData.created_at;
     this.updated_at = jsonData.updated_at;
-};
+}
