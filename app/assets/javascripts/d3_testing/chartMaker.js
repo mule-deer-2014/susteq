@@ -14,7 +14,7 @@ BarChart.ChartMaker.prototype = {
   },
 
   getAmount: function(d) { return d.amount; },
-  
+
   getId:     function(d) { return d.location_id; },
 
   setData:   function(jsonData) {
@@ -70,7 +70,7 @@ BarChart.ChartMaker.prototype = {
         .attr("height", that.height + that.margin.top + that.margin.bottom)
       .append("g")
         .attr("transform", "translate(" + that.margin.left + "," + that.margin.top + ")");
-  
+
     chart.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + that.height + ")")
@@ -131,6 +131,17 @@ BarChart.ChartMaker.prototype = {
     function makeBlue(d, i){
         d3.select(bar[0][i]).style("fill", "steelblue");
     }
+  },
+
+  get_credits_sold_by_kiosk: function(){
+    var controller = this;
+    var chartAjax = $.ajax({
+      url:"/admin/credits_by_kiosk.json",
+      method:"get"
+      }).done(function(data){
+
+      controller.makeChart(data)
+    })
   }
 };
 
@@ -152,5 +163,8 @@ var JSONData = [
   { "location_id": 13, "amount": 49650},
 ];
 
-var b = new BarChart.ChartMaker();
-b.makeChart({dataSet: JSONData, yAxisTitle: "Credits Sold", xAxisTitle: "Kiosk"});
+$(document).ready(function(){
+  var b = new BarChart.ChartMaker();
+  // b.makeChart({dataSet: JSONData, yAxisTitle: "Credits Sold", xAxisTitle: "Kiosk"});
+  b.get_credits_sold_by_kiosk();
+})

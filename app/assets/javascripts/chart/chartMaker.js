@@ -115,10 +115,9 @@ HubChart.ChartMaker.prototype = {
   get_credits_sold_by_kiosk: function(){
     var controller = this;
     if (CGraphs.$creditsSoldByKiosk.length > 0){
-      var creditsKiosksAjax = $.get("/transactions/credits_sold_by_kiosk.json")
+      var creditsKiosksAjax = $.get("/admin/credits_by_kiosk.json")
                                 .done(function(data){
-
-                                  new controller.BarChartMaker(data)
+                                  makeKioskChart(data)
                                 })
     }
   }
