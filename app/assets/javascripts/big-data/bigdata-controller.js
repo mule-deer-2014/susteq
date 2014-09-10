@@ -10,9 +10,11 @@ BigData.DataController.prototype = {
     $.each(dataToDisplay, function(index, data){
       switch(data.chartType){
         case "bar":
-        that.container.append(that.chartElementWriter(index));
-        data.svgSelector = that.chartSelector(index);
-        new HubChart.BarChart(data);
+          that.createBarGraph(index, data);
+          break;
+        case "map":
+          that.createMap(index, data);
+          break;
       }
     });
   },
