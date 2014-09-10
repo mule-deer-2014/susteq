@@ -36,5 +36,4 @@
 //= require chart/_chart_namespace
 //= require chart/chartMaker
 //= require sb-admin/sb-admin
-//= require typeahead.bundle
 

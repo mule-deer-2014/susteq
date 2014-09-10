@@ -19,7 +19,7 @@
     %link{:href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}/
   %body
     #wrapper
-      %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation", :style => "margin-bottom: 0"}
+      %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation", :style => "margin-bottom: 0"}
         .navbar-header
           %button.navbar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
@@ -52,8 +52,7 @@
         .navbar-default.navbar-static-side{:role => "navigation"}
           .sidebar-collapse
             %ul#side-menu.nav
-              %li.sidebar-search
-                .input-group.custom-search-form
+              .mt20
               =render partial: "admin/dashboard/side_menu"
       #page-wrapper
         =yield

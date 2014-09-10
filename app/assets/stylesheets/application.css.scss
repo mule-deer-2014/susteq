@@ -29,6 +29,10 @@
 	padding: 3px 3px 3px 0;
 }
 
+.gen-info {
+	margin-bottom: 20px;
+}
+
 .row {
 	padding-top: 20px;
 }
@@ -41,4 +45,14 @@ h3 {
 	font-size: 15px;
 }
 
+#map {
+	display: none;
+}
 
+.btn-add {
+	margin-top: -80px;
+}
+
+.active {
+	background-color: #eeeeee;
+}
