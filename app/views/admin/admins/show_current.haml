@@ -17,6 +17,10 @@
           = current_admin.email
         %li.list-group-item.text-right
           %span.pull-left
+            %strong Phone Number
+          = current_admin.phone_number
+        %li.list-group-item.text-right
+          %span.pull-left
             %strong Profile Created
           = current_admin.created_at.strftime('%c')
 
