@@ -29,3 +29,4 @@
 //= require_tree .
 //= require sb-admin/sb-admin
 //= require typeahead.bundle
+

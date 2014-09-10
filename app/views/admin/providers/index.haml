@@ -1,7 +1,7 @@
 .row
-	.col-lg-12
-		%h1.pull-left Providers
-		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New provider</button>'.html_safe, new_admin_provider_path
+.col-lg-12
+	%h1.page-header Providers
+	= link_to '<button class="btn btn-primary btn-md pull-right btn-add" type="button"><i class="fa fa-plus fa-fw"></i>New provider</button>'.html_safe, new_admin_provider_path
 %hr
 .col-lg-12
 	.panel.panel-default
@@ -12,5 +12,6 @@
 				.minimize.map-button
 					%i.fa.fa-minus.fa-fw
 		.panel-body#map
-= render 'list'
+.col-lg-12
+	= render 'list'
 
