@@ -1,43 +1,23 @@
-var ChartItem = function(object) {
-  this.controllerMethod = object.controllerMethod;
-  this.divSelector = object.divSelector;
+HubChart.BarChart = function(object) {
   this.xAxisTitle = object.xAxisTitle;
   this.yAxisTitle = object.yAxisTitle;
-  this.margin   = { top: 20, right: 30, bottom: 30, left: 60 };
-  this.width    = 720 - this.margin.left - this.margin.right;
-  this.height   = 333 - this.margin.top - this.margin.bottom;
+  this.divSelector = object.divSelector;
+  this.makeChart(object.chartData);
 };
 
-ChartItem.prototype = {
-  createChart: function(){
-    self = this;
-    var chartAjax = $.ajax({
-      url:"/admin/" + this.controllerMethod + ".json",
-      method:"get",
-      success: this.makeChart.bind(self),
-      error: this.loadFailed
-    })
-  },
-
-  loadFailed:function(){
-    alert("Error: data failed to load.");
-  },
-
-  displayOnMap:function(){
-  },
-
-  checkForDiv:function(){
-    if (this.divSelector().length > 0)
-      return true;
-    else
-      return false;
-  },
-
+HubChart.BarChart.prototype = {
   makeChart: function(data) {
+    this.setSize();
     this.setData(data);
     this.setScales();
     this.setAxes();
     this.drawChart();
+  },
+
+  setSize: function(){
+    this.margin   = { top: 20, right: 30, bottom: 30, left: 60 };
+    this.width    = 720 - this.margin.left - this.margin.right;
+    this.height   = 333 - this.margin.top - this.margin.bottom;
   },
 
   getAmount: function(d) { return d.total; },
