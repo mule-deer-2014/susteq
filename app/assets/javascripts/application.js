@@ -34,7 +34,6 @@
 //= require d3.min
 //= require chart/_chart_namespace
 //= require chart/chartMaker
-//= require chart/chartLibrary
 //= require big-data/initialize
 //= require polychart2.standalone
 //= require sb-admin/sb-admin
