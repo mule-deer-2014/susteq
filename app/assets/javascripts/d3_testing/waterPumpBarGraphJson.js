@@ -87,8 +87,8 @@ chart.append("g")
     .attr("class", "y axis")
     .call(yAxis)
   .append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
+    .attr("x", width/2)
+    .attr("y", -10)
     .attr("dy", ".71em")
     .style("font-size", 20)
     .style("text-anchor", "end")
@@ -212,3 +212,4 @@ function makeBlue(d, i){
 
 
 }
+
