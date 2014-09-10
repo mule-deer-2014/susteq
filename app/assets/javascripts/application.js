@@ -31,10 +31,11 @@
 //= require big-data/bigdata-model
 //= require big-data/bigdata-controller
 //= require map/hubmap-view
-//= require big-data/initialize
-//= require polychart2.standalone
 //= require chart/_chart_namespace
 //= require chart/chartMaker
+//= require chart/chartLibrary
+//= require big-data/initialize
+//= require polychart2.standalone
 //= require sb-admin/sb-admin
 //= require typeahead.bundle
 

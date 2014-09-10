@@ -1,109 +1,88 @@
-HubChart.ChartMaker = function() {
-  this.kioskDiv = document.getElementById("kiosk-charts");
-  this.pumpDiv = document.getElementById("pump-charts");
-  this.kioskData = [];
-  this.pumpData = [];
+var ChartItem = function(object) {
+  this.controllerMethod = object.controllerMethod;
+  this.$divSelector = object.$divSelector;
+  this.xAxisTitle = object.xAxisTitle;
+  this.yAxisTitle = object.yAxisTitle;
 };
 
-HubChart.ChartMaker.prototype = {
-  makeDataForHubs: function(jsonData) {
-    for(var i=0; i<jsonData.length; i++) {
-      if (jsonData[i].type !== "kiosk" && jsonData[i].type !== "pump") {
-        console.log("Invalid JSON data: cannot chart this hub.");
-      } else {
-        jsonData[i].type === "kiosk" ?
-          this.makeKioskDatum(jsonData[i]) :
-          this.makePumpDatum(jsonData[i]);
-      }
-    }
+ChartItem.prototype = {
+  createChart: function(){
+    var chartAjax = $.ajax({
+      url:"/admin/" + this.controllerMethod + ".json",
+      method:"get",
+      success: this.makeChart,
+      error: this.loadFailed
+    })
   },
 
-  makeKioskDatum: function(jsonDatum) {
-    dates = [];
-    amounts = [];
-    for(var j=0; j<jsonDatum.transactions.length; j++) {
-      dates.push(jsonDatum.transactions[j].transaction_time);
-      amounts.push(jsonDatum.transactions[j].amount);
-    }
-    var dataSet = polyjs.data({
-      date: dates,
-      credits: amounts
-    });
-    this.kioskData.push(dataSet);
+  loadFailed:function(){
+    alert("Error: data failed to load.");
   },
 
-  makePumpDatum: function(jsonDatum) {
-    dates = [];
-    amounts = [];
-    for(var j=0; j<jsonDatum.transactions.length; j++) {
-      dates.push(jsonDatum.transactions[j].transaction_time);
-      amounts.push(jsonDatum.transactions[j].amount);
-    }
-    var dataSet = polyjs.data({
-      date: dates,
-      dispensed: amounts
-    });
-    this.pumpData.push(dataSet);
+  displayOnMap:function(){
   },
 
-  makeCharts: function() {
-    var kLength = this.kioskData.length;
-    var pLength = this.pumpData.length;
-    if (kLength > 0) {
-      for (var i=0; i<kLength; i++) {
-        if ($("#kiosk-charts").length > 0) {
-          var kioskGraph = document.createElement("div");
-          this.kioskDiv.appendChild(kioskGraph);
-          this.makeKioskChart(this.kioskData[i], kioskGraph);
-        }
-      }
-    }
-    if (pLength > 0) {
-      for (var j=0; j<pLength; j++) {
-        if ($("#pumps-charts").length > 0) {
-          var pumpGraph = document.createElement("div");
-          this.pumpDiv.appendChild(pumpGraph);
-          this.makePumpChart(this.pumpData[j], pumpGraph);
-        }
-      }
-    }
+  checkForDiv:function(){
+    if (this.$divSelector().length > 0)
+      return true;
+    else
+      return false;
   },
 
-  makeKioskChart: function(dataSet, chartElement) {
-    polyjs.chart({
-    layer: {
-      data: dataSet,
-      type: "bar",
-      x: "bin(date, 'month')",
-      y: "sum(credits)"
-    },
-    guide: {
-      x: { title: "Month"},
-      y: { title: ""}
-    },
-    title: "Credit Sales by Month",
-    dom: chartElement,
-    width: 500,
-    height: 250
-  });
+  makeChart: function(data) {
+    this.setData(data);
+    this.setScales();
+    this.setAxes();
+    this.drawChart(title, xAxisTitle);
   },
 
-  makePumpChart: function(dataSet, chartElement) {
-    polyjs.chart({
-    layer: {
-      data: dataSet,
-      type: "bar",
-      x: "bin(date, 'month')",
-      y: "sum(dispensed)"
-    },
-    guide: {
-      x: { title: "Month"},
-      y: { title: ""}
-    },
-    title: "Liters of Water Dispensed by Month",
-    dom: chartElement,
-    width: 500,
-    height: 250
-  });
-  }
+  getAmount: function(d) { return d.amount; },
+
+  getId:     function(d) { return d.location_id; },
+
+  setData:   function(jsonData) {
+    this.data = jsonData.slice();
+    this.dataLength = jsonData.length;
+    this.barWidth = this.width / this.dataLength;
+  },
+
+  setScales: function() {
+    this.setYScale();
+    this.setXScale();
+  },
+
+  setAxes: function() {
+    var that = this;
+    this.setXAxis();
+    this.setYAxis();
+  },
+
+  setYScale: function() {
+    var that = this;
+    this.y = d3.scale.linear()
+               .domain([0, d3.max(that.data, that.getAmount)])
+               .range([that.height,0]);
+  },
+
+  setXScale: function() {
+    var that = this;
+    this.x = d3.scale.ordinal()
+    .domain(that.data.map(function(d) { return d.location_id; }))
+    .rangeRoundBands([0, that.width]);
+  },
+
+  setXAxis: function() {
+    var that = this;
+    this.xAxis = d3.svg.axis()
+    .scale(that.x)
+    .orient("bottom")
+    .ticks(that.dataLength, "id");
+  },
+
+  setYAxis: function() {
+    var that = this;
+    this.yAxis = d3.svg.axis()
+    .scale(that.y)
+    .orient("left");
+  },
 };
