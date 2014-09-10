@@ -29,7 +29,7 @@ var JSONData = [
   { "location_id": 2, "amount": 4},
   { "location_id": 3, "amount": 65},
   { "location_id": 4, "amount": 6},
-  { "location_id": 5, "amount": 78},
+  { "location_id": 5, "amount": 99},
   { "location_id": 6, "amount": 100}
 ];
 
@@ -98,7 +98,6 @@ var g = chart.selectAll(".placeholder-bar")
     .data(data)
   .enter().append("g")
     .attr("class", ".placeholder-bar")
-
 // Put BARS and DATA on CHART
 var bar = g.append("rect")
     .attr("class", "bar")
@@ -106,8 +105,12 @@ var bar = g.append("rect")
     .attr("y", function(d) { return y(amountFn(d)) })
     .attr("height", function(d) { return height - y(amountFn(d)); })
     .attr("width", width/JSONData.length )
-    .attr('fill', 'steelblue')
-    .on({"mouseover": makeRed, "mouseout":makeBlue});
+    .attr("fill", "steelblue")
+    // .attr("fill", function(d) {
+    //   var color = height - y(amountFn(d))
+    //       return "rgb(0, 0, " + color + ")";
+    //      })
+    .on({"mouseover": makeRed, "mouseout":makeBlue, "mousemove": lineDraw});
 
 
 var offset = function(d, i) { return (i * width/JSONData.length) + width/JSONData.length / 2 }
@@ -119,16 +122,69 @@ g.append("text")
     .attr("dy", "0.75em")
     .text(function(d) { return amountFn(d); });
 
+var sortOrder = false;
 
 // EVENT FUNCTIONS
 function callBack(d, i){
     d3.select(".text-box").attr("fill", "blue")
     d3.select(d3.select(this).node().parentNode.children[0]).style("fill", "green")
-    debugger
+    // debugger
+    sortOrder = !sortOrder;
+// data.sort(function(a, b) { return b.amount - a.amount; })
+
+        chart.selectAll("rect")
+           .sort(function(a, b) {
+              if (sortOrder) {
+                return b.amount - a.amount;
+              } else {
+                // debugger
+                return b.amount - a.amount;
+              }
+            })
+           .transition()
+           .delay(function(d, i) {
+             return i * 50;
+           })
+           .duration(1000)
+           .attr("x", function(d, i) {
+              return (i * width/JSONData.length);
+           });
+
+}
+
+function lineDraw(d, i){
+  // debugger
+  var xMouse = d3.mouse(this)[0]
+  var yMouse = d3.mouse(this)[1]
+  d3.select(".hover-line").remove();
+  d3.select(".hover-text").remove()
+
+  d3.select(g[0][i]).append("line")
+        .attr("class", "hover-line")
+        .attr("x1", width +  margin.left)
+        .attr("y1", yMouse - 10)
+        .attr("x2", "0")
+        .attr("y2",  yMouse - 10)
+        .style("stroke-width", 2)
+        .style("stroke", "grey")
+
+
+
+
+  d3.select(g[0][i]).append("text")
+          .attr("class", "hover-text")
+        .attr("x", xMouse)
+        .attr("y", yMouse - 10)
+        .attr("fill", "black")
+        .text(function(d) { return (103-yMouse/height *100).toFixed(0) + " credits"; })
+
+
 }
 
 function makeRed(d, i){
     d3.select(bar[0][i]).style("fill", "red");
+    // data.sort(function(a, b) { return b.amount - a.amount; })
+
 
 
     d3.select(g[0][i]).append("text").attr("class", "text-box")
@@ -146,6 +202,8 @@ function makeRed(d, i){
 
 function makeBlue(d, i){
     d3.select(bar[0][i]).style("fill", 'url(#gradient)');
+    d3.select(".hover-line").remove();
+    d3.select(".hover-text").remove()
 
 
 }
