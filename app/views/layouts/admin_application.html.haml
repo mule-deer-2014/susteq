@@ -56,5 +56,4 @@
               =render partial: "admin/dashboard/side_menu"
       #page-wrapper
         =yield
-= javascript_include_tag "the-basics"
-
+%script!= "dataToDisplay = #{@viz_data};"
