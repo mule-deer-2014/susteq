@@ -1,11 +1,59 @@
 
 var JSONData = [
-        {id: 1, distance: 50, date: "04/21/2014"},
-        {id: 2, distance: 50},
-        {id: 3, distance: 50},
-        {id: 4, distance: 50},
-        {id: 6, distance: 70}
+        {location_id: 1, amount: 50, date: "04/21/2014"},
+        {location_id: 2, amount: 50},
+        {location_id: 3, amount: 50},
+        {location_id: 4, amount: 50},
+        {location_id: 6, amount: 70}
  ];
+
+// var JSONData = [
+//     {
+//         "provider":"provider1",
+//         "hubs":[
+//             {
+//                 "kiosk": "kiosk1",
+//                 "amount":10000,
+
+//             },
+//             {
+//                 "pump": "pump1",
+//                 "amount":5000
+//             }
+//         ]
+//     },
+//     {
+//         "provider":"provider2",
+//         "hubs":[
+//             {
+//                 "kiosk": "kiosk2",
+//                 "amount":10000
+//             },
+//             {
+//                 "pump": "pump2",
+//                 "amount":5000,
+//                 "end-users":[
+//                     {
+//                         "unique rfid":10
+//                     },
+//                 ]
+//             }
+//         ]
+//     },
+//     {
+//         "provider":"provider3",
+//         "hubs":[
+//             {
+//                 "kiosk": "kiosk3",
+//                 "amount":10000
+//             },
+//             {
+//                 "pump": "pump3",
+//                 "amount":5000
+//             }
+//         ]
+//     }
+// ];
 d3.select("#table").selectAll("table")
     .data([JSONData])
   .enter().append("table")

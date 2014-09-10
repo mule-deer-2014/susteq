@@ -108,7 +108,7 @@ var chart = d3.select(".chart")
 d3.select(".chart").selectAll("text").style("font-size", 10).style("text-anchor", "middle");
 
 var svgXAxis = chart.append("g")
-    .attr("class", "x axis")
+    .attr("class", "x axis");
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis)
   .append("text")

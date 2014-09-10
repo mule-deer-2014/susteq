@@ -95,8 +95,8 @@ var color = d3.scale.ordinal()
 
 data.forEach(function(d) {
    var y0 = 0;
-   d.location_id = color.domain().map(function(amount, i) { return {amount: amount, y0: y0, y1: y0 += +d[amount]}; });
-   d.total = d.location_id[d.location_id.length - 1].y1;
+   d.amount = color.domain().map(function(location_id, i) { return {location_id: location_id, y0: y0, y1: y0 += +d[location_id]}; });
+   d.total = d.amount[d.amount.length - 1].y1;
  });
 
 // SORTING FUNCTION!!
@@ -113,8 +113,7 @@ var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
     .innerTickSize([5])
-    .tickPadding([3])
-    ;
+    .tickPadding([3]);
 
 var yAxis = d3.svg.axis()
     .scale(y)

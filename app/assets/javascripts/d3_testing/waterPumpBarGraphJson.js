@@ -69,6 +69,7 @@ var yAxis = d3.svg.axis()
 var chart = d3.select(".chart")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .on({"mousemove": lineDraw})
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -110,7 +111,7 @@ var bar = g.append("rect")
       var color = height - y(amountFn(d))
           return "rgb(0, 0, " + color.toFixed(0) + ")";
          })
-    .on({"mouseover": makeRed, "mouseout":makeBlue, "mousemove": lineDraw});
+    .on({"mouseover": makeRed, "mouseout":makeBlue});
 
 // d3.selectAll(g).attr("fill", function(d) {
 //       var color = height - y(amountFn(d))
@@ -163,24 +164,24 @@ function lineDraw(d, i){
   d3.select(".hover-line").remove();
   d3.select(".hover-text").remove()
 
-  d3.select(g[0][i]).append("line")
+  d3.select(".chart").append("line")
         .attr("class", "hover-line")
         .attr("x1", width +  margin.left)
-        .attr("y1", yMouse - 10)
+        .attr("y1", yMouse -5)
         .attr("x2", "0")
-        .attr("y2",  yMouse - 10)
+        .attr("y2",  yMouse -5 )
         .style("stroke-width", 2)
         .style("stroke", "grey")
 
 
 
 
-  d3.select(g[0][i]).append("text")
+  d3.select(".chart").append("text")
           .attr("class", "hover-text")
-        .attr("x", xMouse)
-        .attr("y", yMouse - 10)
+        .attr("x", xMouse )
+        .attr("y", yMouse -5)
         .attr("fill", "black")
-        .text(function(d) { return (103-yMouse/height *100).toFixed(0) + " credits"; })
+        .text(function(d) { return (9+d3.max(data, amountFn)-yMouse/height *d3.max(data, amountFn)).toFixed(0) + " credits"; })
 
 
 }

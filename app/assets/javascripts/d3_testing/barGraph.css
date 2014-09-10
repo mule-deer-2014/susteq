@@ -1,5 +1,5 @@
 .chart rect {
-  /*fill: steelblue;*/
+
 }
 
 .chart text {
@@ -18,7 +18,11 @@
 }
 
 
-
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
 
 
 .axis path,
@@ -29,7 +33,7 @@
 }
 
 .x.axis path {
-  display: none;
+
 }
 
 .x.axis text {
