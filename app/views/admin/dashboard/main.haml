@@ -1,11 +1,19 @@
-.row
 .col-lg-12
 	%h1.page-header Susteq Dashboard
+.col-lg-12
 	.panel.panel-default
 		.panel-heading
-			%button.btn.btn-default.btn-md.map-button Hide Map
-			#map
-.row
+			%i.fa.fa-map-marker.fa-fw
+			Water pumps and kiosks
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body#map
+- unless @new_hubs_ids.empty?
+	%h3 Hubs with the following location ids have not yet been added to the Hubs table:
+	%ul
+		- @new_hubs_ids.each do |id|
+			%li= link_to id, admin_add_new_hub_path(new_hubs_id: id)
 .col-lg-12
 	.panel.panel-default
 		.panel-heading
@@ -179,7 +187,6 @@
 			.panel-body
 				#morris-donut-chart-2
 				%a.btn.btn-default.btn-block{:href => "#"} View Details
-
 .row
 
 %script{:src => url_to_javascript("demo/dashboard-demo.js")}

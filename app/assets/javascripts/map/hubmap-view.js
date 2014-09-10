@@ -4,6 +4,7 @@ HubMap.View = function(startLat, startLong, startZoom){
   this.bindEvents();
 };
 
+
 HubMap.View.prototype = {
 
   setTileLayers: function(){
@@ -96,20 +97,20 @@ HubMap.View.prototype = {
     this.showAllHubs();
   },
 
-  toggleMapDisplay:function(){
-    $("#map").slideToggle();
-    if ($(".map-button").html() == "Hide Map")
-      $(".map-button").html("Show Map");
-    else
-      $(".map-button").html("Hide Map");
-  },
-
   addToggleMapEventListener:function(){
     $(".map-button").on("click", this.toggleMapDisplay);
   },
 
+  toggleMapDisplay:function(){
+    $("#map").slideToggle();
+    if ($(".map-button").html() === '<i class="fa fa-plus fa-fw"></i>')
+      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
+    else{
+      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
+    }
+  },
+
   bindEvents:function(){
     this.addToggleMapEventListener();
-  }
-
+  },
 };
