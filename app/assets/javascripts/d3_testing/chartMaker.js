@@ -1,5 +1,3 @@
-BarChart = {};
-
 BarChart.ChartMaker = function() {
   this.margin   = { top: 20, right: 30, bottom: 30, left: 60 };
   this.width    = 720 - this.margin.left - this.margin.right;
