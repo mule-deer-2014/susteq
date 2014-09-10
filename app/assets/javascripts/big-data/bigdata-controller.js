@@ -61,4 +61,17 @@ BigData.DataController.prototype = {
     });
     $.when(pumpAjax, kioskAjax).done(func)
   },
+
+  getChartData: function(controllerMethodName, callbackFn ){
+    var chartAjax = $.ajax({
+      url:"/transactions" + controllerMethodName + ".json",
+      method:"get"
+    })
+    .done(callbackFn)
+    .fail(this.loadFailed)
+  },
+
+  loadFailed:function(){
+    alert("Error: data failed to load.");
+  }
 }
