@@ -4,14 +4,16 @@ BigData.DataController = function(){
   this.chartLibrary = [];
 };
 
+var totalCreditsSold = new ChartItem({controllerName: "total_credits_sold", $divSelector:$('#total-credits-sold'), yAxisName: "Kiosk name"})
+
+
 // var ChartLibrary = [...all_chart_items]
 
 var ChartItem = function() {
   this.controllerName = "total_credits_sold",
-  this.divSelector = $("#total-credits-sold"),
-  this.callBack = func,
-  this.xAxisName = "Kiosk name",
-  this.yAxisName = "Total credits sold"
+  this.$divSelector = $("#total-credits-sold"),
+  this.xAxisTitle = "Kiosk name",
+  this.yAxisTitle = "Total credits sold"
 },
 
 ChartItem.prototype = {
@@ -31,13 +33,76 @@ ChartItem.prototype = {
 
   generateChart:function(data){
     this.transactionData = data;
-    this.callBack(data);
+    this.makeChart({dataSet:data,yAxisTitle:this.yAxisTitle, xAxisTitle:this.xAxisTitle});
   },
 
   displayOnMap:function(){
     this.parseTransactionData();
-  }
-}
+  },
+  checkForDiv:function(){
+    if (this.$divSelector().length > 0)
+      return true;
+    else
+      return false;
+  },
+
+  makeChart: function(object) {
+    this.setData(dataset);
+    this.setScales();
+    this.setAxes();
+    this.drawChart(title, xAxisTitle);
+  },
+
+  getAmount: function(d) { return d.amount; },
+
+  getId:     function(d) { return d.location_id; },
+
+  setData:   function(jsonData) {
+    this.data = jsonData.slice();
+    this.dataLength = jsonData.length;
+    this.barWidth = this.width / this.dataLength;
+  },
+
+  setScales: function() {
+    this.setYScale();
+    this.setXScale();
+  },
+
+  setAxes: function() {
+    var that = this;
+    this.setXAxis();
+    this.setYAxis();
+  },
+
+  setYScale: function() {
+    var that = this;
+    this.y = d3.scale.linear()
+               .domain([0, d3.max(that.data, that.getAmount)])
+               .range([that.height,0]);
+  },
+
+  setXScale: function() {
+    var that = this;
+    this.x = d3.scale.ordinal()
+    .domain(that.data.map(function(d) { return d.location_id; }))
+    .rangeRoundBands([0, that.width]);
+  },
+
+  setXAxis: function() {
+    var that = this;
+    this.xAxis = d3.svg.axis()
+    .scale(that.x)
+    .orient("bottom")
+    .ticks(that.dataLength, "id");
+  },
+
+  setYAxis: function() {
+    var that = this;
+    this.yAxis = d3.svg.axis()
+    .scale(that.y)
+    .orient("left");
+  },
+};
 
 BigData.DataController.prototype = {
 
