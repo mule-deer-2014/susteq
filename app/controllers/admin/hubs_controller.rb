@@ -14,23 +14,12 @@ class Admin::HubsController < ApplicationController
   end
 
   def create
-    if params[:provider_id]
-      begin
-      @provider = Provider.find(params[:provider_id])
-      @kiosk = Hub.create!(hub_params)
-      redirect_to admin_provider_path(@provider)
-      rescue ActiveRecord::RecordInvalid => invalid
-        flash[:error_messages] = invalid.record.errors.full_messages
-        redirect_to new_admin_provider_hub_path(@provider)
-      end
-    else
-      begin
-      @hub = Hub.create!(hub_params)
-      redirect_to admin_dashboard_path
-      rescue ActiveRecord::RecordInvalid => invalid
-        flash[:error_messages] = invalid.record.errors.full_messages
-        redirect_to new_admin_hub_path
-      end
+    begin
+    @hub = Hub.create!(hub_params)
+    redirect_to admin_dashboard_path
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:error_messages] = invalid.record.errors.full_messages
+      redirect_to new_admin_hub_path
     end
   end
 
