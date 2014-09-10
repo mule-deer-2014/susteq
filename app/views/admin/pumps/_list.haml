@@ -5,8 +5,6 @@
 				%th Location ID
 				%th Name
 				%th Provider
-				%th Latitude
-				%th Longitude
 				%th Status Code
 				%th
 		%tbody
@@ -16,8 +14,6 @@
 					%td= pump.location_id
 					%td= link_to "#{pump.name}", admin_pump_path(id:pump.id)
 					%td= link_to "#{pump.provider.name}", admin_provider_path(id:pump.provider_id)
-					%td= pump.latitude
-					%td= pump.longitude
 					%td= pump.status_code
 					%td
 						= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(pump), method: :delete, data: { confirm: 'Are you sure?' }

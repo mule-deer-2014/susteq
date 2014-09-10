@@ -5,8 +5,6 @@
 				%th Location ID
 				%th Name
 				%th Provider
-				%th Latitude
-				%th Longitude
 				%th Status Code
 				%th
 		%tbody
@@ -16,8 +14,6 @@
 					%td= kiosk.location_id
 					%td= link_to "#{kiosk.name}", admin_kiosk_path(id:kiosk.id)
 					%td= link_to "#{kiosk.provider.name}", admin_provider_path(id:kiosk.provider_id)
-					%td= kiosk.latitude
-					%td= kiosk.longitude
 					%td= kiosk.status_code
 					%td
 						= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_kiosk_path(kiosk), method: :delete, data: { confirm: 'Are you sure?' }
