@@ -1,5 +1,4 @@
 class NullProvider < Provider
-
   def name
     "Unassigned"
   end
