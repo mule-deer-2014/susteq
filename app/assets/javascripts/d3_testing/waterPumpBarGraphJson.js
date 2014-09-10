@@ -105,13 +105,17 @@ var bar = g.append("rect")
     .attr("y", function(d) { return y(amountFn(d)) })
     .attr("height", function(d) { return height - y(amountFn(d)); })
     .attr("width", width/JSONData.length )
-    .attr("fill", "steelblue")
-    // .attr("fill", function(d) {
-    //   var color = height - y(amountFn(d))
-    //       return "rgb(0, 0, " + color + ")";
-    //      })
+    // .attr("fill", "steelblue")
+    .attr("fill", function(d) {
+      var color = height - y(amountFn(d))
+          return "rgb(0, 0, " + color.toFixed(0) + ")";
+         })
     .on({"mouseover": makeRed, "mouseout":makeBlue, "mousemove": lineDraw});
 
+// d3.selectAll(g).attr("fill", function(d) {
+//       var color = height - y(amountFn(d))
+//           return "rgb(0, 0, " + color + ")";
+//          })
 
 var offset = function(d, i) { return (i * width/JSONData.length) + width/JSONData.length / 2 }
 // bar.append("rect")
