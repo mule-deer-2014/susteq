@@ -1,6 +1,6 @@
 var ChartItem = function(object) {
   this.controllerMethod = object.controllerMethod;
-  this.$divSelector = object.$divSelector;
+  this.divSelector = object.divSelector;
   this.xAxisTitle = object.xAxisTitle;
   this.yAxisTitle = object.yAxisTitle;
   this.margin   = { top: 20, right: 30, bottom: 30, left: 60 };
@@ -14,7 +14,7 @@ ChartItem.prototype = {
     var chartAjax = $.ajax({
       url:"/admin/" + this.controllerMethod + ".json",
       method:"get",
-      success: this.makeChart.bind(this),
+      success: this.makeChart.bind(self),
       error: this.loadFailed
     })
   },
@@ -27,7 +27,7 @@ ChartItem.prototype = {
   },
 
   checkForDiv:function(){
-    if (this.$divSelector().length > 0)
+    if (this.divSelector().length > 0)
       return true;
     else
       return false;
@@ -37,15 +37,15 @@ ChartItem.prototype = {
     this.setData(data);
     this.setScales();
     this.setAxes();
-    this.drawChart(this.yAxisTitle, this.xAxisTitle);
+    this.drawChart();
   },
 
-  getAmount: function(d) { return d.amount; },
+  getAmount: function(d) { return d.total; },
 
   getId:     function(d) { return d.location_id; },
 
   setData:   function(jsonData) {
-    this.data = jsonData.slice();
+    this.data = jsonData;
     this.dataLength = jsonData.length;
     this.barWidth = this.width / this.dataLength;
   },
@@ -90,10 +90,10 @@ ChartItem.prototype = {
     .orient("left");
   },
 
-  drawChart: function(title, hubType) {
+  drawChart: function() {
     var that = this;
     console.log(that);
-    var chart = d3.select(".chart")
+    var chart = d3.select(that.divSelector)
         .attr("width", that.width + that.margin.left + that.margin.right)
         .attr("height", that.height + that.margin.top + that.margin.bottom)
       .append("g")
@@ -107,7 +107,7 @@ ChartItem.prototype = {
         .attr("x", that.width/2)
         .attr("y", 30)
         .style("font-size", 20)
-        .text(hubType);
+        .text(that.xAxisTitle);
 
     chart.append("g")
         .attr("class", "y axis")
@@ -119,7 +119,7 @@ ChartItem.prototype = {
         .style("font-size", 20)
         .style("text-anchor", "end")
         .attr("fill", "black")
-        .text(title);
+        .text(that.yAxisTitle);
 
     var g = chart.selectAll(".placeholder-bar")
         .data(that.data)
