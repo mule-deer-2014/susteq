@@ -1,10 +1,25 @@
 require 'csv'
 require 'net/ftp'
 
-addr = 'ftp.susteq.nl'
-user = 'dev@susteq.nl'
-pass = '7YFVq8Yg'
+ADDR = ENV['FTP_PATH']
+USER = ENV['FTP_USER']
+PASS = ENV['FTP_PASS']
 
-Net::FTP.open(addr) do |ftp|
-  ftp.login(user, pass)
+def generateCsv
+  file = "#{File.expand_path("./lib")}\/TEST.csv"
+  CSV.open(file, "w") do |csv|
+    csv << ["row", "of", "CSV", "data"]
+  end
+
+  return file
 end
+
+def writeFileToServer file
+  puts file
+  Net::FTP.open(ADDR) do |ftp|
+    ftp.login(USER, PASS)
+    ftp.putbinaryfile(file, 'prices.csv')
+  end
+end
+
+writeFileToServer(generateCsv)
