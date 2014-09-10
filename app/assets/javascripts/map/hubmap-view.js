@@ -1,6 +1,7 @@
 HubMap.View = function(startLat, startLong, startZoom){
   this.map = L.map('map').setView([startLat,startLong], startZoom);
   this.setTileLayers();
+  this.bindEvents();
 };
 
 HubMap.View.prototype = {
@@ -48,7 +49,7 @@ HubMap.View.prototype = {
     if (hub.type === "pump")
       return "tint";
     else
-      return "mobile";
+      return "home";
   },
 
   createPopUp: function(hub){
@@ -93,6 +94,22 @@ HubMap.View.prototype = {
   displayAllHubs: function(hubs){
     this.renderHubsOnMap(hubs);
     this.showAllHubs();
+  },
+
+  toggleMapDisplay:function(){
+    $("#map").slideToggle();
+    if ($(".map-button").html() == "Hide Map")
+      $(".map-button").html("Show Map");
+    else
+      $(".map-button").html("Hide Map");
+  },
+
+  addToggleMapEventListener:function(){
+    $(".map-button").on("click", this.toggleMapDisplay);
+  },
+
+  bindEvents:function(){
+    this.addToggleMapEventListener();
   }
 
 };

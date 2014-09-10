@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe EmployeesController do
   before do
-    @employee = FactoryGirl.create(:employee)
+    @employee = create(:employee)
     authorize_employee(@employee)
   end
 
@@ -39,12 +39,12 @@ describe EmployeesController do
   describe 'POST employees#create' do
     it 'creates a new employee' do
       expect {
-        post :create, employee: FactoryGirl.attributes_for(:employee), provider_id: @employee.provider_id
+        post :create, employee: attributes_for(:employee), provider_id: @employee.provider_id
       }.to change(Employee, :count)
     end
 
     it 'redirects to list of employees' do
-      post :create, employee: FactoryGirl.attributes_for(:employee), provider_id: @employee.provider_id
+      post :create, employee: attributes_for(:employee), provider_id: @employee.provider_id
       assert_redirected_to employees_path
     end
   end

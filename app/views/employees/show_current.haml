@@ -1,7 +1,7 @@
 .container
   .row
     .col-sm-10
-      %h1 My Employee Profile
+      %h1 My Profile
   .row
     .col-sm-6
       / left col
@@ -18,7 +18,7 @@
         %li.list-group-item.text-right
           %span.pull-left
             %strong Phone Number
-          = current_employee.phone_number
+          = current_employee.phone_number.empty? ? "." : current_employee.phone_number
         %li.list-group-item.text-right
           %span.pull-left
             %strong Profile Created
