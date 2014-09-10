@@ -48,7 +48,7 @@ class EmployeesController < ApplicationController
     redirect_to employees_path
   end
 
-   def show_current
+  def show_current
     render 'employees/show_current'
   end
 
