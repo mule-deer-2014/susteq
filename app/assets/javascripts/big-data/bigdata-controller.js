@@ -1,12 +1,63 @@
 BigData.DataController = function(){
   this.kiosks = [];
   this.pumps = [];
+  this.chartLibrary = [];
 };
+
+// var ChartLibrary = [...all_chart_items]
+
+var ChartItem = function() {
+  this.controllerName = "total_credits_sold",
+  this.divSelector = $("#total-credits-sold"),
+  this.generateChart = func,
+  this.xAxisName = "Kiosk name",
+  this.yAxisName = "Total credits sold",
+},
+
+ChartItem.prototype = {
+
+  getChartData: function(){
+    var chartAjax = $.ajax({
+      url:"/transactions" + controllerMethodName + ".json",
+      method:"get",
+      success: this.generateChart
+      error: this.loadFailed
+    })
+  },
+
+  loadFailed:function(){
+    alert("Error: data failed to load.");
+  },
+
+  displayOnMap:function(){}
+}
 
 BigData.DataController.prototype = {
 
-  allHubs:function(){
-    return this.kiosks.concat(this.pumps);
+  generateMap: function(){
+    if ($('#map').length > 0){
+      var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
+      this.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
+      this.mapView.displayAllHubs({kiosks:this.kiosks, pumps:this.pumps});
+    }
+  },
+
+  getChartData: function(controllerMethodName, callbackFn ){
+    var chartAjax = $.ajax({
+      url:"/transactions" + controllerMethodName + ".json",
+      method:"get",
+      success:callbackFn
+      error:this.loadFailed
+    })
+  },
+
+  generateAdminCharts:function(){
+    $.each(ChartLibrary, function(index, chartItem)){
+      if ($chartDiv.length > 0){
+        this.getChartData(chartItem.controllerName, chartItem.callbackFn)
+      }
+    }
+
   },
 
   checkPermissions: function(func){
@@ -17,7 +68,7 @@ BigData.DataController.prototype = {
     })
   },
 
-  getAdminData: function(func){
+  getAdminHubData: function(func){
     var pumpAjax = $.ajax({
       url:"/admin/pumps.json",
       method:"get",
@@ -34,7 +85,6 @@ BigData.DataController.prototype = {
   parseJsonKioskData: function(kioskData){
     for(var i= 0; i<kioskData.length; i++){
       var kiosk = new Kiosk(kioskData[i].hub);
-      kiosk.parseTransactions(kioskData[i].transactions)
       this.kiosks.push(kiosk);
     }
   },
@@ -42,12 +92,11 @@ BigData.DataController.prototype = {
   parseJsonPumpData: function(pumpData){
     for(var i= 0; i<pumpData.length; i++){
       var pump = new Pump(pumpData[i].hub);
-      pump.parseTransactions(pumpData[i].transactions)
       this.pumps.push(pump);
     }
   },
 
-  getProviderData: function(func){
+  getProviderHubData: function(func){
     var pumpAjax = $.ajax({
       url:"/pumps.json",
       method:"get",
@@ -61,17 +110,4 @@ BigData.DataController.prototype = {
     });
     $.when(pumpAjax, kioskAjax).done(func)
   },
-
-  getChartData: function(controllerMethodName, callbackFn ){
-    var chartAjax = $.ajax({
-      url:"/transactions" + controllerMethodName + ".json",
-      method:"get"
-    })
-    .done(callbackFn)
-    .fail(this.loadFailed)
-  },
-
-  loadFailed:function(){
-    alert("Error: data failed to load.");
-  }
 }

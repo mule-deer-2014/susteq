@@ -14,7 +14,7 @@ class TransactionsController < ApplicationController
   end
 
   def total_credits_sold
-    Transactions.order(transaction_time: :desc).limit(100).credits_sold().group(:kiosk).select("location_id, sum(amount)")
+    Transactions.order(transaction_time: :desc).limit(100).credits_sold().group("location_id").select("location_id, sum(amount)")
     {location_id:location_id, amount:amount}
   end
 

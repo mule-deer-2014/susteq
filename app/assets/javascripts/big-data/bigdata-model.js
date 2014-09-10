@@ -7,16 +7,6 @@ function Kiosk(jsonData){
     this.longitude = jsonData.longitude;
     this.status_code = jsonData.status_code;
     this.location_id = jsonData.location_id;
-    this.transactions = [];
-};
-
-Kiosk.prototype = {
-    parseTransactions: function(transactionData){
-        for (var i=0; i < transactionData.length; i++){
-            var transaction = new Transaction(transactionData[i]);
-            this.transactions.push(transaction);
-        }
-    }
 };
 
 function Pump(jsonData){
@@ -28,16 +18,6 @@ function Pump(jsonData){
     this.longitude = jsonData.longitude;
     this.status_code = jsonData.status_code;
     this.location_id = jsonData.location_id;
-    this.transactions = [];
-};
-
-Pump.prototype = {
-    parseTransactions: function(transactionData){
-        for (var i=0; i < transactionData.length; i++){
-            var transaction = new Transaction(transactionData[i]);
-            this.transactions.push(transaction);
-        }
-    }
 };
 
 function Transaction(jsonData){
