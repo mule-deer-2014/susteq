@@ -9,9 +9,9 @@ BigData.DataController = function(){
 var ChartItem = function() {
   this.controllerName = "total_credits_sold",
   this.divSelector = $("#total-credits-sold"),
-  this.generateChart = func,
+  this.callBack = func,
   this.xAxisName = "Kiosk name",
-  this.yAxisName = "Total credits sold",
+  this.yAxisName = "Total credits sold"
 },
 
 ChartItem.prototype = {
@@ -29,7 +29,14 @@ ChartItem.prototype = {
     alert("Error: data failed to load.");
   },
 
-  displayOnMap:function(){}
+  generateChart:function(data){
+    this.transactionData = data;
+    this.callBack(data);
+  },
+
+  displayOnMap:function(){
+    this.parseTransactionData();
+  }
 }
 
 BigData.DataController.prototype = {
