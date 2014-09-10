@@ -1,24 +1,22 @@
-.row
-  .col-lg-12
-    .table-responsive
-      %table#dataTables-example.table.table-striped.table-bordered.table-hover
-        %thead
-          %tr
-            %th Name
-            %th Email
-            %th Phone Number
-            %th Created On
-            %th
-        %tbody
-          - @admins.each_with_index do |admin, index|
-            - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
-            %tr{:class => classes}
-              %td= admin.name
-              %td= admin.email
-              %td= admin.phone_number
-              %td= admin.created_at.strftime('%c')
-              %td
-                = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_admin_path(admin), method: :delete, data: { confirm: 'Are you sure?' }
-                = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_admin_path(admin)
+.table-responsive
+  %table#dataTables-example.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Phone Number
+        %th Created On
+        %th
+    %tbody
+      - @admins.each_with_index do |admin, index|
+        - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+        %tr{:class => classes}
+          %td= admin.name
+          %td= admin.email
+          %td= admin.phone_number
+          %td= admin.created_at.strftime('%c')
+          %td
+            = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_admin_path(admin), method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_admin_path(admin)
 
 
