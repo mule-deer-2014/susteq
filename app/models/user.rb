@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   before_create :create_remember_token
+  validates :password, length: { minimum: 6 }, allow_nil: true
 
 
   def User.new_remember_token
