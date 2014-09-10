@@ -31,6 +31,7 @@
 //= require big-data/bigdata-model
 //= require big-data/bigdata-controller
 //= require map/hubmap-view
+//= require d3.min
 //= require chart/_chart_namespace
 //= require chart/chartMaker
 //= require chart/chartLibrary

@@ -33,8 +33,6 @@ end
     password: "123456"
   )
 
-hub_number = 1
-
 5.times do
   Admin.create!(
     name: Faker::Name.name,
@@ -60,35 +58,63 @@ Provider.all.each do |provider|
       password: "123456"
     )
   end
+end
 
-  rand(1..3).times do
-    # the latitude and longitude ranges used in generate_random_lat_long here and below are coordinates for the area surrounding Nairobi, Kenya, i.e. arbitrary for seed data purposes.
+#   rand(1..3).times do
+#     # the latitude and longitude ranges used in generate_random_lat_long here and below are coordinates for the area surrounding Nairobi, Kenya, i.e. arbitrary for seed data purposes.
+#     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
+#     pump = provider.pumps.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
+#     5.times do
+#       pump.transactions.create!(
+#         transaction_time: generate_date_from_last_six_months,
+#         transaction_code: 1,
+#         location_id: hub_number,
+#         amount: rand(1..15)
+#       )
+#     end
+#     hub_number += 1
+#   end
+
+
+#   rand(1..3).times do
+#     #SEE COMMENT ABOVE ABOUT LAT_LONG COORDINATES
+#     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
+#     kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
+#     5.times do
+#       kiosk.transactions.create!(
+#         transaction_time: generate_date_from_last_six_months,
+#         transaction_code: 22,
+#         location_id: hub_number,
+#         amount: rand(8..20) * 10
+#       )
+#     end
+#     hub_number += 1
+#   end
+# end
+
+require 'csv'
+file = "db/data_dump.csv"
+
+# # headers = [id, transaction_time, date,time, location_id, lattitude, longitude,rfid_id, starting_credits, ending_credits, transaction_type, amount, error_code]
+
+# kiosks = []
+# 15.times do
+#   lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
+#   kiosks << Provider.all.sample.kiosks.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
+# end
+
+CSV.foreach(file) do |csv_row|
+  p "transaction (Line 107)"
+  transaction = Transaction.create(transaction_time:Time.at(csv_row[1].to_i),location_id:csv_row[4].to_i, latitude:csv_row[5], longitude:csv_row[6], rfid_id: csv_row[7], starting_credits:csv_row[8],ending_credits:csv_row[9], transaction_code:csv_row[10].to_i, amount:csv_row[11].to_i, error_code:csv_row[12])
+  if [20,21].include?(transaction.transaction_code) && Kiosk.find_by_location_id(transaction.location_id)
+    p "110"
+    kiosk = Kiosk.find_by_location_id(transaction.location_id)
+    kiosk.transactions << transaction
+  elsif [20,21].include?(transaction.transaction_code)
+    provider = Provider.all.sample
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
-    pump = provider.pumps.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
-    5.times do
-      pump.transactions.create!(
-        transaction_time: generate_date_from_last_six_months,
-        transaction_code: 1,
-        location_id: hub_number,
-        amount: rand(1..15)
-      )
-    end
-    hub_number += 1
-  end
-
-
-  rand(1..3).times do
-    #SEE COMMENT ABOVE ABOUT LAT_LONG COORDINATES
-    lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
-    kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
-    5.times do
-      kiosk.transactions.create!(
-        transaction_time: generate_date_from_last_six_months,
-        transaction_code: 22,
-        location_id: hub_number,
-        amount: rand(8..20) * 10
-      )
-    end
-    hub_number += 1
+    p "kiosk (Line 115)"
+    kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: transaction.location_id, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
+    kiosk.transactions << transaction
   end
 end
