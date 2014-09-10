@@ -27,5 +27,4 @@
 //= require esri-leaflet
 //= require leaflet.awesome-markers.min
 //= require sb-admin/sb-admin
-//= require typeahead.bundle
 //= require_tree .
