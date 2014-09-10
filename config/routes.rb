@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   root :to => "sessions#new"
 
-  #ROUTES FOR AJAX REQUESTS
-  get "/transactions/credits_sold_by_kiosk", to: "transactions#credits_sold_by_kiosk"
 
   #ROUTES FOR PROVIDER DASHBOARD
   get '/dashboard', to:"dashboard#main", as: "provider_dashboard"
@@ -40,6 +38,8 @@ Rails.application.routes.draw do
     resources :providers do
       resources :pumps, :kiosks, :employees
     end
+    #ROUTES FOR AJAX REQUESTS
+    get "/credits_by_kiosk", to: "transactions#credits_by_kiosk"
   end
 
 end

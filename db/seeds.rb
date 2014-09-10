@@ -88,6 +88,18 @@ Provider.all.each do |provider|
         location_id: hub_number,
         amount: rand(8..20) * 10
       )
+      kiosk.transactions.create!(
+        transaction_time: generate_date_from_last_six_months,
+        transaction_code: 21,
+        location_id: hub_number,
+        amount: 10
+      )
+      kiosk.transactions.create!(
+        transaction_time: generate_date_from_last_six_months,
+        transaction_code: 20,
+        location_id: hub_number,
+        amount: 20
+      )
     end
     hub_number += 1
   end
