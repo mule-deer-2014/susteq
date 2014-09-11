@@ -1,22 +1,6 @@
 .col-lg-12
 	%h1.page-header Operations
 .col-lg-12
-	.table-responsive
-		%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
-			%thead
-				%tr
-					%th Transaction ID
-					%th Amount
-					%th Transaction code
-					%th Transaction time
-			%tbody
-				- @transactions.each do |transaction|
-					%tr
-						%td= transaction.id
-						%td= transaction.amount
-						%td= transaction.transaction_code
-						%td= transaction.transaction_time
-.col-lg-12
 	%h3 Total credits sold by month
 	.table-responsive
 		%table#dataTables-example.table.table-striped.table-bordered.table-hover
@@ -210,7 +194,19 @@
 					%td 49
 					%td Aug 13
 .row
-:javascript
-	$(document).ready(function() {
-			$('#dataTables-example').dataTable();
-	});
+.col-lg-12
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+			%thead
+				%tr
+					%th Transaction ID
+					%th Amount
+					%th Transaction code
+					%th Transaction time
+			%tbody
+				- @transactions.each do |transaction|
+					%tr
+						%td= transaction.id
+						%td= transaction.amount
+						%td= transaction.transaction_code
+						%td= transaction.transaction_time
