@@ -1,16 +1,12 @@
 class KiosksController < ApplicationController
+  include PerspectiveSummary
   layout "provider_application"
   before_filter :require_employee_signin
 
   def index
     @kiosks = current_provider.kiosks
+    @viz_data = [credits_by_kiosk_for_provider(current_provider), getHubs].to_json
     @total_credits_sold = @kiosks.reduce(0) { |sum, kiosk| sum + kiosk.credits_sold }
-    @viz_data = [credits_by_kiosk_for_provider(current_provider)].to_json
-
-    respond_to do |format|
-      format.html
-      format.json{ render json: Kiosk.get_many_with_transaction(@kiosks) }
-    end
   end
 
   def show

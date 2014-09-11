@@ -1,10 +1,10 @@
 class DashboardController < ApplicationController
+  include PerspectiveSummary
   layout "provider_application"
   before_filter :require_employee_signin
 
   def main
-    @viz_data = 0
-    @hubs = current_provider.hubs
+    @viz_data = [getHubs].to_json
     render "dashboard/main"
   end
 end

@@ -60,10 +60,10 @@ class EmployeesController < ApplicationController
       current_employee.update!(employee_params)
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:error_messages] = invalid.record.errors.full_messages
-      redirect_to edit_current_employee_path and return
+      redirect_to employee_edit_current_path and return
     end
 
-    redirect_to current_employee_path
+    redirect_to employee_current_path
   end
 
   private

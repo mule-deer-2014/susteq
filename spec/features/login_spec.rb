@@ -1,6 +1,6 @@
 feature 'Employee logging in' do
   let (:admin) {create(:admin)}
-  let(:employee) {create(:employee)}
+  let(:employee) {create(:employee, :with_password)}
 
   scenario 'with invalid email sees login error on login page' do
     visit root_path

@@ -1,11 +1,14 @@
 class Admin::ProvidersController < ApplicationController
   layout "admin_application"
+  include PerspectiveSummary
   respond_to :html
   before_filter :require_admin_signin
 
   def index
     @viz_data = 0
     @providers = Provider.all
+    hubs = getHubs
+    @viz_data = [hubs].to_json
   end
 
   def create

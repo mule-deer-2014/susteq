@@ -128,8 +128,8 @@ module PerspectiveSummary
 
   def credits_bought_by_kiosk
     #Query db
-    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20").group("location_id")
-    credits_other = Transaction.select("location_id, sum(amount) as total, starting_credit, ending_credit").where("transaction_code = 23 and ((starting_credit - ending_credit) < 0)").group("location_id")
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
     #Prepare data
     chart_data_array = []
     totals_hash = {}
@@ -146,48 +146,107 @@ module PerspectiveSummary
     data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
     return data_to_display
   end
-end
 
-# Credits bought by Kiosk
-# Transaction.select(“location_id, sum(amount) as total”)
-# .where(“transaction_code = 23”)
-# .group(“location_id”)
-# amount where transaction_code = 20 + amount where transaction_code = 23 AND (starting_credit - ending_credit) < 0
-# Credits remaining by Kiosk
-# Transaction.select(“location_id, sum(amount) as total”)
-# .where(“transaction_code = 23”)
-# .group(“location_id”)
-# amount where transaction_code = 23 + amount where transaction_code = 23 AND (starting_credit - ending_credit) > 0
-# Water Dispensed by Pump
-# Transaction.select(“location_id, sum(amount) as total”)
-# .where(“transaction_code = 1”)
-# .group(“location_id”)
-# Count of Errors by Kiosk Table over last 30 days
-# GPRS Errors - count(transaction_code = 39 and amount=101)
-# Transaction.select(“location_id, transaction_time, count(amount) as count”)
-# .where(“transaction_code=39 AND amount =101 AND transaction_time > Date.today - 30”)
-# .group(“location_id)
-# RFID Errors - count(transaction_code = 39 and amount=111)
-# BAT Low Errors - count(transaction_code = 39 and amount=132)
-# BAT OK Errors - count(transaction_code = 39 and amount=133)
-# Last Error by Kiosk
-# GPRS Errors
-# Transaction.select(“location_id, transaction_time”)
-# .where(“transaction_code=39 AND amount =101)
-# .group(“location_id)
-# .order(“transaction_time”)
-# .first
-# RFID Errors - count(transaction_code = 39 and amount=111)
-# BAT Status
-# Transaction.select(“location_id, transaction_time as day”)
-# .where(“transaction_code=39 AND (amount =132 OR amount=133))
-# .group(“location_id)
-# .order(“transaction_time”)
-# .first
-# 133 is BAT ok, 132 is BAT not ok
-# SMS Balance on Sim Card by Pump
-# Transaction.select(“location_id, extract(day from transaction_time), amount”)
-# .where(“transaction_code=41)
-# .group(“location_id)
-# .order(“transaction_time”)
-# .first
+  def credits_remaining_by_kiosk
+    #Query db
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+    credits_subtract = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) > 0)").group("location_id")
+    #Prepare data
+    chart_data_array = []
+    totals_hash = {}
+    credits_init.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] = obj.total
+    end
+    credits_subtract.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] -= obj.total
+    end
+    totals_hash.each {|location_id,total|
+      chart_data_array.push({location_id: location_id, total: total})
+    }
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Remaining", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
+    return data_to_display
+  end
+
+  def sms_balance_by_pump
+    sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
+      #Prepare data
+    existing_ids = []
+    sms_balance_by_location.each do |obj|
+      if !existing_ids.include?(obj.location_id)
+      chart_data_array.push({location_id: obj.location_id, day: obj.day, total: obj.amount})
+      else
+        existing_ids.push(obj.location_id)
+      end
+    end
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Pump Location Id", yAxisTitle: "SMS Balance", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
+    return data_to_display
+  end
+
+  def last_error_by_hub
+    #GPRS Errors
+    @gprs_errors_arr = []
+    existing_ids = []
+    gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id").order("transaction_time")
+    gprs_errors.each do |error|
+      if !existing_ids.include?(obj.location_id)
+      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+      else
+        existing_ids.push(errror.location_id)
+      end
+    end
+
+    #RFID Errors - 111
+
+    #Bat Status
+    @bat_low_errors_arr = []
+    bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_low_errors.each do |error|
+      @bat_low_errors_arr.push({location_id: error.location_id, error_type: "bat_low" , count: error.count})
+    end
+  end
+
+  def errors_by_hub
+    #GPRS Errors
+    @gprs_errors_arr = []
+    gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id")
+    gprs_errors.each do |error|
+      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+    end
+    #RFID Errors
+    @rfid_errors_arr = []
+    rfid_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =111 AND transaction_time > (Date.today - 30)").group("location_id")
+    rfid_errors.each do |error|
+      @rfid_errors_arr.push({location_id: error.location_id, error_type: "rfid" , count: error.count})
+    end
+    #Bat Low ERrors
+    @bat_low_errors_arr = []
+    bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_low_errors.each do |error|
+      @bat_low_errors_arr.push({location_id: error.location_id, error_type: "bat_low" , count: error.count})
+    end
+    #Bat Ok Errors
+    @bat_ok_errors_arr = []
+    bat_ok_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =133 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_ok_errors.each do |error|
+      @bat_ok_errors_arr.push({location_id: error.location_id, error_type: "bat_ok" , count: error.count})
+    end
+  end
+
+  def errors_by_hub
+
+  end
+
+  def getHubs
+    if admin_signed_in?
+      kiosks = Kiosk.all
+      pumps = Pump.all
+    else
+      kiosks = current_provider.kiosks
+      pumps = current_provider.kiosks
+    end
+    {chartData: {kiosks: kiosks, pumps: pumps},
+                  chartType: "map" }
+  end
+end

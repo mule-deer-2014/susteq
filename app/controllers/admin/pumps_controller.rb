@@ -1,4 +1,5 @@
 class Admin::PumpsController < ApplicationController
+  include PerspectiveSummary
   layout "admin_application"
   before_filter :require_admin_signin
 
@@ -36,11 +37,7 @@ class Admin::PumpsController < ApplicationController
 
   def index
     @pumps = Pump.all
-    @viz_data = [dispensed_by_pump_for_all].to_json
-    respond_to do |format|
-      format.html {render '/admin/pumps/index'}
-      format.json {render json:@pumps}
-    end
+    @viz_data = [dispensed_by_pump_for_all, getHubs].to_json
   end
 
   def edit

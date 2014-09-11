@@ -11,5 +11,4 @@ class Admin::TransactionsController < ApplicationController
       format.json { render json: obj_arr }
     end
   end
-
 end
