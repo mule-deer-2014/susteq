@@ -1,10 +1,16 @@
 .row
 	.col-lg-12
 		%h1.pull-left Kiosks
-.panel.panel-default
-	.panel-heading
-		%button.btn.btn-default.btn-md.map-button Hide Map
-		#map
+.col-lg-12
+	.panel.panel-default
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Water pumps and kiosks
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body
+			#map.kiosks-index
 %h3= "Total credits sold: #{@total_credits_sold}"
 
 = render 'list'

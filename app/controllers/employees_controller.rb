@@ -8,11 +8,14 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = current_provider.employees.create!(employee_params)
-    redirect_to employees_path
+    begin
+      @employee = current_provider.employees.create!(employee_params)
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:error_messages] = invalid.record.errors.full_messages
-      redirect_to new_employee_path
+      redirect_to new_employee_path and return
+    end
+
+    redirect_to employees_path
   end
 
   def new
@@ -26,21 +29,14 @@ class EmployeesController < ApplicationController
   def update
     employee = Employee.find(params[:id])
 
-    if employee.update(employee_params)
-      redirect_to employees_path
-    elsif employee_params.fetch(:password, []).empty?
-      employee.update_attribute(:name, employee_params[:name])
-      employee.update_attribute(:email, employee_params[:email])
-      employee.update_attribute(:phone_number, employee_params[:phone_number])
-      redirect_to employees_path
-    else
-      begin
+    begin
       employee.update!(employee_params)
-      rescue ActiveRecord::RecordInvalid => invalid
-        flash[:error_messages] = invalid.record.errors.full_messages
-        redirect_to edit_employee_path(employee)
-      end
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:error_messages] = invalid.record.errors.full_messages
+      redirect_to edit_employee_path(employee) and return
     end
+
+    redirect_to employees_path
   end
 
   def destroy
@@ -48,7 +44,7 @@ class EmployeesController < ApplicationController
     redirect_to employees_path
   end
 
-   def show_current
+  def show_current
     render 'employees/show_current'
   end
 
@@ -57,21 +53,14 @@ class EmployeesController < ApplicationController
   end
 
   def update_current
-    if current_employee.update_attributes(employee_params) #if entered new password, then do this way
-      redirect_to current_employee_path
-    elsif employee_params[:password].empty? #if entered blank password, then do this way
-      current_employee.update_attribute(:name, employee_params[:name])
-      current_employee.update_attribute(:email, employee_params[:email])
-      current_employee.update_attribute(:phone_number, employee_params[:phone_number])
-      redirect_to current_employee_path
-    else #if failed for some other reason, redirect to edit form
-      begin
+    begin
       current_employee.update!(employee_params)
-      rescue ActiveRecord::RecordInvalid => invalid
-        flash[:error_messages] = invalid.record.errors.full_messages
-        redirect_to edit_current_employee_path
-      end
+    rescue ActiveRecord::RecordInvalid => invalid
+      flash[:error_messages] = invalid.record.errors.full_messages
+      redirect_to edit_current_employee_path and return
     end
+
+    redirect_to current_employee_path
   end
 
   private

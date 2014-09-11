@@ -1,109 +1,142 @@
-HubChart.ChartMaker = function() {
-  this.kioskDiv = document.getElementById("kiosk-charts");
-  this.pumpDiv = document.getElementById("pump-charts");
-  this.kioskData = [];
-  this.pumpData = [];
+HubChart.BarChart = function(object) {
+  this.xAxisTitle = object.xAxisTitle;
+  this.yAxisTitle = object.yAxisTitle;
+  this.svgSelector = object.svgSelector;
+  this.makeChart(object.chartData);
 };
 
-HubChart.ChartMaker.prototype = {
-  makeDataForHubs: function(jsonData) {
-    for(var i=0; i<jsonData.length; i++) {
-      if (jsonData[i].type !== "kiosk" && jsonData[i].type !== "pump") {
-        console.log("Invalid JSON data: cannot chart this hub.");
-      } else {
-        jsonData[i].type === "kiosk" ?
-          this.makeKioskDatum(jsonData[i]) :
-          this.makePumpDatum(jsonData[i]);
-      }
-    }
+HubChart.BarChart.prototype = {
+  makeChart: function(data) {
+    this.setSize();
+    this.setData(data);
+    this.setScales();
+    this.setAxes();
+    this.drawChart();
   },
 
-  makeKioskDatum: function(jsonDatum) {
-    dates = [];
-    amounts = [];
-    for(var j=0; j<jsonDatum.transactions.length; j++) {
-      dates.push(jsonDatum.transactions[j].transaction_time);
-      amounts.push(jsonDatum.transactions[j].amount);
-    }
-    var dataSet = polyjs.data({
-      date: dates,
-      credits: amounts
-    });
-    this.kioskData.push(dataSet);
+  setSize: function(){
+    this.margin   = { top: 20, right: 30, bottom: 30, left: 60 };
+    this.width    = 720 - this.margin.left - this.margin.right;
+    this.height   = 333 - this.margin.top - this.margin.bottom;
   },
 
-  makePumpDatum: function(jsonDatum) {
-    dates = [];
-    amounts = [];
-    for(var j=0; j<jsonDatum.transactions.length; j++) {
-      dates.push(jsonDatum.transactions[j].transaction_time);
-      amounts.push(jsonDatum.transactions[j].amount);
-    }
-    var dataSet = polyjs.data({
-      date: dates,
-      dispensed: amounts
-    });
-    this.pumpData.push(dataSet);
+  getAmount: function(d) { return d.total; },
+
+  getId:     function(d) { return d.location_id; },
+
+  setData:   function(jsonData) {
+    this.data = jsonData;
+    this.dataLength = jsonData.length;
+    this.barWidth = this.width / this.dataLength;
   },
 
-  makeCharts: function() {
-    var kLength = this.kioskData.length;
-    var pLength = this.pumpData.length;
-    if (kLength > 0) {
-      for (var i=0; i<kLength; i++) {
-        if ($("#kiosk-charts").length > 0) {
-          var kioskGraph = document.createElement("div");
-          this.kioskDiv.appendChild(kioskGraph);
-          this.makeKioskChart(this.kioskData[i], kioskGraph);
-        }
-      }
-    }
-    if (pLength > 0) {
-      for (var j=0; j<pLength; j++) {
-        if ($("#pumps-charts").length > 0) {
-          var pumpGraph = document.createElement("div");
-          this.pumpDiv.appendChild(pumpGraph);
-          this.makePumpChart(this.pumpData[j], pumpGraph);
-        }
-      }
-    }
+  setScales: function() {
+    this.setYScale();
+    this.setXScale();
   },
 
-  makeKioskChart: function(dataSet, chartElement) {
-    polyjs.chart({
-    layer: {
-      data: dataSet,
-      type: "bar",
-      x: "bin(date, 'month')",
-      y: "sum(credits)"
-    },
-    guide: {
-      x: { title: "Month"},
-      y: { title: ""}
-    },
-    title: "Credit Sales by Month",
-    dom: chartElement,
-    width: 500,
-    height: 250
-  });
+  setAxes: function() {
+    var that = this;
+    this.setXAxis();
+    this.setYAxis();
   },
 
-  makePumpChart: function(dataSet, chartElement) {
-    polyjs.chart({
-    layer: {
-      data: dataSet,
-      type: "bar",
-      x: "bin(date, 'month')",
-      y: "sum(dispensed)"
-    },
-    guide: {
-      x: { title: "Month"},
-      y: { title: ""}
-    },
-    title: "Liters of Water Dispensed by Month",
-    dom: chartElement,
-    width: 500,
-    height: 250
-  });
+  setYScale: function() {
+    var that = this;
+    this.y = d3.scale.linear()
+               .domain([0, d3.max(that.data, that.getAmount)])
+               .range([that.height,0]);
+  },
+
+  setXScale: function() {
+    var that = this;
+    this.x = d3.scale.ordinal()
+    .domain(that.data.map(function(d) { return d.location_id; }))
+    .rangeRoundBands([0, that.width]);
+  },
+
+  setXAxis: function() {
+    var that = this;
+    this.xAxis = d3.svg.axis()
+    .scale(that.x)
+    .orient("bottom")
+    .ticks(that.dataLength, "id");
+  },
+
+  setYAxis: function() {
+    var that = this;
+    this.yAxis = d3.svg.axis()
+    .scale(that.y)
+    .orient("left");
+  },
+
+  drawChart: function() {
+    var that = this;
+    var chart = d3.select(that.svgSelector)
+        .attr("width", that.width + that.margin.left + that.margin.right)
+        .attr("height", that.height + that.margin.top + that.margin.bottom)
+      .append("g")
+        .attr("transform", "translate(" + that.margin.left + "," + that.margin.top + ")");
+
+    var g = chart.selectAll(".placeholder-bar")
+        .data(that.data)
+      .enter().append("g")
+        .attr("class", ".placeholder-bar");
+
+    var bar = g.append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d, i) { return (i * that.width/that.dataLength + 1); })
+        .attr("y", function(d) { return that.y(that.getAmount(d)); })
+        .attr("height", function(d) { return that.height - that.y(that.getAmount(d)); })
+        .attr("width", that.width/that.dataLength - 1)
+        .attr('fill', 'steelblue')
+        .on({"mouseover": highlightBar, "mouseout": makeBlue});
+
+    var offset = function(d, i) {
+        return (i * that.width/that.dataLength) + that.width/that.dataLength / 2;
+    };
+
+    g.append("text")
+        .attr("x", offset)
+        .attr("y", function(d) { return that.y(that.getAmount(d)) + 3; })
+        .attr("dy", ".75em")
+        .attr("text-anchor", "middle")
+        .text(function(d) { return that.getAmount(d); });
+
+    function highlightBar(d, i){
+        d3.select(bar[0][i]).style("fill", "#59c");
+
+        d3.select(g[0][i]).append("text").attr("class", "text-box")
+            .attr("x", d3.select(g[0][i]).select("text").attr("x") )
+            .attr("y", d3.select(g[0][i]).select("rect").attr("y") )
+            .attr("dy", "-0.75em")
+            .remove();
+    }
+
+    function makeBlue(d, i){
+        d3.select(bar[0][i]).style("fill", "steelblue");
+    }
+
+    chart.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + that.height + ")")
+        .call(that.xAxis)
+      .append("text")
+        .attr("x", that.width/2)
+        .attr("y", 30)
+        .style("font-size", 20)
+        .text(that.xAxisTitle);
+
+    chart.append("g")
+        .attr("class", "y axis")
+        .call(that.yAxis)
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("font-size", 20)
+        .style("text-anchor", "end")
+        .attr("fill", "black")
+        .text(that.yAxisTitle);
   }
 };
