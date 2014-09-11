@@ -116,19 +116,19 @@ CSV.foreach(file) do |csv_row|
     kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
     5.times do
       kiosk.transactions.create!(
-        transaction_time: DateTime.new(2014,2,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 21,
         location_id: hub_number,
         amount: 2
       )
       kiosk.transactions.create!(
-        transaction_time: DateTime.new(2014,3,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 21,
         location_id: hub_number,
         amount: 3
       )
       kiosk.transactions.create!(
-        transaction_time: DateTime.new(2014,4,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 20,
         location_id: hub_number,
         amount: 4
@@ -139,31 +139,31 @@ CSV.foreach(file) do |csv_row|
 end
 
       Transaction.create!(
-        transaction_time: DateTime.new(2014,3,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 21,
         location_id: 1,
         amount: 1
       )
       Transaction.create!(
-        transaction_time: DateTime.new(2014,4,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 20,
         location_id: 1,
         amount: 2
       )
       Transaction.create!(
-        transaction_time: DateTime.new(2014,4,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 20,
         location_id: 1,
         amount: 2
       )
       Transaction.create!(
-        transaction_time: DateTime.new(2014,3,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 21,
         location_id: 2,
         amount: 3
       )
       Transaction.create!(
-        transaction_time: DateTime.new(2014,4,1),
+        transaction_time: generate_date_from_last_six_months,
         transaction_code: 20,
         location_id: 2,
         amount: 4
