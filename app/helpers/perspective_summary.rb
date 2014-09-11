@@ -37,8 +37,9 @@ module PerspectiveSummary
 
     if kiosk_total_obj_arr.select{|obj| obj.location_id == month }.length > 0
     #Prepare data for Normalchart
-    kiosk_total_obj_arr.each do |obj|
-      chart_data_array.push({location_id: obj.location_id, total: obj.total})
+      kiosk_total_obj_arr.each do |obj|
+        chart_data_array.push({location_id: obj.location_id, total: obj.total})
+      end
     end
     #Create json chart obj
     data_to_display = {xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"location_id", yKey: "total"};
@@ -84,7 +85,7 @@ module PerspectiveSummary
     data_to_display = { xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
     return data_to_display
   end
-
+end
 
 # Credits bought by Kiosk
 # Transaction.select(“location_id, sum(amount) as total”)
