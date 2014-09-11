@@ -1,10 +1,10 @@
 module PerspectiveSummary
   def credits_by_kiosk_by_month
-    month_hash = {}
     #Query for Stacked Bar Chart
     month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
     stacked_data_to_display = []
     (Date.today.month-5..Date.today.month).each do |month|
+      month_hash = {}
       month_hash[:month] = month
       if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
         month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.each do |obj|
