@@ -13,7 +13,7 @@ BigData.DataController.prototype = {
           that.container.append(that.chartElementWriter(index));
           data.svgSelector = that.chartSelector(index);
           new HubChart.BarChart(data);
-          //makeTable(data);
+          // makeTable(data);
           break;
         case "stacked":
           that.container.append(that.chartElementWriter(index));
