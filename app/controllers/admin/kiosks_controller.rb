@@ -11,12 +11,7 @@ class Admin::KiosksController < ApplicationController
 
   def index
     @kiosks = Kiosk.all
-<<<<<<< HEAD
-    hubs = getHubs
-    @viz_data = [hubs].to_json
-=======
     @viz_data = [credits_by_kiosk_for_all, getHubs].to_json
->>>>>>> origin/new-in-process-master
   end
 
   def show
