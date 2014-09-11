@@ -72,8 +72,8 @@
 			%tbody
 				- @kiosks.each do |kiosk|
 					%tr
-						%td= link_to kiosk.location_id, admin_kiosk_path(kiosk)
-						%td= kiosk.name
+						%td= kiosk.location_id
+						%td= link_to kiosk.name, admin_kiosk_path(kiosk)
 						%td= kiosk.longitude
 						%td= kiosk.latitude
 						%td= kiosk.status_code
