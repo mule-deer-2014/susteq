@@ -7,7 +7,7 @@ module PerspectiveSummary
       month_hash = {}
       month_hash[:month] = month
       if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
-        month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.each do |obj|
+        month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
           location_key = "location_id".concat(obj.location_id.to_s).to_sym
           month_hash[location_key] = obj.total
         end
@@ -26,8 +26,27 @@ module PerspectiveSummary
       chart_data_array.push({location_id: obj.location_id, total: obj.total})
     end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar"};
+    data_to_display = {xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"location_id" , yKey: "total"};
     return data_to_display
+  end
+  def credits_by_kiosk(provider)
+    chart_data_array = []
+    #Query for Bar Chart and Table
+    kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20 or transaction_code = 21").group("location_id").order("sum(amount)")
+    provider.kiosks
+
+    if kiosk_total_obj_arr.select{|obj| obj.location_id == month }.length > 0
+    #Prepare data for Normalchart
+    kiosk_total_obj_arr.each do |obj|
+      chart_data_array.push({location_id: obj.location_id, total: obj.total})
+    end
+    #Create json chart obj
+    data_to_display = {xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"location_id", yKey: "total"};
+    return data_to_display
+  end
+
+  def dispensed_by_pump(provider_id)
+
   end
 
   def dispensed_by_month(pump)
@@ -44,7 +63,7 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Water Dispensed", chartData: chart_data_array, chartType: "bar"};
+    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
     return data_to_display
   end
 
@@ -62,17 +81,11 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar"};
+    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
     return data_to_display
   end
-end
 
 
-
-# Credits Sold by Kiosk (by Month)
-# Transaction.select(“location_id, sum(amount) as total”)
-# .where(“transaction_code = 20 or transaction_code = 21)
-# .group(“location_id”,”extract(month from transaction_time)
 # Credits bought by Kiosk
 # Transaction.select(“location_id, sum(amount) as total”)
 # .where(“transaction_code = 23”)
