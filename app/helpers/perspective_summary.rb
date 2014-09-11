@@ -97,13 +97,20 @@ module PerspectiveSummary
 
   def credits_bought_by_kiosk
     #Query db
-    credits_init = Transaction.select("location_id, sum(amount)").where("transaction_code = 20").group("location_id")
-    credits_other = Transaction.select("location_id, sum(amount), starting_credit, ending_credit").where("transaction_code = 23 and ((starting_credit - ending_credit) < 0)").group("location_id")
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20").group("location_id")
+    credits_other = Transaction.select("location_id, sum(amount) as total, starting_credit, ending_credit").where("transaction_code = 23 and ((starting_credit - ending_credit) < 0)").group("location_id")
     #Prepare data
     chart_data_array = []
-    (credits_init + credits_other).each do |obj|
-      chart_data_array.push({location_id: obj.location_id, total: combined_total})
+    totals_hash = {}
+    credits_init.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] = obj.total
     end
+    credits_other.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] += obj.total
+    end
+    totals_hash.each {|location_id,total|
+      chart_data_array.push({location_id: location_id, total: total})
+    }
     #Create json chart obj
     data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
     return data_to_display
