@@ -14,6 +14,10 @@
   margin: 0 auto;
 }
 
+.mt5 {
+  margin-top: 5px;
+}
+
 .mt20 {
   margin-top: 20px;
 }
@@ -46,14 +50,28 @@ h3 {
 	font-size: 15px;
 }
 
-#map {
-	display: none;
-}
-
 .btn-add {
 	margin-top: -80px;
 }
 
 .active {
 	background-color: #eeeeee;
+}
+
+.dataTables_filter label {
+	float: right;
+	margin-left: 10px;
+}
+
+.dataTables_filter input {
+	margin-left: 10px;
+}
+
+.dataTables_paginate {
+	margin-top: -35px;
+	float: right;
+}
+
+.dataTables_info {
+	margin-top: -15;
 }

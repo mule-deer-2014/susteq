@@ -14,7 +14,15 @@
 					%td= kiosk.location_id
 					%td= link_to "#{kiosk.name}", admin_kiosk_path(id:kiosk.id)
 					%td= link_to "#{kiosk.provider.name}", admin_provider_path(id:kiosk.provider_id)
-					%td= kiosk.status_code
+					%td
+						.pull-right
+							- case kiosk.status_code
+								- when -1
+									%span.label.label-danger Danger
+								- when 0
+									%span.label.label-warning Warning
+								- when 1
+									Ok
 					%td
 						= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_kiosk_path(kiosk), method: :delete, data: { confirm: 'Are you sure?' }
 						= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_kiosk_path(kiosk)
