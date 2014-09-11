@@ -17,7 +17,7 @@ BigData.DataController.prototype = {
           break;
         case "stacked":
           that.container.append(that.chartElementWriter(index));
-          data.svgSelector = that.chartSelector(index);
+          data.divSelector = that.chartSelector(index);
           new HubChart.StackedBarChart(data);
       }
     });
