@@ -1,4 +1,5 @@
 class Admin::KiosksController < ApplicationController
+  include PerspectiveSummary
   layout "admin_application"
   before_filter :require_admin_signin
 
@@ -9,10 +10,8 @@ class Admin::KiosksController < ApplicationController
 
   def index
     @kiosks = Kiosk.all
-    respond_to do |format|
-      format.html {render 'admin/kiosks/index'}
-      format.json {render json:@kiosks}
-    end
+    hubs = getHubs
+    @viz_data = [hubs].to_json
   end
 
   def show

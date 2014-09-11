@@ -6,6 +6,9 @@ FactoryGirl.define do
     name {Faker::Name.name}
     email {Faker::Internet.email}
     phone_number {Faker::Number.number(10)}
-    password "1234567"
+
+    trait :with_password do
+      password "1234567"
+    end
   end
 end

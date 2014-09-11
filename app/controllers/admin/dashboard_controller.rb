@@ -1,4 +1,5 @@
 class Admin::DashboardController < ApplicationController
+  include PerspectiveSummary
   layout "admin_application"
   before_filter :require_admin_signin
 
@@ -12,7 +13,5 @@ class Admin::DashboardController < ApplicationController
   {location_id: 7, total:300}],
 chartType: 'bar'}].to_json
   end
-  
-  def operations
-  end
+
 end
