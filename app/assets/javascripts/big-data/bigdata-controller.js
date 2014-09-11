@@ -24,7 +24,7 @@ BigData.DataController.prototype = {
   },
 
   chartElementWriter: function(index) {
-    return "<svg id='chart" + index + "'></svg>";
+    return "<div id='chart" + index + "'></div>";
   },
 
   chartSelector: function(index) {
