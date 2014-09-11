@@ -43,21 +43,23 @@ BigData.DataController.prototype = {
   },
 
   createHubs: function(data){
-    $.each(data.kiosks, this.parseJsonKioskData)
-    $.each(data.pumps, this.parseJsonPumpData)
+    this.parseJsonKioskData(data.kiosks);
+    this.parseJsonPumpData(data.pumps);
   },
 
-  parseJsonKioskData: function(index, kioskData){
+  parseJsonKioskData: function(kioskData){
+    that = this;
     $.each(kioskData, function(index, kioskDatum){
       var kiosk = new Kiosk(kioskDatum);
-      this.kiosks.push(kiosk);
+      that.kiosks.push(kiosk);
     })
   },
 
-  parseJsonPumpData: function(index, pumpData){
+  parseJsonPumpData: function(pumpData){
+    that = this;
     $.each(pumpData, function(index, pumpDatum){
       var pump = new Pump(pumpDatum);
-      this.pumps.push(pump);
+      that.pumps.push(pump);
     })
   },
 
