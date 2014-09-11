@@ -29,5 +29,4 @@
 //= require leaflet.awesome-markers.min
 //= require sb-admin/sb-admin
 //= require d3.min
-
 //= require_tree .
