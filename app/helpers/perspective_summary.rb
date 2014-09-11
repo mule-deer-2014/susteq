@@ -1,12 +1,11 @@
 module PerspectiveSummary
-  def credits_sold_by_kiosk
+  def credits_by_kiosk
     chart_data_array = []
     #Query for Stacked Bar Chart
     @month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
     #Query for Bar Chart and Table
     @kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20 or transaction_code = 21").group("location_id").order("sum(amount)")
 
-    #Prepare data for Stacked Bar Chart
     stacked_data_to_display = []
     (Date.today.month-5..Date.today.month).each do |month|
       month_hash[:month] = month
@@ -17,7 +16,7 @@ module PerspectiveSummary
       stacked_data_to_display.push(month_hash)
     end
 
-    #Prepare data for Normal Bar Chart chart
+    #Prepare data for Normalchart
     @kiosk_total_obj_arr.each do |obj|
       kiosk_obj = {location_id: obj.location_id, total: obj.total}
       chart_data_array.push(kiosk_hash)
@@ -33,18 +32,27 @@ module PerspectiveSummary
     #Return as json obj
     @viz_data = data_to_display.to_json
   end
+
+  def dispensed_by_month(pump)
+    @month_by_kiosk_total_obj_arr = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 1 and location_id = #{pump.location_id}").group("extract(month from transaction_time)")
+  end
+
+  def credits_sold_by_kiosk(kiosk)
+    @month_by_kiosk_total_obj_arr = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 and transaction_code = 21 and location_id = #{kiosk.location_id}").group("extract(month from transaction_time)")
+  end
 end
 
-def credits_bought_by_kiosk
 
-end
 
+# Credits Sold by Kiosk (by Month)
+# Transaction.select(“location_id, sum(amount) as total”)
+# .where(“transaction_code = 20 or transaction_code = 21)
+# .group(“location_id”,”extract(month from transaction_time)
 # Credits bought by Kiosk
 # Transaction.select(“location_id, sum(amount) as total”)
 # .where(“transaction_code = 23”)
 # .group(“location_id”)
 # amount where transaction_code = 23 + amount where transaction_code = 23 AND (starting_credit - ending_credit) < 0
-
 # Credits remaining by Kiosk
 # Transaction.select(“location_id, sum(amount) as total”)
 # .where(“transaction_code = 23”)
