@@ -6,5 +6,6 @@ class DashboardController < ApplicationController
   def main
     @hubs = getHubs
     @viz_data = [@hubs].to_json
+    render "dashboard/main"
   end
 end

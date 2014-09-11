@@ -12,6 +12,7 @@ class KiosksController < ApplicationController
     @total_credits_sold = sum
     hubs = getHubs
     @viz_data = [hubs].to_json
+    @total_credits_sold = @kiosks.reduce(0) { |sum, kiosk| sum + kiosk.credits_sold }
   end
 
   def show

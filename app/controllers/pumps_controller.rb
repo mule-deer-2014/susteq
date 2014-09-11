@@ -12,6 +12,7 @@ class PumpsController < ApplicationController
     @total_dispensed = sum
     hubs = getHubs
     @viz_data = [hubs].to_json
+    @total_dispensed = @pumps.reduce(0) { |sum, pump| sum + pump.water_dispensed }
   end
 
   def show

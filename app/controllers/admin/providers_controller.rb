@@ -12,7 +12,7 @@ class Admin::ProvidersController < ApplicationController
 
   def create
     @provider = Provider.create!(provider_params)
-      redirect_to admin_providers_path
+    redirect_to admin_providers_path
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:error_messages] = invalid.record.errors.full_messages
       redirect_to new_admin_provider_path(@provider)
