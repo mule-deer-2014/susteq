@@ -97,8 +97,8 @@ module PerspectiveSummary
 
   def credits_bought_by_kiosk
     #Query db
-    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20").group("location_id")
-    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23 and ((starting_credits - ending_credits) < 0)").group("location_id")
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
     #Prepare data
     chart_data_array = []
     totals_hash = {}
@@ -115,22 +115,34 @@ module PerspectiveSummary
     data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
     return data_to_display
   end
+
+  def credits_remaining_by_kiosk
+    #Query db
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+    credits_subtract = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) > 0)").group("location_id")
+    #Prepare data
+    chart_data_array = []
+    totals_hash = {}
+    credits_init.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] = obj.total
+    end
+    credits_subtract.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] -= obj.total
+    end
+    totals_hash.each {|location_id,total|
+      chart_data_array.push({location_id: location_id, total: total})
+    }
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Remaining", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
+    return data_to_display
+  end
+
+  def sms_balance_by_pump
+    Transaction.select("location_id, extract(day from transaction_time), amount").where("transaction_code=41").group("location_id").order("transaction_time")
+# .first
+  end
 end
 
-# Credits bought by Kiosk
-# Transaction.select(“location_id, sum(amount) as total”)
-# .where(“transaction_code = 23”)
-# .group(“location_id”)
-# amount where transaction_code = 20 + amount where transaction_code = 23 AND (starting_credit - ending_credit) < 0
-# Credits remaining by Kiosk
-# Transaction.select(“location_id, sum(amount) as total”)
-# .where(“transaction_code = 23”)
-# .group(“location_id”)
-# amount where transaction_code = 23 + amount where transaction_code = 23 AND (starting_credit - ending_credit) > 0
-# Water Dispensed by Pump
-# Transaction.select(“location_id, sum(amount) as total”)
-# .where(“transaction_code = 1”)
-# .group(“location_id”)
 # Count of Errors by Kiosk Table over last 30 days
 # GPRS Errors - count(transaction_code = 39 and amount=101)
 # Transaction.select(“location_id, transaction_time, count(amount) as count”)
@@ -154,9 +166,4 @@ end
 # .order(“transaction_time”)
 # .first
 # 133 is BAT ok, 132 is BAT not ok
-# SMS Balance on Sim Card by Pump
-# Transaction.select(“location_id, extract(day from transaction_time), amount”)
-# .where(“transaction_code=41)
-# .group(“location_id)
-# .order(“transaction_time”)
-# .first
+
