@@ -138,9 +138,22 @@ module PerspectiveSummary
   end
 
   def sms_balance_by_pump
-    Transaction.select("location_id, extract(day from transaction_time), amount").where("transaction_code=41").group("location_id").order("transaction_time")
-# .first
+    sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
+
+      #Prepare data
+    existing_ids = []
+    sms_balance_by_location.each do |obj|
+      if !existing_ids.include?(obj.location_id)
+      chart_data_array.push({location_id: obj.location_id, day: obj.day, total: obj.amount})
+      else
+        existing_ids.push(obj.location_id)
+      end
+    end
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Pump Location Id", yAxisTitle: "SMS Balance", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
+    return data_to_display
   end
+
 end
 
 # Count of Errors by Kiosk Table over last 30 days
