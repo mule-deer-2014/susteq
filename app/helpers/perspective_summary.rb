@@ -18,6 +18,19 @@ module PerspectiveSummary
     return stacked_data_to_display
   end
 
+  def dispensed_by_pump_for_all
+    chart_data_array = []
+    #Query for Bar Chart and Table
+    pump_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 1").group("location_id").order("sum(amount)")
+    #Prepare data for Normalchart
+    pump_total_obj_arr.each do |obj|
+      chart_data_array.push({location_id: obj.location_id, total: obj.total})
+    end
+    #Create json chart obj
+    data_to_display = {xAxisTitle: "Pump Location Id", yAxisTitle: "Liters of Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"location_id" , yKey: "total"};
+    return data_to_display
+  end
+
   def credits_by_kiosk_for_all
     chart_data_array = []
     #Query for Bar Chart and Table
