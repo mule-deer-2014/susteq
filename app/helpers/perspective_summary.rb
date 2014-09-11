@@ -165,7 +165,6 @@ module PerspectiveSummary
         existing_ids.push(errror.location_id)
       end
     end
-    111
     #RFID Errors - 111
 
     #Bat Status
@@ -182,11 +181,13 @@ module PerspectiveSummary
     gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id")
     gprs_errors.each do |error|
       @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+    end
     #RFID Errors
     @rfid_errors_arr = []
     rfid_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =111 AND transaction_time > (Date.today - 30)").group("location_id")
     rfid_errors.each do |error|
       @rfid_errors_arr.push({location_id: error.location_id, error_type: "rfid" , count: error.count})
+    end
     #Bat Low ERrors
     @bat_low_errors_arr = []
     bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
@@ -243,6 +244,3 @@ end
 # .order(“transaction_time”)
 # .first
 # 133 is BAT ok, 132 is BAT not ok
-
-
-end
