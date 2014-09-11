@@ -3,9 +3,6 @@ Rails.application.routes.draw do
 
   root :to => "sessions#new"
 
-  #ROUTES FOR AJAX REQUESTS
-  get "/transactions/credits_sold_by_kiosk", to: "transactions#credits_sold_by_kiosk"
-
   #ROUTES FOR PROVIDER DASHBOARD
   get '/dashboard', to:"dashboard#main", as: "provider_dashboard"
   get '/sessions', to: "sessions#index"
@@ -32,6 +29,9 @@ Rails.application.routes.draw do
     get '/my_profile', to: 'admins#show_current', as: 'current'
     get '/edit_profile', to: 'admins#edit_current', as: 'edit_current'
     patch '/my_profile', to: 'admins#update_current', as: 'update_current'
+  #ROUTES FOR AJAX REQUESTS
+    get "/credits_by_kiosk", to: "transactions#credits_by_kiosk"
+
     resources :kiosks
     resources :pumps
     resources :hubs

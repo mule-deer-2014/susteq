@@ -84,7 +84,7 @@ Provider.all.each do |provider|
     5.times do
       kiosk.transactions.create!(
         transaction_time: generate_date_from_last_six_months,
-        transaction_code: 21,
+        transaction_code: 22,
         location_id: hub_number,
         amount: rand(8..20) * 10
       )
