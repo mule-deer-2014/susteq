@@ -206,29 +206,30 @@ module PerspectiveSummary
   end
 
   def sms_balance_by_pump
-    sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
-      #Prepare data
+    chart_data_array = []
+    sms_balance_by_location = Transaction.select("location_id, transaction_time as date, sum(amount) as total").where("transaction_code=41").group("location_id,transaction_time").order("transaction_time DESC")
     existing_ids = []
     sms_balance_by_location.each do |obj|
       if !existing_ids.include?(obj.location_id)
-      chart_data_array.push({location_id: obj.location_id, day: obj.day, total: obj.amount})
+      chart_data_array.push({location_id: obj.location_id, date: obj.date, total: obj.total})
+        existing_ids.push(obj.location_id)
       else
         existing_ids.push(obj.location_id)
       end
     end
-    #Create json chart obj
     data_to_display = { xAxisTitle: "Pump Location Id", yAxisTitle: "SMS Balance", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
     return data_to_display
   end
 
 
   def sms_balance_by_pump_table
-    sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
-      #Prepare data
+    chart_data_array = []
+    sms_balance_by_location = Transaction.select("location_id, transaction_time as date, sum(amount) as total").where("transaction_code=41").group("location_id,transaction_time").order("transaction_time DESC")
     existing_ids = []
     sms_balance_by_location.each do |obj|
       if !existing_ids.include?(obj.location_id)
-      chart_data_array.push({location_id: obj.location_id, day: obj.day, total: obj.amount})
+      chart_data_array.push({location_id: obj.location_id, date: obj.date, total: obj.total})
+        existing_ids.push(obj.location_id)
       else
         existing_ids.push(obj.location_id)
       end
@@ -237,7 +238,6 @@ module PerspectiveSummary
   end
 
   def last_error_by_hub
-    #GPRS Errors
     @gprs_errors_arr = []
     existing_ids = []
     gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id").order("transaction_time")
