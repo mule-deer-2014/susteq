@@ -34,26 +34,31 @@ module PerspectiveSummary
   end
 
   def dispensed_by_month(pump)
+    #Query db
     @dispensed_by_month = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 1 and location_id = #{pump.location_id}").group("extract(month from transaction_time)")
-    #Prepare data for Normalchart
+    #Prepare data
     chart_data_array = []
     (Date.today.month-5..Date.today.month).each do |month|
       pumped_in_month = @dispensed_by_month.select{|obj| obj.month == month }[0].total
       chart_data_array.push({month: month, total: pumped_in_month})
     end
-    #Create chart obj
-    data_to_display = {
-    xAxisTitle: "Month",
-    yAxisTitle: "Water Dispensed",
-    chartData: chart_data_array,
-    chartType: "bar"
-    };
-    #Return as json obj
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Water Dispensed", chartData: chart_data_array, chartType: "bar"};
     @viz_data = data_to_display.to_json
   end
 
   def credits_sold_by_kiosk(kiosk)
-    @month_by_kiosk_total_obj_arr = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 and transaction_code = 21 and location_id = #{kiosk.location_id}").group("extract(month from transaction_time)")
+    #Query db
+    @sold_by_month = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 and transaction_code = 21 and location_id = #{kiosk.location_id}").group("extract(month from transaction_time)")
+    #Prepare data
+    chart_data_array = []
+    (Date.today.month-5..Date.today.month).each do |month|
+      sold_in_month = @sold_by_month.select{|obj| obj.month == month }[0].total
+      chart_data_array.push({month: month, total: sold_in_month})
+    end
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar"};
+    @viz_data = data_to_display.to_json
   end
 end
 
