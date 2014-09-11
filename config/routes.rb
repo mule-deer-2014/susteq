@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root :to => "sessions#new"
 
-  get '/test', to:"test#test"
+  get '/test', to:"tests#test"
   #ROUTES FOR PROVIDER DASHBOARD
   get '/dashboard', to:"dashboard#main", as: "provider_dashboard"
   get '/sessions', to: "sessions#index"
