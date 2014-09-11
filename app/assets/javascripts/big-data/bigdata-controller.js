@@ -11,6 +11,7 @@ BigData.DataController.prototype = {
       switch(data.chartType){
         case "bar":
           that.createBarGraph(index, data);
+          break;
         case "stacked":
           that.createStackedBarGraph(index, data);
           break;
@@ -34,23 +35,11 @@ BigData.DataController.prototype = {
     new HubChart.BarChart(data);
   },
 
-  createBarGraph: function(index, data){
-    var that = this;
-    that.container.append(that.chartElementWriter(index));
-    data.svgSelector = that.chartSelector(index);
-    new HubChart.BarChart(data);
-  },
-
   chartElementWriter: function(index) {
     return "<div id='chart" + index + "'></div>";
   },
 
   chartSelector: function(index) {
-    return "#chart" + index;
-  },
-
-  createMap: function(index, data){
-    var that = this;
     return "chart" + index;
   },
 
@@ -81,7 +70,5 @@ BigData.DataController.prototype = {
       var pump = new Pump(pumpDatum);
       that.pumps.push(pump);
     })
-  },
-
+  }
 };
-
