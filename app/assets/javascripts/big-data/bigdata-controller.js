@@ -1,64 +1,75 @@
 BigData.DataController = function(){
   this.kiosks = [];
   this.pumps = [];
+  this.container = $('#chart-container');
 };
 
 BigData.DataController.prototype = {
-
-  allHubs:function(){
-    return this.kiosks.concat(this.pumps);
+  getChartData:function(dataToDisplay){
+    var that = this;
+    $.each(dataToDisplay, function(index, data){
+      switch(data.chartType){
+        case "bar":
+          that.container.append(that.chartElementWriter(index));
+          data.svgSelector = that.chartSelector(index);
+          new HubChart.BarChart(data);
+          // makeTable(data);
+          break;
+        case "stacked":
+          that.container.append(that.chartElementWriter(index));
+          data.svgSelector = that.chartSelector(index);
+          new HubChart.StackedBarChart(data);
+          that.createBarGraph(index, data);
+          break;
+        case "map":
+          that.createMap(index, data.chartData);
+          break;
+      }
+    });
   },
 
-  checkPermissions: function(func){
-    var permissionAjax = $.ajax({
-      url:"/sessions.json",
-      method:"get",
-      success:(func)
-    })
+  createBarGraph: function(index, data){
+    that = this;
+    that.container.append(that.chartElementWriter(index));
+    data.svgSelector = that.chartSelector(index);
+    new HubChart.BarChart(data);
   },
 
-  getAdminData: function(func){
-    var pumpAjax = $.ajax({
-      url:"/admin/pumps.json",
-      method:"get",
-      success:this.parseJsonPumpData.bind(this)
-    });
-    var kioskAjax = $.ajax({
-      url:"/admin/kiosks.json",
-      method:"get",
-      success:this.parseJsonKioskData.bind(this)
-    });
-    $.when(pumpAjax, kioskAjax).done(func)
+  chartElementWriter: function(index) {
+    return "<svg id='chart" + index + "'></svg>";
+  },
+
+  chartSelector: function(index) {
+    return "#chart" + index;
+  },
+
+  createMap: function(index, data){
+    that = this;
+    that.createHubs(data)
+    var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
+    that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
+    that.mapView.displayHubs({kiosks:this.kiosks, pumps:this.pumps});
+  },
+
+  createHubs: function(data){
+    this.parseJsonKioskData(data.kiosks);
+    this.parseJsonPumpData(data.pumps);
   },
 
   parseJsonKioskData: function(kioskData){
-    for(var i= 0; i<kioskData.length; i++){
-      var kiosk = new Kiosk(kioskData[i].hub);
-      kiosk.parseTransactions(kioskData[i].transactions)
-      this.kiosks.push(kiosk);
-    }
+    that = this;
+    $.each(kioskData, function(index, kioskDatum){
+      var kiosk = new Kiosk(kioskDatum);
+      that.kiosks.push(kiosk);
+    })
   },
 
   parseJsonPumpData: function(pumpData){
-    for(var i= 0; i<pumpData.length; i++){
-      var pump = new Pump(pumpData[i].hub);
-      pump.parseTransactions(pumpData[i].transactions)
-      this.pumps.push(pump);
-    }
+    that = this;
+    $.each(pumpData, function(index, pumpDatum){
+      var pump = new Pump(pumpDatum);
+      that.pumps.push(pump);
+    })
   },
 
-  getProviderData: function(func){
-    var pumpAjax = $.ajax({
-      url:"/pumps.json",
-      method:"get",
-      success:this.parseJsonPumpData.bind(this),
-    });
-    var kioskAjax = $.ajax({
-      url:"/kiosks.json",
-      method:"get",
-      success:this.parseJsonKioskData.bind(this),
-
-    });
-    $.when(pumpAjax, kioskAjax).done(func)
-  },
-}
+};

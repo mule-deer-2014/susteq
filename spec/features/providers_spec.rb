@@ -1,6 +1,6 @@
 feature 'Provider adding an employee' do
   background do
-    employee = create(:employee)
+    employee = create(:employee, :with_password)
     visit root_path
     login(employee)
   end

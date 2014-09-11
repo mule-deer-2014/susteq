@@ -1,15 +1,18 @@
 class Admin::ProvidersController < ApplicationController
   layout "admin_application"
+  include PerspectiveSummary
   respond_to :html
   before_filter :require_admin_signin
 
   def index
     @providers = Provider.all
+    hubs = getHubs
+    @viz_data = [hubs].to_json
   end
 
   def create
     @provider = Provider.create!(provider_params)
-      redirect_to admin_providers_path
+    redirect_to admin_providers_path
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:error_messages] = invalid.record.errors.full_messages
       redirect_to new_admin_provider_path(@provider)

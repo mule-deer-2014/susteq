@@ -5,12 +5,17 @@
 @import "leaflet";
 @import "leaflet.awesome-markers";
 @import "map";
+@import "bar_charts";
 @import "font-awesome.min";
 
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+}
+
+.mt5 {
+  margin-top: 5px;
 }
 
 .mt20 {
@@ -29,10 +34,44 @@
 	padding: 3px 3px 3px 0;
 }
 
+.gen-info {
+	margin-bottom: 20px;
+}
+
 .row {
 	padding-top: 20px;
 }
 
 h3 {
 	margin-bottom: 20px;
+}
+
+.minimize {
+	font-size: 15px;
+}
+
+.btn-add {
+	margin-top: -80px;
+}
+
+.active {
+	background-color: #eeeeee;
+}
+
+.dataTables_filter label {
+	float: right;
+	margin-left: 10px;
+}
+
+.dataTables_filter input {
+	margin-left: 10px;
+}
+
+.dataTables_paginate {
+	margin-top: -35px;
+	float: right;
+}
+
+.dataTables_info {
+	margin-top: -15;
 }
