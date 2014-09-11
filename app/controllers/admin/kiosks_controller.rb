@@ -3,6 +3,7 @@ class Admin::KiosksController < ApplicationController
   before_filter :require_admin_signin
 
   def new
+    @viz_data = 0
     @kiosk = Kiosk.new
     @providers = Provider.all
   end
@@ -22,6 +23,7 @@ class Admin::KiosksController < ApplicationController
   end
 
   def create
+    @viz_data = 0
     if params[:provider_id]
       begin
       @provider = Provider.find(params[:provider_id])
@@ -43,6 +45,7 @@ class Admin::KiosksController < ApplicationController
   end
 
   def edit
+    @viz_data = 0
     @kiosk = Kiosk.find params[:id]
   end
 

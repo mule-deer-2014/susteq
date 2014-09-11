@@ -4,6 +4,7 @@ class EmployeesController < ApplicationController
   before_filter :require_employee_signin
 
   def index
+    @viz_data = 0
     @employees = current_provider.employees.all
   end
 
@@ -19,10 +20,12 @@ class EmployeesController < ApplicationController
   end
 
   def new
+    @viz_data = 0
     @employee = Employee.new
   end
 
   def edit
+    @viz_data = 0
     @employee = Employee.find(params[:id])
   end
 

@@ -3,11 +3,13 @@ class Admin::HubsController < ApplicationController
   before_filter :require_admin_signin
 
   def index
+    @viz_data = 0
     @kiosks = Kiosk.all
     @pumps = Pump.all
   end
 
   def new
+    @viz_data = 0
     @new_location_id = params[:new_hubs_id]
     @providers = Provider.all
     @hub = Hub.new(location_id: @new_location_id)

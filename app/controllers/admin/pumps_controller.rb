@@ -3,6 +3,7 @@ class Admin::PumpsController < ApplicationController
   before_filter :require_admin_signin
 
   def new
+    @viz_data = 0
     @pump = Pump.new
     @providers = Provider.all
   end
