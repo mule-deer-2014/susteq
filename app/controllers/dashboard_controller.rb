@@ -3,9 +3,8 @@ class DashboardController < ApplicationController
   layout "provider_application"
   before_filter :require_employee_signin
 
-  def dashboard
+  def main
     @hubs = getHubs
     @viz_data = [@hubs].to_json
-    render "dashboard/dashboard"
   end
 end
