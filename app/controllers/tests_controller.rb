@@ -9,6 +9,7 @@ class TestsController < ApplicationController
     @viz_data_credits_by_kiosk = credits_by_kiosk_for_all
     @viz_data_credits_by_kiosk_for_provider = credits_by_kiosk_for_provider(@provider)
     @viz_data_dispensed_by_pump_for_provider = dispensed_by_pump_for_provider(@provider)
+    @viz_data_credits_bought_by_kiosk = credits_bought_by_kiosk
     render 'test'
   end
 end

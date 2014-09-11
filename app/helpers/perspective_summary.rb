@@ -95,13 +95,26 @@ module PerspectiveSummary
     return data_to_display
   end
 
+  def credits_bought_by_kiosk
+    #Query db
+    credits_init = Transaction.select("location_id, sum(amount)").where("transaction_code = 20").group("location_id")
+    credits_other = Transaction.select("location_id, sum(amount), starting_credit, ending_credit").where("transaction_code = 23 and ((starting_credit - ending_credit) < 0)").group("location_id")
+    #Prepare data
+    chart_data_array = []
+    (credits_init + credits_other).each do |obj|
+      chart_data_array.push({location_id: obj.location_id, total: combined_total})
+    end
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
+    return data_to_display
+  end
 end
 
 # Credits bought by Kiosk
 # Transaction.select(“location_id, sum(amount) as total”)
 # .where(“transaction_code = 23”)
 # .group(“location_id”)
-# amount where transaction_code = 23 + amount where transaction_code = 23 AND (starting_credit - ending_credit) < 0
+# amount where transaction_code = 20 + amount where transaction_code = 23 AND (starting_credit - ending_credit) < 0
 # Credits remaining by Kiosk
 # Transaction.select(“location_id, sum(amount) as total”)
 # .where(“transaction_code = 23”)
