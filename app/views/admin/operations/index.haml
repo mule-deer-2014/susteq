@@ -1,6 +1,7 @@
 .col-lg-12
 	%h1.page-header Operations
 .col-lg-12
+	%h3 SMS low
 	.table-responsive
 		%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
 			%thead
@@ -11,202 +12,92 @@
 			%tbody
 				- @sms.each do |sms|
 					%tr
-						%td= sms.location_id
-						%td= sms.day
-						%td= sms.total
+						%td= sms[:location_id]
+						%td= sms[:date]
+						%td= sms[:total]
+/ .col-lg-12
+/ 	%h3 Last Transaction
+/ 	.table-responsive
+/ 		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+/ 			%thead
+/ 				%tr
+/ 					%th Hub
+/ 					%th Date
+/ 			%tbody
+/ 				- @last_transaction.each do |transaction|
+/ 					%tr
+/ 						%td= transaction.location_id
+/ 						%td= transaction.date
 .col-lg-12
-	%h3 Total credits sold by month
+	%h3 Total Credits Sold
 	.table-responsive
 		%table#dataTables-example.table.table-striped.table-bordered.table-hover
 			%thead
 				%tr
-					%th Month
+					%th Hub
 					%th Amount
 			%tbody
-				- @total_amount_transactions_by_month.each do |month|
+				- @total_credits_sold.each do |hub|
 					%tr
-						%td= month.name
-						%td= month.total
+						%td= hub[:location_id]
+						%td= hub[:location_id]
 .col-lg-12
-	%h3 Last transaction
+	%h3 Shop Bought
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Layer
+					%th Credits
+			%tbody
+				- @shop_bought.each do |hub|
+					%tr
+						%td= hub[:location_id]
+						%td= hub[:total]
+.col-lg-12
+	%h3 Total Water
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Layer
+					%th Credits
+			%tbody
+				- @total_water.each do |hub|
+					%tr
+						%td= hub[:location_id]
+						%td= hub[:total]
+.col-lg-12
+	%h3 Shopkeepers credit
 	.table-responsive
 		%table#dataTables-example.table.table-striped.table-bordered.table-hover
 			%thead
 				%tr
 					%th Hub
-					%th Request date
-					%th Amount
-					%th Valid until
-			%tbody#SMS-table
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-.col-lg-12
-	%h3 Total credits sold
-	.table-responsive
-		%table#dataTables-example.table.table-striped.table-bordered.table-hover
-			%thead
-				%tr
-					%th Hub
-					%th Request date
-					%th Amount
-					%th Valid until
-			%tbody#SMS-table
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-.col-lg-12
-	%h3 Shop bought
-	.table-responsive
-		%table#dataTables-example.table.table-striped.table-bordered.table-hover
-			%thead
-				%tr
-					%th Hub
-					%th Request date
-					%th Amount
-					%th Valid until
-			%tbody#SMS-table
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-.col-lg-12
-	%h3 SMS low
-	.table-responsive
-		%table#dataTables-example.table.table-striped.table-bordered.table-hover
-			%thead
-				%tr
-					%th Hub
-					%th Request date
-					%th Amount
-					%th Valid until
-			%tbody#SMS-table
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-.col-lg-12
-	%h3 Last transaction
-	.table-responsive
-		%table#dataTables-example.table.table-striped.table-bordered.table-hover
-			%thead
-				%tr
-					%th Hub
-					%th Request date
-					%th Amount
-					%th Valid until
-			%tbody#SMS-table
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
-				%tr
-					%td 101
-					%td Aug 10
-					%td 49
-					%td Aug 13
+					%th Date
+					%th Credits
+			%tbody
+				- @shopkeepers_credit.each do |hub|
+					%tr
+						%td= hub[:location_id]
+						%td= hub[:date]
+						%td= hub[:total]
+/ .col-lg-12
+/ 	%h3 error codes (30 days)
+/ 	.table-responsive
+/ 		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+/ 			%thead
+/ 				%tr
+/ 					%th Hub
+/ 					%th Day
+/ 					%th Credits
+/ 			%tbody
+/ 				- @shopkeepers_credit.each do |hub|
+/ 					%tr
+/ 						%td= hub.location_id
+/ 						%td= hub.gprs
+/ 						%td= hub.rfid
+
 .row
 :javascript
 	$(document).ready(function() {
