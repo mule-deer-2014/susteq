@@ -231,7 +231,7 @@ module PerspectiveSummary
     existing_ids = []
     sms_balance_by_location.each do |obj|
       if !existing_ids.include?(obj.location_id)
-      chart_data_array.push({location_id: obj.location_id, date: obj.date, total: obj.total})
+      chart_data_array.push({location_id: obj.location_id, date: obj.date.strftime('%b %d, %Y'), total: obj.total})
         existing_ids.push(obj.location_id)
       else
         existing_ids.push(obj.location_id)
