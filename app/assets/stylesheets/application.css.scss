@@ -50,7 +50,7 @@ h3 {
 }
 
 .btn-add {
-	margin-top: -80px;
+	margin-top: -65px;
 }
 
 .active {
@@ -73,4 +73,8 @@ h3 {
 
 .dataTables_info {
 	margin-top: -15;
+}
+
+.label-danger, .label-warning, .label-success {
+	width: 100px;
 }
