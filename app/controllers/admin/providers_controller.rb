@@ -30,8 +30,8 @@ class Admin::ProvidersController < ApplicationController
   end
 
   def show
-    @viz_data = 0
     @provider = Provider.find(params[:id])
+    @viz_data = [dispensed_by_pump_for_provider(@provider), credits_by_kiosk_for_provider(@provider)].to_json
     @hubs = @provider.hubs
     @pumps = @hubs[:pumps]
     @kiosks = @hubs[:kiosks]
