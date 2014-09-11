@@ -1,5 +1,8 @@
 %h1= "Pump number #{@pump.id}"
 
+%h3 Awesome Chart Title
+#chart-container
+
 %ul
 	- @pump.transactions.each do |t|
 		%li= "Transaction ID: #{t.id}; transaction code: #{t.transaction_code}; transaction amount: #{t.amount}."
