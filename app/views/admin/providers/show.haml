@@ -29,9 +29,7 @@
 			%td= @provider.updated_at
 .col-lg-12
 	%h3 Credits Sold by Month
-	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
-	%h3 Water Pumped by Month
-	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+	#chart-container
 .col-lg-12
 	%h3.pull-left Water Pumps
 	.pull-right
@@ -74,8 +72,8 @@
 			%tbody
 				- @kiosks.each do |kiosk|
 					%tr
-						%td= link_to kiosk.location_id, admin_kiosk_path(kiosk)
-						%td= kiosk.name
+						%td= kiosk.location_id
+						%td= link_to kiosk.name, admin_kiosk_path(kiosk)
 						%td= kiosk.longitude
 						%td= kiosk.latitude
 						%td= kiosk.status_code

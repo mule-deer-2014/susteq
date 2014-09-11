@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }
-  validates :phone_number, format: { with: ONLY_NUMBERS, message:"should only have numeric values." }, allow_nil: true
+  validates :phone_number, format: { with: ONLY_NUMBERS, message:"should only have numeric values." }, allow_nil: true, allow_blank: true
 
   has_secure_password
   before_create :create_remember_token

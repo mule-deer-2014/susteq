@@ -4,6 +4,7 @@ class EmployeesController < ApplicationController
   before_filter :require_employee_signin
 
   def index
+    @viz_data = 0
     @employees = current_provider.employees.all
   end
 
@@ -19,10 +20,12 @@ class EmployeesController < ApplicationController
   end
 
   def new
+    @viz_data = 0
     @employee = Employee.new
   end
 
   def edit
+    @viz_data = 0
     @employee = Employee.find(params[:id])
   end
 
@@ -57,10 +60,10 @@ class EmployeesController < ApplicationController
       current_employee.update!(employee_params)
     rescue ActiveRecord::RecordInvalid => invalid
       flash[:error_messages] = invalid.record.errors.full_messages
-      redirect_to edit_current_employee_path and return
+      redirect_to employee_edit_current_path and return
     end
 
-    redirect_to current_employee_path
+    redirect_to employee_current_path
   end
 
   private

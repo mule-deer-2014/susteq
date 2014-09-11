@@ -5,6 +5,7 @@ class Admin::ProvidersController < ApplicationController
   before_filter :require_admin_signin
 
   def index
+    @viz_data = 0
     @providers = Provider.all
     hubs = getHubs
     @viz_data = [hubs].to_json
@@ -19,14 +20,17 @@ class Admin::ProvidersController < ApplicationController
   end
 
   def new
+    @viz_data = 0
     @provider = Provider.new
   end
 
   def edit
+    @viz_data = 0
     @provider = Provider.find(params[:id])
   end
 
   def show
+    @viz_data = 0
     @provider = Provider.find(params[:id])
     @hubs = @provider.hubs
     @pumps = @hubs[:pumps]

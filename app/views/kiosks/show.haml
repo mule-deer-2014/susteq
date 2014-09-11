@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .row
 .col-lg-12
 	%h1.page-header
@@ -69,3 +70,13 @@
 	$(document).ready(function() {
 			$('#dataTables-example').dataTable();
 	});
+=======
+%h1= "Kiosk number #{@kiosk.id}"
+
+%h3= "#{@kiosk.name} Credit Sales By Month"
+#chart-container
+
+%ul
+	- @kiosk.transactions.each do |t|
+		%li= "Transaction ID: #{t.id}; transaction code: #{t.transaction_code}; transaction amount: #{t.amount}."
+>>>>>>> origin/new-in-process-master

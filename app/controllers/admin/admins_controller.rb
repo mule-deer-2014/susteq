@@ -3,6 +3,7 @@ class Admin::AdminsController < ApplicationController
   before_filter :require_admin_signin
 
   def index
+    @viz_data = 0
     @admins = Admin.all
   end
 
@@ -15,10 +16,12 @@ class Admin::AdminsController < ApplicationController
   end
 
   def new
+    @viz_data = 0
     @admin = Admin.new
   end
 
   def edit
+    @viz_data = 0
     @admin = Admin.find(params[:id])
   end
 
@@ -47,10 +50,12 @@ class Admin::AdminsController < ApplicationController
   end
 
   def show_current
+    @viz_data = 0
     render 'admin/admins/show_current'
   end
 
   def edit_current
+    @viz_data = 0
     render 'admin/admins/edit_current' #can make this form unhide rather than new pg in non-MVP
   end
 

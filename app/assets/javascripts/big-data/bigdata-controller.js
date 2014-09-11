@@ -11,6 +11,8 @@ BigData.DataController.prototype = {
       switch(data.chartType){
         case "bar":
           that.createBarGraph(index, data);
+        case "stacked":
+          that.createStackedBarGraph(index, data);
           break;
         case "map":
           that.createMap(index, data.chartData);
@@ -18,16 +20,29 @@ BigData.DataController.prototype = {
       }
     });
   },
+  createStackedBarGraph: function(index, data) {
+    var that = this;
+    that.container.append(that.chartElementWriter(index));
+    data.divSelector = that.chartSelector(index);
+    new HubChart.StackedBarChart(data);
+  },
 
   createBarGraph: function(index, data){
-    that = this;
+    var that = this;
+    that.container.append(that.chartElementWriter(index));
+    data.divSelector = that.chartSelector(index);
+    new HubChart.BarChart(data);
+  },
+
+  createBarGraph: function(index, data){
+    var that = this;
     that.container.append(that.chartElementWriter(index));
     data.svgSelector = that.chartSelector(index);
     new HubChart.BarChart(data);
   },
 
   chartElementWriter: function(index) {
-    return "<svg id='chart" + index + "'></svg>";
+    return "<div id='chart" + index + "'></div>";
   },
 
   chartSelector: function(index) {
@@ -35,7 +50,12 @@ BigData.DataController.prototype = {
   },
 
   createMap: function(index, data){
-    that = this;
+    var that = this;
+    return "chart" + index;
+  },
+
+  createMap: function(index, data){
+    var that = this;
     that.createHubs(data)
     var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
     that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
@@ -48,7 +68,7 @@ BigData.DataController.prototype = {
   },
 
   parseJsonKioskData: function(kioskData){
-    that = this;
+    var that = this;
     $.each(kioskData, function(index, kioskDatum){
       var kiosk = new Kiosk(kioskDatum);
       that.kiosks.push(kiosk);
@@ -56,7 +76,7 @@ BigData.DataController.prototype = {
   },
 
   parseJsonPumpData: function(pumpData){
-    that = this;
+    var that = this;
     $.each(pumpData, function(index, pumpDatum){
       var pump = new Pump(pumpDatum);
       that.pumps.push(pump);
@@ -64,3 +84,4 @@ BigData.DataController.prototype = {
   },
 
 };
+
