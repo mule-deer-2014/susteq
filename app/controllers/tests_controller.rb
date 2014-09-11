@@ -15,6 +15,7 @@ class TestsController < ApplicationController
     @viz_data_credits_bought_by_kiosk_table = credits_bought_by_kiosk_table
     @viz_data_credits_remaining_by_kiosk_table  = credits_remaining_by_kiosk_table
     @viz_data_sms_balance_by_pump = sms_balance_by_pump
+    @viz_data_credits_by_kiosk_by_month = credits_by_kiosk_by_month
     render 'test'
   end
 end
