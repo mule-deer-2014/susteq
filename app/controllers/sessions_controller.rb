@@ -1,6 +1,14 @@
 class SessionsController < ApplicationController
   layout "login"
 
+  def index
+    permission = employee_signed_in? ? current_provider.id : "admin"
+
+    respond_to do |format|
+      format.json{ render json: {permission:permission} }
+    end
+  end
+
   def new
     if employee_signed_in?
       @provider = Provider.find(current_employee.provider_id)
@@ -11,16 +19,4 @@ class SessionsController < ApplicationController
       redirect_to employee_signin_path
     end
   end
-
-  def index
-    if admin_signed_in?
-      permission = "admin"
-    else employee_signed_in?
-      permission = current_provider.id
-    end
-    respond_to do |format|
-      format.json{render json: {permission:permission} }
-    end
-  end
-
 end

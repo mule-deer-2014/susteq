@@ -11,7 +11,7 @@ class Admin::KiosksController < ApplicationController
     @kiosks = Kiosk.all
     respond_to do |format|
       format.html {render 'admin/kiosks/index'}
-      format.json {render json:Kiosk.get_all_with_transactions}
+      format.json {render json:@kiosks}
     end
   end
 

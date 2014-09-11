@@ -4,11 +4,8 @@ class PumpsController < ApplicationController
 
   def index
     @pumps = current_provider.pumps
-    sum = 0
-    @pumps.each do |p|
-      sum += p.water_dispensed
-    end
-    @total_dispensed = sum
+    @total_dispensed = @pumps.reduce(0) { |sum, pump| sum + pump.water_dispensed }
+
     respond_to do |format|
       format.html
       format.json{ render json: Pump.get_many_with_transaction(@pumps)}

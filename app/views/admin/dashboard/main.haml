@@ -14,6 +14,7 @@
 	%ul
 		- @new_hubs_ids.each do |id|
 			%li= link_to id, admin_add_new_hub_path(new_hubs_id: id)
+#chart-container
 .col-lg-12
 	.panel.panel-default
 		.panel-heading
@@ -38,9 +39,7 @@
 			#morris-area-chart
 .col-lg-12
 	.panel.panel-default
-		.panel-heading
-			%i.fa.fa-bar-chart-o.fa-fw
-			Revenue from transfers
+		.panel-body
 			.pull-right
 				.btn-group
 					%button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}

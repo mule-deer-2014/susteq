@@ -30,6 +30,9 @@ Rails.application.routes.draw do
     get '/my_profile', to: 'admins#show_current', as: 'current'
     get '/edit_profile', to: 'admins#edit_current', as: 'edit_current'
     patch '/my_profile', to: 'admins#update_current', as: 'update_current'
+  #ROUTES FOR AJAX REQUESTS
+    get "/credits_by_kiosk", to: "transactions#credits_by_kiosk"
+
     resources :kiosks
     resources :pumps
     resources :hubs
