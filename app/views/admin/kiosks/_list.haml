@@ -17,7 +17,7 @@
 						%tr{:class => classes}
 							%td= kiosk.location_id
 							%td= link_to "#{kiosk.name}", admin_kiosk_path(id:kiosk.id)
-							%td= link_to "#{kiosk.provider.name}", admin_provider_path(id:kiosk.provider_id)
+							%td= (kiosk.provider.name != "Unassigned") ? (link_to "#{kiosk.provider.name}", admin_provider_path(id:kiosk.provider_id)) : ("#{kiosk.provider.name}")
 							%td= kiosk.latitude
 							%td= kiosk.longitude
 							%td= kiosk.status_code

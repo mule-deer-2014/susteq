@@ -18,10 +18,10 @@
         %li.list-group-item.text-right
           %span.pull-left
             %strong Phone Number
-          = current_employee.phone_number.empty? ? "." : current_employee.phone_number
+          = current_employee.phone_number.nil? ? "." : current_employee.phone_number
         %li.list-group-item.text-right
           %span.pull-left
             %strong Profile Created
           = current_employee.created_at.strftime('%c')
 
-= link_to '<button class="btn btn-primary btn-lg pull-left mt20" type="button"><i class="fa fa-edit fa-fw"></i>Edit Profile</button>'.html_safe, edit_current_employee_path
+= link_to '<button class="btn btn-primary btn-lg pull-left mt20" type="button"><i class="fa fa-edit fa-fw"></i>Edit Profile</button>'.html_safe, employee_edit_current_path
