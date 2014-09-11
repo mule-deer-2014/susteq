@@ -2,8 +2,8 @@ HubChart.BarChart = function(object) {
   Morris.Bar({
     element: object.divSelector,
     data: object.chartData,
-    xkey: 'location_id',
-    ykeys: ['total'],
+    xkey: object.xKey,
+    ykeys: [object.yKey],
     labels: object.yAxisTitle,
   });
 };

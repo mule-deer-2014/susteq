@@ -17,6 +17,7 @@ class Admin::KiosksController < ApplicationController
 
   def show
     @kiosk = Kiosk.find params[:id]
+    @viz_data = [sold_by_month(@kiosk)].to_json
   end
 
   def create
