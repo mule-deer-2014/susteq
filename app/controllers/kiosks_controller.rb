@@ -5,6 +5,7 @@ class KiosksController < ApplicationController
   def index
     @kiosks = current_provider.kiosks
     @total_credits_sold = @kiosks.reduce(0) { |sum, kiosk| sum + kiosk.credits_sold }
+    @viz_data = credits_by_kiosk(current_provider)
 
     respond_to do |format|
       format.html
