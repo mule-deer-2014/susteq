@@ -143,6 +143,150 @@ end
     starting_credits: 10,
     ending_credits: 5
   )
+Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 1,
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 3
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
+  )
+  Transaction.create!(
+    transaction_time: Date.new(2014,1,1),
+    transaction_code: 41,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: Date.new(2014,2,2),
+    transaction_code: 41,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 1,
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 41,
+    location_id: 2,
+    amount: 3
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 41,
+    location_id: 2,
+    amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
+  )
+Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 1,
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 3
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
+  )
 
 
 # require 'csv'
@@ -159,11 +303,11 @@ end
 # CSV.foreach(file) do |csv_row|
 #   p "transaction (Line 107)"
 #   transaction = Transaction.create(transaction_time:Time.at(csv_row[1].to_i),location_id:csv_row[4].to_i, latitude:csv_row[5], longitude:csv_row[6], rfid_id: csv_row[7], starting_credits:csv_row[8],ending_credits:csv_row[9], transaction_code:csv_row[10].to_i, amount:csv_row[11].to_i, error_code:csv_row[12])
-#   if [20,21].include?(transaction.transaction_code) && Kiosk.find_by_location_id(transaction.location_id)
+#   if [1,21].include?(transaction.transaction_code) && Kiosk.find_by_location_id(transaction.location_id)
 #     p "110"
 #     kiosk = Kiosk.find_by_location_id(transaction.location_id)
 #     kiosk.transactions << transaction
-#   elsif [20,21].include?(transaction.transaction_code)
+#   elsif [41,21].include?(transaction.transaction_code)
 #     provider = Provider.all.sample
 #     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
 #     kiosk = provider.kiosks.create!(name: Faker::Name.name, location_id: hub_number, latitude: lat_long[0], longitude: lat_long[1], status_code:[-1,0,1].sample)
