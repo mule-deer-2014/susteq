@@ -2,8 +2,8 @@ class DashboardController < ApplicationController
   layout "provider_application"
   before_filter :require_employee_signin
 
-  def dashboard
+  def main
     @hubs = current_provider.hubs
-    render "dashboard/dashboard"
+    render "dashboard/main"
   end
 end
