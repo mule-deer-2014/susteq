@@ -35,6 +35,7 @@ class Admin::PumpsController < ApplicationController
 
   def index
     @pumps = Pump.all
+    @viz_data = [dispensed_by_pump_for_all].to_json
     respond_to do |format|
       format.html {render '/admin/pumps/index'}
       format.json {render json:@pumps}

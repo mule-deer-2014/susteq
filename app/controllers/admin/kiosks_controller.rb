@@ -9,6 +9,7 @@ class Admin::KiosksController < ApplicationController
 
   def index
     @kiosks = Kiosk.all
+    @viz_data = [credits_by_kiosk_for_all].to_json
     respond_to do |format|
       format.html {render 'admin/kiosks/index'}
       format.json {render json:@kiosks}
@@ -17,7 +18,7 @@ class Admin::KiosksController < ApplicationController
 
   def show
     @kiosk = Kiosk.find params[:id]
-    @viz_data = [sold_by_month(@kiosk)].to_json
+    @viz_data = [credits_by_month(@kiosk)].to_json
   end
 
   def create

@@ -5,6 +5,7 @@ class PumpsController < ApplicationController
   def index
     @pumps = current_provider.pumps
     @total_dispensed = @pumps.reduce(0) { |sum, pump| sum + pump.water_dispensed }
+    @viz_data = [dispensed_by_pump_for_provider(current_provider)].to_json
 
     respond_to do |format|
       format.html
