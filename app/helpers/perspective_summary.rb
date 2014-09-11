@@ -139,7 +139,6 @@ module PerspectiveSummary
 
   def sms_balance_by_pump
     sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
-
       #Prepare data
     existing_ids = []
     sms_balance_by_location.each do |obj|
@@ -154,7 +153,61 @@ module PerspectiveSummary
     return data_to_display
   end
 
+  def last_error_by_hub
+    #GPRS Errors
+    @gprs_errors_arr = []
+    existing_ids = []
+    gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id").order("transaction_time")
+    gprs_errors.each do |error|
+      if !existing_ids.include?(obj.location_id)
+      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+      else
+        existing_ids.push(errror.location_id)
+      end
+    end
+    111
+    #RFID Errors - 111
+
+    #Bat Status
+    @bat_low_errors_arr = []
+    bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_low_errors.each do |error|
+      @bat_low_errors_arr.push({location_id: error.location_id, error_type: "bat_low" , count: error.count})
+    end
+  end
+
+  def errors_by_hub
+    #GPRS Errors
+    @gprs_errors_arr = []
+    gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id")
+    gprs_errors.each do |error|
+      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+    #RFID Errors
+    @rfid_errors_arr = []
+    rfid_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =111 AND transaction_time > (Date.today - 30)").group("location_id")
+    rfid_errors.each do |error|
+      @rfid_errors_arr.push({location_id: error.location_id, error_type: "rfid" , count: error.count})
+    #Bat Low ERrors
+    @bat_low_errors_arr = []
+    bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_low_errors.each do |error|
+      @bat_low_errors_arr.push({location_id: error.location_id, error_type: "bat_low" , count: error.count})
+    end
+    #Bat Ok Errors
+    @bat_ok_errors_arr = []
+    bat_ok_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =133 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_ok_errors.each do |error|
+      @bat_ok_errors_arr.push({location_id: error.location_id, error_type: "bat_ok" , count: error.count})
+    end
+  end
+
+  def errors_by_hub
+
+  end
+
 end
+
+
 
 # Count of Errors by Kiosk Table over last 30 days
 # GPRS Errors - count(transaction_code = 39 and amount=101)
