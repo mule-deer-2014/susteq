@@ -4,7 +4,7 @@ HubChart.BarChart = function(object) {
     data: object.chartData,
     xkey: object.xKey,
     ykeys: [object.yKey],
-    labels: object.yAxisTitle,
+    labels: object.yAxisTitle
   });
 };
 
@@ -13,9 +13,9 @@ HubChart.StackedBarChart = function(object) {
     element: object.divSelector,
     data: object.chartData,
     stacked: true,
-    xkey: 'location_id',
-    ykeys: ['total'],
-    labels: object.yAxisTitle,
+    xkey: object.xKey,
+    ykeys: object.yKey,
+    labels: object.yAxisTitle
   });
 };
 
@@ -25,6 +25,6 @@ HubChart.LineChart = function(object) {
     data: object.chartData,
     xkey: 'location_id',
     ykeys: ['total'],
-    labels: object.yAxisTitle,
+    labels: object.yAxisTitle
   });
 };
