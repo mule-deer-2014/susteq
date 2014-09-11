@@ -33,6 +33,8 @@ end
     password: "123456"
   )
 
+hub_number = 1
+
 5.times do
   Admin.create!(
     name: Faker::Name.name,
@@ -58,7 +60,6 @@ Provider.all.each do |provider|
       password: "123456"
     )
   end
-end
 
   rand(1..3).times do
     # the latitude and longitude ranges used in generate_random_lat_long here and below are coordinates for the area surrounding Nairobi, Kenya, i.e. arbitrary for seed data purposes.
