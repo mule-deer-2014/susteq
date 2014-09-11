@@ -5,17 +5,15 @@
 		%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
 			%thead
 				%tr
-					%th Transaction ID
+					%th Hub
+					%th request date
 					%th Amount
-					%th Transaction code
-					%th Transaction time
 			%tbody
-				- @transactions.each do |transaction|
+				- @sms.each do |sms|
 					%tr
-						%td= transaction.id
-						%td= transaction.amount
-						%td= transaction.transaction_code
-						%td= transaction.transaction_time
+						%td= sms.location_id
+						%td= sms.day
+						%td= sms.total
 .col-lg-12
 	%h3 Total credits sold by month
 	.table-responsive
