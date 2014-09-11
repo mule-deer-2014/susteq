@@ -91,9 +91,14 @@ HubMap.View.prototype = {
     L.control.layers(null, {"Kiosks":this.kiosksLayer, "Pumps":this.pumpsLayer}, {collapsed:false}).addTo(this.map);
   },
 
-  displayAllHubs: function(hubs){
+  displayHubs: function(hubs){
     this.renderHubsOnMap(hubs);
-    this.showAllHubs();
+    if ($(".kiosks-map").length > 0)
+      this.showKiosksLayer();
+    else if ($(".pumps-index").length > 0)
+      this.showPumpsLayer();
+    else
+      this.showAllHubs();
   },
 
   addToggleMapEventListener:function(){
