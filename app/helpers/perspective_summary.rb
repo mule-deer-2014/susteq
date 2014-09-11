@@ -44,7 +44,7 @@ module PerspectiveSummary
     @viz_data = data_to_display.to_json
   end
 
-  def credits_sold_by_kiosk(kiosk)
+  def credits_sold_by_month(kiosk)
     #Query db
     @sold_by_month = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 and transaction_code = 21 and location_id = #{kiosk.location_id}").group("extract(month from transaction_time)")
     #Prepare data
