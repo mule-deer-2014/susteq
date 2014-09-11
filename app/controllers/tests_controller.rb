@@ -14,6 +14,7 @@ class TestsController < ApplicationController
     @viz_data_dispensed_by_pump_for_all = dispensed_by_pump_for_all_table.to_json
     @viz_data_credits_bought_by_kiosk_table = credits_bought_by_kiosk_table
     @viz_data_credits_remaining_by_kiosk_table  = credits_remaining_by_kiosk_table
+    @viz_data_sms_balance_by_pump = sms_balance_by_pump
     render 'test'
   end
 end
