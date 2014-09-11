@@ -136,7 +136,6 @@ HubChart.BarChart.prototype = {
         .attr("dy", ".71em")
         .style("font-size", 20)
         .style("text-anchor", "end")
-        .attr("fill", "black")
-        .text(that.yAxisTitle);
+        .attr("fill", "black");
   }
 };
