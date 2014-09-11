@@ -97,9 +97,9 @@ describe EmployeesController do
         }.to_not change(Employee, :count)
       end
 
-      it 'redirects to list of employees' do
+      it 'redirects to new employee page' do
         post :create, employee: attributes_for(:employee, :with_password, name: nil), provider_id: @employee.provider_id
-        assert_redirected_to employees_path
+        assert_redirected_to new_employee_path
       end
     end
   end
