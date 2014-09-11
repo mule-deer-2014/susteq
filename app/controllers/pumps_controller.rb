@@ -14,5 +14,6 @@ class PumpsController < ApplicationController
 
   def show
     @pump = Pump.find(params[:id])
+    @viz_data = [dispensed_by_month(@pump)].to_json
   end
 end
