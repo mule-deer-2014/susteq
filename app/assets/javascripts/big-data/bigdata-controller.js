@@ -11,9 +11,8 @@ BigData.DataController.prototype = {
       switch(data.chartType){
         case "bar":
           that.container.append(that.chartElementWriter(index));
-          data.svgSelector = that.chartSelector(index);
+          data.divSelector = that.chartSelector(index);
           new HubChart.BarChart(data);
-          //makeTable(data);
           break;
         case "stacked":
           that.container.append(that.chartElementWriter(index));
@@ -28,6 +27,6 @@ BigData.DataController.prototype = {
   },
 
   chartSelector: function(index) {
-    return "#chart" + index;
+    return "chart" + index;
   }
 };
