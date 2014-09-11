@@ -68,7 +68,7 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-    data_to_display = {xAxisTitle:"Pump Location Id", yAxisTitle:"Credits Sold", chartData: chart_data_array, chartType:"bar", xKey:"location_id", yKey:"total"};
+    data_to_display = {xAxisTitle:"Pump Location Id", yAxisTitle:"Liters of Water Dispensed", chartData: chart_data_array, chartType:"bar", xKey:"location_id", yKey:"total"};
     return data_to_display
   end
 
@@ -86,7 +86,7 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
+    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Liters of Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
     return data_to_display
   end
 
