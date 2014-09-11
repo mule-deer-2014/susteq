@@ -31,6 +31,28 @@ module PerspectiveSummary
     return data_to_display
   end
 
+  def credits_by_kiosk_for_all_table
+    chart_data_array = []
+    #Query for Bar Chart and Table
+    kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20 or transaction_code = 21").group("location_id").order("sum(amount)")
+    #Prepare data for Normalchart
+    kiosk_total_obj_arr.each do |obj|
+      chart_data_array.push({location_id: obj.location_id, total: obj.total})
+    end
+    return @chart_data_array
+  end
+
+  def dispensed_by_water_for_all_table
+    chart_data_array = []
+    #Query for Bar Chart and Table
+    kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20 or transaction_code = 21").group("location_id").order("sum(amount)")
+    #Prepare data for Normalchart
+    kiosk_total_obj_arr.each do |obj|
+      chart_data_array.push({location_id: obj.location_id, total: obj.total})
+    end
+    return @chart_data_array
+  end
+
   def credits_by_kiosk_for_provider(provider)
     chart_data_array = []
     #Query for Bar Chart and Table
@@ -116,6 +138,25 @@ module PerspectiveSummary
     return data_to_display
   end
 
+  def credits_bought_by_kiosk_table
+  #Query db
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
+    #Prepare data
+    chart_data_array = []
+    totals_hash = {}
+    credits_init.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] = obj.total
+    end
+    credits_other.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] += obj.total
+    end
+    totals_hash.each {|location_id,total|
+      chart_data_array.push({location_id: location_id, total: total})
+    }
+    return chart_data_array
+  end
+
   def credits_remaining_by_kiosk
     #Query db
     credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
@@ -137,6 +178,26 @@ module PerspectiveSummary
     return data_to_display
   end
 
+
+  def credits_remaining_by_kiosk_table
+    #Query db
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+    credits_subtract = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) > 0)").group("location_id")
+    #Prepare data
+    chart_data_array = []
+    totals_hash = {}
+    credits_init.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] = obj.total
+    end
+    credits_subtract.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] -= obj.total
+    end
+    totals_hash.each {|location_id,total|
+      chart_data_array.push({location_id: location_id, total: total})
+    }
+    return chart_data_array
+  end
+
   def sms_balance_by_pump
     sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
       #Prepare data
@@ -151,6 +212,21 @@ module PerspectiveSummary
     #Create json chart obj
     data_to_display = { xAxisTitle: "Pump Location Id", yAxisTitle: "SMS Balance", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
     return data_to_display
+  end
+
+
+  def sms_balance_by_pump_table
+    sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
+      #Prepare data
+    existing_ids = []
+    sms_balance_by_location.each do |obj|
+      if !existing_ids.include?(obj.location_id)
+      chart_data_array.push({location_id: obj.location_id, day: obj.day, total: obj.amount})
+      else
+        existing_ids.push(obj.location_id)
+      end
+    end
+    return chart_data_array
   end
 
   def last_error_by_hub
