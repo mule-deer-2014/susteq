@@ -1,26 +1,23 @@
-.row
+- @providers.each do |provider|
 	.col-lg-12
 		.table-responsive
-			- @providers.each do |provider|
-				%table#dataTables-example.table.table-striped.table-bordered.table-hover
-					%h3 #{provider.name}
-					%thead
-						%tr
-							%th Name
-							%th Email
-							%th Phone Number
-							%th Created On
-							%th
-					%tbody
-						- provider.employees.each_with_index do |employee, index|
-							- index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
-							%tr{:class => classes}
-								%td= employee.name
-								%td= employee.email
-								%td= employee.phone_number
-								%td= employee.created_at.strftime('%c')
-								%td
-									= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }
-									= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_employee_path(employee)
-
-
+			%table#dataTables-example.table.table-striped.table-bordered.table-hover
+				%h3 #{provider.name}
+				%thead
+					%tr
+						%th Name
+						%th Email
+						%th Phone Number
+						%th Created On
+						%th
+				%tbody
+					- provider.employees.each_with_index do |employee, index|
+						- index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+						%tr{:class => classes}
+							%td= employee.name
+							%td= employee.email
+							%td= employee.phone_number
+							%td= employee.created_at.strftime('%c')
+							%td
+								= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }
+								= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_employee_path(employee)

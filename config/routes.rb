@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get '/add_hub', to: 'hubs#new', as: 'add_new_hub'
     get '/signout', to: 'sessions#destroy', as: 'signout' #get rather than delete bc of issue with twitter bootstrap link_to
     get '/dashboard', to:'dashboard#main', as: 'dashboard'
-    get '/operations', to:'dashboard#operations', as: 'operations'
+    get '/operations', to:'operations#index', as: 'operations'
     get '/my_profile', to: 'admins#show_current', as: 'current'
     get '/edit_profile', to: 'admins#edit_current', as: 'edit_current'
     patch '/my_profile', to: 'admins#update_current', as: 'update_current'

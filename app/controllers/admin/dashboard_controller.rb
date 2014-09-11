@@ -5,7 +5,7 @@ class Admin::DashboardController < ApplicationController
   def main
     @new_hubs_ids = (Transaction.all - Hub.get_all_transactions).map { |transaction| transaction.location_id }
   end
-
+  
   def operations
   end
 end
