@@ -36,7 +36,28 @@ BigData.DataController.prototype = {
 
   createMap: function(index, data){
     that = this;
+    that.createHubs(data)
     var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
     that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
-  }
+  },
+
+  createHubs: function(data){
+    $.each(data.chartData.kiosks, this.parseJsonKiosks)
+    $.each(data.chartData.pumps, this.parseJsonPumps)
+  },
+
+  parseJsonKioskData: function(index, kioskData){
+    $.each(kioskData, function(index, kioskDatum){
+      var kiosk = new Kiosk(kioskDatum);
+      this.kiosks.push(kiosk);
+    }
+  },
+
+  parseJsonPumpData: function(index, pumpData){
+    $.each(pumpData, function(index, pumpDatum){
+      var pump = new Pump(pumpDatum);
+      this.pumps.push(pump);
+    }
+  },
+
 };
