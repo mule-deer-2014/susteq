@@ -98,7 +98,7 @@ module PerspectiveSummary
   def credits_bought_by_kiosk
     #Query db
     credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20").group("location_id")
-    credits_other = Transaction.select("location_id, sum(amount) as total, starting_credit, ending_credit").where("transaction_code = 23 and ((starting_credit - ending_credit) < 0)").group("location_id")
+    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23 and ((starting_credits - ending_credits) < 0)").group("location_id")
     #Prepare data
     chart_data_array = []
     totals_hash = {}

@@ -92,46 +92,16 @@ Provider.all.each do |provider|
   end
 end
 
-  Transaction.create!(
-    transaction_time: generate_date_from_last_six_months,
-    transaction_code: 21,
-    location_id: 1,
-    amount: 1
-  )
-  Transaction.create!(
-    transaction_time: generate_date_from_last_six_months,
-    transaction_code: 20,
-    location_id: 1,
-    amount: 2
-  )
-  Transaction.create!(
-    transaction_time: generate_date_from_last_six_months,
-    transaction_code: 20,
-    location_id: 1,
-    amount: 2
-  )
-  Transaction.create!(
-    transaction_time: generate_date_from_last_six_months,
-    transaction_code: 21,
-    location_id: 2,
-    amount: 3
-  )
-  Transaction.create!(
-    transaction_time: generate_date_from_last_six_months,
-    transaction_code: 20,
-    location_id: 2,
-    amount: 4
-  )
 
   Transaction.create!(
     transaction_time: generate_date_from_last_six_months,
-    transaction_code: 23,
+    transaction_code: 20,
     location_id: 1,
-    amount: 1
+    amount: 2
   )
   Transaction.create!(
     transaction_time: generate_date_from_last_six_months,
-    transaction_code: 23,
+    transaction_code: 20,
     location_id: 1,
     amount: 2
   )
@@ -139,7 +109,9 @@ end
     transaction_time: generate_date_from_last_six_months,
     transaction_code: 23,
     location_id: 1,
-    amount: 2
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
   )
   Transaction.create!(
     transaction_time: generate_date_from_last_six_months,
@@ -152,6 +124,22 @@ end
     transaction_code: 20,
     location_id: 2,
     amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
   )
 
 
