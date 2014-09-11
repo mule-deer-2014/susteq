@@ -8,7 +8,6 @@ class Admin::DashboardController < ApplicationController
     .map{ |transaction| transaction.location_id }
 
     hubs = getHubs
-
     @viz_data = [hubs].to_json
   end
 
