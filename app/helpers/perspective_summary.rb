@@ -36,8 +36,12 @@ module PerspectiveSummary
     #Prepare data
     chart_data_array = []
     (Date.today.month-5..Date.today.month).each do |month|
-      pumped_in_month = dispensed_by_month.select{|obj| obj.month == month }[0].total
-      chart_data_array.push({month: month, total: pumped_in_month})
+      if dispensed_by_month.select{|obj| obj.month == month}.length > 0
+        pumped_in_month = dispensed_by_month.select{|obj| obj.month == month}[0].total
+        chart_data_array.push({month: month, total: pumped_in_month})
+      else
+        chart_data_array.push({month: month, total: 0})
+      end
     end
     #Create json chart obj
     data_to_display = { xAxisTitle: "Month", yAxisTitle: "Water Dispensed", chartData: chart_data_array, chartType: "bar"};
