@@ -11,6 +11,4 @@ class Admin::DashboardController < ApplicationController
     @viz_data = [hubs].to_json
   end
 
-  def operations
-  end
 end
