@@ -9,4 +9,7 @@ class Kiosk < Hub
     credit_sum
   end
 
+  def provider
+    super || NullProvider.new
+  end
 end

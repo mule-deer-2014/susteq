@@ -9,3 +9,4 @@ Rails.application.config.assets.version = '1.1'
 
 Rails.application.config.assets.precompile += %w( *.png *.jpg )
 Rails.application.config.assets.precompile += %w( demo/dashboard-demo.js )
+Rails.application.config.assets.precompile += %w( the-basics.js )
