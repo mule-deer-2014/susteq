@@ -37,7 +37,7 @@ class Admin::PumpsController < ApplicationController
 
   def index
     @pumps = Pump.all
-    @viz_data = [dispensed_by_pump_for_all, getHubs].to_json
+    @viz_data = [dispensed_by_pump_for_all_table, getHubs].to_json
   end
 
   def edit
