@@ -143,6 +143,7 @@ end
     starting_credits: 10,
     ending_credits: 5
   )
+
   Transaction.create!(
     transaction_time: generate_date_from_last_six_months,
     transaction_code: 1,
@@ -239,6 +240,7 @@ end
     starting_credits: 10,
     ending_credits: 5
   )
+
   Transaction.create!(
     transaction_time: generate_date_from_last_six_months,
     transaction_code: 1,
