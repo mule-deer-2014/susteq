@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   layout "login"
 
   def new
+    @viz_data = 0
     if employee_signed_in?
       @provider = Provider.find(current_employee.provider_id)
       redirect_to provider_dashboard_path
