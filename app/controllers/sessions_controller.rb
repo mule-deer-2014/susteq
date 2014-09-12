@@ -1,14 +1,6 @@
 class SessionsController < ApplicationController
   layout "login"
 
-  def index
-    permission = employee_signed_in? ? current_provider.id : "admin"
-
-    respond_to do |format|
-      format.json{ render json: {permission:permission} }
-    end
-  end
-
   def new
     if employee_signed_in?
       @provider = Provider.find(current_employee.provider_id)
