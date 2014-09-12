@@ -12,6 +12,6 @@ class Admin::DashboardController < ApplicationController
     @shopkeepers_credit = credits_remaining_by_kiosk_table
     # @error_codes = # for thirty days
     @viz_data = [getHubs].to_json
-    @new_hubs_ids = (Transaction.all - Hub.get_all_transactions).map { |transaction| transaction.location_id }
+    @new_hubs_ids = (Transaction.all - Hub.get_all_transactions).map { |transaction| transaction.location_id }.uniq
   end
 end
