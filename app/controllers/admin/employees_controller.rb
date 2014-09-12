@@ -4,6 +4,7 @@ class Admin::EmployeesController < ApplicationController
   before_filter :require_admin_signin
 
   def index
+    @viz_data = 0
     @providers = Provider.all
   end
 
@@ -29,16 +30,19 @@ class Admin::EmployeesController < ApplicationController
   end
 
   def new
+    @viz_data = 0
     @employee = Employee.new
     @provider = Provider.find(params[:provider_id]) if params[:provider_id]
   end
 
   def edit
+    @viz_data = 0
     @employee = Employee.find(params[:id])
     @provider = Provider.find(params[:provider_id]) if params[:provider_id]
   end
 
   def show
+    @viz_data = 0
     @employee = Employee.find(params[:id])
   end
 

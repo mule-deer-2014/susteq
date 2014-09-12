@@ -1,10 +1,25 @@
 .row
-	.col-lg-12
-		%h1.pull-left Pumps
-		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>New pump</button>'.html_safe, new_admin_pump_path
-%hr
-.panel.panel-default
-	.panel-heading
-		%button.btn.btn-default.btn-md.map-button Hide Map
-		#map
-= render 'list'
+.col-lg-12
+	%h1.page-header Pumps
+	= link_to '<button class="btn btn-primary btn-md pull-right btn-add" type="button"><i class="fa fa-plus fa-fw"></i>New pump</button>'.html_safe, new_admin_pump_path
+.col-lg-12
+	.panel.panel-default.mt20
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Liters of Water Dispensed Per Pump
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body
+			#chart-container
+.col-lg-12
+	= render 'list'
+.col-lg-12
+	.panel.panel-default.mt20
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Pumps
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body#map.pumps-index

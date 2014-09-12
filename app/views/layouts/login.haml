@@ -15,13 +15,12 @@
     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-
     = javascript_include_tag "application"  , 'data-turbolinks-track' => true
   %body
     =yield
 
     /Displays "invalid login message if come to page from bad login"
-
+    %script!="dataToDisplay = #{@viz_data}"
     - flash.each do |key, msg|
       %div{:id => key}
         %p{:style => "font-weight:bold;color:#333333;"}= msg
