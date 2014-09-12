@@ -15,20 +15,22 @@ module PerspectiveSummary
     #Query for Stacked Bar Chart
     month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
     stacked_data_to_display = []
+    labels_array = []
     (Date.today.month-5..Date.today.month).each do |month|
-      labels_array = []
       month_hash = {}
       month_hash[:month] = month
       if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
         month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
           location_key = "location_id".concat(obj.location_id.to_s).to_sym
           month_hash[location_key] = obj.total
-          lables_array.push(location_key)
+          labels_array.push(location_key)
         end
       end
       stacked_data_to_display.push(month_hash)
     end
-    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: stacked_data_to_display, chartType: "bar", xKey:"month" , yKey: labels_array.uniq};
+    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Credits Sold By Month", chartData: stacked_data_to_display, chartType: "stacked", xKey:"month" , yKeys: labels_array.uniq};
+    return data_to_display
+  end
     return data_to_display
   end
 
