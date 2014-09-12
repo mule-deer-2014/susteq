@@ -20,7 +20,7 @@
     %script!= "dataToDisplay = #{@viz_data}"
   %body
     #wrapper
-      %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation", :style => "margin-bottom: 0"}
+      %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation", :style => "margin-bottom: 0"}
         .navbar-header
           %button.navbar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
@@ -52,22 +52,10 @@
               %li.divider
               %li
                 =link_to '<i class="fa fa-sign-out fa-fw"></i> Signout'.html_safe, employee_signout_path
-        / /.dropdown-user
-        / /.dropdown
-        / /.navbar-top-links
         .navbar-default.navbar-static-side{:role => "navigation"}
           .sidebar-collapse
-            %ul#side-menu.nav
-              %li.sidebar-search
-                .input-group.custom-search-form
-                  %input.form-control{:placeholder => "Search...", :type => "text"}
-                    %span.input-group-btn
-                      %button.btn.btn-default{:type => "button"}
-                        %i.fa.fa-search
-              / /input-group
+            %ul#side-menu.nav.mt20
               =render partial: "dashboard/side_menu"
-      / /.sidebar-collapse
-      / /.navbar-static-side
       #page-wrapper
         =yield
 %script!= "dataToDisplay = #{@viz_data};"

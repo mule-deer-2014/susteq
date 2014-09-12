@@ -20,7 +20,7 @@
     =yield
 
     /Displays "invalid login message if come to page from bad login"
-
+    %script!="dataToDisplay = #{@viz_data}"
     - flash.each do |key, msg|
       %div{:id => key}
         %p{:style => "font-weight:bold;color:#333333;"}= msg

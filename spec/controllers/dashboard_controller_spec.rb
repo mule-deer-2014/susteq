@@ -20,5 +20,15 @@ describe DashboardController do
     it 'renders the dashboard template' do
       expect(response).to render_template("dashboard/main")
     end
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    it 'assigns @hubs' do
+      expect(assigns(:hubs)).to eq(provider.hubs)
+    end
+=======
+>>>>>>> origin/new-in-process-master
+=======
+>>>>>>> fbe091f6e388a75dd803ca2338f5aaabbbbaa4f2
   end
 end

@@ -85,4 +85,3 @@ class Admin::PumpsController < ApplicationController
   end
 
 end
-

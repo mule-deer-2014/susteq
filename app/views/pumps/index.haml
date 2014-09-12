@@ -1,6 +1,17 @@
 .row
-	.col-lg-12
-		%h1.pull-left Pumps
+.col-lg-12
+	%h1.page-header Pumps
+.col-lg-12
+	= render 'list'
+.col-lg-12
+	.panel.panel-default.mt20
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Kiosks
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body#map.pumps-index
 .col-lg-12
 	.panel.panel-default
 		.panel-heading
@@ -11,16 +22,5 @@
 					%i.fa.fa-minus.fa-fw
 		.panel-body
 			#chart-container
-.col-lg-12
-	.panel.panel-default
-		.panel-heading
-			%i.fa.fa-map-marker.fa-fw
-			Water pumps and kiosks
-			.pull-right
-				.minimize.map-button
-					%i.fa.fa-minus.fa-fw
-		.panel-body
-			#map.pumps-index
 %h3= "Total liters of water dispensed: #{@total_dispensed}"
-
 = render 'list'
