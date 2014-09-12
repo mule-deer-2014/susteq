@@ -70,21 +70,23 @@
             %td= hub[:location_id]
             %td= hub[:date]
             %td= hub[:total]
-/ .col-lg-12
-/   %h3 error codes (30 days)
-/   .table-responsive
-/     %table#dataTables-example.table.table-striped.table-bordered.table-hover
-/       %thead
-/         %tr
-/           %th Hub
-/           %th Day
-/           %th Credits
-/       %tbody
-/         - @error_codes.each do |hub|
-/           %tr
-/             %td= hub[:location_id]
-/             %td= hub.gprs
-/             %td= hub.rfid
+.col-lg-12
+  %h3 error codes (30 days)
+  .table-responsive
+    %table#dataTables-example.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th Hub
+          %th Day
+          %th Credits
+      %tbody
+        - @error_codes.each do |hub, value|
+          %tr
+            %td= hub
+            %td= hub[:gprs]
+            %td= hub[:rfid]
+            %td= hub[:bat_low]
+            %td= hub[:bat_ok]
 
 
 .col-lg-12
@@ -96,17 +98,7 @@
         .minimize.map-button
           %i.fa.fa-minus.fa-fw
     .panel-body#map
-/ - unless @new_hubs_ids.empty?
-/   %h3 Hubs with the following location ids have not yet been added to the Hubs table:
-/   %table
-/     %thead
-/       %tr
-/         %th Hub
-/         %th Day
-/     %tbody
-/       - @new_hubs_ids.each do |id|
-/         %tr
-/           %td= link_to id, admin_add_new_hub_path(new_hubs_id: id)
+
 
 - unless @new_hubs_ids.empty?
   %h3 Hubs with the following location ids have not yet been added to the Hubs table:
