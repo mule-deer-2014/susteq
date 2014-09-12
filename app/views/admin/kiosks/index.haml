@@ -1,11 +1,22 @@
 .row
-	.col-lg-12
-		%h1.pull-left Kiosks
-		= link_to '<button class="btn btn-primary btn-lg pull-right mt20" type="button"><i class="fa fa-plus fa-fw"></i>Add kiosk</button>'.html_safe, new_admin_kiosk_path
-%hr
-.panel.panel-default
-	.panel-heading
-		%button.btn.btn-default.btn-md.map-button Hide Map
-		#map
-
-= render 'list'
+.col-lg-12
+	%h1.page-header Kiosks
+	= link_to '<button class="btn btn-primary btn-md pull-right btn-add" type="button"><i class="fa fa-plus fa-fw"></i>Add kiosk</button>'.html_safe, new_admin_kiosk_path
+.col-lg-12
+	.panel.panel-default.mt20
+		.panel-heading
+			Credits Sold Per Kiosk
+			.pull-right
+		.panel-body
+			#chart-container
+.col-lg-12
+	= render 'list'
+.col-lg-12
+	.panel.panel-default.mt20
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Kiosks
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body#map.kiosks-map

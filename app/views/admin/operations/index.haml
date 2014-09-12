@@ -1,0 +1,212 @@
+.col-lg-12
+	%h1.page-header Operations
+.col-lg-12
+	%h3 Total credits sold by month
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Month
+					%th Amount
+			%tbody
+				- @total_amount_transactions_by_month.each do |month|
+					%tr
+						%td= month.name
+						%td= month.total
+.col-lg-12
+	%h3 Last transaction
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Hub
+					%th Request date
+					%th Amount
+					%th Valid until
+			%tbody#SMS-table
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+.col-lg-12
+	%h3 Total credits sold
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Hub
+					%th Request date
+					%th Amount
+					%th Valid until
+			%tbody#SMS-table
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+.col-lg-12
+	%h3 Shop bought
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Hub
+					%th Request date
+					%th Amount
+					%th Valid until
+			%tbody#SMS-table
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+.col-lg-12
+	%h3 SMS low
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Hub
+					%th Request date
+					%th Amount
+					%th Valid until
+			%tbody#SMS-table
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+.col-lg-12
+	%h3 Last transaction
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Hub
+					%th Request date
+					%th Amount
+					%th Valid until
+			%tbody#SMS-table
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+				%tr
+					%td 101
+					%td Aug 10
+					%td 49
+					%td Aug 13
+.row
+.col-lg-12
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+			%thead
+				%tr
+					%th Transaction ID
+					%th Amount
+					%th Transaction code
+					%th Transaction time
+			%tbody
+				- @transactions.each do |transaction|
+					%tr
+						%td= transaction.id
+						%td= transaction.amount
+						%td= transaction.transaction_code
+						%td= transaction.transaction_time

@@ -1,10 +1,22 @@
 .row
-	.col-lg-12
-		%h1.pull-left Kiosks
-.panel.panel-default
-	.panel-heading
-		%button.btn.btn-default.btn-md.map-button Hide Map
-		#map
-%h3= "Total credits sold: #{@total_credits_sold}"
-
-= render 'list'
+.col-lg-12
+	%h1.page-header Kiosks
+.col-lg-12
+	= render 'list'
+.col-lg-12
+	.panel.panel-default
+		.panel-heading
+			Credits Sold By Kiosk
+			.pull-right
+		.panel-body
+			#chart-container
+.col-lg-12
+	.panel.panel-default
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Kiosks
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body
+			#map.kiosks-index
