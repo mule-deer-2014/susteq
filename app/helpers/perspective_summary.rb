@@ -32,13 +32,12 @@ module PerspectiveSummary
     return data_to_display
   end
 
-  def credits_by_kiosk_by_month
+  def dispensed_by_pump_by_month
     #Query for Stacked Bar Chart
     month_by_pump_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 1").group("extract(month from transaction_time),location_id")
     stacked_data_to_display = []
     labels_array = []
     (Date.today.month-5..Date.today.month).each do |month|
-      labels_array = []
       month_hash = {}
       month_hash[:month] = month
       if month_by_pump_total_obj_arr.select{|obj| obj.month == month }.length > 0
