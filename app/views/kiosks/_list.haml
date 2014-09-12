@@ -1,22 +1,26 @@
-.row
-  .col-lg-12
-    .table-responsive
-      %table#dataTables-example.table.table-striped.table-bordered.table-hover
-        %thead
-          %tr
-            %th Location Id
-            %th Name
-            %th Credits Sold
-            %th Status Code
-            %th Longitude
-            %th Latitude
-        %tbody
-          - @kiosks.each_with_index do |kiosk, index|
-            - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
-            %tr{:class => classes}
-              %td= kiosk.location_id
-              %td= link_to "#{kiosk.name}", kiosk_path(kiosk)
-              %td= "#{kiosk.credits_sold}"
-              %td= kiosk.status_code
-              %td= kiosk.longitude
-              %td= kiosk.latitude
+.table-responsive
+	%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+		%thead
+			%tr
+				%th Location Id
+				%th Name
+				%th Status Code
+		%tbody
+			- @kiosks.each_with_index do |kiosk, index|
+				- index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+				%tr{:class => classes}
+					%td= kiosk.location_id
+					%td= link_to "#{kiosk.name}", kiosk_path(kiosk)
+					%td
+						.pull-right
+							- case kiosk.status_code
+								- when -1
+									%span.label.label-danger Danger
+								- when 0
+									%span.label.label-warning Warning
+								- when 1
+									%span.label.label-success Ok
+:javascript
+	$(document).ready(function() {
+			$('#dataTables-example').dataTable();
+	});

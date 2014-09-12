@@ -5,7 +5,7 @@
 				%th Location ID
 				%th Name
 				%th Provider
-				%th Status Code
+				%th Status
 				%th
 		%tbody
 			- @pumps.each_with_index do |pump, index|
@@ -22,7 +22,7 @@
 								- when 0
 									%span.label.label-warning Warning
 								- when 1
-									Ok
+									%span.label.label-success Ok
 					%td
 						= link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(pump), method: :delete, data: { confirm: 'Are you sure?' }
 						= link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(pump)
