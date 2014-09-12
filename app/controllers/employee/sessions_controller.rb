@@ -2,6 +2,7 @@ class Employee::SessionsController < ApplicationController
   layout 'login'
   before_action :require_employee_signin, :only =>:destroy
   def new
+    @viz_data = 0
     render 'employees/sessions/new'
   end
 
