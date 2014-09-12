@@ -18,5 +18,3 @@
               %td
                 = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' }
                 = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_employee_path(employee)
-
-= link_to '<button class="btn btn-primary btn-lg pull-left mt20" type="button"><i class="fa fa-plus fa-fw"></i>Add Employee</button>'.html_safe, new_employee_path

@@ -15,22 +15,45 @@ module PerspectiveSummary
     #Query for Stacked Bar Chart
     month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
     stacked_data_to_display = []
+    labels_array = []
     (Date.today.month-5..Date.today.month).each do |month|
-      labels_array = []
       month_hash = {}
       month_hash[:month] = month
       if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
         month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
           location_key = "location_id".concat(obj.location_id.to_s).to_sym
           month_hash[location_key] = obj.total
-          lables_array.push(location_key)
+          labels_array.push(location_key)
         end
       end
       stacked_data_to_display.push(month_hash)
     end
-    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: stacked_data_to_display, chartType: "bar", xKey:"month" , yKey: labels_array.uniq};
+    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Credits Sold By Month", chartData: stacked_data_to_display, chartType: "stacked", xKey:"month" , yKeys: labels_array.uniq};
     return data_to_display
   end
+
+  def credits_by_kiosk_by_month
+    #Query for Stacked Bar Chart
+    month_by_pump_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 1").group("extract(month from transaction_time),location_id")
+    stacked_data_to_display = []
+    labels_array = []
+    (Date.today.month-5..Date.today.month).each do |month|
+      labels_array = []
+      month_hash = {}
+      month_hash[:month] = month
+      if month_by_pump_total_obj_arr.select{|obj| obj.month == month }.length > 0
+        month_by_pump_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
+          location_key = "location_id".concat(obj.location_id.to_s).to_sym
+          month_hash[location_key] = obj.total
+          labels_array.push(location_key)
+        end
+      end
+      stacked_data_to_display.push(month_hash)
+    end
+    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Liters of Water Dispensed By Month", chartData: stacked_data_to_display, chartType: "stacked", xKey:"month" , yKeys: labels_array.uniq};
+    return data_to_display
+  end
+
 
   def credits_by_kiosk_for_all
     chart_data_array = []
@@ -246,14 +269,11 @@ module PerspectiveSummary
     gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id").order("transaction_time")
     gprs_errors.each do |error|
       if !existing_ids.include?(obj.location_id)
-      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+        @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
       else
         existing_ids.push(errror.location_id)
       end
     end
-    #RFID Errors - 111
-
-    #Bat Status
     @bat_low_errors_arr = []
     bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
     bat_low_errors.each do |error|
@@ -262,34 +282,53 @@ module PerspectiveSummary
   end
 
   def errors_by_hub
-    #GPRS Errors
-    @gprs_errors_arr = []
-    gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id")
-    gprs_errors.each do |error|
-      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+    #Get array of all location ids
+    location_ids = []
+    Transaction.all.each do |transaction|
+      location_ids.push(transaction.location_id)
     end
-    #RFID Errors
-    @rfid_errors_arr = []
-    rfid_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =111 AND transaction_time > (Date.today - 30)").group("location_id")
-    rfid_errors.each do |error|
-      @rfid_errors_arr.push({location_id: error.location_id, error_type: "rfid" , count: error.count})
-    end
-    #Bat Low ERrors
-    @bat_low_errors_arr = []
-    bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
-    bat_low_errors.each do |error|
-      @bat_low_errors_arr.push({location_id: error.location_id, error_type: "bat_low" , count: error.count})
-    end
-    #Bat Ok Errors
-    @bat_ok_errors_arr = []
-    bat_ok_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =133 AND transaction_time > (Date.today - 30)").group("location_id")
-    bat_ok_errors.each do |error|
-      @bat_ok_errors_arr.push({location_id: error.location_id, error_type: "bat_ok" , count: error.count})
-    end
-  end
+    location_ids.uniq!
 
-  def errors_by_hub
+    #Query db for given error by location
+    gprs_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount=101").group("location_id")
+    rfid_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =111").group("location_id")
+    bat_low_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =132").group("location_id")
+    bat_ok_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =133").group("location_id")
+    errors_hash = {}
 
+    #Loop through all locations
+    location_ids.each do |location_id|
+      location_key_sym = ("location"+location_id.to_s).to_sym
+      errors_hash[location_key_sym] = {}
+      #Get gprs error count for given location
+      gprs_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:gprs] = error_obj.count
+        end
+      end
+      #Get gprs error count for given location
+      gprs_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:gprs] = error_obj.count
+        end
+      end
+      rfid_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:rfid] = error_obj.count
+        end
+      end
+      bat_low_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:bat_low] = error_obj.count
+        end
+      end
+      bat_ok_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:bat_ok] = error_obj.count
+        end
+      end
+    end
+    return errors_hash
   end
 
   def getHubs
@@ -305,28 +344,3 @@ module PerspectiveSummary
   end
 
 end
-
-
-# Count of Errors by Kiosk Table over last 30 days
-# GPRS Errors - count(transaction_code = 39 and amount=101)
-# Transaction.select(“location_id, transaction_time, count(amount) as count”)
-# .where(“transaction_code=39 AND amount =101 AND transaction_time > Date.today - 30”)
-# .group(“location_id)
-# RFID Errors - count(transaction_code = 39 and amount=111)
-# BAT Low Errors - count(transaction_code = 39 and amount=132)
-# BAT OK Errors - count(transaction_code = 39 and amount=133)
-# Last Error by Kiosk
-# GPRS Errors
-# Transaction.select(“location_id, transaction_time”)
-# .where(“transaction_code=39 AND amount =101)
-# .group(“location_id)
-# .order(“transaction_time”)
-# .first
-# RFID Errors - count(transaction_code = 39 and amount=111)
-# BAT Status
-# Transaction.select(“location_id, transaction_time as day”)
-# .where(“transaction_code=39 AND (amount =132 OR amount=133))
-# .group(“location_id)
-# .order(“transaction_time”)
-# .first
-# 133 is BAT ok, 132 is BAT not ok
