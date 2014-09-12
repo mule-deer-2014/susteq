@@ -23,36 +23,16 @@ module PerspectiveSummary
     month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 1").group("extract(month from transaction_time),location_id")
     stacked_data_to_display = []
     (Date.today.month-5..Date.today.month).each do |month|
-
-  def credits_by_kiosk_for_all_table
-    chart_data_array = []
-    #Query for Bar Chart and Table
-    kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20 or transaction_code = 21").group("location_id").order("sum(amount)")
-    #Prepare data for Normalchart
-    kiosk_total_obj_arr.each do |obj|
-      chart_data_array.push({location_id: obj.location_id, total: obj.total})
-    end
-    return chart_data_array
-  end
-
-  def credits_by_kiosk_by_month
-    #Query for Stacked Bar Chart
-    month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
-    stacked_data_to_display = []
-    (Date.today.month-5..Date.today.month).each do |month|
-      labels_array = []
       month_hash = {}
       month_hash[:month] = month
       if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
         month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
           location_key = "location_id".concat(obj.location_id.to_s).to_sym
           month_hash[location_key] = obj.total
-          lables_array.push(location_key)
         end
       end
       stacked_data_to_display.push(month_hash)
     end
-<<<<<<< HEAD
     return stacked_data_to_display
   end
 
@@ -66,9 +46,6 @@ module PerspectiveSummary
     end
     #Create json chart obj
     data_to_display = {xAxisTitle: "Pump Location Id", yAxisTitle: "Liters of Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"location_id" , yKey: "total"};
-=======
-    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: stacked_data_to_display, chartType: "bar", xKey:"month" , yKey: labels_array.uniq};
->>>>>>> fbe091f6e388a75dd803ca2338f5aaabbbbaa4f2
     return data_to_display
   end
 
@@ -99,39 +76,6 @@ module PerspectiveSummary
     return data_to_display
   end
 
-<<<<<<< HEAD
-=======
-  def credits_by_month(kiosk)
-    #Query db
-    sold_by_month = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 and transaction_code = 21 and location_id = #{kiosk.location_id}").group("extract(month from transaction_time)")
-    #Prepare data
-    chart_data_array = []
-    (Date.today.month-5..Date.today.month).each do |month|
-      if sold_by_month.select{|obj| obj.month == month}.length > 0
-        sold_in_month = sold_by_month.select{|obj| obj.month == month}[0].total
-        chart_data_array.push({month: month, total: sold_in_month})
-      else
-        chart_data_array.push({month: month, total: 0})
-      end
-    end
-    #Create json chart obj
-    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
-    return data_to_display
-  end
-
-  #WATER DISPENSED
-  def dispensed_by_pump_for_all_table
-    chart_data_array = []
-    #Query for Bar Chart and Table
-    pump_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 1").group("location_id").order("sum(amount)")
-    #Prepare data for Normalchart
-    pump_total_obj_arr.each do |obj|
-      chart_data_array.push({location_id: obj.location_id, total: obj.total})
-    end
-    return chart_data_array
-  end
-
->>>>>>> fbe091f6e388a75dd803ca2338f5aaabbbbaa4f2
   def dispensed_by_pump_for_provider(provider)
     chart_data_array = []
     #Query for Bar Chart and Table
@@ -142,11 +86,7 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-<<<<<<< HEAD
     data_to_display = {xAxisTitle:"Pump Location Id", yAxisTitle:"Liters of Water Dispensed", chartData: chart_data_array, chartType:"bar", xKey:"location_id", yKey:"total"};
-=======
-    data_to_display = {xAxisTitle:"Pump Location Id", yAxisTitle:"Credits Sold", chartData: chart_data_array, chartType:"bar", xKey:"location_id", yKey:"total"};
->>>>>>> fbe091f6e388a75dd803ca2338f5aaabbbbaa4f2
     return data_to_display
   end
 
@@ -164,7 +104,6 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-<<<<<<< HEAD
     data_to_display = { xAxisTitle: "Month", yAxisTitle: "Liters of Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
     return data_to_display
   end
@@ -189,14 +128,6 @@ module PerspectiveSummary
 
   def credits_bought_by_kiosk
     #Query db
-=======
-    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
-    return data_to_display
-  end
-
-  #CREDITS BOUGHT BY KIOSK
-  def credits_bought_by_kiosk
-    #Query db
     credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
     credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
     #Prepare data
@@ -214,32 +145,6 @@ module PerspectiveSummary
     #Create json chart obj
     data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
     return data_to_display
-  end
-
-  def credits_bought_by_kiosk_table
-  #Query db
->>>>>>> fbe091f6e388a75dd803ca2338f5aaabbbbaa4f2
-    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
-    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
-    #Prepare data
-    chart_data_array = []
-    totals_hash = {}
-    credits_init.each do |obj|
-      totals_hash[obj.location_id.to_s.to_sym] = obj.total
-    end
-    credits_other.each do |obj|
-      totals_hash[obj.location_id.to_s.to_sym] += obj.total
-    end
-    totals_hash.each {|location_id,total|
-      chart_data_array.push({location_id: location_id, total: total})
-    }
-<<<<<<< HEAD
-    #Create json chart obj
-    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
-    return data_to_display
-=======
-    return chart_data_array
->>>>>>> fbe091f6e388a75dd803ca2338f5aaabbbbaa4f2
   end
 
   def credits_remaining_by_kiosk
@@ -248,6 +153,104 @@ module PerspectiveSummary
     credits_subtract = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) > 0)").group("location_id")
     #Prepare data
     chart_data_array = []
+    totals_hash = {}
+    credits_init.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] = obj.total
+    end
+    credits_subtract.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] -= obj.total
+    end
+    totals_hash.each {|location_id,total|
+      chart_data_array.push({location_id: location_id, total: total})
+    }
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Remaining", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
+    return data_to_display
+  end
+
+  def sms_balance_by_pump
+    sms_balance_by_location = Transaction.select("location_id, extract(day from transaction_time) as day, amount").where("transaction_code=41").group("location_id").order("transaction_time")
+      #Prepare data
+    existing_ids = []
+    sms_balance_by_location.each do |obj|
+      if !existing_ids.include?(obj.location_id)
+      chart_data_array.push({location_id: obj.location_id, day: obj.day, total: obj.amount})
+      else
+        existing_ids.push(obj.location_id)
+      end
+    end
+    #Create json chart obj
+    data_to_display = { xAxisTitle: "Pump Location Id", yAxisTitle: "SMS Balance", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
+    return data_to_display
+  end
+
+  def last_error_by_hub
+    #GPRS Errors
+    @gprs_errors_arr = []
+    existing_ids = []
+    gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id").order("transaction_time")
+    gprs_errors.each do |error|
+      if !existing_ids.include?(obj.location_id)
+      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+      else
+        existing_ids.push(errror.location_id)
+      end
+    end
+
+    #RFID Errors - 111
+
+    #Bat Status
+    @bat_low_errors_arr = []
+    bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_low_errors.each do |error|
+      @bat_low_errors_arr.push({location_id: error.location_id, error_type: "bat_low" , count: error.count})
+    end
+  end
+
+  def errors_by_hub
+    #GPRS Errors
+    @gprs_errors_arr = []
+    gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id")
+    gprs_errors.each do |error|
+      @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+    end
+    #RFID Errors
+    @rfid_errors_arr = []
+    rfid_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =111 AND transaction_time > (Date.today - 30)").group("location_id")
+    rfid_errors.each do |error|
+      @rfid_errors_arr.push({location_id: error.location_id, error_type: "rfid" , count: error.count})
+    end
+    #Bat Low ERrors
+    @bat_low_errors_arr = []
+    bat_low_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =132 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_low_errors.each do |error|
+      @bat_low_errors_arr.push({location_id: error.location_id, error_type: "bat_low" , count: error.count})
+    end
+    #Bat Ok Errors
+    @bat_ok_errors_arr = []
+    bat_ok_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =133 AND transaction_time > (Date.today - 30)").group("location_id")
+    bat_ok_errors.each do |error|
+      @bat_ok_errors_arr.push({location_id: error.location_id, error_type: "bat_ok" , count: error.count})
+    end
+  end
+
+  def errors_by_hub
+
+  end
+
+  def getHubs
+    if admin_signed_in?
+      kiosks = Kiosk.all
+      pumps = Pump.all
+    else
+      kiosks = current_provider.kiosks
+      pumps = current_provider.kiosks
+    end
+    {chartData: {kiosks: kiosks, pumps: pumps},
+                  chartType: "map" }
+  end
+end
+art_data_array = []
     totals_hash = {}
     credits_init.each do |obj|
       totals_hash[obj.location_id.to_s.to_sym] = obj.total
