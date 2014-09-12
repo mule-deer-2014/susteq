@@ -1,5 +1,5 @@
 HubMap.View = function(startLat, startLong, startZoom){
-  this.map = L.map('map').setView([startLat,startLong], startZoom);
+  this.map = L.map('map', {scrollWheelZoom:false}).setView([startLat,startLong], startZoom);
   this.setTileLayers();
   this.bindEvents();
 };
@@ -91,25 +91,30 @@ HubMap.View.prototype = {
     L.control.layers(null, {"Kiosks":this.kiosksLayer, "Pumps":this.pumpsLayer}, {collapsed:false}).addTo(this.map);
   },
 
-  displayAllHubs: function(hubs){
+  displayHubs: function(hubs){
     this.renderHubsOnMap(hubs);
-    this.showAllHubs();
+    if ($(".kiosks-map").length > 0)
+      this.showKiosksLayer();
+    else if ($(".pumps-index").length > 0)
+      this.showPumpsLayer();
+    else
+      this.showAllHubs();
+  },
+
+  addToggleMapEventListener:function(){
+    $(".map-button").closest(".panel-heading").on("click", this.toggleMapDisplay);
   },
 
   toggleMapDisplay:function(){
     $("#map").slideToggle();
-    if ($(".map-button").html() == "Hide Map")
-      $(".map-button").html("Show Map");
-    else
-      $(".map-button").html("Hide Map");
-  },
-
-  addToggleMapEventListener:function(){
-    $(".map-button").on("click", this.toggleMapDisplay);
+    if ($(".map-button").html() === '<i class="fa fa-plus fa-fw"></i>')
+      $(".map-button").html('<i class="fa fa-minus fa-fw"></i>');
+    else{
+      $(".map-button").html('<i class="fa fa-plus fa-fw"></i>');
+    }
   },
 
   bindEvents:function(){
     this.addToggleMapEventListener();
-  }
-
+  },
 };

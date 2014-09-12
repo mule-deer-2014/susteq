@@ -1,0 +1,17 @@
+.axis {
+	fill: none;
+	stroke: gray;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	stroke: black;
+}
+
+.x {
+
+}
+
+.y {
+
+}

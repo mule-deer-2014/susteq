@@ -1,14 +1,17 @@
 class Admin::PumpsController < ApplicationController
+  include PerspectiveSummary
   layout "admin_application"
   before_filter :require_admin_signin
 
   def new
+    @viz_data = 0
     @pump = Pump.new
     @providers = Provider.all
   end
 
   def show
     @pump = Pump.find params[:id]
+    @viz_data = [dispensed_by_month(@pump)].to_json
   end
 
   def create
@@ -34,10 +37,7 @@ class Admin::PumpsController < ApplicationController
 
   def index
     @pumps = Pump.all
-    respond_to do |format|
-      format.html {render '/admin/pumps/index'}
-      format.json {render json:Pump.get_all_with_transactions}
-    end
+    @viz_data = [dispensed_by_pump_for_all_table, getHubs].to_json
   end
 
   def edit
@@ -85,4 +85,3 @@ class Admin::PumpsController < ApplicationController
   end
 
 end
-

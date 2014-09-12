@@ -17,6 +17,10 @@
 		%br
 		= f.text_field :email, class: "form-control", value: current_admin.email
 	.form-group
+		= f.label :phone_number
+		%br
+		= f.text_field :phone_number, class: "form-control", value: current_admin.phone_number
+	.form-group
 		= f.label :password
 		%br
 		= f.text_field :password, class: "form-control", placeholder: "***********"

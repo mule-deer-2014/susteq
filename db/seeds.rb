@@ -52,6 +52,7 @@ end
   )
 end
 
+hub_number = 1
 Provider.all.each do |provider|
   4.times do
     provider.employees.create!(
@@ -60,6 +61,7 @@ Provider.all.each do |provider|
       password: "123456"
     )
   end
+
 
   rand(1..3).times do
     # the latitude and longitude ranges used in generate_random_lat_long here and below are coordinates for the area surrounding Nairobi, Kenya, i.e. arbitrary for seed data purposes.
@@ -76,7 +78,6 @@ Provider.all.each do |provider|
     hub_number += 1
   end
 
-
   rand(1..3).times do
     #SEE COMMENT ABOVE ABOUT LAT_LONG COORDINATES
     lat_long = generate_random_lat_long(-1.377018, -1.219302, 36.636440, 36.959850)
@@ -91,4 +92,221 @@ Provider.all.each do |provider|
     end
     hub_number += 1
   end
+end
+
+
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 20,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 20,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 1,
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 20,
+    location_id: 2,
+    amount: 3
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 20,
+    location_id: 2,
+    amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
+  )
+
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 1,
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 3
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
+  )
+  Transaction.create!(
+    transaction_time: Date.new(2014,1,1),
+    transaction_code: 41,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: Date.new(2014,2,2),
+    transaction_code: 41,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 1,
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 41,
+    location_id: 2,
+    amount: 3
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 41,
+    location_id: 2,
+    amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
+  )
+
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 1,
+    amount: 2
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 1,
+    amount: 1,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 3
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 1,
+    location_id: 2,
+    amount: 4
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 3,
+    starting_credits: 5,
+    ending_credits: 10
+  )
+  Transaction.create!(
+    transaction_time: generate_date_from_last_six_months,
+    transaction_code: 23,
+    location_id: 2,
+    amount: 4,
+    starting_credits: 10,
+    ending_credits: 5
+  )
+
+200.times do
+  transaction_code = [1, 20, 21, 22, 23, 39, 41].sample
+  location_id = (1..10).to_a.sample
+
+  transaction_code == 39 ?
+    Transaction.create!(
+      transaction_time: generate_date_from_last_six_months,
+      transaction_code: transaction_code,
+      location_id: location_id,
+      amount: [109, 111, 132, 133].sample,
+      starting_credits: (0..20).to_a.sample,
+      ending_credits: (0..20).to_a.sample
+    ) :
+    Transaction.create!(
+      transaction_time: generate_date_from_last_six_months,
+      transaction_code: transaction_code,
+      location_id: location_id,
+      amount: (50..200).to_a.sample
+    )
 end

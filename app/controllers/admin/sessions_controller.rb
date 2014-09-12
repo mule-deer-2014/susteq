@@ -3,6 +3,7 @@ class Admin::SessionsController < ApplicationController
   before_action :require_admin_signin, :only =>:destroy
 
   def new
+    @viz_data = 0
     if admin_signed_in?
       redirect_to admin_dashboard_path
     else

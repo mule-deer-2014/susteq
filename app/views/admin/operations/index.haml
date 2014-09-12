@@ -1,0 +1,88 @@
+.col-lg-12
+	%h1.page-header Operations
+.col-lg-12
+	%h3 SMS low
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+			%thead
+				%tr
+					%th Hub
+					%th request date
+					%th Amount
+			%tbody
+				- @sms.each do |sms|
+					%tr
+						%td= sms[:location_id]
+						%td= sms[:date]
+						%td= sms[:total]
+.col-lg-12
+	%h3 Total Credits Sold
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Hub
+					%th Amount
+			%tbody
+				- @total_credits_sold.each do |hub|
+					%tr
+						%td= hub[:location_id]
+						%td= hub[:location_id]
+.col-lg-12
+	%h3 Shop Bought
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Layer
+					%th Credits
+			%tbody
+				- @shop_bought.each do |hub|
+					%tr
+						%td= hub[:location_id]
+						%td= hub[:total]
+.col-lg-12
+	%h3 Total Water
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Layer
+					%th Credits
+			%tbody
+				- @total_water.each do |hub|
+					%tr
+						%td= hub[:location_id]
+						%td= hub[:total]
+.col-lg-12
+	%h3 Shopkeepers credit
+	.table-responsive
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+			%thead
+				%tr
+					%th Hub
+					%th Date
+					%th Credits
+			%tbody
+				- @shopkeepers_credit.each do |hub|
+					%tr
+						%td= hub[:location_id]
+						%td= hub[:date]
+						%td= hub[:total]
+/ .col-lg-12
+/ 	%h3 error codes (30 days)
+/ 	.table-responsive
+/ 		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+/ 			%thead
+/ 				%tr
+/ 					%th Hub
+/ 					%th Day
+/ 					%th Credits
+/ 			%tbody
+/ 				- @error_codes.each do |hub, value|
+/ 					%tr
+/ 						%td= hub
+/ 						%td= hub[:gprs]
+/ 						%td= hub[:rfid]
+/ 						%td= hub[:bat_low]
+/ 						%td= hub[:bat_ok]

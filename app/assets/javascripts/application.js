@@ -25,16 +25,8 @@
 //= require sb-admin/morris
 //= require leaflet
 //= require esri-leaflet
+//= require d3.min
 //= require leaflet.awesome-markers.min
-//= require big-data/_namespace
-//= require map/_map_namespace
-//= require big-data/bigdata-model
-//= require big-data/bigdata-controller
-//= require map/hubmap-view
-//= require big-data/initialize
-//= require polychart2.standalone
-//= require chart/_chart_namespace
-//= require chart/chartMaker
-
 //= require sb-admin/sb-admin
-
+//= require d3.min
+//= require_tree .

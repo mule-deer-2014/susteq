@@ -1,25 +1,26 @@
 class Admin::KiosksController < ApplicationController
+  include PerspectiveSummary
   layout "admin_application"
   before_filter :require_admin_signin
 
   def new
+    @viz_data = 0
     @kiosk = Kiosk.new
     @providers = Provider.all
   end
 
   def index
     @kiosks = Kiosk.all
-    respond_to do |format|
-      format.html {render 'admin/kiosks/index'}
-      format.json {render json:Kiosk.get_all_with_transactions}
-    end
+    @viz_data = [credits_by_kiosk_for_all, getHubs].to_json
   end
 
   def show
     @kiosk = Kiosk.find params[:id]
+    @viz_data = [credits_by_month(@kiosk)].to_json
   end
 
   def create
+    @viz_data = 0
     if params[:provider_id]
       begin
       @provider = Provider.find(params[:provider_id])
@@ -41,6 +42,7 @@ class Admin::KiosksController < ApplicationController
   end
 
   def edit
+    @viz_data = 0
     @kiosk = Kiosk.find params[:id]
   end
 

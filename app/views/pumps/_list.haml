@@ -1,22 +1,32 @@
-.row
-  .col-lg-12
-    .table-responsive
-      %table#dataTables-example.table.table-striped.table-bordered.table-hover
-        %thead
-          %tr
-            %th Location Id
-            %th Name
-            %th Water Pumped
-            %th Status Code
-            %th Longitude
-            %th Latitude
-        %tbody
-          - @pumps.each_with_index do |pump, index|
-            - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
-            %tr{:class => classes}
-              %td= pump.location_id
-              %td= link_to "#{pump.name}", pump_path(pump)
-              %td= @total_dispensed
-              %td= pump.status_code
-              %td= pump.longitude
-              %td= pump.latitude
+.table-responsive
+  %table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+    %thead
+      %tr
+        %th Location Id
+        %th Name
+        %th Water Pumped
+        %th Status
+        %th
+    %tbody
+      - @pumps.each_with_index do |pump, index|
+        - index % 2 == 0 ? classes = ["odd","gradeX"] : classes = ["even","gradeC"]
+        %tr{:class => classes}
+          %td= pump.location_id
+          %td= link_to "#{pump.name}", pump_path(pump)
+          %td= @total_dispensed
+          %td
+            .pull-right
+              - case pump.status_code
+                - when -1
+                  %span.label.label-danger Danger
+                - when 0
+                  %span.label.label-warning Warning
+                - when 1
+                  %span.label.label-success Ok
+          %td
+            = link_to '<i class="fa fa-trash fa-fw"></i>'.html_safe, admin_pump_path(pump), method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, edit_admin_pump_path(pump)
+:javascript
+  $(document).ready(function() {
+      $('#dataTables-example').dataTable();
+  });

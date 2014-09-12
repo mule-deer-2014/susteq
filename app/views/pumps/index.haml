@@ -1,10 +1,23 @@
 .row
-	.col-lg-12
-		%h1.pull-left Pumps
-.panel.panel-default
-	.panel-heading
-		%button.btn.btn-default.btn-md.map-button Hide Map
-		#map
+.col-lg-12
+	%h1.page-header Pumps
+.col-lg-12
+	= render 'list'
+.col-lg-12
+	.panel.panel-default
+		.panel-heading
+			Liters of Water Dispensed By Pump
+			.pull-right
+		.panel-body
+			#chart-container
 %h3= "Total liters of water dispensed: #{@total_dispensed}"
-
+.col-lg-12
+	.panel.panel-default.mt20
+		.panel-heading
+			%i.fa.fa-map-marker.fa-fw
+			Pumps	
+			.pull-right
+				.minimize.map-button
+					%i.fa.fa-minus.fa-fw
+		.panel-body#map.pumps-index
 = render 'list'

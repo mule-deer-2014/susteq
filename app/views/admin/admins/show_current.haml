@@ -1,23 +1,23 @@
-.container
-  .row
-    .col-sm-10
-      %h1 My Admin Profile
-  .row
-    .col-sm-6
-      / left col
-      %ul.list-group
-        %li.list-group-item.text-muted Account Details
-        %li.list-group-item.text-right
-          %span.pull-left
-            %strong Name
-          = current_admin.name
-        %li.list-group-item.text-right
-          %span.pull-left
-            %strong Email
-          = current_admin.email
-        %li.list-group-item.text-right
-          %span.pull-left
-            %strong Profile Created
-          = current_admin.created_at.strftime('%c')
-
-= link_to '<button class="btn btn-primary btn-lg pull-left mt20" type="button"><i class="fa fa-edit fa-fw"></i>Edit Profile</button>'.html_safe, edit_current_admin_path
+.row
+.col-lg-12
+  %h1.page-header
+    My Admin Profile
+.col-lg-12
+  %h3.pull-left Account Details
+  %p.pull-right.mt20
+    = link_to '<i class="fa fa-pencil fa-fw"></i>'.html_safe, admin_edit_current_path
+.col-lg-6
+  %table.gen-info
+    %col.col-lg-5
+    %tr
+      %th Name
+      %td= current_admin.name
+    %tr
+      %th Email
+      %td= current_admin.email
+    %tr
+      %th Phone number
+      %td= current_admin.phone_number
+    %tr
+      %th Created at
+      %td= current_admin.created_at.strftime('%c')
