@@ -23,6 +23,7 @@ BigData.DataController.prototype = {
   },
   createStackedBarGraph: function(index, data) {
     var that = this;
+    that.container.append("<h3>" + data.yAxisTitle + "</h3>");
     that.container.append(that.chartElementWriter(index));
     data.divSelector = that.chartSelector(index);
     new HubChart.StackedBarChart(data);
@@ -30,6 +31,7 @@ BigData.DataController.prototype = {
 
   createBarGraph: function(index, data){
     var that = this;
+    that.container.append("<h3>" + data.yAxisTitle + "</h3>");
     that.container.append(that.chartElementWriter(index));
     data.divSelector = that.chartSelector(index);
     new HubChart.BarChart(data);
