@@ -23,8 +23,8 @@ HubChart.LineChart = function(object) {
   Morris.Line({
     element: object.divSelector,
     data: object.chartData,
-    xkey: 'location_id',
-    ykeys: ['total'],
+    xkey: object.xKey,
+    ykeys: [object.yKey],
     labels: object.yAxisTitle
   });
 };
