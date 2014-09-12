@@ -7,7 +7,7 @@ class Admin::ProvidersController < ApplicationController
   def index
     @providers = Provider.all
     hubs = getHubs
-    @viz_data = [hubs].to_json
+    @viz_data = [credits_by_kiosk_by_month, dispensed_by_pump_by_month, hubs].to_json
   end
 
   def create
