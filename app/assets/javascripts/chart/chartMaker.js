@@ -15,7 +15,7 @@ HubChart.StackedBarChart = function(object) {
     stacked: true,
     xkey: object.xKey,
     ykeys: object.yKeys,
-    labels: object.yAxisTitle
+    labels: object.yKeys
   });
 };
 
