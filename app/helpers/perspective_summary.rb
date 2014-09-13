@@ -108,7 +108,7 @@ module PerspectiveSummary
     pump_total_obj_arr.each do |obj|
       chart_data_array.push({location_id: obj.location_id, total: obj.total})
     end
-    return chart_data_array
+    { xAxisTitle: "Pump Location Id", yAxisTitle: "Liters of Waters Dispensed Per Pump", chartData: chart_data_array, chartType: "bar", xKey:"location id" , yKey: "total"};
   end
 
   def dispensed_by_pump_for_provider(provider)
