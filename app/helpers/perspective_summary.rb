@@ -60,10 +60,10 @@ module PerspectiveSummary
     kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 20 or transaction_code = 21").group("location_id").order("sum(amount)")
     #Prepare data for Normalchart
     kiosk_total_obj_arr.each do |obj|
-      chart_data_array.push({location_id: obj.location_id, total: obj.total})
+      chart_data_array.push({label: "location id " + obj.location_id.to_s, value: obj.total})
     end
     #Create json chart obj
-    data_to_display = {xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"location_id" , yKey: "total"};
+    data_to_display = {yAxisTitle: "Credits Sold Per Kiosk", chartData: [{key:"Credits sold", values: chart_data_array}], chartType: "bar"};
     return data_to_display
   end
 
@@ -121,7 +121,7 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-    data_to_display = {xAxisTitle:"Pump Location Id", yAxisTitle:"Credits Sold", chartData: chart_data_array, chartType:"bar", xKey:"location_id", yKey:"total"};
+    data_to_display = {xAxisTitle:"Pump Location Id", yAxisTitle:"Credits Sold Per Kiosk", chartData: chart_data_array, chartType:"bar", xKey:"location_id", yKey:"total"};
     return data_to_display
   end
 
