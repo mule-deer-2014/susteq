@@ -32,17 +32,17 @@ BigData.DataController.prototype = {
   createBarGraph: function(index, data){
     var that = this;
     that.container.append("<h3>" + data.yAxisTitle + "</h3>");
-    that.container.append(that.chartElementWriter(index));
+    that.container.append(that.chartElementWriter(index))
     data.divSelector = that.chartSelector(index);
     new HubChart.BarChart(data);
   },
 
   chartElementWriter: function(index) {
-    return "<div id='chart" + index + "'></div>";
+    return "<div id='chart" + index + "'><svg></svg></div>";
   },
 
   chartSelector: function(index) {
-    return "chart" + index;
+    return "#chart" + index + " svg";
   },
 
   createMap: function(index, data){
