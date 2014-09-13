@@ -28,16 +28,40 @@ HubChart.BarChart = function(object){
   return chart;
 };
 
-HubChart.StackedBarChart = function(object) {
-  Morris.Bar({
-    element: object.divSelector,
-    data: object.chartData,
-    stacked: true,
-    xkey: object.xKey,
-    ykeys: object.yKeys,
-    labels: object.yAxisTitle
-  });
+HubChart.StackedBarChart = function(object){
+  var chart = nv.models.multiBarChart()
+    .transitionDuration(350)
+    .reduceXTicks(true)
+    .rotateLabels(0)
+    .showControls(true)
+    .groupSpacing(0.1)
+  ;
+
+  chart.xAxis
+    .tickFormat(d3.format(',f'));
+
+  chart.yAxis
+    .tickFormat(d3.format(',.1f'));
+
+  d3.select(object.divSelector)
+    .datum(object.chartData)
+    .call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  return chart;
 };
+
+// HubChart.StackedBarChart = function(object) {
+//   Morris.Bar({
+//     element: object.divSelector,
+//     data: object.chartData,
+//     stacked: true,
+//     xkey: object.xKey,
+//     ykeys: object.yKeys,
+//     labels: object.yAxisTitle
+//   });
+// };
 
 HubChart.LineChart = function(object) {
   Morris.Line({
