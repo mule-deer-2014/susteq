@@ -15,21 +15,29 @@ module PerspectiveSummary
     #Query for Stacked Bar Chart
     month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
     stacked_data_to_display = []
-    labels_array = []
-    (Date.today.month-5..Date.today.month).each do |month|
-      month_hash = {}
-      month_hash[:month] = month
-      if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
-        month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
-          location_key = "location_id".concat(obj.location_id.to_s).to_sym
-          month_hash[location_key] = obj.total
-          labels_array.push(location_key)
-        end
+    kiosk_location_array = month_by_kiosk_total_obj_arr.map{ |obj| obj.location_id}.uniq
+    stacked_data_to_display = kiosk_location_array.map do |kiosk_id|
+      values = month_by_kiosk_total_obj_arr.select{|obj| obj.location_id == kiosk_id }.map do |trans|
+        {month: trans.month, total:trans.total}
       end
-      stacked_data_to_display.push(month_hash)
+      {key: "Kiosk Location Id #{kiosk_id}", values: values}
     end
-    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Credits Sold By Month", chartData: stacked_data_to_display, chartType: "stacked", xKey:"month" , yKeys: labels_array.uniq};
-    return data_to_display
+    data_to_display = {yAxisTitle: "Credits Sold By Month", chartData:stacked_data_to_display, chartType: "stacked"};
+
+    # (Date.today.month-5..Date.today.month).each do |month|
+    #   kiosk_hash = {}
+    #   # month_hash[:month] = month
+    #   if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
+    #     month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
+    #       location_key = "location_id ".concat(obj.location_id.to_s).to_sym
+    #       # month_hash[location_key] = obj.total
+    #       # labels_array.push(location_key)
+    #     end
+    #   end
+    #   # stacked_data_to_display.push(month_hash)
+    # end
+    # {key:location_id, values:[{month:credits_sold}]}
+    # data_to_display = {yAxisTitle: "Credits Sold By Month", chartData:stacked_data_to_display, chartType: "stacked"};
   end
 
   def dispensed_by_pump_by_month
