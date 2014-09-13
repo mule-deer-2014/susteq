@@ -106,9 +106,9 @@ module PerspectiveSummary
     pump_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 1").group("location_id").order("sum(amount)")
     #Prepare data for Normalchart
     pump_total_obj_arr.each do |obj|
-      chart_data_array.push({location_id: obj.location_id, total: obj.total})
+      chart_data_array.push({label: "location id "+ obj.location_id.to_s, value: obj.total})
     end
-    { xAxisTitle: "Pump Location Id", yAxisTitle: "Liters of Waters Dispensed Per Pump", chartData: chart_data_array, chartType: "bar", xKey:"location id" , yKey: "total"};
+    { yAxisTitle: "Liters of Waters Dispensed Per Pump", chartData: [{key:"Liters of Water Dispensed" , values: chart_data_array}], chartType: "bar"};
   end
 
   def dispensed_by_pump_for_provider(provider)
