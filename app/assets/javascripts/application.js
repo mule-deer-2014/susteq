@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require cookie
+//= require paloma
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
