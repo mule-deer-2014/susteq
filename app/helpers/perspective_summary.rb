@@ -17,17 +17,27 @@ module PerspectiveSummary
   end
 
   def credits_by_kiosk_by_month
+    months_array = (Date.today.month-5..Date.today.month).to_a
+
     #Query for Stacked Bar Chart
     month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
     stacked_data_to_display = []
-    kiosk_location_array = month_by_kiosk_total_obj_arr.map{ |obj| obj.location_id}.uniq
+
+    kiosk_location_array = month_by_kiosk_total_obj_arr.map{ |obj| obj.location_id}.uniq.sort
     stacked_data_to_display = kiosk_location_array.map do |kiosk_id|
-      values = month_by_kiosk_total_obj_arr.select{|obj| obj.location_id == kiosk_id }.map do |trans|
-        {x: getMonthName(trans.month), y:trans.total}
+      values = month_by_kiosk_total_obj_arr.select{|obj| obj.location_id == kiosk_id }
+      values = months_array.map do |month|
+        if values.any?{|obj| obj.month == month}
+          obj = values.find{|obj| obj.month == month}
+          {x: getMonthName(obj.month), y:obj.total}
+        else
+          {x: getMonthName(month), y:0}
+        end
       end
       {key: "Kiosk Location Id #{kiosk_id}", values: values}
     end
     data_to_display = {yAxisTitle: "Credits Sold By Month", chartData:stacked_data_to_display, chartType: "stacked"};
+  end
 
     # (Date.today.month-5..Date.today.month).each do |month|
     #   kiosk_hash = {}
@@ -43,7 +53,7 @@ module PerspectiveSummary
     # end
     # {key:location_id, values:[{month:credits_sold}]}
     # data_to_display = {yAxisTitle: "Credits Sold By Month", chartData:stacked_data_to_display, chartType: "stacked"};
-  end
+
 
   def dispensed_by_pump_by_month
     #Query for Stacked Bar Chart

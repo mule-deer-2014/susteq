@@ -35,6 +35,7 @@ HubChart.StackedBarChart = function(object){
     .rotateLabels(0)
     .showControls(true)
     .groupSpacing(0.1)
+    .stacked(true)
   ;
 
   chart.yAxis
