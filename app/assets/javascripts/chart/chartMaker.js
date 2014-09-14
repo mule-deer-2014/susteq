@@ -37,9 +37,6 @@ HubChart.StackedBarChart = function(object){
     .groupSpacing(0.1)
   ;
 
-  chart.xAxis
-    .tickFormat(d3.format(',f'));
-
   chart.yAxis
     .tickFormat(d3.format(',.1f'));
 

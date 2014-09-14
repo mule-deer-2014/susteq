@@ -11,6 +11,11 @@ module PerspectiveSummary
     return chart_data_array
   end
 
+  def getMonthName(month_number)
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    months[month_number-1]
+  end
+
   def credits_by_kiosk_by_month
     #Query for Stacked Bar Chart
     month_by_kiosk_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 or transaction_code = 21").group("extract(month from transaction_time),location_id")
@@ -18,7 +23,7 @@ module PerspectiveSummary
     kiosk_location_array = month_by_kiosk_total_obj_arr.map{ |obj| obj.location_id}.uniq
     stacked_data_to_display = kiosk_location_array.map do |kiosk_id|
       values = month_by_kiosk_total_obj_arr.select{|obj| obj.location_id == kiosk_id }.map do |trans|
-        {month: trans.month, total:trans.total}
+        {x: getMonthName(trans.month), y:trans.total}
       end
       {key: "Kiosk Location Id #{kiosk_id}", values: values}
     end
