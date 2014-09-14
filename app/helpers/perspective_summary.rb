@@ -39,43 +39,27 @@ module PerspectiveSummary
     data_to_display = {yAxisTitle: "Credits Sold By Month", chartData:stacked_data_to_display, chartType: "stacked"};
   end
 
-    # (Date.today.month-5..Date.today.month).each do |month|
-    #   kiosk_hash = {}
-    #   # month_hash[:month] = month
-    #   if month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.length > 0
-    #     month_by_kiosk_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
-    #       location_key = "location_id ".concat(obj.location_id.to_s).to_sym
-    #       # month_hash[location_key] = obj.total
-    #       # labels_array.push(location_key)
-    #     end
-    #   end
-    #   # stacked_data_to_display.push(month_hash)
-    # end
-    # {key:location_id, values:[{month:credits_sold}]}
-    # data_to_display = {yAxisTitle: "Credits Sold By Month", chartData:stacked_data_to_display, chartType: "stacked"};
-
-
   def dispensed_by_pump_by_month
     #Query for Stacked Bar Chart
     month_by_pump_total_obj_arr = Transaction.select("location_id, sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 1").group("extract(month from transaction_time),location_id")
+    months_array = (Date.today.month-5..Date.today.month).to_a
     stacked_data_to_display = []
-    labels_array = []
-    (Date.today.month-5..Date.today.month).each do |month|
-      month_hash = {}
-      month_hash[:month] = month
-      if month_by_pump_total_obj_arr.select{|obj| obj.month == month }.length > 0
-        month_by_pump_total_obj_arr.select{|obj| obj.month == month }.sort.each do |obj|
-          location_key = "location_id".concat(obj.location_id.to_s).to_sym
-          month_hash[location_key] = obj.total
-          labels_array.push(location_key)
+
+    pump_location_array = month_by_pump_total_obj_arr.map{ |obj| obj.location_id}.uniq.sort
+    stacked_data_to_display = pump_location_array.map do |pump_id|
+      values = month_by_pump_total_obj_arr.select{|obj| obj.location_id == pump_id }
+      values = months_array.map do |month|
+        if values.any?{|obj| obj.month == month}
+          obj = values.find{|obj| obj.month == month}
+          {x: getMonthName(obj.month), y:obj.total}
+        else
+          {x: getMonthName(month), y:0}
         end
       end
-      stacked_data_to_display.push(month_hash)
+      {key: "Pump Location Id #{pump_id}", values: values}
     end
-    data_to_display = {xAxisTitle: "Month", yAxisTitle: "Liters of Water Dispensed By Month", chartData: stacked_data_to_display, chartType: "stacked", xKey:"month" , yKeys: labels_array.uniq};
-    return data_to_display
+    data_to_display = {yAxisTitle: "Litres of Water Dispensed Per Month", chartData:stacked_data_to_display, chartType: "stacked"};
   end
-
 
   def credits_by_kiosk_for_all
     chart_data_array = []
