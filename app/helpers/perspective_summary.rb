@@ -146,7 +146,7 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-    data_to_display = { yAxisTitle: "Water Dispensed", chartData:[{key:"Liters of Water Dispensed Per Month", values: chart_data_array}], chartType: "bar"};
+    data_to_display = { yAxisTitle: "Liters of Water Dispensed per Month", chartData:[{key:"Liters of Water Dispensed Per Month", values: chart_data_array}], chartType: "bar"};
     return data_to_display
   end
 
