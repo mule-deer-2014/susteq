@@ -38,8 +38,12 @@
 			%th Updated at
 			%td= @pump.updated_at
 .col-lg-12
-	%h3 Profit by month
-	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+	.panel.panel-default.mt20
+		.panel-heading
+			Liters of Water Dispensed Per Pump
+			.pull-right
+		.panel-body
+			#chart-container
 .col-lg-12
 	%h3 Total transactions per month
 	.table-responsive

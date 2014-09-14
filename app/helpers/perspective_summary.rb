@@ -140,13 +140,13 @@ module PerspectiveSummary
     (Date.today.month-5..Date.today.month).each do |month|
       if dispensed_by_month.select{|obj| obj.month == month}.length > 0
         pumped_in_month = dispensed_by_month.select{|obj| obj.month == month}[0].total
-        chart_data_array.push({month: month, total: pumped_in_month})
+        chart_data_array.push({label: getMonthName(month), value: pumped_in_month})
       else
-        chart_data_array.push({month: month, total: 0})
+        chart_data_array.push({label: getMonthName(month), value: 0})
       end
     end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Water Dispensed", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
+    data_to_display = { yAxisTitle: "Water Dispensed", chartData:[{key:"Liters of Water Dispensed Per Month", values: chart_data_array}], chartType: "bar"};
     return data_to_display
   end
 
