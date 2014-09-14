@@ -5,9 +5,9 @@ BigData.DataController = function(){
 };
 
 BigData.DataController.prototype = {
-  getChartData:function(dataToDisplay){
+  getChartData:function(data_viz){
     var that = this;
-    $.each(dataToDisplay, function(index, data){
+    $.each(data_viz, function(index, data){
       switch(data.chartType){
         case "bar":
           that.createBarGraph(index, data);

@@ -1,4 +1,3 @@
-$(document).ready(function(){
-  var dataController = new BigData.DataController();
-  dataController.getChartData(dataToDisplay);
-});
+// $(document).ready(function(){
+//   var dataController = new BigData.DataController();
+// });

@@ -11,7 +11,7 @@ class Admin::PumpsController < ApplicationController
 
   def show
     @pump = Pump.find params[:id]
-    @viz_data = [dispensed_by_month(@pump)].to_json
+    js :viz_data => [dispensed_by_pump_for_all_table, getHubs]
   end
 
   def create
