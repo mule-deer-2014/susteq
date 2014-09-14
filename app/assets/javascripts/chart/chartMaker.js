@@ -50,17 +50,6 @@ HubChart.StackedBarChart = function(object){
   return chart;
 };
 
-// HubChart.StackedBarChart = function(object) {
-//   Morris.Bar({
-//     element: object.divSelector,
-//     data: object.chartData,
-//     stacked: true,
-//     xkey: object.xKey,
-//     ykeys: object.yKeys,
-//     labels: object.yAxisTitle
-//   });
-// };
-
 HubChart.LineChart = function(object) {
   Morris.Line({
     element: object.divSelector,
