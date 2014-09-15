@@ -1,14 +1,3 @@
-// HubChart.BarChart = function(object) {
-//   debugger
-//   Morris.Bar({
-//     element: object.divSelector,
-//     data: object.chartData,
-//     xkey: object.xKey,
-//     ykeys: [object.yKey],
-//     labels: object.yAxisTitle
-//   });
-// };
-
 HubChart.BarChart = function(object){
   var chart = nv.models.discreteBarChart()
       .x(function(d) { return d.label })
