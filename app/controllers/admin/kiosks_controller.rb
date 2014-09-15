@@ -4,7 +4,6 @@ class Admin::KiosksController < ApplicationController
   before_filter :require_admin_signin
 
   def new
-    @viz_data = 0
     @kiosk = Kiosk.new
     @providers = Provider.all
   end
