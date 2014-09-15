@@ -7,6 +7,7 @@ HubChart.BarChart = function(object){
       .showValues(true)
       .transitionDuration(350)
       ;
+  chart.xAxis.axisLabel(object.xAxisLabel || null);
 
   d3.select(object.divSelector)
       .datum(object.chartData)
