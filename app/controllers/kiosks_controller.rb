@@ -5,12 +5,12 @@ class KiosksController < ApplicationController
 
   def index
     @kiosks = current_provider.kiosks
-    @viz_data = [credits_by_kiosk_for_provider(current_provider), getHubs].to_json
+    js :viz_data => [credits_by_kiosk_for_provider(current_provider), getHubs]
     @total_credits_sold = @kiosks.reduce(0) { |sum, kiosk| sum + kiosk.credits_sold }
   end
 
   def show
     @kiosk = Kiosk.find(params[:id])
-    @viz_data = [credits_by_month(@kiosk)].to_json
+    js :viz_data => [credits_by_month(@kiosk)]
   end
 end
