@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require cookie
 //= require paloma
 //= require jquery
 //= require jquery_ujs
@@ -22,13 +21,10 @@
 //= require sb-admin/jquery.flot.pie
 //= require sb-admin/jquery.flot.resize
 //= require sb-admin/jquery.flot.tooltip.min
-//= require sb-admin/raphael-2.1.0.min
-//= require sb-admin/morris
 //= require leaflet
 //= require esri-leaflet
-//= require d3.min
 //= require leaflet.awesome-markers.min
 //= require sb-admin/sb-admin
-//= require d3.min
+//= require d3.v3
 //= require nv.d3
 //= require_tree .

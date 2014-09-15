@@ -39,13 +39,3 @@ HubChart.StackedBarChart = function(object){
 
   return chart;
 };
-
-HubChart.LineChart = function(object) {
-  Morris.Line({
-    element: object.divSelector,
-    data: object.chartData,
-    xkey: object.xKey,
-    ykeys: [object.yKey],
-    labels: object.yAxisTitle
-  });
-};

@@ -1,4 +1,4 @@
-function BigData.Kiosk(jsonData){
+BigData.Kiosk = function (jsonData){
     this.id = jsonData.id;
     this.type = "kiosk";
     this.name = jsonData.name;
@@ -9,7 +9,7 @@ function BigData.Kiosk(jsonData){
     this.location_id = jsonData.location_id;
 };
 
-function BigData.Pump(jsonData){
+BigData.Pump = function(jsonData){
     this.id = jsonData.id;
     this.type = "pump";
     this.name = jsonData.name;

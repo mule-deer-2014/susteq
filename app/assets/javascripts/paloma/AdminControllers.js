@@ -12,11 +12,13 @@ var KiosksController = Paloma.controller('Admin/Kiosks');
 KiosksController.prototype.show = function(){
   that = this;
   BigData.initialize();
+  $('#dataTables-example').dataTable();
 };
 
 KiosksController.prototype.index = function(){
   that = this;
   BigData.initialize();
+  $('#dataTables-example').dataTable();
 };
 
 //ADMIN PUMPS CONTROLLER

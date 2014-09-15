@@ -32,3 +32,5 @@ PumpsController.prototype.show = function(){
   that = this;
   BigData.initialize();
 };
+
+var PumpsController = Paloma.controller('Employees')
