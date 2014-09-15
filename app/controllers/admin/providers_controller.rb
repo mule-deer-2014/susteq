@@ -6,8 +6,7 @@ class Admin::ProvidersController < ApplicationController
 
   def index
     @providers = Provider.all
-    hubs = getHubs
-    js :viz_data => [credits_by_kiosk_by_month, dispensed_by_pump_by_month, hubs]
+    js :viz_data => [credits_by_kiosk_by_month, dispensed_by_pump_by_month, getHubs]
   end
 
   def create
@@ -19,12 +18,10 @@ class Admin::ProvidersController < ApplicationController
   end
 
   def new
-    @viz_data = 0
     @provider = Provider.new
   end
 
   def edit
-    @viz_data = 0
     @provider = Provider.find(params[:id])
   end
 
