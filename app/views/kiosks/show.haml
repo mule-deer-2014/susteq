@@ -26,8 +26,12 @@
 			%th Latitude
 			%td= @kiosk.latitude
 .col-lg-12
-	%h3 Credits Bought and Sold by Month
-	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+	.panel.panel-default
+		.panel-heading
+			Credits Bought and Sold
+			.pull-right
+		.panel-body
+			#chart-container
 .col-lg-12
 	%h3 Total transactions per month
 	.table-responsive
@@ -59,8 +63,8 @@
 					%th Transaction date
 			%tbody
 				- @kiosk.transactions.each do |t|
-					%tr	
-						%td= t.id 
+					%tr
+						%td= t.id
 						%td= t.transaction_code
 						%td= t.amount
 						%td= t.transaction_time
