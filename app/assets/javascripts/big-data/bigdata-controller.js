@@ -63,7 +63,7 @@ BigData.DataController.prototype = {
   parseJsonKioskData: function(kioskData){
     var that = this;
     $.each(kioskData, function(index, kioskDatum){
-      var kiosk = new Kiosk(kioskDatum);
+      var kiosk = new BigData.Kiosk(kioskDatum);
       that.kiosks.push(kiosk);
     })
   },
@@ -71,7 +71,7 @@ BigData.DataController.prototype = {
   parseJsonPumpData: function(pumpData){
     var that = this;
     $.each(pumpData, function(index, pumpDatum){
-      var pump = new Pump(pumpDatum);
+      var pump = new BigData.Pump(pumpDatum);
       that.pumps.push(pump);
     })
   }
