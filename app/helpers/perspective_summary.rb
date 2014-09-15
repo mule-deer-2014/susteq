@@ -114,7 +114,7 @@ module PerspectiveSummary
     pump_total_obj_arr.each do |obj|
       chart_data_array.push({label: obj.location_id.to_s, value: obj.total})
     end
-    data_to_display = { yAxisTitle: "Liters of Waters Dispensed Per Pump", xAxisLabel: "location id", chartData: [{key:"Liters of Water Dispensed" , values: chart_data_array}], chartType: "bar"};
+    data_to_display = { yAxisTitle: "Liters of Waters Dispensed Per Pump", xAxisLabel: "Location id", chartData: [{key:"Liters of Water Dispensed" , values: chart_data_array}], chartType: "bar"};
   end
 
   def dispensed_by_pump_for_provider(provider)
@@ -124,7 +124,7 @@ module PerspectiveSummary
       {label: transaction.location_id.to_s, value: transaction.total}
     end
     #Create json chart obj
-    data_to_display = {yAxisTitle:"Liters of Water Dispensed per Pump", xAxisLabel:"location id", chartData: [{key:"Liters of Water Dispensed", values:data}], chartType:"bar"};
+    data_to_display = {yAxisTitle:"Liters of Water Dispensed per Pump", xAxisLabel:"Location id", chartData: [{key:"Liters of Water Dispensed", values:data}], chartType:"bar"};
   end
 
   def dispensed_by_month(pump)

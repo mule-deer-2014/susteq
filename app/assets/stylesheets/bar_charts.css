@@ -1,17 +1,9 @@
 svg{
   display: block;
-  max-height: 500px;
+  max-height: 400px;
   min-width: 100px;
   min-height: 100px;
 }
 .axis text {
 	stroke: black;
-}
-
-.x {
-
-}
-
-.y {
-
 }

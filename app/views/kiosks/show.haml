@@ -29,7 +29,6 @@
 	.panel.panel-default
 		.panel-heading
 			Credits Bought and Sold
-			.pull-right
 		.panel-body
 			#chart-container
 .col-lg-12
@@ -73,7 +72,3 @@
 %h3= "#{@kiosk.name} Credit Sales By Month"
 #chart-container
 .row
-:javascript
-	$(document).ready(function() {
-			$('#dataTables-example').dataTable();
-	});

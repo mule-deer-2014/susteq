@@ -8,13 +8,11 @@ HubChart.BarChart = function(object){
       .transitionDuration(350)
       ;
   chart.xAxis.axisLabel(object.xAxisLabel || null);
-
   d3.select(object.divSelector)
       .datum(object.chartData)
       .call(chart);
 
   nv.utils.windowResize(chart.update);
-
   return chart;
 };
 

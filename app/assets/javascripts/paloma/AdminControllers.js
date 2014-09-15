@@ -28,6 +28,7 @@ var PumpsController = Paloma.controller('Admin/Pumps');
 PumpsController.prototype.show = function(){
   that = this;
   BigData.initialize();
+  $('#dataTables-example').dataTable();
 };
 
 PumpsController.prototype.index = function(){
