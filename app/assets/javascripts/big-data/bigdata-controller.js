@@ -46,11 +46,13 @@ BigData.DataController.prototype = {
   },
 
   createMap: function(index, data){
-    var that = this;
-    that.createHubs(data)
-    var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
-    that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
-    that.mapView.displayHubs({kiosks:this.kiosks, pumps:this.pumps});
+    if ($('#map').length){
+      var that = this;
+      that.createHubs(data)
+      var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
+      that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
+      that.mapView.displayHubs({kiosks:this.kiosks, pumps:this.pumps});
+    }
   },
 
   createHubs: function(data){
