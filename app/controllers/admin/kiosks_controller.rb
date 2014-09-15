@@ -11,16 +11,15 @@ class Admin::KiosksController < ApplicationController
 
   def index
     @kiosks = Kiosk.all
-    @viz_data = [credits_by_kiosk_for_all, getHubs].to_json
+    js :viz_data =>[credits_by_kiosk_for_all, getHubs]
   end
 
   def show
     @kiosk = Kiosk.find params[:id]
-    @viz_data = [credits_by_month(@kiosk)].to_json
+    js :viz_data => [credits_by_month(@kiosk)]
   end
 
   def create
-    @viz_data = 0
     if params[:provider_id]
       begin
       @provider = Provider.find(params[:provider_id])
@@ -42,7 +41,6 @@ class Admin::KiosksController < ApplicationController
   end
 
   def edit
-    @viz_data = 0
     @kiosk = Kiosk.find params[:id]
   end
 

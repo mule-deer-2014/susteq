@@ -10,7 +10,7 @@ class Admin::DashboardController < ApplicationController
     @total_water = dispensed_by_pump_for_all_table[:chartData]
     @shopkeepers_credit = credits_remaining_by_kiosk_table
     # @error_codes = errors_by_hub
-    @viz_data = [getHubs].to_json
+    js :viz_data => [getHubs]
     @new_hubs_ids = (Transaction.all - Hub.get_all_transactions).map { |transaction| transaction.location_id }.uniq
   end
 end

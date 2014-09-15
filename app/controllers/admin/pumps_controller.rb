@@ -11,7 +11,7 @@ class Admin::PumpsController < ApplicationController
 
   def show
     @pump = Pump.find params[:id]
-    js :viz_data => [dispensed_by_pump_for_all_table, getHubs]
+    js :viz_data => [dispensed_by_month(@pump), getHubs]
   end
 
   def create
@@ -37,7 +37,7 @@ class Admin::PumpsController < ApplicationController
 
   def index
     @pumps = Pump.all
-    @viz_data = [dispensed_by_pump_for_all_table, getHubs].to_json
+    js :viz_data => [dispensed_by_pump_for_all_table, getHubs]
   end
 
   def edit
