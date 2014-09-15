@@ -70,7 +70,7 @@ module PerspectiveSummary
       chart_data_array.push({label: "location id " + obj.location_id.to_s, value: obj.total})
     end
     #Create json chart obj
-    data_to_display = {yAxisTitle: "Credits Sold Per Kiosk", chartData: [{key:"Credits sold", values: chart_data_array}], chartType: "bar"};
+    data_to_display = {yAxisTitle: "Credits Sold Per Kiosk", chartData: [{values: chart_data_array}], chartType: "bar"};
     return data_to_display
   end
 
@@ -90,19 +90,19 @@ module PerspectiveSummary
 
   def credits_by_month(kiosk)
     #Query db
-    sold_by_month = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code = 20 and transaction_code = 21 and location_id = #{kiosk.location_id}").group("extract(month from transaction_time)")
+    sold_by_month = Transaction.select("sum(amount) as total,extract(month from transaction_time) as month").where("transaction_code in (20,21) and location_id = #{kiosk.location_id}").group("extract(month from transaction_time)")
     #Prepare data
     chart_data_array = []
     (Date.today.month-5..Date.today.month).each do |month|
       if sold_by_month.select{|obj| obj.month == month}.length > 0
-        sold_in_month = sold_by_month.select{|obj| obj.month == month}[0].total
-        chart_data_array.push({month: month, total: sold_in_month})
+        sold_in_month = sold_by_month.find{|obj| obj.month == month}.total
+        chart_data_array.push({label: getMonthName(month), value: sold_in_month})
       else
-        chart_data_array.push({month: month, total: 0})
+        chart_data_array.push({label: getMonthName(month), value: 0})
       end
     end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Month", yAxisTitle: "Credits Sold", chartData: chart_data_array, chartType: "bar", xKey:"month" , yKey: "total"};
+    data_to_display = {yAxisTitle: "Credits Bought and Sold by Month", chartData:[{key:"Credits Bought and Sold By Sold", values:chart_data_array}], chartType: "bar"};
     return data_to_display
   end
 
@@ -146,7 +146,7 @@ module PerspectiveSummary
       end
     end
     #Create json chart obj
-    data_to_display = { yAxisTitle: "Water Dispensed", chartData:[{key:"Liters of Water Dispensed Per Month", values: chart_data_array}], chartType: "bar"};
+    data_to_display = { yAxisTitle: "Water Dispensed per Month", chartData:[{key:"Liters of Water Dispensed Per Month", values: chart_data_array}], chartType: "bar"};
     return data_to_display
   end
 
