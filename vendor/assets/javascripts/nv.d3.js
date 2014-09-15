@@ -1146,6 +1146,8 @@ nv.utils.optionsFunc = function(args) {
           }
           axisLabel.enter().append('text').attr('class', 'nv-axislabel');
           var w = (scale.range().length==2) ? scale.range()[1] : (scale.range()[scale.range().length-1]+(scale.range()[1]-scale.range()[0]));
+          if (isNaN(w))
+            w = null;
           axisLabel
               .attr('text-anchor', 'middle')
               .attr('y', xLabelMargin)
