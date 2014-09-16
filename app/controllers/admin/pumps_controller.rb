@@ -4,14 +4,13 @@ class Admin::PumpsController < ApplicationController
   before_filter :require_admin_signin
 
   def new
-    @viz_data = 0
     @pump = Pump.new
     @providers = Provider.all
   end
 
   def show
     @pump = Pump.find params[:id]
-    @viz_data = [dispensed_by_month(@pump)].to_json
+    js :viz_data => [dispensed_by_month(@pump), getHubs]
   end
 
   def create
@@ -37,7 +36,7 @@ class Admin::PumpsController < ApplicationController
 
   def index
     @pumps = Pump.all
-    @viz_data = [dispensed_by_pump_for_all_table, getHubs].to_json
+    js :viz_data => [dispensed_by_pump_for_all_table, getHubs]
   end
 
   def edit

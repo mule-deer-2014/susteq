@@ -5,9 +5,9 @@ BigData.DataController = function(){
 };
 
 BigData.DataController.prototype = {
-  getChartData:function(dataToDisplay){
+  getChartData:function(data_viz){
     var that = this;
-    $.each(dataToDisplay, function(index, data){
+    $.each(data_viz, function(index, data){
       switch(data.chartType){
         case "bar":
           that.createBarGraph(index, data);
@@ -32,25 +32,27 @@ BigData.DataController.prototype = {
   createBarGraph: function(index, data){
     var that = this;
     that.container.append("<h3>" + data.yAxisTitle + "</h3>");
-    that.container.append(that.chartElementWriter(index));
+    that.container.append(that.chartElementWriter(index))
     data.divSelector = that.chartSelector(index);
     new HubChart.BarChart(data);
   },
 
   chartElementWriter: function(index) {
-    return "<div id='chart" + index + "'></div>";
+    return "<div id='chart" + index + "'><svg></svg></div>";
   },
 
   chartSelector: function(index) {
-    return "chart" + index;
+    return "#chart" + index + " svg";
   },
 
   createMap: function(index, data){
-    var that = this;
-    that.createHubs(data)
-    var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
-    that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
-    that.mapView.displayHubs({kiosks:this.kiosks, pumps:this.pumps});
+    if ($('#map').length){
+      var that = this;
+      that.createHubs(data)
+      var LAT_LONG_NAIROBI = [-1.283285, 36.821657];
+      that.mapView = new HubMap.View(LAT_LONG_NAIROBI[0], LAT_LONG_NAIROBI[1], 11);
+      that.mapView.displayHubs({kiosks:this.kiosks, pumps:this.pumps});
+    }
   },
 
   createHubs: function(data){
@@ -61,7 +63,7 @@ BigData.DataController.prototype = {
   parseJsonKioskData: function(kioskData){
     var that = this;
     $.each(kioskData, function(index, kioskDatum){
-      var kiosk = new Kiosk(kioskDatum);
+      var kiosk = new BigData.Kiosk(kioskDatum);
       that.kiosks.push(kiosk);
     })
   },
@@ -69,7 +71,7 @@ BigData.DataController.prototype = {
   parseJsonPumpData: function(pumpData){
     var that = this;
     $.each(pumpData, function(index, pumpDatum){
-      var pump = new Pump(pumpDatum);
+      var pump = new BigData.Pump(pumpDatum);
       that.pumps.push(pump);
     })
   }

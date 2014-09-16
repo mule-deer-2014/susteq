@@ -11,7 +11,7 @@ HubMap.View.prototype = {
     var osmLayer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
     var baseLayers = {"Satellite": satLayer, "Open Street Maps": osmLayer };
     L.control.layers(baseLayers, null, {collapsed:false}).addTo(this.map);
-    satLayer.addTo(this.map);
+    osmLayer.addTo(this.map);
   },
 
   createMarker: function(hub){
