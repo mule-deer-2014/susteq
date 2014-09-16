@@ -106,15 +106,18 @@ module PerspectiveSummary
   end
 
   #WATER DISPENSED
-  def dispensed_by_pump_for_all_table
-    chart_data_array = []
-    #Query for Bar Chart and Table
-    pump_total_obj_arr = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 1").group("location_id").order("sum(amount)")
-    #Prepare data for Normalchart
-    pump_total_obj_arr.each do |obj|
-      chart_data_array.push({label: obj.location_id.to_s, value: obj.total})
+  def dispensed_by_pump_for_all_table(table=false)
+    pump_totals = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 1").group("location_id").order("sum(amount)")
+
+    data = pump_totals.map do |obj|
+      {label: obj.location_id.to_s, value: obj.total}
     end
-    data_to_display = { yAxisTitle: "Liters of Waters Dispensed Per Pump", xAxisLabel: "Location id", chartData: [{key:"Liters of Water Dispensed" , values: chart_data_array}], chartType: "bar"};
+
+    if table
+      data
+    else
+      data_to_display = { yAxisTitle: "Liters of Waters Dispensed Per Pump", xAxisLabel: "Location id", chartData: [{values:data}], chartType: "bar"};
+    end
   end
 
   def dispensed_by_pump_for_provider(provider)

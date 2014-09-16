@@ -18,21 +18,6 @@
             %td= kiosk[:label]
             %td= kiosk[:value]
 .col-lg-12
-  %h3 Credits Remaining by Kiosk
-  .table-responsive
-    %table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
-      %thead
-        %tr
-          %th Kiosk Location Id
-          %th Credits remaining
-          %th Date
-      %tbody
-        - @credits_remaining.each do |kiosk|
-          %tr
-            %td= kiosk[:label]
-            %td= kiosk[:value]
-            %td= kiosk[:date]
-.col-lg-12
   %h3 SMS low
   .table-responsive
     %table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
@@ -53,13 +38,13 @@
     %table#dataTables-example.table.table-striped.table-bordered.table-hover
       %thead
         %tr
-          %th Layer
+          %th Water Point
           %th Credits
       %tbody
         - @total_water.each do |hub|
           %tr
-            %td= hub[:location_id]
-            %td= hub[:total]
+            %td= hub[:label]
+            %td= hub[:value]
 .col-lg-12
   %h3 Shopkeepers credit
   .table-responsive
@@ -72,14 +57,14 @@
       %tbody
         - @shopkeepers_credit.each do |hub|
           %tr
-            %td= hub[:location_id]
+            %td= hub[:label]
             %td= hub[:date]
-            %td= hub[:total]
+            %td= hub[:value]
 .col-lg-12
   .panel.panel-default
     .panel-heading
       %i.fa.fa-map-marker.fa-fw
-      Water pumps and kiosks
+      Water points and kiosks
       .pull-right
         .minimize.map-button
           %i.fa.fa-minus.fa-fw
