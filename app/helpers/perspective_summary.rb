@@ -263,7 +263,7 @@ module PerspectiveSummary
     gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id").order("transaction_time")
     gprs_errors.each do |error|
       if !existing_ids.include?(obj.location_id)
-        @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+        @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs", count: error.count})
       else
         existing_ids.push(errror.location_id)
       end
@@ -275,10 +275,9 @@ module PerspectiveSummary
     end
   end
 
-  def errors_by_hub
+  def errors_by_hub_chart
     #Get array of all location ids
     location_ids = Transaction.all.map{|t| t.location_id}.uniq!
-
 
     #Query db for given error by location
     gprs_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount=101").group("location_id")
@@ -302,6 +301,56 @@ module PerspectiveSummary
     data_to_display = {yAxisTitle: "Errors by Hub", chartData:stacked_data, chartType: "stacked"};
   end
 
+  def errors_by_hub_table
+    #Get array of all location ids
+    location_ids = []
+    Transaction.all.each do |transaction|
+      location_ids.push(transaction.location_id)
+    end
+    location_ids.uniq!
+
+    #Query db for given error by location
+    gprs_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount=101").group("location_id")
+    rfid_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =111").group("location_id")
+    bat_low_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =132").group("location_id")
+    bat_ok_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =133").group("location_id")
+    errors_hash = {}
+
+    #Loop through all locations
+    location_ids.each do |location_id|
+      location_key_sym = ("location"+location_id.to_s).to_sym
+      errors_hash[location_key_sym] = {}
+      #Get gprs error count for given location
+      gprs_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:gprs] = error_obj.count
+        end
+      end
+      #Get gprs error count for given location
+      gprs_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:gprs] = error_obj.count
+        end
+      end
+      rfid_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:rfid] = error_obj.count
+        end
+      end
+      bat_low_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:bat_low] = error_obj.count
+        end
+      end
+      bat_ok_errors.each do |error_obj|
+        if error_obj.location_id == location_id
+          errors_hash[location_key_sym][:bat_ok] = error_obj.count
+        end
+      end
+    end
+    return errors_hash
+  end
+
   def getHubs
     if admin_signed_in?
       kiosks = Kiosk.all
@@ -310,7 +359,7 @@ module PerspectiveSummary
       kiosks = current_provider.kiosks
       pumps = current_provider.kiosks
     end
-    data_to_display = {chartData: {kiosks: kiosks, pumps: pumps},
+    {chartData: {kiosks: kiosks, pumps: pumps},
                   chartType: "map" }
   end
 
