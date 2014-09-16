@@ -29,6 +29,8 @@ HubChart.StackedBarChart = function(object){
   chart.yAxis
     .tickFormat(d3.format(',.1f'));
 
+  // chart.groupSpacing(0.5);
+
   d3.select(object.divSelector)
     .datum(object.chartData)
     .call(chart);

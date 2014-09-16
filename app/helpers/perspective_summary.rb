@@ -148,60 +148,56 @@ module PerspectiveSummary
     credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
     credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
     #Prepare data
-    chart_data_array = []
     totals_hash = {}
-    credits_init.each do |obj|
+    credits_init.sort_by(&:location_id).each do |obj|
       totals_hash[obj.location_id.to_s.to_sym] = obj.total
     end
     credits_other.each do |obj|
       totals_hash[obj.location_id.to_s.to_sym] += obj.total
     end
-    totals_hash.each {|location_id,total|
-      chart_data_array.push({location_id: location_id, total: total})
-    }
+    data = totals_hash.map do |location_id,total|
+      {label: location_id, value: total}
+    end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
-    return data_to_display
+    data_to_display = { xAxisLabel: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData:[{values:data}], chartType: "bar"};
   end
 
-  def credits_bought_by_kiosk_table
-  #Query db
-    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
-    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
-    #Prepare data
-    chart_data_array = []
-    totals_hash = {}
-    credits_init.each do |obj|
-      totals_hash[obj.location_id.to_s.to_sym] = obj.total
-    end
-    credits_other.each do |obj|
-      totals_hash[obj.location_id.to_s.to_sym] += obj.total
-    end
-    totals_hash.each {|location_id,total|
-      chart_data_array.push({location_id: location_id, total: total})
-    }
-    return chart_data_array
-  end
+  # def credits_bought_by_kiosk_table
+  # #Query db
+  #   credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+  #   credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
+  #   #Prepare data
+  #   chart_data_array = []
+  #   totals_hash = {}
+  #   credits_init.each do |obj|
+  #     totals_hash[obj.location_id.to_s.to_sym] = obj.total
+  #   end
+  #   credits_other.each do |obj|
+  #     totals_hash[obj.location_id.to_s.to_sym] += obj.total
+  #   end
+  #   totals_hash.each {|location_id,total|
+  #     chart_data_array.push({location_id: location_id, total: total})
+  #   }
+  #   return chart_data_array
+  # end
 
   def credits_remaining_by_kiosk
     #Query db
     credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
     credits_subtract = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) > 0)").group("location_id")
     #Prepare data
-    chart_data_array = []
     totals_hash = {}
-    credits_init.each do |obj|
+    credits_init.sort_by(&:location_id).each do |obj|
       totals_hash[obj.location_id.to_s.to_sym] = obj.total
     end
     credits_subtract.each do |obj|
       totals_hash[obj.location_id.to_s.to_sym] -= obj.total
     end
-    totals_hash.each {|location_id,total|
-      chart_data_array.push({location_id: location_id, total: total})
-    }
+    data = totals_hash.map do |location_id,total|
+     {label: location_id, value: total}
+    end
     #Create json chart obj
-    data_to_display = { xAxisTitle: "Kiosk Location Id", yAxisTitle: "Credits Remaining", chartData: chart_data_array, chartType: "bar", xKey:"kiosk" , yKey:"total"};
-    return data_to_display
+    data_to_display = { xAxisLabel: "Kiosk Location Id", yAxisTitle: "Credits Remaining", chartData:[{values:data}], chartType: "bar"};
   end
 
 
@@ -281,52 +277,29 @@ module PerspectiveSummary
 
   def errors_by_hub
     #Get array of all location ids
-    location_ids = []
-    Transaction.all.each do |transaction|
-      location_ids.push(transaction.location_id)
-    end
-    location_ids.uniq!
+    location_ids = Transaction.all.map{|t| t.location_id}.uniq!
+
 
     #Query db for given error by location
     gprs_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount=101").group("location_id")
     rfid_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =111").group("location_id")
     bat_low_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =132").group("location_id")
     bat_ok_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount =133").group("location_id")
-    errors_hash = {}
+
+    errors_hash = {"GPRS Errors" => gprs_errors, "RFID Errors" => rfid_errors, "Battery Low" => bat_low_errors, "Battery OK" => bat_ok_errors}
 
     #Loop through all locations
-    location_ids.each do |location_id|
-      location_key_sym = ("location"+location_id.to_s).to_sym
-      errors_hash[location_key_sym] = {}
-      #Get gprs error count for given location
-      gprs_errors.each do |error_obj|
-        if error_obj.location_id == location_id
-          errors_hash[location_key_sym][:gprs] = error_obj.count
+    stacked_data = location_ids.map do |location_id|
+      error_array = errors_hash.map do |name, errors|
+        if error = errors.find {|object| object.location_id == location_id }
+          {x: name, y: error.count}
+        else
+          {x:name, y:0}
         end
       end
-      #Get gprs error count for given location
-      gprs_errors.each do |error_obj|
-        if error_obj.location_id == location_id
-          errors_hash[location_key_sym][:gprs] = error_obj.count
-        end
-      end
-      rfid_errors.each do |error_obj|
-        if error_obj.location_id == location_id
-          errors_hash[location_key_sym][:rfid] = error_obj.count
-        end
-      end
-      bat_low_errors.each do |error_obj|
-        if error_obj.location_id == location_id
-          errors_hash[location_key_sym][:bat_low] = error_obj.count
-        end
-      end
-      bat_ok_errors.each do |error_obj|
-        if error_obj.location_id == location_id
-          errors_hash[location_key_sym][:bat_ok] = error_obj.count
-        end
-      end
+      {key: "Location Id #{location_id}", values: error_array}
     end
-    return errors_hash
+    data_to_display = {yAxisTitle: "Errors by Hub", chartData:stacked_data, chartType: "stacked"};
   end
 
   def getHubs
@@ -337,7 +310,7 @@ module PerspectiveSummary
       kiosks = current_provider.kiosks
       pumps = current_provider.kiosks
     end
-    {chartData: {kiosks: kiosks, pumps: pumps},
+    data_to_display = {chartData: {kiosks: kiosks, pumps: pumps},
                   chartType: "map" }
   end
 
