@@ -39,8 +39,11 @@
 			%th Updated at
 			%td= @kiosk.updated_at
 .col-lg-12
-	%h3 Credits Bought and Sold by Month
-	=image_tag "chart.png", :style => "width: 100%; margin-bottom: 50px;"
+	.panel.panel-default.mt20
+		.panel-heading
+			Credits Bought and Sold by Month
+		.panel-body
+			#chart-container
 .col-lg-12
 	%h3 Total transactions per month
 	#chart-container

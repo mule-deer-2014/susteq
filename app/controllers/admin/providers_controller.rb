@@ -6,8 +6,7 @@ class Admin::ProvidersController < ApplicationController
 
   def index
     @providers = Provider.all
-    hubs = getHubs
-    @viz_data = [credits_by_kiosk_by_month, dispensed_by_pump_by_month, hubs].to_json
+    js :viz_data => [credits_by_kiosk_by_month, dispensed_by_pump_by_month, getHubs]
   end
 
   def create
@@ -19,18 +18,16 @@ class Admin::ProvidersController < ApplicationController
   end
 
   def new
-    @viz_data = 0
     @provider = Provider.new
   end
 
   def edit
-    @viz_data = 0
     @provider = Provider.find(params[:id])
   end
 
   def show
     @provider = Provider.find(params[:id])
-    @viz_data = [dispensed_by_pump_for_provider(@provider), credits_by_kiosk_for_provider(@provider)].to_json
+    js :viz_data => [dispensed_by_pump_for_provider(@provider), credits_by_kiosk_for_provider(@provider)]
     @hubs = @provider.hubs
     @pumps = @hubs[:pumps]
     @kiosks = @hubs[:kiosks]

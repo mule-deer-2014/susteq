@@ -1,4 +1,4 @@
-$(document).ready(function(){
-  var dataController = new BigData.DataController();
-  dataController.getChartData(dataToDisplay);
-});
+BigData.initialize = function(){
+    var dataController = new BigData.DataController();
+    dataController.getChartData(that.params.viz_data)
+  };
