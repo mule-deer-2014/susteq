@@ -15,40 +15,26 @@
 						%td= sms[:location_id]
 						%td= sms[:date]
 						%td= sms[:total]
-.col-lg-12
-	%h3 Total Credits Sold
+	%h3 Credits Bought by Kiosk
 	.table-responsive
-		%table#dataTables-example.table.table-striped.table-bordered.table-hover
+		%table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
 			%thead
 				%tr
-					%th Hub
-					%th Amount
+					%th Kiosk Location Id
+					%th Credits bought
 			%tbody
-				- @total_credits_sold.each do |hub|
+				- @credits_bought.each do |kiosk|
 					%tr
-						%td= hub[:location_id]
-						%td= hub[:location_id]
+						%td= kiosk[:label]
+						%td= kiosk[:value]
 .col-lg-12
-	%h3 Shop Bought
+	%h3 Total Water Dispensed by Water Point
 	.table-responsive
 		%table#dataTables-example.table.table-striped.table-bordered.table-hover
 			%thead
 				%tr
-					%th Layer
-					%th Credits
-			%tbody
-				- @shop_bought.each do |hub|
-					%tr
-						%td= hub[:location_id]
-						%td= hub[:total]
-.col-lg-12
-	%h3 Total Water
-	.table-responsive
-		%table#dataTables-example.table.table-striped.table-bordered.table-hover
-			%thead
-				%tr
-					%th Layer
-					%th Credits
+					%th Water Point
+					%th Litres
 			%tbody
 				- @total_water.each do |hub|
 					%tr
@@ -66,9 +52,9 @@
 			%tbody
 				- @shopkeepers_credit.each do |hub|
 					%tr
-						%td= hub[:location_id]
+						%td= hub[:label]
 						%td= hub[:date]
-						%td= hub[:total]
+						%td= hub[:value]
 / .col-lg-12
 / 	%h3 error codes (30 days)
 / 	.table-responsive

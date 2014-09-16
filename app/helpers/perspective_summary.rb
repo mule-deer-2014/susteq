@@ -21,6 +21,10 @@ module PerspectiveSummary
     provider.pumps.map(&:location_id).join(",")
   end
 
+  def sort_by_location_id(collection)
+    collection.sort_by{|item| item.location_id.to_i}
+  end
+
   #CREDITS SOLD
   def credits_by_kiosk_for_all_table
     #Query for Bar Chart and Table
@@ -106,10 +110,10 @@ module PerspectiveSummary
   end
 
   #WATER DISPENSED
-  def dispensed_by_pump_for_all_table(table=false)
+  def dispensed_by_pump_for_all_table(table=true)
     pump_totals = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 1").group("location_id").order("sum(amount)")
-
-    data = pump_totals.map do |obj|
+    p sort_by_location_id(pump_totals)
+    data = sort_by_location_id(pump_totals).map do |obj|
       {label: obj.location_id.to_s, value: obj.total}
     end
 
@@ -202,7 +206,7 @@ module PerspectiveSummary
     chart_data_array = []
     totals_hash = {}
     date_hash = {}
-    credits_init.each do |obj|
+    sort_by_location_id(credits_init).each do |obj|
       totals_hash[obj.location_id.to_s.to_sym] = obj.total
       date_hash[obj.location_id.to_s.to_sym] = obj.date.strftime('%b %d, %Y')
     end
@@ -212,7 +216,7 @@ module PerspectiveSummary
         date_hash[obj.location_id.to_s.to_sym] = obj.date.strftime('%b %d, %Y')
       end
     end
-    totals_hash.sort.each {|location_id,total|
+    totals_hash.each {|location_id,total|
       chart_data_array.push({label: location_id, value: total, date: date_hash[location_id.to_s.to_sym]})
     }
     chart_data_array

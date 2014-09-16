@@ -33,13 +33,13 @@
             %td= sms[:date]
             %td= sms[:total]
 .col-lg-12
-  %h3 Total Water
+  %h3 Total Water Dispensed by Water Point
   .table-responsive
     %table#dataTables-example.table.table-striped.table-bordered.table-hover
       %thead
         %tr
           %th Water Point
-          %th Credits
+          %th Litres
       %tbody
         - @total_water.each do |hub|
           %tr

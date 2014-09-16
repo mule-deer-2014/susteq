@@ -36,7 +36,7 @@ class Admin::PumpsController < ApplicationController
 
   def index
     @pumps = Pump.all
-    js :viz_data => [dispensed_by_pump_for_all_table, getHubs]
+    js :viz_data => [dispensed_by_pump_for_all_table(false), getHubs]
   end
 
   def edit
