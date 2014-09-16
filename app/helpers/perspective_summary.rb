@@ -162,24 +162,24 @@ module PerspectiveSummary
     data_to_display = { xAxisLabel: "Kiosk Location Id", yAxisTitle: "Credits Bought", chartData:[{values:data}], chartType: "bar"};
   end
 
-  # def credits_bought_by_kiosk_table
-  # #Query db
-  #   credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
-  #   credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
-  #   #Prepare data
-  #   chart_data_array = []
-  #   totals_hash = {}
-  #   credits_init.each do |obj|
-  #     totals_hash[obj.location_id.to_s.to_sym] = obj.total
-  #   end
-  #   credits_other.each do |obj|
-  #     totals_hash[obj.location_id.to_s.to_sym] += obj.total
-  #   end
-  #   totals_hash.each {|location_id,total|
-  #     chart_data_array.push({location_id: location_id, total: total})
-  #   }
-  #   return chart_data_array
-  # end
+  def credits_bought_by_kiosk_table
+  #Query db
+    credits_init = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 23").group("location_id")
+    credits_other = Transaction.select("location_id, sum(amount) as total").where("transaction_code = 22 and ((starting_credits - ending_credits) < 0)").group("location_id")
+    #Prepare data
+    chart_data_array = []
+    totals_hash = {}
+    credits_init.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] = obj.total
+    end
+    credits_other.each do |obj|
+      totals_hash[obj.location_id.to_s.to_sym] += obj.total
+    end
+    totals_hash.each {|location_id,total|
+      chart_data_array.push({location_id: location_id, total: total})
+    }
+    return chart_data_array
+  end
 
   def credits_remaining_by_kiosk
     #Query db
@@ -263,7 +263,7 @@ module PerspectiveSummary
     gprs_errors = Transaction.select("location_id, transaction_time, count(amount) as count").where("transaction_code=39 AND amount =101 AND transaction_time > (Date.today - 30)").group("location_id").order("transaction_time")
     gprs_errors.each do |error|
       if !existing_ids.include?(obj.location_id)
-        @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs" , count: error.count})
+        @gprs_errors_arr.push({location_id: error.location_id, error_type: "gprs", count: error.count})
       else
         existing_ids.push(errror.location_id)
       end
@@ -275,10 +275,9 @@ module PerspectiveSummary
     end
   end
 
-  def errors_by_hub
+  def errors_by_hub_chart
     #Get array of all location ids
     location_ids = Transaction.all.map{|t| t.location_id}.uniq!
-
 
     #Query db for given error by location
     gprs_errors = Transaction.select("location_id, count(amount) as count").where("transaction_code=39 AND amount=101").group("location_id")
@@ -310,7 +309,7 @@ module PerspectiveSummary
       kiosks = current_provider.kiosks
       pumps = current_provider.kiosks
     end
-    data_to_display = {chartData: {kiosks: kiosks, pumps: pumps},
+    {chartData: {kiosks: kiosks, pumps: pumps},
                   chartType: "map" }
   end
 
