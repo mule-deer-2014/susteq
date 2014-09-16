@@ -1,6 +1,37 @@
 .col-lg-12
   %h1.page-header Susteq Dashboard
-
+  .panel.panel-default.mt20
+    .panel-heading
+    .panel-body
+      #chart-container
+.col-lg-12
+  %h3 Credits Bought by Kiosk
+  .table-responsive
+    %table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+      %thead
+        %tr
+          %th Kiosk Location Id
+          %th Credits bought
+      %tbody
+        - @credits_bought.each do |kiosk|
+          %tr
+            %td= kiosk[:label]
+            %td= kiosk[:value]
+.col-lg-12
+  %h3 Credits Remaining by Kiosk
+  .table-responsive
+    %table#dataTables-example.table.table-striped.table-bordered.table-hover.mt20
+      %thead
+        %tr
+          %th Kiosk Location Id
+          %th Credits remaining
+          %th Date
+      %tbody
+        - @credits_remaining.each do |kiosk|
+          %tr
+            %td= kiosk[:label]
+            %td= kiosk[:value]
+            %td= kiosk[:date]
 .col-lg-12
   %h3 SMS low
   .table-responsive
@@ -16,11 +47,6 @@
             %td= sms[:location_id]
             %td= sms[:date]
             %td= sms[:total]
-.col-lg-12
-  .panel.panel-default.mt20
-    .panel-heading
-    .panel-body
-      #chart-container
 .col-lg-12
   %h3 Total Water
   .table-responsive
